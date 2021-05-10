@@ -66,5 +66,9 @@
     <Build Include="Tables\Parameters.sql" />
     <Build Include="Procedures\sp_Parameters_List.sql" />
     <Build Include="Procedures\sp_User_Ins.sql" />
+    <Build Include="Procedures\sp_User_Upd.sql" />
+    <Build Include="Procedures\sp_User_List.sql" />
+    <Build Include="Procedures\sp_User_ChangePassword.sql" />
+    <Build Include="Procedures\sp_User_Sel.sql" />
   </ItemGroup>
 </Project>

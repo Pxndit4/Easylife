@@ -66,17 +66,7 @@ namespace UNCDF.WebApi.Security.Controllers
                     response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                     response.Message = Messages.Success;
 
-                    MParameter parameterBE = new MParameter();
-                    List<MParameter> parameterBEs = new List<MParameter>();
-
-                    parameterBE.Code = "MAIL_PASSUSER";
-                    parameterBEs = BParameter.List(parameterBE, ref Val);
-
-                    _MAwsEmail.Subject = "UNITLIFE - User generation";
-                    _MAwsEmail.Message = parameterBEs[0].Valor1.Replace("[Password]", UEncrypt.Decrypt(user.Password));
-                    _MAwsEmail.ToEmail = user.User;
-
-                    BAwsSDK.SendEmailAsync(_MAwsEmail);
+                    SendEmail(user.Password, user.User);
                 }
                 else if (Val.Equals(2))
                 {
@@ -95,82 +85,178 @@ namespace UNCDF.WebApi.Security.Controllers
             return response;
         }
 
-        // GET: api/<UserController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpPost]
+        [Route("0/UpdatetUser")]
+        public UserResponse UpdatetUser([FromBody] UserRequest request)
         {
-            string AccesKeyEmailE = UEncrypt.Encrypt("AKIAZHFFPJQQNKQDOWOU");
-            string SecrectKeyEmailE = UEncrypt.Encrypt("FvQ42nq+QotCo5D4UHorcnJcx1kkhf83fu0S6ONo");
+            UserResponse response = new UserResponse();
+            MUser user = new MUser();
 
-            string AccesKeyS3E = UEncrypt.Encrypt("AKIAUNG53NSNKWMQIBG6");
-            string SecrectKeyS3E = UEncrypt.Encrypt("eEWajEPIKkui8/JToPCH/hReb9tyGjqvZXVmBwl2");
-            string SecrectKeyBucketE = UEncrypt.Encrypt("uncdfbucket");
+            try
+            {
+                BaseRequest baseRequest = new BaseRequest();
 
-            string DataSourceE = UEncrypt.Encrypt("motivainstancia01.caefyxytr0id.us-west-2.rds.amazonaws.com,1433");
-            string UserIDE = UEncrypt.Encrypt("MotivaSQL01");
-            string PasswordE = UEncrypt.Encrypt("Passw0rd");
+                baseRequest.Session = request.Session;
 
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
 
-            string AccesKeyEmailD = UEncrypt.Decrypt(AccesKeyEmailE);
-            string SecrectKeyEmailD = UEncrypt.Decrypt(SecrectKeyEmailE);
+                user.UserId = request.User.UserId;
+                user.User = request.User.User;
+                user.Name = request.User.Name;
+                user.Status = request.User.Status;
 
-            string AccesKeyS3D = UEncrypt.Decrypt(AccesKeyS3E);
-            string SecrectKeyS3D = UEncrypt.Decrypt(SecrectKeyS3E);
-            string SecrectKeyBucketD = UEncrypt.Decrypt(SecrectKeyBucketE);
+                int Val = 0;
 
-            string DataSourceD = UEncrypt.Decrypt(DataSourceE);
-            string UserIDD = UEncrypt.Decrypt(UserIDE);
-            string PasswordD = UEncrypt.Decrypt(PasswordE);
+                BUser.Update(user, ref Val);
 
-            _MAwsEmail.ToEmail = "giancarlo.tueros@gmail.com";
-            _MAwsEmail.Subject = "Correo de prueba";
-            _MAwsEmail.Message = "Correo de prueba";
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorUpdate, "User");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }
+            
+
+            response.User = user;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetUsers")]
+        public UsersResponse GetUsers([FromBody] UserRequest request)
+        {
+            UsersResponse response = new UsersResponse();
+            MUser user = new MUser();
+            List<MUser> users = new List<MUser>();
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                user.User = request.User.User;
+                user.Name = request.User.Name;
+
+                int Val = 0;
+
+                users = BUser.Lis(user, ref Val);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorObtainingReults, "Users");
+                }
+                else
+                {
+                    response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.NotReults, "Users");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }            
+
+            response.Users = users.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/ChangePassword")]
+        public UserResponse ChangePassword([FromBody] UserRequest request)
+        {
+            UserResponse response = new UserResponse();
+            MUser user = new MUser();
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Session = request.Session;
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            user.UserId = request.User.UserId;
+            user.Password = UEncrypt.Encrypt(UCommon.RandomNumber(1000, 9999).ToString());
+            user.Token = UCommon.GetTokem();
+
+            string Password = user.Password;
+            int Val = 0;
+
+            BUser.ChangePassword(user, ref Val);
+
+            if (Val.Equals(0))
+            {
+                user = BUser.Sel(user, ref Val);
+
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+
+                SendEmail(user.Password, user.User);
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = "Failed to change password.";
+            }
+
+            response.User = user;
+
+            return response;
+        }
+
+        private void SendEmail(string Password, string User) {
+            MParameter parameterBE = new MParameter();
+            List<MParameter> parameterBEs = new List<MParameter>();
+
+            int Val = 0;
+
+            parameterBE.Code = "MAIL_PASSUSER";
+            parameterBEs = BParameter.List(parameterBE, ref Val);
+
+            _MAwsEmail.Subject = "UNITLIFE - User generation";
+            _MAwsEmail.Message = parameterBEs[0].Valor1.Replace("[Password]", UEncrypt.Decrypt(Password));
+            _MAwsEmail.ToEmail = User;
 
             BAwsSDK.SendEmailAsync(_MAwsEmail);
-
-            return new string[] { "AccesKeyEmailE: " + AccesKeyEmailE,
-                                  "SecrectKeyEmailE: " +  SecrectKeyEmailE,
-                                  "AccesKeyS3E: " +  AccesKeyS3E,
-                                  "SecrectKeyS3E: " +  SecrectKeyS3E,
-                                  "SecrectKeyBucketE: " +  SecrectKeyBucketE,
-                                  "AccesKeyEmailD: " + AccesKeyEmailD,
-                                  "SecrectKeyEmailD: " +  SecrectKeyEmailD,
-                                  "AccesKeyS3D: " +  AccesKeyS3D,
-                                  "SecrectKeyS3D: " +  SecrectKeyS3D,
-                                  "SecrectKeyBucketD: " +  SecrectKeyBucketD,
-
-                                  "DataSourceE: " +  DataSourceE,
-                                  "UserIDE: " + UserIDE,
-                                  "PasswordE: " +  PasswordE,
-                                  "DataSourceD: " +  DataSourceD,
-                                  "UserIDD: " +  UserIDD,
-                                  "PasswordD: " +  PasswordD,
-            };
         }
-
-        // GET api/<UserController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<UserController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<UserController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }
