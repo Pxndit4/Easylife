@@ -1,0 +1,18 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a compilar
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles incidencias de datos
+       Ninguno
+
+** Acciones del usuario
+     Crear
+       [dbo].[sp_User_ChangePassword] (Procedimiento)
+       [dbo].[sp_User_List] (Procedimiento)
+       [dbo].[sp_User_Sel] (Procedimiento)
+       [dbo].[sp_User_Upd] (Procedimiento)
+
+** Acciones de compatibilidad

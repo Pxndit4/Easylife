@@ -1,0 +1,10 @@
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\bin\Debug\UNCDF.dacpac
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\bin\Debug\UNCDF.dll
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\bin\Debug\UNCDF.pdb
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\obj\Debug\UNCDF.sqlprojAssemblyReference.cache
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\obj\Debug\Model.xml
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\obj\Debug\refactor.xml
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\obj\Debug\postdeploy.sql
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\obj\Debug\predeploy.sql
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\obj\Debug\UNCDF.dll
+H:\GIT-Easylife\UNCDF\Gastos Financieros\UNCDF\obj\Debug\UNCDF.pdb
