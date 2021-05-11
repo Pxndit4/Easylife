@@ -32,5 +32,10 @@ namespace UNCDF.Layers.Business
         {
             return DUser.Sel(ent, ref Val);
         }
+
+        public static int Delete(MUser ent, ref int Val)
+        {
+            return DUser.Delete(ent, ref Val);
+        }
     }
 }

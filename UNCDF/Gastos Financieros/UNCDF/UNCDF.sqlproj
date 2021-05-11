@@ -70,5 +70,16 @@
     <Build Include="Procedures\sp_User_List.sql" />
     <Build Include="Procedures\sp_User_ChangePassword.sql" />
     <Build Include="Procedures\sp_User_Sel.sql" />
+    <Build Include="Tables\Profiles.sql" />
+    <Build Include="Procedures\sp_ProfileOptions_Ins.sql" />
+    <Build Include="Procedures\sp_Profile_ins.sql" />
+    <Build Include="Procedures\sp_Profile_Lis.sql" />
+    <Build Include="Tables\Options.sql" />
+    <Build Include="Tables\ProfileOptions.sql" />
+    <Build Include="Procedures\sp_Profile_Upd.sql" />
+    <Build Include="Procedures\sp_ProfileOptions_Del.sql" />
+    <Build Include="Procedures\sp_Profile_Sel.sql" />
+    <Build Include="Procedures\sp_ProfileOptions_Sel.sql" />
+    <Build Include="Procedures\sp_Profile_Del.sql" />
   </ItemGroup>
 </Project>

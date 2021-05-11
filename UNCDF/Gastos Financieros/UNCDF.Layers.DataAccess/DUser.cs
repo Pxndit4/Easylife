@@ -196,5 +196,35 @@ namespace UNCDF.Layers.DataAccess
             }
             return result;
         }
+
+        public static int Delete(MUser ent, ref int Val)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    Val = 1;
+
+                    SqlCommand cmd = new SqlCommand("sp_User_Del", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IUserId", SqlDbType.Int).Value = ent.UserId;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    Val = 0;
+
+                    return ent.UserId;
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+
+                    return 0;
+                }
+            }
+        }
     }
 }

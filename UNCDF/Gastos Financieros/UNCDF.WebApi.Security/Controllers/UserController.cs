@@ -202,40 +202,100 @@ namespace UNCDF.WebApi.Security.Controllers
 
             BaseRequest baseRequest = new BaseRequest();
 
-            baseRequest.Session = request.Session;
-
-            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
-            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            try
             {
-                response.Code = "2";
-                response.Message = Messages.ApplicationTokenNoAutorize;
-                return response;
+                baseRequest.Session = request.Session;
+
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                user.UserId = request.User.UserId;
+                user.Password = UEncrypt.Encrypt(UCommon.RandomNumber(1000, 9999).ToString());
+                user.Token = UCommon.GetTokem();
+
+                string Password = user.Password;
+                int Val = 0;
+
+                BUser.ChangePassword(user, ref Val);
+
+                if (Val.Equals(0))
+                {
+                    user = BUser.Sel(user, ref Val);
+
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+
+                    SendEmail(user.Password, user.User);
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = "Failed to change password.";
+                }
             }
-            /*************FIN DEL METODO*************/
-
-            user.UserId = request.User.UserId;
-            user.Password = UEncrypt.Encrypt(UCommon.RandomNumber(1000, 9999).ToString());
-            user.Token = UCommon.GetTokem();
-
-            string Password = user.Password;
-            int Val = 0;
-
-            BUser.ChangePassword(user, ref Val);
-
-            if (Val.Equals(0))
-            {
-                user = BUser.Sel(user, ref Val);
-
-                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
-                response.Message = Messages.Success;
-
-                SendEmail(user.Password, user.User);
-            }
-            else if (Val.Equals(2))
+            catch (Exception ex)
             {
                 response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
-                response.Message = "Failed to change password.";
+                response.Message = ex.Message;
+            }            
+
+            response.User = user;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/DeleteUser")]
+        public UserResponse DeleteUser([FromBody] UserRequest request)
+        {
+            UserResponse response = new UserResponse();
+
+            BaseRequest baseRequest = new BaseRequest();
+            MUser user = new MUser();
+
+            try
+            {
+                baseRequest.Language = request.Language;
+                baseRequest.Session = request.Session;
+
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+              
+                user.UserId = request.User.UserId;
+
+                int Val = 0;
+
+                user.UserId = BUser.Delete(user, ref Val);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorDelete, "User");
+                }
             }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }
+            
 
             response.User = user;
 
