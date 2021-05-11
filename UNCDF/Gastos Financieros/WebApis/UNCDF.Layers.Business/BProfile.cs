@@ -69,5 +69,25 @@ namespace UNCDF.Layers.Business
         {
             return DAProfile.Delete(ent, ref Val);
         }
+
+        public static List<MProfileUser> LisUsers(MProfile ent, ref int Val)
+        {
+            return DAProfile.LisUsers(ent, ref Val);
+        }
+
+        public static List<MProfileUser> LisUsersUnAssigned(MProfileUser ent, ref int Val)
+        {
+            return DAProfile.LisUsersUnAssigned(ent, ref Val);
+        }
+
+        public static int InsertUser(MProfileUser ent)
+        {
+            return DAProfile.InsertUser(ent);
+        }
+
+        public static int DeleteUser(MProfileUser ent)
+        {
+            return DAProfile.DeleteUser(ent);
+        }
     }
 }

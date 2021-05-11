@@ -81,5 +81,10 @@
     <Build Include="Procedures\sp_Profile_Sel.sql" />
     <Build Include="Procedures\sp_ProfileOptions_Sel.sql" />
     <Build Include="Procedures\sp_Profile_Del.sql" />
+    <Build Include="Procedures\sp_ProfileUser_Sel.sql" />
+    <Build Include="Procedures\sp_ProfileUser_LisUnAsiggned.sql" />
+    <Build Include="Tables\ProfileUser.sql" />
+    <Build Include="Procedures\sp_ProfileUser_Ins.sql" />
+    <Build Include="Procedures\sp_ProfileUser_Del.sql" />
   </ItemGroup>
 </Project>

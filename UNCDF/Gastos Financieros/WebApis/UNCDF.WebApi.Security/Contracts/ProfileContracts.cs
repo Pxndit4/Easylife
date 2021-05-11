@@ -23,6 +23,18 @@ namespace UNCDF.WebApi.Security
         public MProfileOptions[] Options { get; set; }
     }
 
+    [Serializable]
+    public class UsersProfileResponse : BaseResponse
+    {
+        public MProfileUser[] UsersProfile { get; set; }
+    }
+
+    [Serializable]
+    public class UserProfileResponse : BaseResponse
+    {
+        public MProfileUser UserProfile { get; set; }
+    }
+
     #endregion
 
     #region Request
@@ -33,6 +45,13 @@ namespace UNCDF.WebApi.Security
         public MProfile Profile { get; set; }
 
         public MProfileOptions[] Options { get; set; }
+    }
+
+    [Serializable]
+    public class ProfileUserRequest : BaseRequest
+    {
+        public MProfileUser ProfileUser { get; set; }
+
     }
 
     #endregion

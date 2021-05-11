@@ -250,7 +250,7 @@ namespace UNCDF.Layers.DataAccess
                     {
                         while (reader.Read())
                         {
-                            BE.ProfileOptionsBE entRow = new BE.ProfileOptionsBE();
+                            MProfileOptions entRow = new MProfileOptions();
                             entRow.ProfileId = Convert.ToInt32(reader["ProfileId"]);
                             entRow.OptionId = Convert.ToInt32(reader["OptionId"]);
                             lisQuery.Add(entRow);
@@ -297,6 +297,143 @@ namespace UNCDF.Layers.DataAccess
                     Val = 2;
 
                     return 0;
+                }
+            }
+        }
+
+        public static List<MProfileUser> LisUsers(MProfile ent, ref int Val)
+        {
+            List<MProfileUser> lisQuery = new List<MProfileUser>();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProfileUser_Sel", con);
+                    cmd.Parameters.Add("@IProfileId", SqlDbType.VarChar).Value = ent.ProfileId;
+
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProfileUser entRow = new MProfileUser();
+                            entRow.ProfileId = Convert.ToInt32(reader["ProfileId"]);
+                            entRow.UserId = Convert.ToInt32(reader["UserId"]);
+                            entRow.User = Convert.ToString(reader["User"]);
+                            entRow.Name = Convert.ToString(reader["Name"]);
+                            lisQuery.Add(entRow);
+
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+
+        public static List<MProfileUser> LisUsersUnAssigned(MProfileUser ent, ref int Val)
+        {
+            List<MProfileUser> lisQuery = new List<MProfileUser>();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProfileUser_LisUnAsiggned", con);
+                    cmd.Parameters.Add("@IProfileId", SqlDbType.VarChar).Value = ent.ProfileId;
+                    cmd.Parameters.Add("@Iuser", SqlDbType.VarChar).Value = ent.User;
+                    cmd.Parameters.Add("@IName", SqlDbType.VarChar).Value = ent.Name;
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProfileUser entRow = new MProfileUser();
+                            entRow.ProfileId = Convert.ToInt32(reader["ProfileId"]);
+                            entRow.UserId = Convert.ToInt32(reader["UserId"]);
+                            entRow.User = Convert.ToString(reader["User"]);
+                            entRow.Name = Convert.ToString(reader["Name"]);
+                            lisQuery.Add(entRow);
+
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+
+        public static int InsertUser(MProfileUser ent)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProfileUser_Ins", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IProfileId", SqlDbType.VarChar).Value = ent.ProfileId;
+                    cmd.Parameters.Add("@IUserId", SqlDbType.VarChar).Value = ent.UserId;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    return 0;
+                }
+
+                catch (Exception ex)
+                {
+                    return 2;
+
+                }
+            }
+        }
+
+        public static int DeleteUser(MProfileUser ent)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProfileUser_Del", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IProfileId", SqlDbType.VarChar).Value = ent.ProfileId;
+                    cmd.Parameters.Add("@IUserId", SqlDbType.VarChar).Value = ent.UserId;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    return 0;
+                }
+
+                catch (Exception ex)
+                {
+                    return 2;
+
                 }
             }
         }

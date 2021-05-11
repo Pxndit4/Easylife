@@ -341,5 +341,211 @@ namespace UNCDF.WebApi.Security.Controllers
 
             return response;
         }
-    }
+
+        [HttpPost]
+        [Route("0/GetUsersProfile")]
+        public UsersProfileResponse GetUsersProfile([FromBody] ProfileRequest request)
+        {
+            UsersProfileResponse response = new UsersProfileResponse();
+            MProfile profile = new MProfile();
+            List<MProfileUser> profiles = new List<MProfileUser>();
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                profile.ProfileId = request.Profile.ProfileId;
+
+                int Val = 0;
+
+                profiles = BProfile.LisUsers(profile, ref Val);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorObtainingReults, "User profiles");
+                }
+                else
+                {
+                    response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.NotReults, "User profiles");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }
+            
+            response.UsersProfile = profiles.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetUsersUnAssigned")]
+        public UsersProfileResponse GetUsersUnAssigned([FromBody] ProfileUserRequest request)
+        {
+            UsersProfileResponse response = new UsersProfileResponse();
+            MProfileUser profile = new MProfileUser();
+            List<MProfileUser> profiles = new List<MProfileUser>();
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                profile.ProfileId = request.ProfileUser.ProfileId;
+                profile.User = request.ProfileUser.User;
+                profile.Name = request.ProfileUser.Name;
+
+                int Val = 0;
+
+                profiles = BProfile.LisUsersUnAssigned(profile, ref Val);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorObtainingReults, "Users UnAssigned");
+                }
+                else
+                {
+                    response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.NotReults, "Users UnAssigned");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }            
+
+            response.UsersProfile = profiles.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/RegisterUsersProfile")]
+        public UserProfileResponse RegisterUsersProfile([FromBody] ProfileUserRequest request)
+        {
+            UserProfileResponse response = new UserProfileResponse();
+            MProfileUser profile = new MProfileUser();
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                profile.ProfileId = request.ProfileUser.ProfileId;
+                profile.UserId = request.ProfileUser.UserId;
+
+                int Val = 0;
+
+                Val = BProfile.InsertUser(profile);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorInsert, "Users Profile");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }            
+
+            response.UserProfile = profile;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/DeleteUsersProfile")]
+        public UserProfileResponse DeleteUsersProfile([FromBody] ProfileUserRequest request)
+        {
+            UserProfileResponse response = new UserProfileResponse();
+            MProfileUser profile = new MProfileUser();
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                profile.ProfileId = request.ProfileUser.ProfileId;
+                profile.UserId = request.ProfileUser.UserId;
+
+                int Val = 0;
+
+                Val = BProfile.DeleteUser(profile);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorDelete, "Users Profile");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }
+           
+            response.UserProfile = profile;
+
+            return response;
+        }
+    }    
 }

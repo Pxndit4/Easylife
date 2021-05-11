@@ -1,0 +1,30 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a compilar
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles incidencias de datos
+       Ninguno
+
+** Acciones del usuario
+     Crear
+       [dbo].[Options] (Tabla)
+       [dbo].[ProfileOptions] (Tabla)
+       [dbo].[Profiles] (Tabla)
+       [dbo].[ProfileUser] (Tabla)
+       [dbo].[sp_Profile_Del] (Procedimiento)
+       [dbo].[sp_Profile_ins] (Procedimiento)
+       [dbo].[sp_Profile_Lis] (Procedimiento)
+       [dbo].[sp_Profile_Sel] (Procedimiento)
+       [dbo].[sp_Profile_Upd] (Procedimiento)
+       [dbo].[sp_ProfileOptions_Del] (Procedimiento)
+       [dbo].[sp_ProfileOptions_Ins] (Procedimiento)
+       [dbo].[sp_ProfileOptions_Sel] (Procedimiento)
+       [dbo].[sp_ProfileUser_Del] (Procedimiento)
+       [dbo].[sp_ProfileUser_Ins] (Procedimiento)
+       [dbo].[sp_ProfileUser_LisUnAsiggned] (Procedimiento)
+       [dbo].[sp_ProfileUser_Sel] (Procedimiento)
+
+** Acciones de compatibilidad
