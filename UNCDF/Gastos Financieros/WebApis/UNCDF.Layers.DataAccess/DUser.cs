@@ -226,5 +226,46 @@ namespace UNCDF.Layers.DataAccess
                 }
             }
         }
+
+        public static MUser Login(MUser ent, ref int Val)
+        {
+            MUser result = new MUser();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_User_Login", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IUser", SqlDbType.VarChar).Value = ent.User;
+                    cmd.Parameters.Add("@IPassword", SqlDbType.VarChar).Value = ent.Password;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.UserId = Convert.ToInt32(reader["UserId"]);
+                            result.User = Convert.ToString(reader["User"]);
+                            result.Name = Convert.ToString(reader["Name"]);
+                            result.Type = Convert.ToInt32(reader["Type"]);
+                            result.Status = Convert.ToInt32(reader["Status"]);
+                            result.Token = Convert.ToString(reader["Token"]);
+
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (SqlException ex)
+                {
+                    Val = 2;
+                }
+            }
+            return result;
+        }
     }
 }

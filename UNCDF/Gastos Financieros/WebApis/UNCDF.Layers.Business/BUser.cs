@@ -37,5 +37,10 @@ namespace UNCDF.Layers.Business
         {
             return DUser.Delete(ent, ref Val);
         }
+
+        public static MUser Login(MUser ent, ref int Val)
+        {
+            return DUser.Login(ent, ref Val);
+        }
     }
 }

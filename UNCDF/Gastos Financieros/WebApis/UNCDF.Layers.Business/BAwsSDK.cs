@@ -7,6 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UNCDF.Layers.Models;
 using UNCDF.Utilities;
+using Amazon.S3;
+using Amazon.S3.Model;
+using Amazon.S3.Transfer;
+using Amazon.Runtime;
 
 namespace UNCDF.Layers.Business
 {
@@ -49,6 +53,39 @@ namespace UNCDF.Layers.Business
             {
 
             }
+        }
+
+        public static bool UploadS3(MAwsS3 mAwsS3, string localFilePath, string subDirectoryInBucket, string fileNameInS3)
+        {
+            try
+            {
+                AWSCredentials credentials;
+                credentials = new BasicAWSCredentials(mAwsS3.AccessKey.Trim(), mAwsS3.SecretKey.Trim());
+                IAmazonS3 client = new AmazonS3Client(credentials, RegionEndpoint.USEast2);
+
+                TransferUtility utility = new TransferUtility(client);
+                TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
+
+                if (subDirectoryInBucket == "" || subDirectoryInBucket == null)
+                {
+                    request.BucketName = mAwsS3.BucketName; //no subdirectory just bucket name 
+                }
+                else
+                { // subdirectory and bucket name 
+                    request.BucketName = mAwsS3.BucketName + @"/" + subDirectoryInBucket;
+                }
+
+                request.Key = fileNameInS3; //file name up in S3 
+                request.FilePath = localFilePath; //local file name
+                request.CannedACL = S3CannedACL.PublicRead;
+                utility.Upload(request); //commensing the transfer 
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }            
         }
 
 

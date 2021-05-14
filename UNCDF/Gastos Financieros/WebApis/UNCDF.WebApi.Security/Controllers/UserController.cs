@@ -302,6 +302,62 @@ namespace UNCDF.WebApi.Security.Controllers
             return response;
         }
 
+        [HttpPost]
+        [Route("0/LoginUser")]
+        public UserResponse LoginUser([FromBody] UserRequest request)
+        {
+            UserResponse response = new UserResponse();
+            MUser user = new MUser();
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                baseRequest.Session = request.Session;
+
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                user.User = request.User.User;
+                user.Password = UEncrypt.Encrypt(request.User.Password);
+
+                int Val = 0;
+
+                user = BUser.Login(user, ref Val);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorSelect, "User");
+                }
+                else if (Val.Equals(1))
+                {
+                    response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = "User does not exist";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }
+
+            response.User = user;
+
+            return response;
+        }
+
         private void SendEmail(string Password, string User) {
             MParameter parameterBE = new MParameter();
             List<MParameter> parameterBEs = new List<MParameter>();

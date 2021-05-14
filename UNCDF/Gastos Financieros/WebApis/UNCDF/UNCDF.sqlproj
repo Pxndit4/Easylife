@@ -86,5 +86,21 @@
     <Build Include="Tables\ProfileUser.sql" />
     <Build Include="Procedures\sp_ProfileUser_Ins.sql" />
     <Build Include="Procedures\sp_ProfileUser_Del.sql" />
+    <Build Include="Tables\Donor.sql" />
+    <Build Include="Procedures\sp_Donor_Ins.sql" />
+    <Build Include="Procedures\sp_Donor_Upd.sql" />
+    <Build Include="Procedures\sp_Donor_CodeUpd.sql" />
+    <Build Include="Procedures\sp_Donor_ValidateCode.sql" />
+    <Build Include="Procedures\sp_Donor_ChangePassword.sql" />
+    <Build Include="Procedures\sp_Donor_Del.sql" />
+    <Build Include="Procedures\sp_Donor_Select.sql" />
+    <Build Include="Procedures\sp_Donor_Lis.sql" />
+    <Build Include="Tables\Country.sql" />
+    <Build Include="Tables\Continent.sql" />
+    <Build Include="Procedures\sp_Donor_ValUser.sql" />
+    <Build Include="Procedures\sp_Donor_Login.sql" />
+    <Build Include="Procedures\sp_Donor_ValidateIns.sql" />
+    <Build Include="Procedures\sp_User_Login.sql" />
+    <Build Include="Procedures\sp_ValidateSession.sql" />
   </ItemGroup>
 </Project>
