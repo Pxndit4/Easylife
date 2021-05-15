@@ -102,5 +102,6 @@
     <Build Include="Procedures\sp_Donor_ValidateIns.sql" />
     <Build Include="Procedures\sp_User_Login.sql" />
     <Build Include="Procedures\sp_ValidateSession.sql" />
+    <Build Include="Procedures\sp_User_Del.sql" />
   </ItemGroup>
 </Project>

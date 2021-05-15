@@ -10,5 +10,9 @@
     <ProjectReference Include="..\UNCDF.Utilities\UNCDF.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
+
 
 </Project>

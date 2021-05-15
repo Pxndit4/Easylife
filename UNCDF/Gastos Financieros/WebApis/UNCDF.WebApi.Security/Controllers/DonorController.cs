@@ -16,7 +16,7 @@ namespace UNCDF.WebApi.Security.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("AllowMyOrigin")]
+    [EnableCors("_corsPolicy")]
     public class DonorController : Controller
     {
         private readonly IWebHostEnvironment _env;
@@ -474,7 +474,7 @@ namespace UNCDF.WebApi.Security.Controllers
 
                             System.IO.File.WriteAllBytes(pathSave, FileByte);
 
-                            if (BAwsSDK.UploadS3(_MAwsS3, pathSave, DonorPath, donor.Photo))
+                            if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, DonorPath, donor.Photo))
                             {
                                 response.Message = String.Format(Messages.ErrorLoadPhoto, "Donor");
                             }

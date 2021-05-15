@@ -22,6 +22,8 @@ namespace UNCDF.WebApi.Security
             Configuration = configuration;
         }
 
+        readonly string CorsPolicy = "_corsPolicy";
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -44,9 +46,21 @@ namespace UNCDF.WebApi.Security
 
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowMyOrigin",
-                builder => builder.WithOrigins("http://localhost:4200", "http://3.23.158.238", "http://35.155.74.221").AllowAnyHeader().AllowAnyMethod());
+                options.AddPolicy(name: CorsPolicy,
+                                  builder =>
+                                  {
+                                      //builder.WithOrigins("");
+                                      builder.AllowAnyOrigin()
+                                       .AllowAnyMethod()
+                                       .AllowAnyHeader();
+                                  });
             });
+
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowMyOrigin",
+            //    builder => builder.WithOrigins("http://localhost:4200", "http://3.23.158.238", "http://35.155.74.221").AllowAnyHeader().AllowAnyMethod());
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,14 +75,14 @@ namespace UNCDF.WebApi.Security
 
             app.UseRouting();
 
+            app.UseCors(CorsPolicy);
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-            app.UseCors("AllowMyOrigin");
+            });           
         }
     }
 }

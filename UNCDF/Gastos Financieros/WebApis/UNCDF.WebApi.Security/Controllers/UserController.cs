@@ -231,7 +231,7 @@ namespace UNCDF.WebApi.Security.Controllers
                     response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                     response.Message = Messages.Success;
 
-                    SendEmail(user.Password, user.User);
+                    SendEmail(Password, user.User);
                 }
                 else if (Val.Equals(2))
                 {

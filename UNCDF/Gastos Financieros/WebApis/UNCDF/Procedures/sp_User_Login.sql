@@ -10,6 +10,6 @@ AS
 			Status,
 			Token
 	FROM	[User]
-	WHERE	User = @IUser
+	WHERE	[User] = @IUser
 	AND		Password = @IPassword
 

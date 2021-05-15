@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UNCDF.Layers.DataAccess;
 
 namespace UNCDF.Layers.Business
 {
@@ -8,7 +9,7 @@ namespace UNCDF.Layers.Business
     {
         public static int ValidateSession(int Type, string Token, int UserId)
         {
-            return DA.SessionDA.ValidateSession(Type, Token, UserId);
+            return DASession.ValidateSession(Type, Token, UserId);
         }
     }
 }

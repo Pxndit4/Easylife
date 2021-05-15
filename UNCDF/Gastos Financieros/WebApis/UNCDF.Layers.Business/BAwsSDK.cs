@@ -60,7 +60,7 @@ namespace UNCDF.Layers.Business
             try
             {
                 AWSCredentials credentials;
-                credentials = new BasicAWSCredentials(mAwsS3.AccessKey.Trim(), mAwsS3.SecretKey.Trim());
+                credentials = new BasicAWSCredentials(UEncrypt.Decrypt(mAwsS3.AccessKey.Trim()), UEncrypt.Decrypt(mAwsS3.SecretKey.Trim()));
                 IAmazonS3 client = new AmazonS3Client(credentials, RegionEndpoint.USEast2);
 
                 TransferUtility utility = new TransferUtility(client);
@@ -68,11 +68,11 @@ namespace UNCDF.Layers.Business
 
                 if (subDirectoryInBucket == "" || subDirectoryInBucket == null)
                 {
-                    request.BucketName = mAwsS3.BucketName; //no subdirectory just bucket name 
+                    request.BucketName = UEncrypt.Decrypt(mAwsS3.BucketName); //no subdirectory just bucket name 
                 }
                 else
                 { // subdirectory and bucket name 
-                    request.BucketName = mAwsS3.BucketName + @"/" + subDirectoryInBucket;
+                    request.BucketName = UEncrypt.Decrypt(mAwsS3.BucketName) + @"/" + subDirectoryInBucket;
                 }
 
                 request.Key = fileNameInS3; //file name up in S3 
