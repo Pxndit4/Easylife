@@ -1,0 +1,171 @@
+﻿html,
+body
+{
+    
+}
+
+body {
+    font-size: 12px;
+    background-color: #F9F9F9;
+    background: url(../Content/Images/background.jpg);
+    background-repeat: no-repeat;
+}
+
+.sys-ui-layout {
+
+}
+
+.sys-ui-layout .sys-header{   
+    width:100%;
+    z-index:1000;
+    top:0;
+}
+
+.sys-ui-layout
+.sys-header .sys-ui-imge{
+    display:inline-block;
+    position:absolute;
+    height:100%;
+    width:237px;
+    top:0;
+    left:0;
+    z-index:12001 !important;
+    background:url('images/emizor-logo.png') no-repeat left top;
+}
+
+.sys-ui-layout 
+.sys-header 
+.sys-ui-top1{
+    min-height:50px;
+    background-color:#0F9CDD;
+    border-bottom:2px solid #0079B1;
+}
+
+.sys-ui-layout .sys-header .sys-ui-top1{
+    display:block;
+    position:relative;
+}
+
+/*Content section*/
+
+.sys-ui-layout
+.sys-content-layout{
+    /*position:absolute !important;
+    display:table-cell;
+    top:50%;
+    
+    left:50%;
+
+    margin-left:-25%;
+        */
+    
+    border:1px solid blue;
+    text-align:center;
+}
+
+.sys-ui-layout .ui-content{
+    border:0px solid red;
+    text-align:center;
+    width:100%;
+}
+
+.sys-ui-layout .ui-content .title{
+    font-size: 20px;
+    color: #277fcb;
+    text-align:center;
+    padding-top:1em;
+    padding-bottom:1em;
+}
+
+.sys-ui-layout .ui-content .info {
+    font-size: 14px;
+    text-align:center;
+}
+
+.sys-ui-layout .ui-content .info > p{
+    text-align:center;
+    max-width:30%;
+    display:inline-block;
+}
+
+.sys-ui-layout .ui-content .title,
+.sys-ui-layout .ui-content .info {
+   
+}
+
+.sys-ui-layout .ui-content .ui-form-content
+{
+    display:inline-block;
+    border:0px solid rgba(0,0,0,0.2);
+    min-width:25%;
+    padding:1.5em;
+    margin-top:3em;
+    padding-bottom:0;
+    background-color:#FFF;
+
+  -webkit-border-radius:.5em;
+     -moz-border-radius:.5em;
+          border-radius:.5em;
+
+     box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.2);
+     -webkit-box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.2);
+     
+
+}
+.sys-ui-layout .ui-content .ui-form-content .sumary-valitation {
+    text-align:center;
+}
+
+.sys-ui-layout > .zx-logo {
+    position:absolute;
+    display:inline-block;
+    width:auto;
+    height:130px;
+    /*background:url('images/LogoZX.png') no-repeat bottom right;*/
+    bottom:46px;
+    right:0px;
+    z-index:2;
+}
+
+@media (max-width: 767px) {
+    .sys-ui-layout .zx-logo {
+        height:90px !important;
+        display:none;
+    }
+    .sys-ui-layout .zx-logo img {
+        height:100% !important;
+    }
+}
+
+.sys-ui-layout .sys-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #1c1c1c;
+  text-align:center;
+  line-height:30px;
+  border-top:2px solid #0079B1;
+}
+
+.sys-ui-layout .sys-footer > p {
+    display:inline;
+    font-size:14px !important;
+    color:#FFF;
+}
+
+.sys-ui-layout .sys-footer .ZX {
+    color:#27c4f3;
+}
+
+.validation-summary-errors {
+}
+
+.validation-summary-errors > ul{
+    list-style:none;
+    text-align:left;
+}
+
+.validation-summary-errors > ul > li {
+
+}

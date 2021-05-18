@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using UNCDF.Layers.Models;
+using UNCDF.Layers.Model;
 using UNCDF.Utilities;
 using Amazon.S3;
 using Amazon.S3.Model;

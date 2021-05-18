@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using UNCDF.Layers.Models;
+using UNCDF.Layers.Model;
 
 namespace UNCDF.Layers.DataAccess
 {

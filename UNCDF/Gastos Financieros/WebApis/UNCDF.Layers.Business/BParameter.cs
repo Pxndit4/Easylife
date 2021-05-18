@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UNCDF.Layers.Models;
+using UNCDF.Layers.Model;
 using UNCDF.Layers.DataAccess;
 
 namespace UNCDF.Layers.Business

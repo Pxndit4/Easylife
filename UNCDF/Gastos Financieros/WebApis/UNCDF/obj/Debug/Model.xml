@@ -2892,6 +2892,182 @@ END]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_Donor_ValUser]&#xD;&#xA;&#x9;--@ICellphone&#x9;&#x9;VARCHAR(20),&#xD;&#xA;&#x9;@IEmail&#x9;&#x9;&#x9;VARCHAR(200)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[sp_Options_Listar]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	SELECT	
+				O.OptionId,	
+				ISNULL(O.IdFather,-1) AS IdFather,	
+				O.Action,		
+				o.Title,
+				ISNULL(O.Link,'') AS Link,
+				O.Orders 
+    FROM		Options O
+    INNER JOIN	ProfileOptions PO ON O.OptionId = PO.OptionId
+    WHERE		PO.ProfileId = @IProfileId
+    AND			O.Status='1'
+
+    UNION ALL
+    SELECT		DISTINCT	
+				B.OptionId,
+				ISNULL(B.IdFather,-1) AS IdFather,
+				B.Action,
+				B.Title,
+				ISNULL(B.Link,'') AS Link,
+				B.Orders 
+    FROM		Options B
+    INNER JOIN  Options C ON C.IdFather = B.OptionId
+    INNER JOIN	ProfileOptions PO ON C.OptionId = PO.OptionId
+    WHERE		PO.ProfileId = @IProfileId
+    AND			C.Status='1'
+	AND			B.Status='1'
+
+    UNION ALL
+
+    SELECT DISTINCT	
+				A.OptionId,
+				ISNULL(A.IdFather,-1) AS IdFather,
+				A.Action,
+				A.Title,
+				ISNULL(A.Link,'') AS Link,
+				A.Orders
+    FROM		Options A
+    INNER JOIN  Options B ON B.IdFather = A.OptionId
+    INNER JOIN  Options C ON C.IdFather = B.OptionId
+    INNER JOIN	ProfileOptions PO ON C.OptionId = PO.OptionId
+    WHERE		PO.ProfileId = @IProfileId
+    AND			C.Status='1' 
+	AND			B.Status='1' 
+	AND			A.Status='1';]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Options]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ProfileOptions]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[OptionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ProfileOptions].[OptionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[IdFather]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Action]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Title]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Link]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ProfileOptions].[ProfileId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_Options_Listar].[@IProfileId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[IdFather]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[OptionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[OptionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[OptionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[IdFather]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Action]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Title]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Link]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[IdFather]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[OptionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[OptionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[IdFather]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Action]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Title]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Link]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Options].[Status]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_Options_Listar].[@IProfileId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1223" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_Options_Listar]&#xD;&#xA;&#x9;@IProfileId INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[sp_Parameters_List]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
@@ -3944,6 +4120,57 @@ AND					U.UserId NOT IN (select OngUserId from OngUser)]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_User_ChangePassword]&#xD;&#xA;&#x9;@IUserId&#x9;int,&#xD;&#xA;&#x9;@IPassword&#x9;VARCHAR(400)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[sp_User_Del]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	UPDATE	[User]
+	SET		Status = 0
+	WHERE	UserId = @IUserId]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[User]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[User].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[User].[UserId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_User_Del].[@IUserId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_User_Del].[@IUserId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="115" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_User_Del]&#xD;&#xA;&#x9;@IUserId int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[sp_User_Ins]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
@@ -4240,7 +4467,7 @@ RETURN 0]]></Value>
 			Status,
 			Token
 	FROM	[User]
-	WHERE	User = @IUser
+	WHERE	[User] = @IUser
 	AND		Password = @IPassword]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4262,6 +4489,9 @@ RETURN 0]]></Value>
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[User].[Token]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[User].[User]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[sp_User_Login].[@IUser]" />
@@ -4313,7 +4543,7 @@ RETURN 0]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="232" />
+				<Property Name="Length" Value="234" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_User_Login]&#xD;&#xA;&#x9;@IUser&#x9;&#x9;VARCHAR(400),&#xD;&#xA;&#x9;@IPassword&#x9;VARCHAR(4000)&#xD;&#xA;AS" />

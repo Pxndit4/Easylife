@@ -103,5 +103,6 @@
     <Build Include="Procedures\sp_User_Login.sql" />
     <Build Include="Procedures\sp_ValidateSession.sql" />
     <Build Include="Procedures\sp_User_Del.sql" />
+    <Build Include="Procedures\sp_Options_Listar.sql" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,503 @@
+﻿html,
+body
+{
+    
+}
+
+body
+{
+    font-size:12px;
+}
+
+.sys-ui-layout {
+
+}
+
+.sys-ui-layout .sys-header{   
+    position:fixed;
+    width:100%;
+    z-index:1000;
+    top:0;
+}
+
+.sys-ui-layout .sys-ui-perf {
+    background-color:#C8C8C8;
+    min-width:200px;
+    padding:0.9em;
+    display:block;
+    cursor:pointer;
+    color:#000;
+    text-decoration:none;
+}
+
+.sys-ui-layout 
+.sys-ui-perf
+.sys-ui-expand-ico{
+    float:right;
+    font-size:.7em;
+    margin-top:5px;
+}
+
+.sys-ui-layout .sys-ui-perf-form {
+    min-width: 200px;
+    width: auto !important;
+    right: .5em;
+    left: inherit;
+}
+
+.sys-ui-layout .sys-ui-perf-form .list-group-item {
+    border:0px;
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+
+}
+
+.sys-ui-layout .sys-ui-perf-form .list-group-item.active {
+    background-color:#0f9cde;
+}
+
+.sys-ui-layout .sys-ui-perf-form .list-group-item:hover {
+}
+    .sys-ui-layout
+    .sys-header .sys-ui-imge {
+        display: inline-block;
+        position: absolute;
+        height: 90px;
+        width: 240px;
+        top: 0;
+        left: 0;
+        z-index: 12001 !important;
+        background: url(images/logoUncdfUnitLifeSmall.png) no-repeat center center;
+    }
+
+    .sys-ui-layout
+    .sys-header
+    .sys-ui-top1 {
+        min-height: 50px;
+        background-color: #3cad53;
+        border-bottom: 1px solid #154820;
+    }
+
+.sys-ui-layout
+.sys-header 
+.sys-ui-top2{
+    min-height:40px;
+    background-color:#F5F5F5;
+    border-bottom:1px solid #DEDEDE
+}
+
+.sys-ui-layout 
+.sys-header 
+.sys-ui-top-layout{
+    min-height:100%;
+    display:inline-block;
+    position:absolute;
+    width:auto;
+}
+
+.sys-ui-layout .sys-ui-right{
+    right:0;
+}
+
+.sys-ui-layout .sys-ui-top-cmd{
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    line-height: 20px;
+    
+    -webkit-transition: background-color 500ms linear;
+    -moz-transition: background-color 500ms linear;
+    -o-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+.sys-ui-layout .sys-ui-top-cmd:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.sys-ui-layout .sys-header .sys-ui-top1,
+.sys-ui-layout .sys-header .sys-ui-top2{
+    display:block;
+    position:relative;
+}
+
+.sys-ui-layout 
+.sys-ui-logout{
+    
+}
+
+.sys-ui-layout 
+.sys-ui-logout :hover{
+    
+}
+
+.sys-ui-layout .sys-nav .sys-menu-top,
+.sys-ui-layout .sys-nav .sys-menu-top *,
+.sys-ui-layout 
+.sys-header 
+.sys-ui-top1 *{
+    color:#FFF;
+}
+
+.navbar-brand {
+    font-size:inherit !important;
+}
+
+/*Nav bar*/
+
+.sys-ui-layout .sys-nav{
+    position:fixed;
+    border:0px;
+    border-right:1px solid #CCCCCC;
+    /*width:20%;*/
+    top:7.5em;
+    bottom:0;
+    display:block;
+    padding-top:3.4em;
+
+    -webkit-box-shadow:  3px 7px 20px 1px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow:  3px 7px 20px 1px rgba(0, 0, 0, 0.35);
+    box-shadow: 3px 7px 20px 1px rgba(0, 0, 0, 0.35);
+    
+    z-index: 1000;
+    
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    transition: all 200ms linear;
+
+    width:20em;
+}
+
+.nav-togled {
+    /*margin-left:-24.4em;*/    
+    /*margin-left:-10em;*/
+    margin-left:-22em;
+}
+
+.nav-togled .sys-menu-top {
+    
+}
+
+.nav-togled .sys-menu-top-ico-hamb{
+    /*margin-left:12em !important;*/
+    left:21.6em !important;
+    
+    opacity:1 !important;
+    
+}
+
+.sys-ui-layout .sys-nav .sys-menu-top {
+    position:absolute;
+    width:100%;
+    padding:1em;
+    top:0px;
+}
+
+.sys-ui-layout .sys-nav .sys-menu-top .sys-menu-top-ico {
+    position:absolute; 
+    margin-top:-.2em;
+    right:0;
+    margin-right:.5em;
+}
+
+.sys-ui-layout .sys-nav .sys-menu-top .sys-menu-top-text {
+    text-align:left;
+    display:inline-block;
+    font-weight:bold;
+}
+
+.sys-ui-layout .sys-nav .sys-menu-top .sys-menu-top-ico-hamb {
+    position:absolute;
+    /*margin-left:-20em;*/
+    left:-5em;
+    padding:.8em;
+    top:.5em;
+
+    -webkit-transition: margin-left 200ms linear;
+    -moz-transition: margin-left 200ms linear;
+    -o-transition: margin-left 200ms linear;
+    -ms-transition: margin-left 200ms linear;
+    transition: margin-left 200ms linear;
+    opacity:0;
+
+    -webkit-box-shadow:  0px 2px 6px 0px rgba(0,0,0,.35);
+    -moz-box-shadow:  0px 2px 6px 0px rgba(0,0,0,.35);
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,.35);
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+
+.sys-ui-layout .sys-nav .sys-panel-content {
+    overflow:hidden;
+    overflow-y:auto;
+    height:100%;
+    
+}
+/*themeable*/
+
+.sys-ui-layout .sys-nav,
+.sys-ui-layout .sys-nav .sys-menu-top,
+.sys-ui-layout .sys-ui-top-cmd,
+.nav-togled .sys-menu-top-ico-hamb {
+    background-color: #179030;
+}
+
+/*Content section*/
+
+.sys-ui-layout
+.sys-content-layout{
+    position:absolute;
+    margin:0px;
+    left:20.5em;
+    right:0;
+    top:7.3em;
+    bottom:0;
+    height:auto;
+
+    -webkit-transition: all 100ms linear;
+    -moz-transition: all 100ms linear;
+    -o-transition: all 100ms linear;
+    -ms-transition: all 100ms linear;
+    transition: all 100ms linear;
+}
+
+.sys-ui-layout .sys-content {
+    
+}
+
+.sys-ui-layout .sys-content > .ui-bar{
+    
+}
+
+.sys-ui-layout
+.sys-content-layout.layout-togled{
+    left:0px !important;
+    margin:0px;
+    
+}
+
+.layout-togled .ui-bar > .ui-title{
+    padding-left:3.5em;
+}
+
+.panel-sys {
+  border:0px;
+  margin: 0px !important;
+}
+
+.panel-sys *{
+  text-decoration:none !important;
+}
+
+
+    .panel-sys > .panel-heading {
+        color: #333;
+        background-color: #3cad53;
+        color: #fff;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        padding-left: 6px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom: 1px solid #179030;
+        -webkit-transition: background-color 500ms linear;
+        -moz-transition: background-color 500ms linear;
+        -o-transition: background-color 500ms linear;
+        -ms-transition: background-color 500ms linear;
+        transition: background-color 500ms linear;
+    }
+
+.panel-sys > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ddd;
+  padding:0;
+}
+
+.panel-sys > .panel-heading + .panel-collapse > .panel-body .panel-items{
+    display:block;
+    margin:0;
+    list-style: none;
+    padding:0;
+}
+
+.panel-sys > .panel-heading + .panel-collapse > .panel-body > .panel-items > li {
+    padding:0.2em;
+    padding-left:1.6em;
+
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.panel-sys > .panel-heading + .panel-collapse > .panel-body > .panel-items .panel-item{
+    padding-left:2.5em;
+}
+
+    .panel-sys > .panel-heading + .panel-collapse > .panel-body > .panel-items .panel-item.active {
+        background-color: #F9EAD9 !important;
+    }
+
+        .panel-sys > .panel-heading + .panel-collapse > .panel-body > .panel-items .panel-item.active a {
+            color: #DD7C13 !important;
+        }
+
+.panel-sys > .panel-heading > .panel-title
+{
+    font-size:inherit;
+}
+
+.panel-sys > .panel-heading > .panel-title > a
+{
+    display:inline-block;
+    width:100%;
+    height:100%;
+}
+
+.panel-sys > .panel-heading > .panel-title > a > .glyphicon,
+.panel-items > .item-separator > .glyphicon
+{
+    font-size:10px !important;
+}
+
+
+        .panel-sys > .panel-heading + .panel-collapse > .panel-body > .panel-items .panel-item:hover {
+            background-color: #F9EAD9;
+            padding-left: 3em;
+        }
+
+        .panel-sys > .panel-heading + .panel-collapse > .panel-body .item-separator {
+            background-color: #F9EAD9;
+            padding-left: 1em !important;
+        }
+
+            .panel-sys > .panel-heading + .panel-collapse > .panel-body .item-separator:hover {
+                background-color: #F9EAD9;
+            }
+
+.panel-sys > .panel-heading .badge {
+  color: #f5f5f5;
+}
+.panel-sys > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #ddd;
+}
+
+    .panel-sys > .panel-heading:hover {
+        background-color: #179030;
+    }
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+.busy-btn {    
+    position:absolute;
+    display:block;
+    text-align:center;
+    background-color:rgba(0,0,0,0.3);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4c000000', endColorstr='#4c000000'); /* IE */
+    width:10em;
+}
+
+.busy-btn.busy-center {
+    top:50%;
+    left:50%;
+    margin-top:-2.4em;
+    margin-left:-5em;
+    padding:1em;
+}
+
+.busy-btn .busy-text {
+    display:block;
+}
+
+.busy-btn .busy-text,
+.busy-btn .glyphicon {
+    color:#fff;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+.moda-busy-content {
+    
+}
+
+.ui-shad-normal {
+    
+-webkit-box-shadow: 6px 6px 12px -4px rgba(0,0,0,0.1);
+-moz-box-shadow: 6px 6px 12px -4px rgba(0,0,0,0.1);
+box-shadow: 6px 6px 12px -4px rgba(0,0,0,0.1);
+
+
+}
+
+.ui-trans-all {
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.sys-support {
+
+}
+
+.sys-support .sys-navts {
+    list-style:none;
+}
+
+.sys-support .sys-navts > li {
+    margin-top:4px;
+}
+
+.sys-support .sys-navts .brow-chrome,
+.sys-support .sys-navts .brow-firefox,
+.sys-support .sys-navts .brow-opera,
+.sys-support .sys-navts .brow-safari,
+.sys-support .sys-navts .brow-ie
+ {
+    background-image:url('images/Logo_navegadores.png');
+    background-repeat:no-repeat;
+    width:37px;
+    height:37px;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.sys-support .sys-navts .brow-chrome{
+    
+}
+.sys-support .sys-navts .brow-firefox{   
+    background-position:0 -44px;
+}
+.sys-support .sys-navts .brow-opera{
+    background-position:0 -90px;
+}
+.sys-support .sys-navts .brow-safari{
+    background-position:0 -133px;
+}
+.sys-support .sys-navts .brow-ie
+{
+    background-position:0 -177px;    
+}

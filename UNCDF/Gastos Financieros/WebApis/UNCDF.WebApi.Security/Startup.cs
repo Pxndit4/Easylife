@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UNCDF.Layers.Models;
+using UNCDF.Layers.Model;
 
 namespace UNCDF.WebApi.Security
 {

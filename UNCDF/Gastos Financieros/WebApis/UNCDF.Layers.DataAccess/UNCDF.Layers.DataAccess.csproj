@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UNCDF.Layers.Models\UNCDF.Layers.Models.csproj" />
+    <ProjectReference Include="..\UNCDF.Layers.Model\UNCDF.Layers.Model.csproj" />
     <ProjectReference Include="..\UNCDF.Utilities\UNCDF.Utilities.csproj" />
   </ItemGroup>
 

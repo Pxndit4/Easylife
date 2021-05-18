@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using UNCDF.Layers.DataAccess;
-using UNCDF.Layers.Models;
+using UNCDF.Layers.Model;
 
 namespace UNCDF.Layers.Business
 {

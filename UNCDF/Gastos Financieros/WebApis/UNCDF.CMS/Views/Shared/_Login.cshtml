@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNCDF > UNITLIFE - Login</title>
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Login.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/Content/images/favicon.png" />
+    <script language="javascript" src="~/Scripts/jquery-2.2.2.js"></script>
+    <script language="javascript" src="~/Scripts/jquery-2.2.2.intellisense.js"></script>
+</head>
+<body class="sys-ui-layout">
+
+
+
+    @*<div class="sys-content-layout">*@
+
+
+
+    <div id="startModal" class="modal fade in" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="busy-btn busy-center" style="color:#fff;">
+                <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                <span class="busy-text">Cargando ...</span>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    @*</div>*@
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script language="javascript" src="~/Scripts/Emizor.lib.ui.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript" language="javacript">
+
+        $(document).ready(function () {
+
+        });
+
+
+
+    </script>
+
+</body>
+</html>
