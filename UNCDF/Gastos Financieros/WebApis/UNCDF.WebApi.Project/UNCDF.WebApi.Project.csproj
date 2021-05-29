@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UNCDF.Layers.Model\UNCDF.Layers.Model.csproj" />
+  </ItemGroup>
+
 
 </Project>
