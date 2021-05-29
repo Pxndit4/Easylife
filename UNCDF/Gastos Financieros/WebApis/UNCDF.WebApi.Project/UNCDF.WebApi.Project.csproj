@@ -6,7 +6,19 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UNCDF.Layers.Model\UNCDF.Layers.Model.csproj" />
+    <ProjectReference Include="..\UNCDF.Utilities\UNCDF.Utilities.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\UNCDF.Layers.Business\UNCDF.Layers.Business.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 
 
+  <ItemGroup>
+    <None Remove="Contracts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+  </ItemGroup>
 </Project>

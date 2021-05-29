@@ -59,7 +59,7 @@
     <Compile Include="MUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MProject.cs" />
-    <Compile Include="DonorPartner.cs" />
+    <Compile Include="MDonorPartner.cs" />
     <Compile Include="MProgramName.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
