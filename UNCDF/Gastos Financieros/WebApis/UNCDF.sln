@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNCDF.CMS", "UNCDF.CMS\UNCD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNCDF.Layers.Model", "UNCDF.Layers.Model\UNCDF.Layers.Model.csproj", "{506252AB-2874-44E0-A1D8-BF515D048EDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNCDF.WebApi.Project", "UNCDF.WebApi.Project\UNCDF.WebApi.Project.csproj", "{D787BACA-E9CD-44C8-978F-48CC67DDEC65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{506252AB-2874-44E0-A1D8-BF515D048EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{506252AB-2874-44E0-A1D8-BF515D048EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{506252AB-2874-44E0-A1D8-BF515D048EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D787BACA-E9CD-44C8-978F-48CC67DDEC65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D787BACA-E9CD-44C8-978F-48CC67DDEC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D787BACA-E9CD-44C8-978F-48CC67DDEC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D787BACA-E9CD-44C8-978F-48CC67DDEC65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
