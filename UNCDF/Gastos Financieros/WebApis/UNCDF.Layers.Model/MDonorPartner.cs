@@ -1,7 +1,7 @@
 ﻿using System;
 namespace UNCDF.Layers.Model
 {
-    public class DonorPartner
+    public class MDonorPartner
     {
         public int DonorPartnerId { get; set; }
         public string DonorCode { get; set; }
