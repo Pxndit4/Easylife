@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UNCDF.Layers.Model;
 
@@ -28,6 +29,12 @@ namespace UNCDF.WebApi.Project
     #endregion
 
     #region Request
+
+    [Serializable]
+    public class ProjectsRequest : BaseRequest
+    {
+        public List<MProject> Projects { get; set; }
+    }
 
     [Serializable]
     public class ProjectRequest : BaseRequest

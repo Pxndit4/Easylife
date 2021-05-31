@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using UNCDF.Layers.Model;
 using UNCDF.Layers.Business;
 using UNCDF.Utilities;
+using System.Transactions;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace UNCDF.WebApi.Project.Controllers
@@ -67,45 +68,57 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/InsertProject")]
-        public ProjectResponse InsertProject([FromBody] ProjectRequest request)
+        public ProjectResponse InsertProject([FromBody] ProjectsRequest request)
         {
             ProjectResponse response = new ProjectResponse();
 
-            try
+            using (TransactionScope scope = new TransactionScope())
             {
-                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                try
+                {
+                    if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                    {
+                        response.Code = "2";
+                        response.Message = Messages.ApplicationTokenNoAutorize;
+                        return response;
+                    }
+
+                    string webRoot = _env.ContentRootPath;
+                    string rootPath = _appSettings.Value.rootPath;
+                    string ProjectPath = _appSettings.Value.ProjectPath;
+
+                    BaseRequest baseRequest = new BaseRequest();
+
+                    foreach (MProject model in request.Projects)
+                    {
+                        MProject project = new MProject();
+
+                        project.ProjectCode = model.ProjectCode;
+                        project.Description = model.Description;
+                        project.Type = model.Type;
+                        project.Status = model.Status;
+                        project.StartDate = model.StartDate;
+                        project.EndDate = model.EndDate;
+                        project.Title = model.Title;
+                        project.AwardId = model.AwardId;
+                        project.AwardStatus = model.AwardStatus;
+
+                        BProject.Insert(project);
+                    }
+
+                    scope.Complete();
+                }
+                catch (Exception ex)
                 {
                     response.Code = "2";
-                    response.Message = Messages.ApplicationTokenNoAutorize;
-                    return response;
+                    response.Message = ex.Message;
+
+                    scope.Dispose();
                 }
-
-                string webRoot = _env.ContentRootPath;
-                string rootPath = _appSettings.Value.rootPath;
-                string ProjectPath = _appSettings.Value.ProjectPath;
-
-                BaseRequest baseRequest = new BaseRequest();
-
-                MProject project = new MProject();
-
-                project.ProjectCode = request.Project.ProjectCode;
-                project.Description = request.Project.Description;
-                project.Type = request.Project.Type;
-                project.Status = request.Project.Status;
-                project.StartDate = request.Project.StartDate;
-                project.EndDate = request.Project.EndDate;
-                project.Title = request.Project.Title;
-                project.AwardId = request.Project.AwardId;
-                project.AwardStatus = request.Project.AwardStatus;
-            }
-            catch (Exception ex)
-            {
-                response.Code = "2";
-                response.Message = ex.Message;
             }
 
             return response;
         }
-      
+
     }
 }
