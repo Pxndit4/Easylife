@@ -61,6 +61,9 @@
     <Compile Include="MProject.cs" />
     <Compile Include="MDonorPartner.cs" />
     <Compile Include="MProgramName.cs" />
+    <Compile Include="MFund.cs" />
+    <Compile Include="MImplementAgency.cs" />
+    <Compile Include="MDeparment.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

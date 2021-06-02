@@ -26,6 +26,14 @@ namespace UNCDF.WebApi.Project
         public MDonorPartner[] DonorPartners { get; set; }
     }
 
+    [Serializable]
+    public class ProjectFinancialPropertiesResponse : BaseResponse
+    {
+        public MDeparment[] Deparments { get; set; }
+        public MImplementAgency[] ImplementAgencies { get; set; }
+        public MFund[] Funds { get; set; }
+    }
+
     #endregion
 
     #region Request

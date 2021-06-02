@@ -67,6 +67,77 @@ namespace UNCDF.WebApi.Project.Controllers
         }
 
         [HttpPost]
+        [Route("0/ProjectFinancialProperties")]
+        public ProjectFinancialPropertiesResponse ProjectFinancialProperties([FromBody] BaseRequest request)
+        {
+            ProjectFinancialPropertiesResponse response = new ProjectFinancialPropertiesResponse();
+
+            List<MDeparment> deparments = new List<MDeparment>();
+            List<MFund> funds = new List<MFund>();
+            List<MImplementAgency> implementAgencies = new List<MImplementAgency>();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                deparments = BDeparment.List();
+                funds = BFund.List();
+                implementAgencies = BImplementAgency.List();
+
+                response.Deparments = deparments.ToArray();
+                response.Funds = funds.ToArray();
+                response.ImplementAgencies = implementAgencies.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetProjects")]
+        public ProjectsResponse GetProjects([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                MProject project = new MProject();
+                project.Status = request.Project.Status;
+                project.Title = request.Project.Title;
+                project.StartDate = request.Project.StartDate;
+                project.EndDate = request.Project.EndDate;
+
+                List<MProject> projects = BProject.List(project);
+
+                response.Projects = projects.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
+        [HttpPost]
         [Route("0/InsertProject")]
         public ProjectResponse InsertProject([FromBody] ProjectsRequest request)
         {
