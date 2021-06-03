@@ -1404,12 +1404,12 @@ button, input, select, textarea {
 }
 
 a {
-    color: #179030;
+    color: #337ab7;
     text-decoration: none;
 }
 
     a:focus, a:hover {
-        color: #DD7C13;
+        color: #23527c;
         text-decoration: underline;
     }
 
@@ -3516,32 +3516,32 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #E5943D;
-    border-color: #DD7C13;
+    background-color: #337ab7;
+    border-color: #2e6da4;
 }
 
     .btn-primary.focus, .btn-primary:focus {
         color: #fff;
-        background-color: #DD7C13;
-        border-color: #DD7C13;
+        background-color: #286090;
+        border-color: #122b40;
     }
 
     .btn-primary:hover {
         color: #fff;
-        background-color: #DD7C13;
-        border-color: #DD7C13;
+        background-color: #286090;
+        border-color: #204d74;
     }
 
     .btn-primary.active, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
         color: #fff;
-        background-color: #DD7C13;
-        border-color: #DD7C13;
+        background-color: #286090;
+        border-color: #204d74;
     }
 
         .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
             color: #fff;
-            background-color: #DD7C13;
-            border-color: #DD7C13;
+            background-color: #204d74;
+            border-color: #122b40;
         }
 
     .btn-primary.active, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
@@ -3549,8 +3549,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
     }
 
     .btn-primary.disabled.focus, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled].focus, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
-        background-color: #DD7C13;
-        border-color: #DD7C13;
+        background-color: #337ab7;
+        border-color: #2e6da4;
     }
 
     .btn-primary .badge {

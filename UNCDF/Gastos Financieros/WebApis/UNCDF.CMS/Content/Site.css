@@ -64,7 +64,7 @@ body
         position: absolute;
         height: 90px;
         width: 240px;
-        top: 0;
+        top: 0; 
         left: 0;
         z-index: 12001 !important;
         background: url(images/logoUncdfUnitLifeSmall.png) no-repeat center center;
@@ -74,8 +74,8 @@ body
     .sys-header
     .sys-ui-top1 {
         min-height: 50px;
-        background-color: #3cad53;
-        border-bottom: 1px solid #154820;
+        background-color: #0F9CDD;
+        border-bottom: 1px solid #0F85BD;
     }
 
 .sys-ui-layout

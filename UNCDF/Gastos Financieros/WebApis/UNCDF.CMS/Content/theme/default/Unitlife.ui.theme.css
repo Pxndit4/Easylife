@@ -1,61 +1,59 @@
 ﻿* {
-    
 }
 
 .ui-bar {
-    margin-bottom:1px !important;
+    margin-bottom: 1px !important;
 }
 
 .ui-container {
-    
 }
 
-.ui-container > span.title {
-}
+    .ui-container > span.title {
+    }
 
 .ui-error-view.error {
-    background-color:#FFA4A4 !important;
+    background-color: #FFA4A4 !important;
 }
 
 .ui-error-view.invalid {
-    background-color :#bce8f1 !important;
+    background-color: #bce8f1 !important;
 }
 
 .ui-error-view.ok {
-    background-color:#dff0d8 !important;
+    background-color: #dff0d8 !important;
 }
 
 .ui-error-view.warning {
-    background-color:#FFF8CE !important;
+    background-color: #FFF8CE !important;
 }
 
-.ui-grid{
+.ui-grid {
     /*position:relative;*/
 }
 
-.ui-grid .row-ambar {
-    background-color:#FDFDA2;
-}
+    .ui-grid .row-ambar {
+        background-color: #FDFDA2;
+    }
 
-.ui-grid .row-green {
-    background-color:#D4FFD4;
-}
+    .ui-grid .row-green {
+        background-color: #D4FFD4;
+    }
 
-.ui-grid .row-green-red {
-    background-color:#D4FFD4;
-    color:red !important;
-}
+    .ui-grid .row-green-red {
+        background-color: #D4FFD4;
+        color: red !important;
+    }
 
-.ui-grid .row-red {
-    background-color:#FFBEBE;
-}
+    .ui-grid .row-red {
+        background-color: #FFBEBE;
+    }
 
 .input-validation-error {
-    border-color: #FF9898!important;
+    border-color: #FF9898 !important;
 }
 
 .input-validation-error-ley {
-    border:2px solid #FF9898!important;
+    border: 2px solid #FF9898 !important;
 }
 
 /*radius*/
@@ -70,17 +68,18 @@
 .ui-jumb {
     border: 1px solid #E8E8E8;
 }
+
 .ui-jumb,
 .ui-grid > thead > tr > th {
-    background-color: #F9EAD9;
+    background-color: #F9F9F9;
 }
 
-.sidebar-sidePanel .toggled-ico{
-    background-color:#0f9cdd;
-    color:#FFF;
+.sidebar-sidePanel .toggled-ico {
+    background-color: #0f9cdd;
+    color: #FFF;
 }
 
-.ui-grid>tbody>tr>td, .ui-grid>tbody>tr>th, .ui-grid>tfoot>tr>td, .ui-grid>tfoot>tr>th, .ui-grid>thead>tr>td, .ui-grid>thead>tr>th {
+.ui-grid > tbody > tr > td, .ui-grid > tbody > tr > th, .ui-grid > tfoot > tr > td, .ui-grid > tfoot > tr > th, .ui-grid > thead > tr > td, .ui-grid > thead > tr > th {
     border-top: 0px solid #F7F7F7;
 }
 
@@ -88,19 +87,18 @@
     border-left: 0px solid #F7F7F7;
 }
 
-.busy-btn {    
-    background-color:rgba(0,0,0,0.6);
+.busy-btn {
+    background-color: rgba(0,0,0,0.6);
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4c000000', endColorstr='#4c000000'); /* IE */
 
-    -webkit-box-shadow:  0px 2px 6px 0px rgba(0,0,0,.35);
-    -moz-box-shadow:  0px 2px 6px 0px rgba(0,0,0,.35);
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.35);
+    -moz-box-shadow: 0px 2px 6px 0px rgba(0,0,0,.35);
     box-shadow: 0px 2px 8px 0px rgba(0,0,0,.35);
-
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
 
 .ui-bar-default {
-    background-color: #179030;
+    background-color: #64BB6B;
 }
