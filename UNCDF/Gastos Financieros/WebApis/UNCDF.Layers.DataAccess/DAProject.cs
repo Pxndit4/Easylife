@@ -18,7 +18,6 @@ namespace UNCDF.Layers.DataAccess
                     SqlCommand cmd = new SqlCommand("sp_Project_Ins", con);
                     cmd.CommandTimeout = 0;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@IProjectId", SqlDbType.VarChar).Value = ent.ProjectId;
                     cmd.Parameters.Add("@IPProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
                     cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
                     cmd.Parameters.Add("@IType", SqlDbType.VarChar).Value = ent.Type;

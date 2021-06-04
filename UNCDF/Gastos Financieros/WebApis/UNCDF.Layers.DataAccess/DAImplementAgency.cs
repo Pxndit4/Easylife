@@ -9,6 +9,34 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DAImplementAgency
     {
+        public static int Insert(MImplementAgency ent)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ImplementAgency_Ins", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@IImplementAgencyCode", SqlDbType.VarChar).Value = ent.ImplementAgencyCode;
+                    cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
+                    cmd.Parameters.Add("@IShortDescription", SqlDbType.VarChar).Value = ent.ShortDescription;
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    return 2;
+                }
+            }
+
+            return 0;
+        }
+
         public static List<MImplementAgency> List()
         {
             List<MImplementAgency> lisQuery = new List<MImplementAgency>();

@@ -9,6 +9,35 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DADeparment
     {
+        public static int Insert(MDeparment ent)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Deparment_Ins", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@IDeparmentCode", SqlDbType.VarChar).Value = ent.DeparmentCode;
+                    cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
+                    cmd.Parameters.Add("@IPracticeArea", SqlDbType.VarChar).Value = ent.PracticeArea;
+                    cmd.Parameters.Add("@IRegion", SqlDbType.VarChar).Value = ent.Region;
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    return 2;
+                }
+            }
+
+            return 0;
+        }
+
         public static List<MDeparment> List()
         {
             List<MDeparment> lisQuery = new List<MDeparment>();

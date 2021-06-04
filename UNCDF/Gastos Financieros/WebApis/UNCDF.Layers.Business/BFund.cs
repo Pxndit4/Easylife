@@ -12,5 +12,10 @@ namespace UNCDF.Layers.Business
         {
             return DAFund.List();
         }
+
+        public static int Insert(MFund ent)
+        {
+            return DAFund.Insert(ent);
+        }
     }
 }
