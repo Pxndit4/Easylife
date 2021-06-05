@@ -54,6 +54,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 programNames = BProgramName.List();
                 donorPartners = BDonorPartner.List();
 
+                response.Code = "0";
+                response.Message = "Success";
                 response.ProgramNames = programNames.ToArray();
                 response.DonorPartners = donorPartners.ToArray();
             }
@@ -89,6 +91,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 funds = BFund.List();
                 implementAgencies = BImplementAgency.List();
 
+                response.Code = "0";
+                response.Message = "Success";
                 response.Deparments = deparments.ToArray();
                 response.Funds = funds.ToArray();
                 response.ImplementAgencies = implementAgencies.ToArray();
@@ -125,6 +129,8 @@ namespace UNCDF.WebApi.Project.Controllers
 
                 List<MProject> projects = BProject.List(project);
 
+                response.Code = "0";
+                response.Message = "Success";
                 response.Projects = projects.ToArray();
             }
             catch (Exception ex)
@@ -176,6 +182,9 @@ namespace UNCDF.WebApi.Project.Controllers
 
                         BProject.Insert(project);
                     }
+
+                    response.Code = "0";
+                    response.Message = "Success";
 
                     scope.Complete();
                 }
