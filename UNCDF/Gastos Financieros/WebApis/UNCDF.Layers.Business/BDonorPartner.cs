@@ -12,5 +12,10 @@ namespace UNCDF.Layers.Business
         {
             return DADonorPartner.List();
         }
+
+        public static int Insert(MDonorPartner ent)
+        {
+            return DADonorPartner.Insert(ent);
+        }
     }
 }

@@ -13,25 +13,19 @@ namespace UNCDF.Layers.DataAccess
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
             {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("sp_DonorPartner_Ins", con);
-                    cmd.CommandTimeout = 0;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@IDonorCode", SqlDbType.VarChar).Value = ent.DonorCode;
-                    cmd.Parameters.Add("@IDonorName", SqlDbType.VarChar).Value = ent.DonorName;
-                    cmd.Parameters.Add("@IFundingPartner", SqlDbType.VarChar).Value = ent.FundingPartner;
 
-                    con.Open();
+                SqlCommand cmd = new SqlCommand("sp_DonorPartner_Ins", con);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@IDonorCode", SqlDbType.VarChar).Value = ent.DonorCode;
+                cmd.Parameters.Add("@IDonorName", SqlDbType.VarChar).Value = ent.DonorName;
+                cmd.Parameters.Add("@IFundingPartner", SqlDbType.VarChar).Value = ent.FundingPartner;
 
-                    cmd.ExecuteNonQuery();
+                con.Open();
 
-                    con.Close();
-                }
-                catch (Exception ex)
-                {
-                    return 2;
-                }
+                cmd.ExecuteNonQuery();
+
+                con.Close();
             }
 
             return 0;

@@ -68,7 +68,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
                             entRow.ProjectCode = Convert.ToString(reader["ProjectCode"]);
                             entRow.Title = Convert.ToString(reader["Title"]);
-                            entRow.Title = Convert.ToString(reader["Title"]);
+                            entRow.Type = Convert.ToString(reader["Type"]);
                             entRow.Description = Convert.ToString(reader["Description"]);
                             entRow.StartDate = Convert.ToInt32(reader["StartDate"]);
                             entRow.EndDate = Convert.ToInt32(reader["EndDate"]);

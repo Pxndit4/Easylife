@@ -13,26 +13,19 @@ namespace UNCDF.Layers.DataAccess
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
             {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("sp_Deparment_Ins", con);
-                    cmd.CommandTimeout = 0;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@IDeparmentCode", SqlDbType.VarChar).Value = ent.DeparmentCode;
-                    cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
-                    cmd.Parameters.Add("@IPracticeArea", SqlDbType.VarChar).Value = ent.PracticeArea;
-                    cmd.Parameters.Add("@IRegion", SqlDbType.VarChar).Value = ent.Region;
+                SqlCommand cmd = new SqlCommand("sp_Deparment_Ins", con);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@IDeparmentCode", SqlDbType.VarChar).Value = ent.DeparmentCode;
+                cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
+                cmd.Parameters.Add("@IPracticeArea", SqlDbType.VarChar).Value = ent.PracticeArea;
+                cmd.Parameters.Add("@IRegion", SqlDbType.VarChar).Value = ent.Region;
 
-                    con.Open();
+                con.Open();
 
-                    cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-                    con.Close();
-                }
-                catch (Exception ex)
-                {
-                    return 2;
-                }
+                con.Close();
             }
 
             return 0;

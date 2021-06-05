@@ -59,7 +59,7 @@ namespace UNCDF.CMS {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a The {0} approve was wrong.
         /// </summary>
@@ -95,7 +95,7 @@ namespace UNCDF.CMS {
                 return ResourceManager.GetString("ControllerGetExceptionMessage", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a Are you sure to generate a new key from {0}.
         /// </summary>
@@ -113,7 +113,7 @@ namespace UNCDF.CMS {
                 return ResourceManager.GetString("GridRowCountInfo", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Busca una cadena traducida similar a Error occurred while loading the page.
         /// </summary>
