@@ -135,7 +135,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,9 +145,16 @@
     <Compile Include="Invoke\WebApiOptions.cs" />
     <Compile Include="Invoke\WebApiProfile.cs" />
     <Compile Include="Invoke\WebApiUser.cs" />
+    <Compile Include="MessageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
+    <Compile Include="Models\ProfileViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AutenticationManager.cs" />
     <Compile Include="Util\CustonActiveDirectory.cs" />
@@ -220,6 +229,9 @@
     <Content Include="Views\Shared\_Perfil.cshtml" />
     <Content Include="Views\Shared\_TabMenu.cshtml" />
     <Content Include="Views\Seguridad\Login.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -237,6 +249,12 @@
       <Project>{506252ab-2874-44e0-a1d8-bf515d048edc}</Project>
       <Name>UNCDF.Layers.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MessageResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

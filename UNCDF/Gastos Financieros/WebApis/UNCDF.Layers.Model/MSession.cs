@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace UNCDF.Layers.Model
 {
-    public class Class1
+    public class MSession
     {
+        public int UserId { get; set; }
+        public string Token { get; set; }
+        public string DateLogin { get; set; }
     }
 }
