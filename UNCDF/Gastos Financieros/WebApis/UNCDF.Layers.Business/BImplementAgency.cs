@@ -12,5 +12,10 @@ namespace UNCDF.Layers.Business
         {
             return DAImplementAgency.List();
         }
+
+        public static int Insert(MImplementAgency ent)
+        {
+            return DAImplementAgency.Insert(ent);
+        }
     }
 }

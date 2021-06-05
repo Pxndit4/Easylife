@@ -12,5 +12,10 @@ namespace UNCDF.Layers.Business
         {
             return DADeparment.List();
         }
+
+        public static int Insert(MDeparment ent)
+        {
+            return DADeparment.Insert(ent);
+        }
     }
 }
