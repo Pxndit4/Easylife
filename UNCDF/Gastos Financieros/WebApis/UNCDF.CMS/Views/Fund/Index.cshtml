@@ -36,13 +36,19 @@
                     @*@Html.HiddenFor(m => m.ProjectId)*@
                     <div class="col-md-1">
                         @Html.LabelFor(m => m.FundCode)
-                        @Html.TextBoxFor(m => m.FundCode, new { @class = "form-control", @readonly = true })
+                        @Html.TextBoxFor(m => m.FundCode, new { @class = "form-control" })
                     </div>
                     <div class="col-md-10">
-                        @Html.LabelFor(m => m.Description)
-                        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @readonly = true })
-                    </div>
 
+                        @Html.LabelFor(m => m.Description)
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+
+                            <a id="btnSearch" class="btn btn-default input-group-addon">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         }
@@ -72,6 +78,11 @@
     var objIndex={
         initial: function () {
 
+            $("#btnSearch").on("click", function (e) {
+                e.preventDefault();
+                objIndex.grid.load();
+            });
+
             unitlife.ui.grid('#tbList').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
             objIndex.grid.load();
         },
@@ -82,8 +93,8 @@
             load: function () {
                 @*unitlife.ui.grid('#tbList').load('@Url.Action("Search", "ProjectFinancials", null)', '#frmSearch');*@
                 unitlife.ui.grid('#tbList').load('@Url.Action("Search", "Fund", null)', '#frmSearch',
-                function (e) {                  
-                    var da = 'Project Financials List @Html.Raw(MessageResource.GridRowCountInfo)'  ;
+                function (e) {
+                    var da = 'Fund List @Html.Raw(MessageResource.GridRowCountInfo)'  ;
                     da = da.replace("{0}", e.data.length);
                     $("#countR").text(da);
                 });

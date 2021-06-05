@@ -51,6 +51,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 List<MDeparment> deparments = BDeparment.List();
 
                 response.Deparments = deparments.ToArray();
+                response.Code = "0";
+                response.Message = "Success";
             }
             catch (Exception ex)
             {
@@ -98,6 +100,8 @@ namespace UNCDF.WebApi.Project.Controllers
                     }
 
                     scope.Complete();
+                    response.Code = "0";
+                    response.Message = "Success";
                 }
                 catch (Exception ex)
                 {
