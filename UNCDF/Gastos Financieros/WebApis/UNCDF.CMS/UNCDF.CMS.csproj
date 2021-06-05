@@ -124,6 +124,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -134,15 +135,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Invoke\Helper.cs" />
+    <Compile Include="Invoke\WebApiFund.cs" />
     <Compile Include="Invoke\WebApiOptions.cs" />
     <Compile Include="Invoke\WebApiProfile.cs" />
     <Compile Include="Invoke\WebApiUser.cs" />
+    <Compile Include="MessageResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FundViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
@@ -152,6 +161,7 @@
     <Compile Include="Util\Extension.cs" />
     <Compile Include="Util\FileManager.cs" />
     <Compile Include="Util\JSonResult.cs" />
+    <Compile Include="Util\OpenXMLUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap-datepicker.css" />
@@ -220,9 +230,12 @@
     <Content Include="Views\Shared\_Perfil.cshtml" />
     <Content Include="Views\Shared\_TabMenu.cshtml" />
     <Content Include="Views\Seguridad\Login.cshtml" />
+    <Content Include="Views\Fund\Index.cshtml" />
+    <Content Include="Views\Fund\Load.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -237,6 +250,12 @@
       <Project>{506252ab-2874-44e0-a1d8-bf515d048edc}</Project>
       <Name>UNCDF.Layers.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MessageResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
