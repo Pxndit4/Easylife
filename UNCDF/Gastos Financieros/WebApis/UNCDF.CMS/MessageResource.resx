@@ -117,13 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApproveError" xml:space="preserve">
+    <value>The {0} approve was wrong</value>
+  </data>
+  <data name="ApproveSuccess" xml:space="preserve">
+    <value>Approve of {0} was successful.</value>
+  </data>
+  <data name="ControllerDeleteExceptionMessage" xml:space="preserve">
+    <value>Error occurred while trying to delete the record</value>
+  </data>
   <data name="ControllerGetExceptionMessage" xml:space="preserve">
     <value>Error occurred while trying to retrieve information from {0}</value>
+  </data>
+  <data name="GenerateConfirm" xml:space="preserve">
+    <value>Are you sure to generate a new key from {0}</value>
   </data>
   <data name="GridRowCountInfo" xml:space="preserve">
     <value>(Total {0} records retrieved)</value>
   </data>
+  <data name="PartialViewLoadError" xml:space="preserve">
+    <value>Error occurred while loading the page</value>
+  </data>
+  <data name="RowDeleteConfirm" xml:space="preserve">
+    <value>Are you sure to delete the record {0}</value>
+  </data>
+  <data name="RowDeleteOK" xml:space="preserve">
+    <value>Record successfully removed</value>
+  </data>
+  <data name="RowInactivo" xml:space="preserve">
+    <value>{0} is inactive.</value>
+  </data>
   <data name="SaveConfirm" xml:space="preserve">
     <value>Are you sure to record the information {0}</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>The {0} registration was wrong</value>
+  </data>
+  <data name="SaveSuccess" xml:space="preserve">
+    <value>Registration of {0} was successful.</value>
+  </data>
+  <data name="UpdateConfirm" xml:space="preserve">
+    <value>The {0} update was wrong</value>
+  </data>
+  <data name="UpdateError" xml:space="preserve">
+    <value>The {0} update was wrong</value>
+  </data>
+  <data name="UpdateSuccess" xml:space="preserve">
+    <value>Update of {0} was successful.</value>
   </data>
 </root>

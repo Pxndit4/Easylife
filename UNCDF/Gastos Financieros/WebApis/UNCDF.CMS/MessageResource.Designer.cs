@@ -61,6 +61,33 @@ namespace UNCDF.CMS {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a The {0} approve was wrong.
+        /// </summary>
+        public static string ApproveError {
+            get {
+                return ResourceManager.GetString("ApproveError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Approve of {0} was successful..
+        /// </summary>
+        public static string ApproveSuccess {
+            get {
+                return ResourceManager.GetString("ApproveSuccess", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error occurred while trying to delete the record.
+        /// </summary>
+        public static string ControllerDeleteExceptionMessage {
+            get {
+                return ResourceManager.GetString("ControllerDeleteExceptionMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Error occurred while trying to retrieve information from {0}.
         /// </summary>
         public static string ControllerGetExceptionMessage {
@@ -69,6 +96,15 @@ namespace UNCDF.CMS {
             }
         }
         
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure to generate a new key from {0}.
+        /// </summary>
+        public static string GenerateConfirm {
+            get {
+                return ResourceManager.GetString("GenerateConfirm", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Busca una cadena traducida similar a (Total {0} records retrieved).
         /// </summary>
@@ -79,11 +115,92 @@ namespace UNCDF.CMS {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error occurred while loading the page.
+        /// </summary>
+        public static string PartialViewLoadError {
+            get {
+                return ResourceManager.GetString("PartialViewLoadError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Are you sure to delete the record {0}.
+        /// </summary>
+        public static string RowDeleteConfirm {
+            get {
+                return ResourceManager.GetString("RowDeleteConfirm", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Record successfully removed.
+        /// </summary>
+        public static string RowDeleteOK {
+            get {
+                return ResourceManager.GetString("RowDeleteOK", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a {0} is inactive..
+        /// </summary>
+        public static string RowInactivo {
+            get {
+                return ResourceManager.GetString("RowInactivo", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Are you sure to record the information {0}.
         /// </summary>
         public static string SaveConfirm {
             get {
                 return ResourceManager.GetString("SaveConfirm", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a The {0} registration was wrong.
+        /// </summary>
+        public static string SaveError {
+            get {
+                return ResourceManager.GetString("SaveError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registration of {0} was successful..
+        /// </summary>
+        public static string SaveSuccess {
+            get {
+                return ResourceManager.GetString("SaveSuccess", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a The {0} update was wrong.
+        /// </summary>
+        public static string UpdateConfirm {
+            get {
+                return ResourceManager.GetString("UpdateConfirm", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a The {0} update was wrong.
+        /// </summary>
+        public static string UpdateError {
+            get {
+                return ResourceManager.GetString("UpdateError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Update of {0} was successful..
+        /// </summary>
+        public static string UpdateSuccess {
+            get {
+                return ResourceManager.GetString("UpdateSuccess", resourceCulture);
             }
         }
     }

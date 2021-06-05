@@ -137,7 +137,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,10 +153,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageResource.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\FundViewModel.cs" />
+=======
+>>>>>>> 74794c5d4180c632139bcf20fa76277d696ef5a1
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
+    <Compile Include="Models\ProfileViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AutenticationManager.cs" />
     <Compile Include="Util\CustonActiveDirectory.cs" />
@@ -230,8 +237,14 @@
     <Content Include="Views\Shared\_Perfil.cshtml" />
     <Content Include="Views\Shared\_TabMenu.cshtml" />
     <Content Include="Views\Seguridad\Login.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Fund\Index.cshtml" />
     <Content Include="Views\Fund\Load.cshtml" />
+=======
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+>>>>>>> 74794c5d4180c632139bcf20fa76277d696ef5a1
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -253,7 +266,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MessageResource.resx">
+<<<<<<< HEAD
       <Generator>PublicResXFileCodeGenerator</Generator>
+=======
+      <Generator>ResXFileCodeGenerator</Generator>
+>>>>>>> 74794c5d4180c632139bcf20fa76277d696ef5a1
       <LastGenOutput>MessageResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
