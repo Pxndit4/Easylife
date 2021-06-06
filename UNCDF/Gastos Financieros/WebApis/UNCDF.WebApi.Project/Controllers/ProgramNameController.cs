@@ -66,7 +66,7 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/InsertProgramName")]
-        public BaseResponse InsertFund([FromBody] ProgramNamesRequest request)
+        public BaseResponse InsertProgramName([FromBody] ProgramNamesRequest request)
         {
             BaseResponse response = new BaseResponse();
 

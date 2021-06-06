@@ -135,6 +135,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -144,6 +145,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Invoke\Helper.cs" />
+    <Compile Include="Invoke\WebApiDonorPartner.cs" />
     <Compile Include="Invoke\WebApiFund.cs" />
     <Compile Include="Invoke\WebApiOptions.cs" />
     <Compile Include="Invoke\WebApiProfile.cs" />
@@ -153,9 +155,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageResource.resx</DependentUpon>
     </Compile>
-
+    <Compile Include="Models\DonorPartnerViewModel.cs" />
     <Compile Include="Models\FundViewModel.cs" />
-
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
@@ -236,14 +237,13 @@
     <Content Include="Views\Shared\_Perfil.cshtml" />
     <Content Include="Views\Shared\_TabMenu.cshtml" />
     <Content Include="Views\Seguridad\Login.cshtml" />
-
     <Content Include="Views\Fund\Index.cshtml" />
     <Content Include="Views\Fund\Load.cshtml" />
-
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
-
+    <Content Include="Views\DonorPartner\Index.cshtml" />
+    <Content Include="Views\DonorPartner\Load.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,11 +265,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MessageResource.resx">
-
       <Generator>PublicResXFileCodeGenerator</Generator>
-
       <Generator>ResXFileCodeGenerator</Generator>
-
       <LastGenOutput>MessageResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

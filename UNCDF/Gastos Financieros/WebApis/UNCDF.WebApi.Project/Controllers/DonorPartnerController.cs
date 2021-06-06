@@ -67,7 +67,7 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/InsertDonorPartner")]
-        public BaseResponse InsertDeparment([FromBody] DonorPartnersRequest request)
+        public BaseResponse InsertDonorPartner([FromBody] DonorPartnersRequest request)
         {
             BaseResponse response = new BaseResponse();
 

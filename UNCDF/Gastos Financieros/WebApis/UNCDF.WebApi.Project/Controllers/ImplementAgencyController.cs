@@ -66,7 +66,7 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/InsertImplementAgency")]
-        public BaseResponse InsertFund([FromBody] ImplementAgenciesRequest request)
+        public BaseResponse InsertImplementAgency([FromBody] ImplementAgenciesRequest request)
         {
             BaseResponse response = new BaseResponse();
 
