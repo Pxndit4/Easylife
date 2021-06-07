@@ -51,6 +51,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 List<MImplementAgency> ImplementAgencies = BImplementAgency.List();
 
                 response.ImplementAgencies = ImplementAgencies.ToArray();
+                response.Code = "0";
+                response.Message = "Success";
             }
             catch (Exception ex)
             {
@@ -64,7 +66,7 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/InsertImplementAgency")]
-        public BaseResponse InsertFund([FromBody] ImplementAgenciesRequest request)
+        public BaseResponse InsertImplementAgency([FromBody] ImplementAgenciesRequest request)
         {
             BaseResponse response = new BaseResponse();
 
@@ -97,6 +99,8 @@ namespace UNCDF.WebApi.Project.Controllers
                     }
 
                     scope.Complete();
+                    response.Code = "0";
+                    response.Message = "Success";
                 }
                 catch (Exception ex)
                 {

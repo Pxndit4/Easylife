@@ -1,0 +1,192 @@
+﻿@model UNCDF.CMS.Models.LoadDonorPartnersViewModel
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+
+<div class="ui-bar ui-bar-default">
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegSave" disabled="disabled" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+            Upload
+        </button>
+    </div>
+</div>
+
+<div class="ui-container">
+    @using (Html.BeginForm("Load", "DonorPartner", FormMethod.Post, new { id = "frmLoadReg", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <input type="hidden" id="hfWarnning" name="hfWarnning" value="N">
+            <div class="row">
+                <div class="col-md-12">
+                    @*@Html.LabelFor(m => m.File)*@
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.File, new { @class = "form-control", @readonly = "readonly" })
+                        <a id="btnAddFile" class="btn btn-default input-group-addon" onclick="document.getElementById('imageFile').click();">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                        </a>
+                        <input type="file" id="imageFile" style="display: none" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+            Required fields.<span class="input-validation-error-ley"></span>
+        </div>
+    }
+</div>
+
+<div id="tbListCont2" class="ui-container">
+    <span class="title">
+        Previus
+    </span>
+    <span class="ui-grid-rows" data-info-grid="#tbLisPrevius" data-info="@MessageResource.GridRowCountInfo"></span>
+    <table id="tbLisPrevius" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.DonorCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-class="ui-cell-icon" data-formatter="objIndexLoad.grid.commandAlert" data-events="objIndexLoad.grid.rowCommand"></th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.DonorCode)">@Html.DisplayNameFor(x => x.resulLoad.DonorCode)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.DonorName)">@Html.DisplayNameFor(x => x.resulLoad.DonorName)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.FundingPartner)">@Html.DisplayNameFor(x => x.resulLoad.FundingPartner)</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+<script type="text/javascript" language="javacript">
+
+    document.getElementById('imageFile').onchange = function () {
+        var nameFile = document.getElementById('imageFile').files[0].name;
+        var fileInput = document.getElementById('imageFile');
+        var filePath = fileInput.value;
+        var allowedExtensions = /(.xlsx)$/i;
+
+        $("#@Html.IdFor(m => m.File)").val(nameFile);
+
+        if (!allowedExtensions.exec(filePath)) {
+            unitlife.ui.validation.showMessage("Please upload file having extensions .xlsx/ only.");
+            $("#@Html.IdFor(m => m.File)").val("");
+            return false;
+        }
+
+        var _grid = unitlife.ui.grid("#tbLisPrevius");
+        var _frm = unitlife.ui.validation("#frmLoadReg"); @* condVal = $("#@Html.IdFor(m => m.TimeLineId)").val();*@
+        var _isValid = true;
+
+        _frm.unobtrusiveParse();
+
+        _isValid = _frm.valid();
+
+        if (_isValid) {
+            var form = $("#frmLoadReg");
+            var data = new FormData();
+            var files = $("#imageFile").get(0).files;
+
+            if (files.length > 0) {
+                data.append("imageFile", files[0]);
+            }
+
+            $.each(form.serializeArray(), function (key, input) {
+                data.append(input.name, input.value);
+            });
+
+            $("#btnRegSave").prop("disabled", false);
+            unitlife.ui.grid('#tbLisPrevius').loadFile('@Url.Action("LoadFile", "DonorPartner", null)', data);
+
+        }
+        event.target.value = '';
+     }
+
+    @*function downloadFile()
+    {
+        window.location = '@Url.Action("Download", "ProjectFinancials")/' + @Model.ProjectId + '@Url.TargetParam()';
+    }*@
+
+    var objIndexLoad={
+        initial: function () {
+
+            unitlife.ui.grid('#tbLisPrevius').create({ search: false, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndexLoad.grid.load();
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbLisPrevius");
+            },
+            load: function () {
+                unitlife.ui.grid('#tbLisPrevius').load('@Url.Action("SearchLoad", "DonorPartner", null)', '#frmLoadReg', null,
+                    function (e) {
+
+                });
+
+                $('[data-toggle="tooltip"]').tooltip();
+                $('[data-toggle="popover"]').popover();
+                $('#tbLisPrevius').on('all.bs.table', function (e, name, args) {
+                    $('[data-toggle="tooltip"]').tooltip();
+                    $('[data-toggle="popover"]').popover();
+                });
+
+
+
+            },
+            commandAlert: function (e, r, i) {
+
+                //var sd = '<a href="#" data-toggle="popover" title="توضیحات کاربر ارشد" data-content="Description" data-trigger="hover"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
+                var sd = '<span class="glyphicon glyphicon-warning-sign" data-toggle="popover" data-html="true" Title="Warning" data-content="';
+                sd = sd + r.@Html.HtmlIdNameFor(x => x.resulLoad.AlertMessage) + '" data-trigger="hover" aria-hidden="true"></span>';
+                var desc = r.@Html.HtmlIdNameFor(x => x.resulLoad.WithAlert);
+
+                if (desc == 'N') {
+                    sd = '';
+                } else {
+                    $("#btnRegSave").prop("disabled", true);
+                }
+
+                return sd;
+
+            },
+            commandFormartDecimal: function (e, r, i) {
+                //var sd = r.Amount+"sdad";
+                var sd = unitlife.numeric.formatDecimal(e,0)
+                return sd;
+            },
+            rowCommand:{
+            }
+        },
+        general:{
+        }
+    };
+
+
+    $(document).ready(function () {
+
+        $('[data-toggle="popover"]').popover();
+
+        $("#btnRegSave").on("click", function (e) {
+            e.preventDefault();
+            var _frm = unitlife.ui.validation("#frmLoadReg");
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+
+            _isValid = _frm.valid();
+            if (_isValid) {
+
+                Confirmar(
+                    '¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+                        unitlife.ajax.submit('@Url.Action("Register", "DonorPartner", null)', "#frmLoadReg");
+                        unitlife.site.dialog.invoqResultCallback('REG_DONORS');
+                    },
+                    null
+                );
+            }
+            return false;
+        });
+        objIndexLoad.initial();
+    });
+
+</script>

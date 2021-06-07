@@ -20,7 +20,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("security/api/Fund", "GetFunds", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/Fund", "GetFunds", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -33,6 +33,29 @@ namespace UNCDF.CMS
             }
 
             return funds;
+        }
+
+        public string InsertFund(List<MFund> list, Session eSession)
+        {
+            FundsRequest request = new FundsRequest();
+            BaseResponse response = new BaseResponse();
+            string returnMsg = string.Empty;
+
+            request.Funds = list;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("project/api/Fund", "InsertFund", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<BaseResponse>(bodyresponse);
+                returnMsg = response.Code + "|" + response.Message;
+            }
+
+            return returnMsg;
         }
     }
 

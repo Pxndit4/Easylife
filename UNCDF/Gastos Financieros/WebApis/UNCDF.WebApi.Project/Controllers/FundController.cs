@@ -51,6 +51,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 List<MFund> funds = BFund.List();
 
                 response.Funds = funds.ToArray();
+                response.Code = "0";
+                response.Message = "Success";
             }
             catch (Exception ex)
             {
@@ -94,6 +96,9 @@ namespace UNCDF.WebApi.Project.Controllers
 
                         BFund.Insert(fund);
                     }
+
+                    response.Code = "0";
+                    response.Message = "Success";
 
                     scope.Complete();
                 }

@@ -51,6 +51,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 List<MProgramName> programNames = BProgramName.List();
 
                 response.ProgramNames = programNames.ToArray();
+                response.Code = "0";
+                response.Message = "Success";
             }
             catch (Exception ex)
             {
@@ -64,7 +66,7 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/InsertProgramName")]
-        public BaseResponse InsertFund([FromBody] ProgramNamesRequest request)
+        public BaseResponse InsertProgramName([FromBody] ProgramNamesRequest request)
         {
             BaseResponse response = new BaseResponse();
 
@@ -99,6 +101,8 @@ namespace UNCDF.WebApi.Project.Controllers
                         BProgramName.Insert(programName);
                     }
 
+                    response.Code = "0";
+                    response.Message = "Success";
                     scope.Complete();
                 }
                 catch (Exception ex)

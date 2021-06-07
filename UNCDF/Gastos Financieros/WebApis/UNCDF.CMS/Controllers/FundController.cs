@@ -27,10 +27,13 @@ namespace UNCDF.CMS.Controllers
             JSonResult objResult = new JSonResult();
             try
             {
-  
+
                 List<MFund> entList = new List<MFund>();
 
                 entList = new WebApiFund().GetFunds();
+
+                model.FundCode = model.FundCode ?? "";
+                model.Description = model.Description ?? "";
 
                 if (!model.FundCode.Equals(""))
                 {
@@ -55,14 +58,14 @@ namespace UNCDF.CMS.Controllers
             return Json(objResult);
         }
 
-        public ActionResult Load(string id)
+        public ActionResult Load()
         {
             ViewBag.Title = "Funds - Load File";
             ViewBag.Confirm = string.Format(MessageResource.SaveConfirm, "Funds");
             Session["ListFunds"] = null;
 
 
-            return View("Load", new LoadFundsViewModel() { });
+            return View("Load", new LoadFundsViewModel());
         }
 
         [HttpPost]
@@ -171,28 +174,36 @@ namespace UNCDF.CMS.Controllers
                     {
                         ModelFundResult ent = new ModelFundResult();
                         ent.FundCode = Extension.ToEmpty(dt.Rows[i][0].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
-                        ent.Description = Convert.ToInt32(dt.Rows[i][1].ToString()).ToString();
+                        ent.Description = Extension.ToEmpty(dt.Rows[i][1].ToString());
+                        ent.AlertMessage = string.Empty;
+                        ent.WithAlert = "N";
 
                         if (ent.FundCode.Length > 10)
                         {
-                            ent.AlertMessage = " - the Fund Code column must not must not exceed 10 characters";
+                            ent.AlertMessage += "<tr><td> - the Fund Code column must not must not exceed 10 characters </td></tr> ";
                         }
 
                         if (ent.FundCode.Length == 0)
                         {
-                            ent.AlertMessage = " - the Fund Code column is required";
+                            ent.AlertMessage += "<tr><td> - the Fund Code column is required </td></tr> ";
                         }
 
                         if (ent.Description.Length > 255)
                         {
-                            ent.AlertMessage = ent.AlertMessage + " - the Description column must not must not exceed 255 characters";
+                            ent.AlertMessage += "<tr><td> - the Description column must not must not exceed 255 characters </td></tr> ";
+                        }
+
+                        if (ent.Description.Length == 0)
+                        {
+                            ent.AlertMessage +=  "<tr><td> - the Description column is required </td></tr> ";
                         }
 
                         if (ent.AlertMessage.Length > 0)
                         {
+                            ent.AlertMessage = "<table>" + ent.AlertMessage + "</table>";
                             ent.WithAlert = "S";
                         }
-                        
+
                         entlist.Add(ent);
                     }
 
@@ -217,6 +228,68 @@ namespace UNCDF.CMS.Controllers
                 objResult.message = "Error loading Funds";
             }
 
+            return Json(objResult);
+        }
+
+        [HttpPost]
+        public JsonResult SearchLoad()
+        {
+            JSonResult objResult = new JSonResult();
+            try
+            {
+                List<ModelFundResult> entList = new List<ModelFundResult>();
+                entList = (List<ModelFundResult>)Session["ListFunds"];
+                // Session["ListProjectFinancials"] = null;
+                objResult.data = entList;
+
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Funds");
+            }
+
+            return Json(objResult);
+        }
+
+        [HttpPost]
+        public ActionResult Register(LoadFundsViewModel model, HttpPostedFileBase imageFile)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                List<MFund> entList = new List<MFund>();
+                List<ModelFundResult> entListData = new List<ModelFundResult>();
+                entListData = (List<ModelFundResult>)Session["ListFunds"];
+
+                foreach (ModelFundResult item in entListData)
+                {
+                    MFund mFund = new MFund();
+                    mFund.FundCode = item.FundCode;
+                    mFund.Description = item.Description;
+                    entList.Add(mFund);
+                }
+
+                response = new WebApiFund().InsertFund(entList, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                objResult.isError = statusCode.Equals("2");
+                objResult.message = string.Format(MessageResource.SaveSuccess, "Funds"); ;
+            }
+            catch (Exception ex)
+            {
+                objResult.message = string.Format(MessageResource.SaveError + "Error :" + ex.Message, "Funds");
+            }
             return Json(objResult);
         }
     }

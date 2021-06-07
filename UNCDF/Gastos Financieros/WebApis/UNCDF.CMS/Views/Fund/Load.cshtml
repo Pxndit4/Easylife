@@ -4,9 +4,11 @@
 }
 @Html.Hidden("viewTitle", ViewBag.Title as string)
 
+
+
 <div class="ui-bar ui-bar-default">
     <div class="ui-btn-content">
-        <button type="submit" id="btnRegSave" class="btn btn-default">
+        <button type="submit" id="btnRegSave" disabled="disabled" class="btn btn-default">
             <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
             Upload
         </button>
@@ -18,7 +20,7 @@
     {
         @Html.AntiForgeryToken()
         <div class="form-group">
-
+            <input type="hidden" id="hfWarnning" name="hfWarnning" value="N">
             <div class="row">
                 <div class="col-md-12">
                     @*@Html.LabelFor(m => m.File)*@
@@ -34,7 +36,7 @@
             </div>
 
         </div>
-        <div>
+        <div>            
             Required fields.<span class="input-validation-error-ley"></span>
         </div>
     }
@@ -48,6 +50,7 @@
     <table id="tbLisPrevius" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.FundCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
+                <th data-class="ui-cell-icon" data-formatter="objIndexLoad.grid.commandAlert" data-events="objIndexLoad.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.FundCode)">@Html.DisplayNameFor(x => x.resulLoad.FundCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Description)">@Html.DisplayNameFor(x => x.resulLoad.Description)</th>
             </tr>
@@ -93,12 +96,12 @@
                 data.append(input.name, input.value);
             });
 
+            $("#btnRegSave").prop("disabled", false);
             unitlife.ui.grid('#tbLisPrevius').loadFile('@Url.Action("LoadFile", "Fund", null)', data);
 
         }
         event.target.value = '';
      }
-
 
     @*function downloadFile()
     {
@@ -116,10 +119,36 @@
                 return unitlife.ui.grid("#tbLisPrevius");
             },
             load: function () {
-                    unitlife.ui.grid('#tbLisPrevius').load('@Url.Action("SearchLoad", "ProjectFinancials", null)', '#frmLoadReg', null,
+                unitlife.ui.grid('#tbLisPrevius').load('@Url.Action("SearchLoad", "Fund", null)', '#frmLoadReg', null,
                     function (e) {
 
-                    });
+                });
+
+                $('[data-toggle="tooltip"]').tooltip();
+                $('[data-toggle="popover"]').popover();
+                $('#tbLisPrevius').on('all.bs.table', function (e, name, args) {
+                    $('[data-toggle="tooltip"]').tooltip();
+                    $('[data-toggle="popover"]').popover();
+                });
+
+                
+
+            },
+            commandAlert: function (e, r, i) {
+
+                //var sd = '<a href="#" data-toggle="popover" title="توضیحات کاربر ارشد" data-content="Description" data-trigger="hover"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
+                var sd = '<span class="glyphicon glyphicon-warning-sign" data-toggle="popover" data-html="true" Title="Warning" data-content="';
+                sd = sd + r.@Html.HtmlIdNameFor(x => x.resulLoad.AlertMessage) + '" data-trigger="hover" aria-hidden="true"></span>';
+                var desc = r.@Html.HtmlIdNameFor(x => x.resulLoad.WithAlert);
+
+                if (desc == 'N') {
+                    sd = '';
+                } else {
+                    $("#btnRegSave").prop("disabled", true);
+                }
+
+                return sd;
+
             },
             commandFormartDecimal: function (e, r, i) {
                 //var sd = r.Amount+"sdad";
@@ -135,6 +164,8 @@
 
 
     $(document).ready(function () {
+
+        $('[data-toggle="popover"]').popover();
 
         $("#btnRegSave").on("click", function (e) {
             e.preventDefault();
