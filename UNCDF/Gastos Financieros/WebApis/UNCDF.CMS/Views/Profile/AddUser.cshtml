@@ -1,0 +1,144 @@
+﻿@model UNCDF.CMS.Models.AddUserViewModel
+
+@if (!AutenticationManager.IsLoged)
+{
+    Response.Redirect(Url.Action("Login", "Seguridad"), true);
+    return;
+}
+
+@{
+    ViewBag.Title = "Assign Users to Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">Assign Users to Profile</span>
+    <div class="ui-btn-content">
+        <a id="lnkReturnAct" class="btn btn-default" href="@Url.Link("Index", "Profile", null)">
+            <span class="glyphicon glyphicon-arrow-left"></span>Regresar
+        </a>
+        @Ajax.AjaxActionLink("Add", "SearchUserProfile", "Profile", new { id = Model.ProfileId }, new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "dialogBody",
+            OnBegin = "unitlife.site.dialog.onInit",
+            OnComplete = "unitlife.site.dialog.onComplete",
+            OnFailure = "unitlife.site.dialog.onFailure",
+        }, new { @class = "btn btn-default", id = "BuscarPerfilUsuario_dialog" }, "glyphicon glyphicon-plus")
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+
+@using (Html.BeginForm("EditUser", "Profile", FormMethod.Post, new { id = "frmSearch" }))
+{
+    <div class="ui-container ui-jumb">
+        @Html.HiddenFor(m => m.ProfileId)
+        @Html.HiddenFor(m => m.Status)
+
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-9">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @disabled = "disabled" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-container">
+
+        <span class="title">User List</span>
+        <table id="tbList"
+               class="table table-hover"
+               data-toggle="table"
+               data-toolbar=".toolbar"
+               data-pagination="true">
+            <thead>
+                <tr>
+                    <th data-field="@Html.HtmlIdNameFor(m => m.line.ProfileId)" data-visible="false">@Html.DisplayNameFor(m => m.line.ProfileId)</th>
+                    <th data-field="@Html.HtmlIdNameFor(m => m.line.UserId)" data-visible="false">@Html.DisplayNameFor(m => m.line.UserId)</th>
+                    <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objNuevoAsignarUsuario.grid.rowCommand"></th>
+                    <th data-field="@Html.HtmlIdNameFor(m => m.line.User)">@Html.DisplayNameFor(m => m.line.User)</th>
+                    <th data-field="@Html.HtmlIdNameFor(m => m.line.Name)">@Html.DisplayNameFor(m => m.line.Name)</th>
+                </tr>
+            </thead>
+
+
+        </table>
+    </div>
+}
+
+<script type="text/javascript" language="javacript">
+
+    var objNuevoAsignarUsuario = {
+        initial: function () {
+            var _grid = unitlife.ui.grid("#tbList");
+
+            $("#menu-toggle").click(function (e) {
+                $("#sidePanel").toggleClass("toggled");
+                return false;
+            });
+
+            $('#tbList').bootstrapTable({
+                cache: false,
+                search: false,
+                pagination: false
+            });
+
+            _grid.load("@Url.Action("ListUsers", "Profile")", "#frmSearch");
+
+        },
+        grid: {
+            get: function () {
+                return unitlife.ui.grid("#tbList");
+            },
+            rebind: function (e) {
+
+                if (e && e.isError == true)
+                    return;
+                objNuevoAsignarUsuario.grid.get().load("@Url.Action("ListUsers", "Profile")", "#frmSearch");
+            },
+            rowCommand: {
+
+                'click #remove': function (e, value, row) {
+                    var _grid = unitlife.ui.grid("#tbList");
+                    Confirmar(
+                        '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Profile"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("DeleteUser", "Profile", null)', { ProfileId: row.ProfileId, UserId: row.UserId }, objNuevoAsignarUsuario.grid.rebind);
+                            _grid.load("@Url.Action("ListUsers", "Profile")", "#frmSearch");
+                        },
+                        null
+                    );
+                    return false;
+                }
+            }
+        }
+    };
+
+    function ___getModalResult(key, data) {
+        if (key == 'BUSC_PERFILUSUARIO')
+            objNuevoAsignarUsuario.grid.get().load("@Url.Action("ListUsers", "Profile")", "#frmSearch");
+        //objNuevoProducto.grid.addRows(Array.isArray(data.item) ? data.item : [data.item]);
+    }
+
+    $(document).ready(function () {
+        objNuevoAsignarUsuario.initial();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+    });
+
+
+</script>
+
+

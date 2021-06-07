@@ -1,0 +1,121 @@
+﻿@model UNCDF.CMS.Models.SearchUserProfileViewModel
+
+@if (!AutenticationManager.IsLoged)
+{
+    Response.Redirect(Url.Action("Login", "Seguridad"), true);
+    return;
+}
+
+@{
+    ViewBag.Title = "Search User";
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+<div class="ui-container  ui-jumb">
+    @using (Html.BeginForm("SearchUserProfile", "Profile", FormMethod.Post, new { @class = "ui-form", id = "frmBuscador" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Filter)
+        @Html.HiddenFor(m => m.ProfileId)
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.User)
+                    @Html.TextBoxFor(m => m.User, new { @class = "form-control input-sm", id = "txtUser" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Name)
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-sm", id = "txtName" })
+                        <a id="btnSearch" href="#" class="btn btn-default input-group-addon">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a id="btnClean2" class="btn btn-default form-control input-sm" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="ui-container">
+    <span class="title">Result</span>
+    <table id="tbListBuscador" data-height="250" data-toggle="table">
+        <thead>
+            <tr>
+                <th data-visible="false" data-field="@Html.HtmlIdNameFor(x => x.Result.ProfileId)">@Html.DisplayNameFor(x => x.Result.ProfileId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.UserId)" data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.add" data-events="objBuscador.grid.rowCommand"></th>
+
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.User)">@Html.DisplayNameFor(x => x.Result.User)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.Name)">@Html.DisplayNameFor(x => x.Result.Name)</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/javascript" language="javacript">
+
+    $("#btnClean2").on("click", function (e) {
+        e.preventDefault();
+        $("#txtUser").val("");
+        $("#txtName").val("");
+        $("#frmBuscador #btnSearch").click();
+    });
+
+    var objBuscador = {
+        initial: function () {
+            var _grid = unitlife.ui.grid("#tbListBuscador");
+
+            $("#frmBuscador #btnSearch").on("click", function (e) {
+                e.preventDefault();
+                var da = unitlife.site.dialog.getTargetValue();
+
+                da = da.replace('[', '').replace(']', '');
+                $('#@Html.IdFor(m => m.Filter)').val(da);
+
+                @*_grid.load('@Url.Action("BuscardorPerfilUsuario", "Perfiles", null)', { Codigo: row.Codigo, Usuario: row.Usuario, idPerfil: row.IdPerfil }, objBuscador.grid.rebind);*@
+                _grid.load('@Url.Action("SearchUserProfile", "Profile", null)', '#frmBuscador');
+                return false;
+            });
+
+            _grid.gridElement().bootstrapTable({
+                cache: false,
+                search: false,
+                pagination: false
+            });
+        },
+        grid: {
+            rebind: function (e) {
+                var _grid = unitlife.ui.grid("#tbListBuscador")
+                if (e && e.isError == true)
+                    return;
+                _grid.load("@Url.Action("SearchUserProfile", "Profile")", "#frmBuscador");
+            },
+            rowCommand: {
+                'click #add': function (e, value, row) {
+                    var _grid = unitlife.ui.grid("#tbListBuscador");
+                    e.preventDefault();
+                    _grid.invoqCommand('@Url.Action("RegisterUserProfile", "Profile", null)', { ProfileId: row.ProfileId, UserId: row.UserId }, objBuscador.grid.rebind);
+                    _grid.load("@Url.Action("SearchUserProfile", "Profile")", "#frmBuscador");
+                    @*_grid.load('@Url.Action("BuscardorPerfilUsuario", "Perfiles", {idusuario= row.Idperfil, })', '#frmBuscador');*@
+                    unitlife.site.dialog.invoqResultCallback('BUSC_PERFILUSUARIO', row);
+                    var _gridUsuarios = unitlife.ui.grid("#tbList");
+                    _gridUsuarios.load("@Url.Action("ListUsers", "Profile")", "#frmSearch");
+                    //unitlife.site.dialog.close();
+                    return false;
+                }
+            },
+        }
+    };
+
+
+    $(document).ready(function () {
+        objBuscador.initial();
+    });
+
+
+</script>

@@ -12,17 +12,6 @@
 
 <div class="ui-bar ui-bar-default">
     <span class="ui-title">Profile Maintenance</span>
-    <div class="ui-btn-content">
-        @Ajax.AjaxActionLink("New", "New", "Profile", null, new AjaxOptions
-                   {
-                       HttpMethod = "GET",
-                       InsertionMode = InsertionMode.Replace,
-                       UpdateTargetId = "dialogBody",
-                       OnBegin = "unitlife.site.dialog.onInit",
-                       OnComplete = "unitlife.site.dialog.onComplete",
-                       OnFailure = "unitlife.site.dialog.onFailure",
-                   }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
-    </div>
 </div>
 
 <div class="collapse ui-error-view" id="panMessage">
@@ -67,9 +56,9 @@
     <table id="tbListProfile" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
-                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
+                
                 @*<th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndex.grid.rowCommand"></th>*@
-                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandDelete" data-events="objIndex.grid.rowCommand"></th>
+                
                 <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandPerfil" data-events="objIndex.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.Result.ProfileId)">@Html.DisplayNameFor(x => x.Result.ProfileId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.Result.Description)">@Html.DisplayNameFor(x => x.Result.Description)</th>

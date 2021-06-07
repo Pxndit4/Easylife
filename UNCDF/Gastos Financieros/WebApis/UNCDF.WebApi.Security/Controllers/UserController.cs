@@ -140,6 +140,56 @@ namespace UNCDF.WebApi.Security.Controllers
         }
 
         [HttpPost]
+        [Route("0/GetUser")]
+        public UserResponse GetUser([FromBody] UserRequest request)
+        {
+            UserResponse response = new UserResponse();
+            MUser user = new MUser();
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Session = request.Session;
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            user.UserId = request.User.UserId;
+
+            int Val = 0;
+
+            user = BUser.Sel(user, ref Val);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "User");
+            }
+            else if (Val.Equals(1))
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "User");
+            }
+
+            response.User = user;
+
+            return response;
+        }
+
+
+
+
+        [HttpPost]
         [Route("0/GetUsers")]
         public UsersResponse GetUsers([FromBody] UserRequest request)
         {
