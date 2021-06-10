@@ -1,0 +1,133 @@
+﻿@model UNCDF.CMS.Models.ProjectViewModel
+
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        Projects
+    </span>
+    <div class="ui-btn-content">
+        @Ajax.AjaxActionLink("Load", "Load", "Project", null, new AjaxOptions
+           {
+               HttpMethod = "GET",
+               InsertionMode = InsertionMode.Replace,
+               UpdateTargetId = "dialogBody",
+               OnBegin = "unitlife.site.dialog.onInit",
+               OnComplete = "unitlife.site.dialog.onComplete",
+               OnFailure = "unitlife.site.dialog.onFailure",
+           }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
+    </div>
+</div>
+
+<div class="ui-container ui-jumb">
+    <div>
+        @using (Html.BeginForm("Search", "Project", FormMethod.Post, new { id = "frmSearch" }))
+        {
+            @Html.AntiForgeryToken()
+            @*@Html.HiddenFor(m => m.ProjectId)*@
+
+            <div class="form-group">
+                <div class="row">
+                    @*@Html.HiddenFor(m => m.ProjectId)*@
+                    <div class="col-md-1">
+                        @Html.LabelFor(m => m.ProjectCode)
+                        @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-10">
+
+                        @Html.LabelFor(m => m.Description)
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+
+                            <a id="btnSearch" class="btn btn-default input-group-addon">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+<div id="tbListCont1" class="ui-container">
+
+    <span id="countR" class="bars pull-left" style="font-weight: bold;margin-top: 15px;"></span>
+
+    <table id="tbList" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.result.ProjectCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDate)">@Html.DisplayNameFor(x => x.result.StartDate)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDate)">@Html.DisplayNameFor(x => x.result.EndDate)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>
+                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/javascript" language="javacript">
+    var objIndex={
+        initial: function () {
+
+            $("#btnSearch").on("click", function (e) {
+                e.preventDefault();
+                objIndex.grid.load();
+            });
+
+            unitlife.ui.grid('#tbList').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndex.grid.load();
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbList");
+            },
+            load: function () {
+                @*unitlife.ui.grid('#tbList').load('@Url.Action("Search", "ProjectFinancials", null)', '#frmSearch');*@
+                unitlife.ui.grid('#tbList').load('@Url.Action("Search", "Project", null)', '#frmSearch',
+                function (e) {
+                    var da = 'Project List @Html.Raw(MessageResource.GridRowCountInfo)'  ;
+                    da = da.replace("{0}", e.data.length);
+                    $("#countR").text(da);
+                });
+            },
+            commandFormartDecimal: function (e, r, i) {
+                //var sd = r.Amount+"sdad";
+                var sd = unitlife.numeric.formatDecimal(e,0)
+                return sd;
+            },
+            rowCommand:{
+            }
+        },
+        general:{
+        }
+    };
+
+    function ___getModalResult(key, data) {
+        if (key == 'REG_PROJECT') {
+            objIndex.grid.load();
+        }
+    }
+
+    $(document).ready(function () {
+        objIndex.initial();
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+    });
+</script>
+

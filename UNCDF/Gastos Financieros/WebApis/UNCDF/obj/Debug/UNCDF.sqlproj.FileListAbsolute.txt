@@ -17,3 +17,13 @@ H:\GIT-Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\postdeploy.sql
 H:\GIT-Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\predeploy.sql
 H:\GIT-Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.dll
 H:\GIT-Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.pdb
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\bin\Debug\UNCDF.dacpac
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\bin\Debug\UNCDF.dll
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\bin\Debug\UNCDF.pdb
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.sqlprojAssemblyReference.cache
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\Model.xml
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\refactor.xml
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\postdeploy.sql
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\predeploy.sql
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.dll
+C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.pdb
