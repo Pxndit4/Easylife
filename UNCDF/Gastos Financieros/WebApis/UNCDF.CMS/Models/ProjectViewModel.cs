@@ -47,6 +47,13 @@ namespace UNCDF.CMS.Models
         [Display(Name = "Project Code")]
         public string ProjectCode { get; set; }
         public string Description { get; set; }
+        public string Type { get; set; }
+        public string Status { get; set; }
+        public string StartDateStr { get; set; }
+        public string EndDateStr { get; set; }
+        public string Title { get; set; }
+        public string AwardId { get; set; }
+        public string AwardStatus { get; set; }
         public string AlertMessage { get; set; }
         public string WithAlert { get; set; }
     }

@@ -86,7 +86,7 @@ namespace UNCDF.CMS.Controllers
             basePath = Server.MapPath("~/File");
             DataTable dt;
 
-            var include = new[] { "B", "C" };
+            var include = new[] {  "B", "C","D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O" };
             try
             {
                 if (imageFile != null)
@@ -142,7 +142,22 @@ namespace UNCDF.CMS.Controllers
                                     cel2 = cel2.Substring(0, 1);
                                     if (include.Any(x => cel2.Contains(x)))
                                     {
-                                        dt.Rows[dt.Rows.Count - 1][i] = OpenXMLUtil.GetValue(doc, cell);
+                                        string val= OpenXMLUtil.GetValue(doc, cell);
+                                        if (cel2.Contains("K") || cel2.Contains("L"))
+                                        {
+                                            try
+                                            {
+                                                DateTime date = DateTime.FromOADate(Convert.ToDouble(val));
+                                                val = date.ToString("dd/MM/yyyy");
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                objResult.isError = true;
+                                                objResult.message = string.Format("Error: Error in the date field please use format DD/MM/YYYY", "Project  ERP ");
+                                                return Json(objResult);
+                                            }
+                                        }
+                                        dt.Rows[dt.Rows.Count - 1][i] = val;
                                         i++;
                                     }
 
@@ -177,36 +192,45 @@ namespace UNCDF.CMS.Controllers
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         ModelProjectResult ent = new ModelProjectResult();
-                        ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][0].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
-                        ent.Description = Extension.ToEmpty(dt.Rows[i][1].ToString());
+                        //ent.Department = Extension.ToEmpty(dt.Rows[i][0].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
+                        ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][1].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
+                        ent.Description = Extension.ToEmpty(dt.Rows[i][2].ToString());
+                        ent.Type = Extension.ToEmpty(dt.Rows[i][3].ToString());
+                        ent.Status = Extension.ToEmpty(dt.Rows[i][4].ToString());
+                        ent.StartDateStr = Extension.ToEmpty(dt.Rows[i][9].ToString());
+                        ent.EndDateStr = Extension.ToEmpty(dt.Rows[i][10].ToString());
+                        ent.AwardId = Extension.ToEmpty(dt.Rows[i][11].ToString());
+                        ent.Title = Extension.ToEmpty(dt.Rows[i][12].ToString());
+                        ent.AwardStatus = Extension.ToEmpty(dt.Rows[i][13].ToString());
+                        
                         ent.AlertMessage = string.Empty;
                         ent.WithAlert = "N";
 
-                        if (ent.ProjectCode.Length > 10)
-                        {
-                            ent.AlertMessage += "<tr><td> - the Project Code column must not must not exceed 10 characters </td></tr> ";
-                        }
+                        //if (ent.ProjectCode.Length > 10)
+                        //{
+                        //    ent.AlertMessage += "<tr><td> - the Project Code column must not must not exceed 10 characters </td></tr> ";
+                        //}
 
-                        if (ent.ProjectCode.Length == 0)
-                        {
-                            ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
-                        }
+                        //if (ent.ProjectCode.Length == 0)
+                        //{
+                        //    ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
+                        //}
 
-                        if (ent.Description.Length > 255)
-                        {
-                            ent.AlertMessage += "<tr><td> - the Description column must not must not exceed 255 characters </td></tr> ";
-                        }
+                        //if (ent.Description.Length > 255)
+                        //{
+                        //    ent.AlertMessage += "<tr><td> - the Description column must not must not exceed 255 characters </td></tr> ";
+                        //}
 
-                        if (ent.Description.Length == 0)
-                        {
-                            ent.AlertMessage += "<tr><td> - the Description column is required </td></tr> ";
-                        }
+                        //if (ent.Description.Length == 0)
+                        //{
+                        //    ent.AlertMessage += "<tr><td> - the Description column is required </td></tr> ";
+                        //}
 
-                        if (ent.AlertMessage.Length > 0)
-                        {
-                            ent.AlertMessage = "<table>" + ent.AlertMessage + "</table>";
-                            ent.WithAlert = "S";
-                        }
+                        //if (ent.AlertMessage.Length > 0)
+                        //{
+                        //    ent.AlertMessage = "<table>" + ent.AlertMessage + "</table>";
+                        //    ent.WithAlert = "S";
+                        //}
 
                         entlist.Add(ent);
                     }
@@ -279,6 +303,13 @@ namespace UNCDF.CMS.Controllers
                     MProject mProject = new MProject();
                     mProject.ProjectCode = item.ProjectCode;
                     mProject.Description = item.Description;
+                    mProject.Type = item.Type;
+                    mProject.Status = item.Status;
+                    mProject.StartDate =  Convert.ToInt32(Extension.ToFormatDateYYYYMMDD( item.StartDateStr));
+                    mProject.EndDate = Convert.ToInt32(Extension.ToFormatDateYYYYMMDD(item.EndDateStr));//item.EndDate;
+                    mProject.Title = item.Title;
+                    mProject.AwardId = item.AwardId;
+                    mProject.AwardStatus = item.AwardStatus;
                     entList.Add(mProject);
                 }
 

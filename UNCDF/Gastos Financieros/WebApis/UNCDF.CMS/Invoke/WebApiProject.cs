@@ -23,7 +23,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("project/api/Project", "Getprojects", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/project", "Getprojects", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -40,17 +40,18 @@ namespace UNCDF.CMS
 
         public string InsertProject(List<MProject> list, Session eSession)
         {
-            ProjectsResponse request = new ProjectsResponse();
+            //ProjectsResponse request = new ProjectsResponse();
+            ProjectsListRequest request = new ProjectsListRequest();
             BaseResponse response = new BaseResponse();
             string returnMsg = string.Empty;
 
-            //request.Project = list;
-            //request.Session = eSession;
-            //request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+            request.Projects = list;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("Project/api/project", "Insertproject", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/project", "InsertProject", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -70,5 +71,10 @@ namespace UNCDF.CMS
     public class ProjectsRequest : BaseRequest
     {
         public MProject Project { get; set; }
+    }
+
+    public class ProjectsListRequest : BaseRequest
+    {
+        public List<MProject> Projects { get; set; }
     }
 }

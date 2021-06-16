@@ -9,11 +9,13 @@ namespace UNCDF.Layers.Model
         public string Type { get; set; }
         public string Status { get; set; }
         public int StartDate { get; set; }
+        public string StartDateStr { get; set; }
         public int EndDate { get; set; }
+        public string EndDateStr { get; set; }
         public string Title { get; set; }
         public string AwardId { get; set; }
         public string AwardStatus { get; set; }
-
+        //public string Depart { get; set; }
         /* Atributos para la carga de Imagen y Video */
         public string Image { get; set; }
         public string Video { get; set; }

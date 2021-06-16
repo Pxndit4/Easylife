@@ -46,12 +46,19 @@
         Previus
     </span>
     <span class="ui-grid-rows" data-info-grid="#tbLisPrevius" data-info="@MessageResource.GridRowCountInfo"></span>
-    <table id="tbLisPrevius" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
+    <table id="tbLisPrevius2" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
                 <th data-class="ui-cell-icon" data-formatter="objIndexLoad.grid.commandAlert" data-events="objIndexLoad.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectCode)">@Html.DisplayNameFor(x => x.resulLoad.ProjectCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Description)">@Html.DisplayNameFor(x => x.resulLoad.Description)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Type)">@Html.DisplayNameFor(x => x.resulLoad.Type)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Status)">@Html.DisplayNameFor(x => x.resulLoad.Status)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.StartDateStr)">@Html.DisplayNameFor(x => x.resulLoad.StartDateStr)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.EndDateStr)">@Html.DisplayNameFor(x => x.resulLoad.EndDateStr)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Title)">@Html.DisplayNameFor(x => x.resulLoad.Title)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.AwardId)">@Html.DisplayNameFor(x => x.resulLoad.AwardId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.AwardStatus)">@Html.DisplayNameFor(x => x.resulLoad.AwardStatus)</th>
             </tr>
         </thead>
 
@@ -187,6 +194,14 @@
             return false;
         });
         objIndexLoad.initial();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
     });
 
 </script>
