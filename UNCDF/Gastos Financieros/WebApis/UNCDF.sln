@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNCDF.Layers.Model", "UNCDF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNCDF.WebApi.Project", "UNCDF.WebApi.Project\UNCDF.WebApi.Project.csproj", "{D787BACA-E9CD-44C8-978F-48CC67DDEC65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNCDF.WebApi.Config", "UNCDF.WebApi.Config\UNCDF.WebApi.Config.csproj", "{7FCEA262-48B4-43D9-9EC4-35E7DCB4782B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{D787BACA-E9CD-44C8-978F-48CC67DDEC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D787BACA-E9CD-44C8-978F-48CC67DDEC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D787BACA-E9CD-44C8-978F-48CC67DDEC65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FCEA262-48B4-43D9-9EC4-35E7DCB4782B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FCEA262-48B4-43D9-9EC4-35E7DCB4782B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FCEA262-48B4-43D9-9EC4-35E7DCB4782B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FCEA262-48B4-43D9-9EC4-35E7DCB4782B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
