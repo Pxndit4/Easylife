@@ -149,7 +149,11 @@ namespace UNCDF.WebApi.Project.Controllers
         {
             ProjectResponse response = new ProjectResponse();
 
-            using (TransactionScope scope = new TransactionScope())
+            TransactionOptions transactionOptions = new TransactionOptions();
+            transactionOptions.IsolationLevel = IsolationLevel.ReadCommitted;
+            transactionOptions.Timeout = TimeSpan.MaxValue;
+
+            using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
             {
                 try
                 {
@@ -170,10 +174,15 @@ namespace UNCDF.WebApi.Project.Controllers
                     {
                         MProject project = new MProject();
 
+                        project.Department = model.Department;
                         project.ProjectCode = model.ProjectCode;
                         project.Description = model.Description;
                         project.Type = model.Type;
+                        project.EffectiveStatus = model.EffectiveStatus;
+                        project.StatusEffDate = model.StatusEffDate;
+                        project.StatusEffSeq = model.StatusEffSeq;
                         project.Status = model.Status;
+                        project.StatusDescription = model.StatusDescription;
                         project.StartDate = model.StartDate;
                         project.EndDate = model.EndDate;
                         project.Title = model.Title;

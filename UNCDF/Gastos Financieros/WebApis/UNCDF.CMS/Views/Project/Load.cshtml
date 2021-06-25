@@ -53,7 +53,11 @@
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectCode)">@Html.DisplayNameFor(x => x.resulLoad.ProjectCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Description)">@Html.DisplayNameFor(x => x.resulLoad.Description)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Type)">@Html.DisplayNameFor(x => x.resulLoad.Type)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.EffectiveStatus)">@Html.DisplayNameFor(x => x.resulLoad.EffectiveStatus)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.StatusEffDateStr)">@Html.DisplayNameFor(x => x.resulLoad.StatusEffDateStr)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.StatusEffSeq)">@Html.DisplayNameFor(x => x.resulLoad.StatusEffSeq)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Status)">@Html.DisplayNameFor(x => x.resulLoad.Status)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.StatusDescription)">@Html.DisplayNameFor(x => x.resulLoad.StatusDescription)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.StartDateStr)">@Html.DisplayNameFor(x => x.resulLoad.StartDateStr)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.EndDateStr)">@Html.DisplayNameFor(x => x.resulLoad.EndDateStr)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Title)">@Html.DisplayNameFor(x => x.resulLoad.Title)</th>
@@ -81,7 +85,7 @@
             return false;
         }
 
-        var _grid = unitlife.ui.grid("#tbLisPrevius");
+        var _grid = unitlife.ui.grid("#tbLisPrevius2");
         var _frm = unitlife.ui.validation("#frmLoadReg"); @* condVal = $("#@Html.IdFor(m => m.TimeLineId)").val();*@
         var _isValid = true;
 
@@ -103,7 +107,7 @@
             });
 
             $("#btnRegSave").prop("disabled", false);
-            unitlife.ui.grid('#tbLisPrevius').loadFile('@Url.Action("LoadFile", "Project", null)', data);
+            unitlife.ui.grid('#tbLisPrevius2').loadFile('@Url.Action("LoadFile", "Project", null)', data);
 
         }
         event.target.value = '';
@@ -117,22 +121,22 @@
     var objIndexLoad={
         initial: function () {
 
-            unitlife.ui.grid('#tbLisPrevius').create({ search: false, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            unitlife.ui.grid('#tbLisPrevius2').create({ search: false, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
             objIndexLoad.grid.load();
         },
         grid:{
             get:function(){
-                return unitlife.ui.grid("#tbLisPrevius");
+                return unitlife.ui.grid("#tbLisPrevius2");
             },
             load: function () {
-                unitlife.ui.grid('#tbLisPrevius').load('@Url.Action("SearchLoad", "Project", null)', '#frmLoadReg', null,
+                unitlife.ui.grid('#tbLisPrevius2').load('@Url.Action("SearchLoad", "Project", null)', '#frmLoadReg', null,
                     function (e) {
 
                 });
 
                 $('[data-toggle="tooltip"]').tooltip();
                 $('[data-toggle="popover"]').popover();
-                $('#tbLisPrevius').on('all.bs.table', function (e, name, args) {
+                $('#tbLisPrevius2').on('all.bs.table', function (e, name, args) {
                     $('[data-toggle="tooltip"]').tooltip();
                     $('[data-toggle="popover"]').popover();
                 });

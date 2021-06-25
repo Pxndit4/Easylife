@@ -25,10 +25,10 @@ namespace UNCDF.CMS
             //    requestURL = ConfigurationManager.AppSettings["URLServicesSecurity"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             //}
 
-            //if (path.Contains("project"))
+            //if (path.Contains("Project"))
             //{
             //    //  path = path.Replace("applicationConfig/", "");
-            //    path = path.Replace("project/", "");
+            //    path = path.Replace("Project/", "");
             //    //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             //    requestURL = ConfigurationManager.AppSettings["URLServicesproject"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             //}

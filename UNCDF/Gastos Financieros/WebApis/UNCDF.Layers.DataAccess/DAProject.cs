@@ -19,10 +19,20 @@ namespace UNCDF.Layers.DataAccess
                     cmd.CommandTimeout = 0;
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@IProjectId", SqlDbType.VarChar).Value = ent.ProjectId;
+                    cmd.Parameters.Add("@IDepartment", SqlDbType.VarChar).Value = ent.Department;
                     cmd.Parameters.Add("@IPProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
                     cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
                     cmd.Parameters.Add("@IType", SqlDbType.VarChar).Value = ent.Type;
+
+                    cmd.Parameters.Add("@IEffectiveStatus", SqlDbType.VarChar).Value = ent.EffectiveStatus;
+                    cmd.Parameters.Add("@IStatusEffDate", SqlDbType.Int).Value = ent.StatusEffDate;
+                    cmd.Parameters.Add("@IStatusEffSeq", SqlDbType.Int).Value = ent.StatusEffSeq;
+
                     cmd.Parameters.Add("@IStatus", SqlDbType.VarChar).Value = ent.Status;
+                    
+                    cmd.Parameters.Add("@IStatusDescription", SqlDbType.VarChar).Value = ent.StatusDescription;
+
+
                     cmd.Parameters.Add("@IStartDate", SqlDbType.Int).Value = ent.StartDate;
                     cmd.Parameters.Add("@IEndDate", SqlDbType.Int).Value = ent.EndDate;
                     cmd.Parameters.Add("@ITitle", SqlDbType.VarChar).Value = ent.Title;
@@ -74,6 +84,11 @@ namespace UNCDF.Layers.DataAccess
                             entRow.StartDate = Convert.ToInt32(reader["StartDate"]);
                             entRow.EndDate = Convert.ToInt32(reader["EndDate"]);
                             entRow.Status = Convert.ToString(reader["Status"]);
+                            entRow.Department = Convert.ToString(reader["Department"]);
+                            entRow.EffectiveStatus = Convert.ToString(reader["EffectiveStatus"]);
+                            entRow.StatusEffDate = Convert.ToInt32(reader["StatusEffDate"]);
+                            entRow.StatusEffSeq = Convert.ToInt32(reader["StatusEffSeq"]);
+                            entRow.StatusDescription = Convert.ToString(reader["StatusDescription"]);
                             lisQuery.Add(entRow);
                         }
                     }

@@ -64,13 +64,29 @@
     <table id="tbList" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.result.ProjectCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
+
+                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDate)">@Html.DisplayNameFor(x => x.result.StartDate)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDate)">@Html.DisplayNameFor(x => x.result.EndDate)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>*@
+                
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Type)">@Html.DisplayNameFor(x => x.result.Type)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.EffectiveStatus)">@Html.DisplayNameFor(x => x.result.EffectiveStatus)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffDateStr)">@Html.DisplayNameFor(x => x.result.StatusEffDateStr)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffSeq)">@Html.DisplayNameFor(x => x.result.StatusEffSeq)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Status)">@Html.DisplayNameFor(x => x.result.Status)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusDescription)">@Html.DisplayNameFor(x => x.result.StatusDescription)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDateStr)">@Html.DisplayNameFor(x => x.result.StartDateStr)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDateStr)">@Html.DisplayNameFor(x => x.result.EndDateStr)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.AwardId)">@Html.DisplayNameFor(x => x.result.AwardId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.AwardStatus)">@Html.DisplayNameFor(x => x.result.AwardStatus)</th>
+
+                @*<th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>*@
             </tr>
         </thead>
     </table>

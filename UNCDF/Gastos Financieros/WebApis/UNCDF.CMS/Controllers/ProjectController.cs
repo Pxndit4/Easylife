@@ -143,7 +143,7 @@ namespace UNCDF.CMS.Controllers
                                     if (include.Any(x => cel2.Contains(x)))
                                     {
                                         string val= OpenXMLUtil.GetValue(doc, cell);
-                                        if (cel2.Contains("K") || cel2.Contains("L"))
+                                        if (cel2.Contains("K") || cel2.Contains("L")|| cel2.Contains("G"))
                                         {
                                             try
                                             {
@@ -153,7 +153,7 @@ namespace UNCDF.CMS.Controllers
                                             catch (Exception ex)
                                             {
                                                 objResult.isError = true;
-                                                objResult.message = string.Format("Error: Error in the date field please use format DD/MM/YYYY", "Project  ERP ");
+                                                objResult.message = string.Format("Error: Error in the date field please use format DD/MM/YYYY", "Project");
                                                 return Json(objResult);
                                             }
                                         }
@@ -192,45 +192,83 @@ namespace UNCDF.CMS.Controllers
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         ModelProjectResult ent = new ModelProjectResult();
-                        //ent.Department = Extension.ToEmpty(dt.Rows[i][0].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
-                        ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][1].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
+                        ent.Department = Extension.ToEmpty(dt.Rows[i][0].ToString());
+                        ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][1].ToString());
                         ent.Description = Extension.ToEmpty(dt.Rows[i][2].ToString());
                         ent.Type = Extension.ToEmpty(dt.Rows[i][3].ToString());
-                        ent.Status = Extension.ToEmpty(dt.Rows[i][4].ToString());
+                        ent.EffectiveStatus = Extension.ToEmpty(dt.Rows[i][4].ToString());
+                        ent.StatusEffDateStr = Extension.ToEmpty(dt.Rows[i][5].ToString());
+                        ent.StatusEffSeq = Extension.ToInt32(dt.Rows[i][6].ToString());
+                        ent.Status = Extension.ToEmpty(dt.Rows[i][7].ToString());
+                        ent.StatusDescription = Extension.ToEmpty(dt.Rows[i][8].ToString());
                         ent.StartDateStr = Extension.ToEmpty(dt.Rows[i][9].ToString());
                         ent.EndDateStr = Extension.ToEmpty(dt.Rows[i][10].ToString());
                         ent.AwardId = Extension.ToEmpty(dt.Rows[i][11].ToString());
                         ent.Title = Extension.ToEmpty(dt.Rows[i][12].ToString());
                         ent.AwardStatus = Extension.ToEmpty(dt.Rows[i][13].ToString());
-                        
                         ent.AlertMessage = string.Empty;
                         ent.WithAlert = "N";
 
-                        //if (ent.ProjectCode.Length > 10)
-                        //{
-                        //    ent.AlertMessage += "<tr><td> - the Project Code column must not must not exceed 10 characters </td></tr> ";
-                        //}
+                        if (ent.ProjectCode.Length > 10)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Project Code column must not must not exceed 10 characters </td></tr> ";
+                        }
 
-                        //if (ent.ProjectCode.Length == 0)
-                        //{
-                        //    ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
-                        //}
+                        if (ent.ProjectCode.Length == 0)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
+                        }
 
-                        //if (ent.Description.Length > 255)
-                        //{
-                        //    ent.AlertMessage += "<tr><td> - the Description column must not must not exceed 255 characters </td></tr> ";
-                        //}
+                        if (ent.Department.Length > 10)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Department column must not must not exceed 10 characters </td></tr> ";
+                        }
 
-                        //if (ent.Description.Length == 0)
-                        //{
-                        //    ent.AlertMessage += "<tr><td> - the Description column is required </td></tr> ";
-                        //}
+                        if (ent.Description.Length > 255)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Description column must not must not exceed 255 characters </td></tr> ";
+                        }
 
-                        //if (ent.AlertMessage.Length > 0)
-                        //{
-                        //    ent.AlertMessage = "<table>" + ent.AlertMessage + "</table>";
-                        //    ent.WithAlert = "S";
-                        //}
+                        if (ent.Description.Length == 0)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Description column is required </td></tr> ";
+                        }
+
+                        if (ent.Type.Length > 50)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Type column must not must not exceed 50 characters </td></tr> ";
+                        }
+
+                        if (ent.Type.Length == 0)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Type column is required </td></tr> ";
+                        }
+                        if (ent.EffectiveStatus.Length > 20)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Effective Status column must not must not exceed 20 characters </td></tr> ";
+                        }
+                        if (ent.StatusEffDateStr.Length > 10)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Effective Status column must not must not exceed 10 characters </td></tr> ";
+                        }
+                        if (ent.Status.Length > 20)
+                        {
+                            ent.AlertMessage += "<tr><td> - the  Status column must not must not exceed 20 characters </td></tr> ";
+                        }
+                        if (ent.Status.Length == 0)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Status column is required </td></tr> ";
+                        }
+                        if (ent.StatusDescription.Length > 50)
+                        {
+                            ent.AlertMessage += "<tr><td> - the  Status Description column must not must not exceed 20 characters </td></tr> ";
+                        }
+
+                        if (ent.AlertMessage.Length > 0)
+                        {
+                            ent.AlertMessage = "<table>" + ent.AlertMessage + "</table>";
+                            ent.WithAlert = "S";
+                        }
 
                         entlist.Add(ent);
                     }
@@ -301,10 +339,15 @@ namespace UNCDF.CMS.Controllers
                 foreach (ModelProjectResult item in entListData)
                 {
                     MProject mProject = new MProject();
+                    mProject.Department = item.Department;
                     mProject.ProjectCode = item.ProjectCode;
                     mProject.Description = item.Description;
                     mProject.Type = item.Type;
+                    mProject.EffectiveStatus = item.EffectiveStatus;
+                    mProject.StatusEffDate = Convert.ToInt32(Extension.ToFormatDateYYYYMMDD(item.StatusEffDateStr));
+                    mProject.StatusEffSeq = item.StatusEffSeq;
                     mProject.Status = item.Status;
+                    mProject.StatusDescription = item.StatusDescription;
                     mProject.StartDate =  Convert.ToInt32(Extension.ToFormatDateYYYYMMDD( item.StartDateStr));
                     mProject.EndDate = Convert.ToInt32(Extension.ToFormatDateYYYYMMDD(item.EndDateStr));//item.EndDate;
                     mProject.Title = item.Title;
