@@ -70,7 +70,7 @@
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDate)">@Html.DisplayNameFor(x => x.result.StartDate)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDate)">@Html.DisplayNameFor(x => x.result.EndDate)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>*@
-                
+                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>
@@ -123,7 +123,24 @@
                 return sd;
             },
             rowCommand:{
+            },
+            commandEdit:function(e,r,i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "Project", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                    }, new { @class = "",title="Edit Project" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.result.ProjectId))[0].outerHTML;
+                return sd;
+                objIndex.grid.load();
             }
+
         },
         general:{
         }

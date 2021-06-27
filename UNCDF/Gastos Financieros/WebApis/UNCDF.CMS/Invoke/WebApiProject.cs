@@ -38,6 +38,33 @@ namespace UNCDF.CMS
             return projects;
         }
 
+        public MProject GetProject(MProject EProject , Session eSession)
+        {
+            MProject project = new MProject();
+            ProjectsRequest request = new ProjectsRequest();
+            ProjectResponse response = new ProjectResponse();
+
+            request.Project = EProject;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/project", "GetProject", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<ProjectResponse>(bodyresponse);
+
+                if (response.Code.Equals("0"))
+                {
+                    project = response.Project;
+                }
+            }
+
+            return project;
+        }
+
         public string InsertProject(List<MProject> list, Session eSession)
         {
             //ProjectsResponse request = new ProjectsResponse();
@@ -61,6 +88,34 @@ namespace UNCDF.CMS
 
             return returnMsg;
         }
+
+        public string UpdateProject(MProject EProject, Session eSession)
+        {
+            ProjectsRequest request = new ProjectsRequest();
+            ProjectResponse response = new ProjectResponse();
+            string returnMsg = string.Empty;
+
+            request.Project = EProject;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/project", "UpdateProject", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<ProjectResponse>(bodyresponse);
+                returnMsg = response.Code + "|" + response.Message;
+            }
+            else
+            {
+                returnMsg = "2" + "|" + "Error invoking Project api";
+            }
+
+            return returnMsg;
+        }
+
     }
 
     public class ProjectsResponse : BaseResponse
@@ -76,5 +131,10 @@ namespace UNCDF.CMS
     public class ProjectsListRequest : BaseRequest
     {
         public List<MProject> Projects { get; set; }
+    }
+
+    public class ProjectResponse : BaseResponse
+    {
+        public MProject Project { get; set; }
     }
 }

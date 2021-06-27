@@ -10,6 +10,7 @@ using UNCDF.Layers.Model;
 using UNCDF.Layers.Business;
 using UNCDF.Utilities;
 using System.Transactions;
+using System.IO;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace UNCDF.WebApi.Project.Controllers
@@ -142,6 +143,162 @@ namespace UNCDF.WebApi.Project.Controllers
             return response;
 
         }
+
+
+        [HttpPost]
+        [Route("0/UpdateProject")]
+        [RequestFormLimits(ValueLengthLimit = int.MaxValue, MultipartBodyLengthLimit = int.MaxValue)]
+        public ProjectResponse UpdateProject([FromBody] ProjectRequest request)
+        {
+            ProjectResponse response = new ProjectResponse();
+            string webRoot = _env.ContentRootPath;
+            string rootPath = _appSettings.Value.rootPath;
+            string ProjectPath = _appSettings.Value.ProjectPath;
+            //string accesskey = _appSettings.Value.AccessKey;
+            //string secretKey = _appSettings.Value.SecretKey;
+            //string bucketName = _appSettings.Value.BucketName;
+
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            MProject ProjectBE = new MProject();
+            ProjectBE.ProjectId = request.Project.ProjectId;
+            ProjectBE.Image = ProjectPath + "/" + ((request.Project.FileByte != null) ? request.Project.ProjectId.ToString() + request.Project.Ext : request.Project.Image);
+            ProjectBE.Video = ProjectPath + "/" + ((request.Project.VideoFileByte != null) ? request.Project.ProjectId.ToString()  + request.Project.ExtVideo : request.Project.Video);
+            
+
+
+            int Val = 0;
+
+            ProjectBE.ProjectId = BProject.Update(ProjectBE);
+
+            //MAwsS3 mAwsS3 = new MAwsS3();
+            //mAwsS3.AccessKey = accesskey;
+            //mAwsS3.SecretKey = secretKey;
+            //mAwsS3.BucketName = bucketName;
+
+            if (request.Project.FileByte != null)
+            {
+                byte[] File = request.Project.FileByte;
+
+                Uri webRootUri = new Uri(webRoot);
+                string pathAbs = webRootUri.AbsolutePath;
+                var pathSave = pathAbs + rootPath + ProjectBE.Image;
+
+                if (!Directory.Exists(pathAbs + rootPath + ProjectPath)) Directory.CreateDirectory(pathAbs + rootPath + ProjectPath);
+
+                if (System.IO.File.Exists(pathSave)) System.IO.File.Delete(pathSave);
+
+                System.IO.File.WriteAllBytes(pathSave, File);
+
+                if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, ProjectPath, request.Project.ProjectId.ToString()  + request.Project.Ext))
+                {
+                    response.Message = String.Format(Messages.ErrorLoadPhoto, "Project");
+                }
+
+                System.IO.File.Delete(pathSave);
+
+            }
+
+            //if (request.Project.VideoFileByte != null)
+            //{
+            //    byte[] VideoFile = request.Project.VideoFileByte;
+
+            //    Uri webRootUri = new Uri(webRoot);
+            //    string pathAbs = webRootUri.AbsolutePath;
+            //    var pathSave = pathAbs + rootPath + ProjectBE.Video;
+
+            //    if (!Directory.Exists(pathAbs + rootPath + ProjectPath)) Directory.CreateDirectory(pathAbs + rootPath + ProjectPath);
+
+            //    if (System.IO.File.Exists(pathSave)) System.IO.File.Delete(pathSave);
+
+            //    System.IO.File.WriteAllBytes(pathSave, VideoFile);
+
+            //    if (!Utility.AWS_Upload_S3(pathSave, "unitlifebucket", ProjectPath, request.Project.ProjectId.ToString() + Guid + request.Project.ExtVideo))
+            //    {
+            //        response.Message = String.Format(Entities.Common.Messages.ErrorLoadVideo, "Project");
+            //    }
+
+            //    System.IO.File.Delete(pathSave);
+
+            //}
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorUpdate, "Banner");
+            }
+
+            response.Project = ProjectBE;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetProject")]
+        public ProjectResponse GetProject([FromBody] ProjectRequest request)
+        {
+            ProjectResponse response = new ProjectResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message =Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            MProject project = new MProject();
+            BaseRequest baseRequest = new BaseRequest();
+
+            project.ProjectId = request.Project.ProjectId;
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+
+            project = BProject.Get(project);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorSelect, "Project");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NoExistsSelect, "Project");
+            }
+
+            response.Project = project;
+
+            return response;
+        }
+
 
         [HttpPost]
         [Route("0/InsertProject")]

@@ -370,5 +370,127 @@ namespace UNCDF.CMS.Controllers
             }
             return Json(objResult);
         }
+
+        public ActionResult Edit(string id)
+        {
+            MProject objResult;
+            ViewBag.Title = "Edit Project";
+            ViewBag.Confirm = string.Format(MessageResource.UpdateConfirm, "Project");
+            //string ProjectPath = ConfigurationManager.AppSettings["URLProject"].ToString();
+            string viewName = "";
+
+            try
+            {
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                MProject eProjects = new MProject
+                {
+                    ProjectId = Convert.ToInt32(id)
+                };
+
+                objResult = new WebApiProject().GetProject(eProjects, objSession);
+
+                return View("Edit", new ProjectEditViewModel()
+                {
+                    ProjectId = objResult.ProjectId,
+                    ProjectCode = objResult.ProjectCode,
+                    Title = objResult.Title,
+                    StartDateStr = objResult.StartDateStr,
+                    EndDateStr = objResult.EndDateStr,
+                    //Image = (objResult.Image.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
+                    //Video = (objResult.Video.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
+                    ImageLink = (objResult.Image == String.Empty || objResult.Image == null) ? "" : Extension.S3Server + objResult.Image,
+                    VideoLink = (objResult.Video == String.Empty || objResult.Video == null) ? "" : Extension.S3Server + objResult.Video,
+                    Status = objResult.Status
+                });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("viewError", MessageResource.PartialViewLoadError);
+                return View("_ErrorView");
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult EditProject(ProjectEditViewModel model, HttpPostedFileBase imageFile,
+              HttpPostedFileBase videoFile)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            string fileName = string.Empty;
+            string Ext = string.Empty;
+
+            string videofileName = string.Empty;
+            string ExtVideo = string.Empty;
+
+            byte[] imgData = null;//; new byte[0];
+            byte[] videoData = null;//; new byte[0];
+
+
+            try
+            {
+                if (imageFile != null)
+                {
+                    fileName = imageFile.FileName;
+                    Ext = Path.GetExtension(imageFile.FileName);
+                    imgData = Extension.FileToByteArray(imageFile);
+
+                }
+
+                if (videoFile != null)
+                {
+                    videofileName = videoFile.FileName;
+                    ExtVideo = Path.GetExtension(videoFile.FileName);
+                    videoData = Extension.FileToByteArray(videoFile);
+
+                }
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+
+                MProject objEnt = new MProject
+                {
+                    ProjectId = model.ProjectId,
+                    Title = Extension.ToEmpty(model.Title).Trim(),
+                    Ext = Ext,
+                    ExtVideo = ExtVideo,
+                    Image = model.Image,
+                    Video = model.Video,
+                    FileByte = imgData,
+                    VideoFileByte = videoData
+                };
+
+                response = new WebApiProject().UpdateProject(objEnt, objSession);
+                
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                string MessageResul = (model.ProjectId == 0) ? string.Format(MessageResource.SaveSuccess, "Project") : string.Format(MessageResource.UpdateSuccess, "Project");
+
+                objResult.isError = (statusCode.Equals("2") || statusCode.Equals("1")) ? true : false;
+                objResult.message = (statusCode.Equals("2") || statusCode.Equals("1")) ? statusMessage : MessageResul;
+
+            }
+            catch (Exception ex)
+            {
+                objResult.isError = true;
+                objResult.data = null;
+                objResult.message = string.Format(MessageResource.UpdateError + "Error :" + ex.Message, "Project");
+            }
+            return Json(objResult);
+        }
+
+
+
+
     }
 }
