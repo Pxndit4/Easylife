@@ -1,0 +1,16 @@
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.deps.json
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb

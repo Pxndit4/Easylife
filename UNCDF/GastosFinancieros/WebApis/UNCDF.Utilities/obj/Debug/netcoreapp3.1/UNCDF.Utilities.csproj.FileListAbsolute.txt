@@ -1,0 +1,9 @@
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.deps.json
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.pdb

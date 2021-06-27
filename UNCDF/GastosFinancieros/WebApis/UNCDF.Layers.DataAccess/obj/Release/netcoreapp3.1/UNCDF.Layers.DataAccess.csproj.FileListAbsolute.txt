@@ -1,0 +1,14 @@
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb

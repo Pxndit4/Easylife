@@ -1,0 +1,8 @@
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.deps.json
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfoInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfo.cs
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.CoreCompileInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
