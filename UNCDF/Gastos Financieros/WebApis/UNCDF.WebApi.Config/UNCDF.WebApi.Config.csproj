@@ -4,5 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UNCDF.Layers.Business\UNCDF.Layers.Business.csproj" />
+    <ProjectReference Include="..\UNCDF.Layers.Model\UNCDF.Layers.Model.csproj" />
+    <ProjectReference Include="..\UNCDF.Utilities\UNCDF.Utilities.csproj" />
+  </ItemGroup>
+
 
 </Project>

@@ -27,3 +27,9 @@ C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\
 C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\predeploy.sql
 C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.dll
 C:\Users\Miller-PC\source\repos\Easylife\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.pdb
+E:\PROYECTOS\GTUEROS\Repo\UNCDF\Gastos Financieros\WebApis\UNCDF\bin\Debug\UNCDF.dacpac
+E:\PROYECTOS\GTUEROS\Repo\UNCDF\Gastos Financieros\WebApis\UNCDF\bin\Debug\UNCDF.dll
+E:\PROYECTOS\GTUEROS\Repo\UNCDF\Gastos Financieros\WebApis\UNCDF\bin\Debug\UNCDF.pdb
+E:\PROYECTOS\GTUEROS\Repo\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.sqlprojAssemblyReference.cache
+E:\PROYECTOS\GTUEROS\Repo\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.dll
+E:\PROYECTOS\GTUEROS\Repo\UNCDF\Gastos Financieros\WebApis\UNCDF\obj\Debug\UNCDF.pdb
