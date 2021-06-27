@@ -66,7 +66,8 @@ namespace UNCDF.CMS
 
     public static class Extension
     {
-        public const string S3Server = "https://unitlifebucket.s3.us-east-2.amazonaws.com/";
+
+        public const string S3Server = "https://uncdfbucket.s3.us-east-2.amazonaws.com/";
         public static readonly string pathProject = ConfigurationManager.AppSettings["URLProject"];
         public static readonly string pathBanner = ConfigurationManager.AppSettings["URLBanner"];
         public static readonly string pathCountry = ConfigurationManager.AppSettings["URLCountry"];

@@ -178,16 +178,10 @@ namespace UNCDF.WebApi.Project.Controllers
             ProjectBE.Image = ProjectPath + "/" + ((request.Project.FileByte != null) ? request.Project.ProjectId.ToString() + request.Project.Ext : request.Project.Image);
             ProjectBE.Video = ProjectPath + "/" + ((request.Project.VideoFileByte != null) ? request.Project.ProjectId.ToString()  + request.Project.ExtVideo : request.Project.Video);
             
-
-
             int Val = 0;
 
             ProjectBE.ProjectId = BProject.Update(ProjectBE);
 
-            //MAwsS3 mAwsS3 = new MAwsS3();
-            //mAwsS3.AccessKey = accesskey;
-            //mAwsS3.SecretKey = secretKey;
-            //mAwsS3.BucketName = bucketName;
 
             if (request.Project.FileByte != null)
             {
@@ -212,28 +206,28 @@ namespace UNCDF.WebApi.Project.Controllers
 
             }
 
-            //if (request.Project.VideoFileByte != null)
-            //{
-            //    byte[] VideoFile = request.Project.VideoFileByte;
+            if (request.Project.VideoFileByte != null)
+            {
+                byte[] VideoFile = request.Project.VideoFileByte;
 
-            //    Uri webRootUri = new Uri(webRoot);
-            //    string pathAbs = webRootUri.AbsolutePath;
-            //    var pathSave = pathAbs + rootPath + ProjectBE.Video;
+                Uri webRootUri = new Uri(webRoot);
+                string pathAbs = webRootUri.AbsolutePath;
+                var pathSave = pathAbs + rootPath + ProjectBE.Video;
 
-            //    if (!Directory.Exists(pathAbs + rootPath + ProjectPath)) Directory.CreateDirectory(pathAbs + rootPath + ProjectPath);
+                if (!Directory.Exists(pathAbs + rootPath + ProjectPath)) Directory.CreateDirectory(pathAbs + rootPath + ProjectPath);
 
-            //    if (System.IO.File.Exists(pathSave)) System.IO.File.Delete(pathSave);
+                if (System.IO.File.Exists(pathSave)) System.IO.File.Delete(pathSave);
 
-            //    System.IO.File.WriteAllBytes(pathSave, VideoFile);
+                System.IO.File.WriteAllBytes(pathSave, VideoFile);
 
-            //    if (!Utility.AWS_Upload_S3(pathSave, "unitlifebucket", ProjectPath, request.Project.ProjectId.ToString() + Guid + request.Project.ExtVideo))
-            //    {
-            //        response.Message = String.Format(Entities.Common.Messages.ErrorLoadVideo, "Project");
-            //    }
+                if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, ProjectPath, request.Project.ProjectId.ToString() + request.Project.ExtVideo))
+                {
+                    response.Message = String.Format(Messages.ErrorLoadVideo, "Project");
+                }
 
-            //    System.IO.File.Delete(pathSave);
+                System.IO.File.Delete(pathSave);
 
-            //}
+            }
 
             if (Val.Equals(0))
             {

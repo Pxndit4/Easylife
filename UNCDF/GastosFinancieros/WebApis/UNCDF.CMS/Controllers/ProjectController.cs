@@ -376,7 +376,7 @@ namespace UNCDF.CMS.Controllers
             MProject objResult;
             ViewBag.Title = "Edit Project";
             ViewBag.Confirm = string.Format(MessageResource.UpdateConfirm, "Project");
-            //string ProjectPath = ConfigurationManager.AppSettings["URLProject"].ToString();
+            string ProjectPath = ConfigurationManager.AppSettings["URLProject"].ToString();
             string viewName = "";
 
             try
@@ -401,8 +401,16 @@ namespace UNCDF.CMS.Controllers
                     Title = objResult.Title,
                     StartDateStr = objResult.StartDateStr,
                     EndDateStr = objResult.EndDateStr,
-                    //Image = (objResult.Image.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
-                    //Video = (objResult.Video.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
+                    Image = (objResult.Image.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
+                    Video = (objResult.Video.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
+                    Description = Extension.ToEmpty(objResult.Description).Trim(),
+                    Type = Extension.ToEmpty(objResult.Type).Trim(),
+                    EffectiveStatus = Extension.ToEmpty(objResult.EffectiveStatus).Trim(),
+                    StatusEffDateStr = Extension.ToEmpty(objResult.StatusEffDateStr).Trim(),
+                    StatusEffSeq = objResult.StatusEffSeq,
+                    StatusDescription = Extension.ToEmpty(objResult.StatusDescription).Trim(),
+                    AwardId = Extension.ToEmpty(objResult.AwardId).Trim(),
+                    AwardStatus = Extension.ToEmpty(objResult.AwardStatus).Trim(),
                     ImageLink = (objResult.Image == String.Empty || objResult.Image == null) ? "" : Extension.S3Server + objResult.Image,
                     VideoLink = (objResult.Video == String.Empty || objResult.Video == null) ? "" : Extension.S3Server + objResult.Video,
                     Status = objResult.Status
@@ -460,7 +468,7 @@ namespace UNCDF.CMS.Controllers
                 MProject objEnt = new MProject
                 {
                     ProjectId = model.ProjectId,
-                    Title = Extension.ToEmpty(model.Title).Trim(),
+                    
                     Ext = Ext,
                     ExtVideo = ExtVideo,
                     Image = model.Image,

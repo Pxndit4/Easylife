@@ -87,13 +87,11 @@ namespace UNCDF.Layers.DataAccess
                             result.StatusEffDate = Convert.ToInt32(reader["StatusEffDate"]);
                             result.StatusEffSeq = Convert.ToInt32(reader["StatusEffSeq"]);
                             result.StatusDescription = Convert.ToString(reader["StatusDescription"]);
-
-                            //result.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Convert.ToString(reader["Image"]);
-                            //result.Video = (Convert.ToString(reader["Video"]).Equals("")) ? "" : Convert.ToString(reader["Video"]);
+                            result.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Convert.ToString(reader["Image"]);
+                            result.Video = (Convert.ToString(reader["Video"]).Equals("")) ? "" : Convert.ToString(reader["Video"]);
                             
 
-
-          //                  Val = 0;
+                            //                  Val = 0;
                         }
                     }
                     con.Close();
