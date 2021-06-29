@@ -1,47 +1,31 @@
 ﻿<Properties StartupConfiguration="{620BC4FF-6B68-4C38-ABF0-605C30FEA1B7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="UNCDF.CMS/Views/Program/Index.cshtml">
-    <Files>
-      <File FileName="UNCDF.CMS/Models/ProgramViewModel.cs" Line="19" Column="46" />
-      <File FileName="UNCDF.CMS/Controllers/ProgramController.cs" Line="325" Column="65" />
-      <File FileName="UNCDF.CMS/Invoke/WebApiProgram.cs" Line="50" Column="103" />
-      <File FileName="UNCDF.WebApi.Project/Controllers/ProgramNameController.cs" Line="101" Column="58" />
-      <File FileName="UNCDF.CMS/Invoke/WebApiProject.cs" Line="1" Column="1" />
-      <File FileName="UNCDF.CMS/Views/Program/Load.cshtml" Line="1" Column="1" />
-      <File FileName="UNCDF.CMS/Views/Program/Index.cshtml" Line="20" Column="24" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="UNCDF" expanded="True">
-            <Node name="CMS" expanded="True">
-              <Node name="UNCDF.CMS" expanded="True">
-                <Node name="Controllers" expanded="True" />
-                <Node name="Invoke" expanded="True" />
-                <Node name="Models" expanded="True" />
-                <Node name="Views" expanded="True">
-                  <Node name="Program" expanded="True">
-                    <Node name="Index.cshtml" selected="True" />
-                  </Node>
-                </Node>
-              </Node>
+            <Node name="CMS" expanded="True" />
+            <Node name="Layers" expanded="True">
+              <Node name="UNCDF.Layers.Business" expanded="True" />
+              <Node name="UNCDF.Layers.DataAccess" expanded="True" />
+              <Node name="UNCDF.Layers.Model" expanded="True" />
             </Node>
-            <Node name="Layers" expanded="True" />
-            <Node name="UNCDF.WebApi.Project" expanded="True">
+            <Node name="UNCDF.Utilities" expanded="True" />
+            <Node name="UNCDF.WebApi.Config" expanded="True">
+              <Node name="Contracts" expanded="True" />
               <Node name="Controllers" expanded="True" />
             </Node>
-            <Node name="UNCDF.WebApi.Security" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.UNCDF.WebApi.Config FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.UNCDF.WebApi.Security PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/Controllers/WeatherForecastController.cs" relfile="UNCDF.WebApi.Security/Controllers/WeatherForecastController.cs" line="29" column="1" />
+      <Breakpoint file="/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/Controllers/WeatherForecastController.cs" relfile="UNCDF.WebApi.Security/Controllers/WeatherForecastController.cs" line="29" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

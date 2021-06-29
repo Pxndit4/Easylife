@@ -64,6 +64,10 @@
     <Compile Include="MFund.cs" />
     <Compile Include="MImplementAgency.cs" />
     <Compile Include="MDeparment.cs" />
+    <Compile Include="MInterface.cs" />
+    <Compile Include="MInterfaceControl.cs" />
+    <Compile Include="MAudit.cs" />
+    <Compile Include="MInterfaceControlTranslate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

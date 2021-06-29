@@ -1,17 +1,179 @@
 {
   "format": 1,
   "restore": {
-    "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/UNCDF.WebApi.Config.csproj": {}
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/UNCDF.WebApi.Config.csproj": {}
   },
   "projects": {
-    "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/UNCDF.WebApi.Config.csproj": {
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/UNCDF.WebApi.Config.csproj",
-        "projectName": "UNCDF.WebApi.Config",
-        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/UNCDF.WebApi.Config.csproj",
+        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj",
+        "projectName": "UNCDF.Layers.Business",
+        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj",
         "packagesPath": "/Users/giancarlotueros/.nuget/packages/",
-        "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/obj/",
+        "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/giancarlotueros/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/fNujD8g8qOaJDUdMNmkPeTWeqbrPrYfQ1fhRsgDvWpNCuYAizi/api": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj"
+              },
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AWSSDK.Core": {
+              "target": "Package",
+              "version": "[3.7.0.18, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.0.19, )"
+            },
+            "AWSSDK.SimpleEmail": {
+              "target": "Package",
+              "version": "[3.7.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj",
+        "projectName": "UNCDF.Layers.DataAccess",
+        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj",
+        "packagesPath": "/Users/giancarlotueros/.nuget/packages/",
+        "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/giancarlotueros/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/fNujD8g8qOaJDUdMNmkPeTWeqbrPrYfQ1fhRsgDvWpNCuYAizi/api": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj"
+              },
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj": {
+      "restore": {
+        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj",
+        "projectName": "UNCDF.Layers.Model",
+        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj"
+      },
+      "frameworks": {
+        "net462": {}
+      }
+    },
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj",
+        "projectName": "UNCDF.Utilities",
+        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj",
+        "packagesPath": "/Users/giancarlotueros/.nuget/packages/",
+        "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/giancarlotueros/.config/NuGet/NuGet.Config"
@@ -27,6 +189,69 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/UNCDF.WebApi.Config.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/UNCDF.WebApi.Config.csproj",
+        "projectName": "UNCDF.WebApi.Config",
+        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/UNCDF.WebApi.Config.csproj",
+        "packagesPath": "/Users/giancarlotueros/.nuget/packages/",
+        "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/giancarlotueros/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/fNujD8g8qOaJDUdMNmkPeTWeqbrPrYfQ1fhRsgDvWpNCuYAizi/api": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj"
+              },
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj"
+              },
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
