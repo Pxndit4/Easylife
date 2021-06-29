@@ -4,3 +4,9 @@
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.CoreCompileInputs.cache
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.dll
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.pdb
+/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/bin/Release/UNCDF.Layers.Model.dll
+/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/bin/Release/UNCDF.Layers.Model.pdb
+/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.AssemblyReference.cache
+/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.CoreCompileInputs.cache
+/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.dll
+/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.pdb

@@ -4734,11 +4734,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/UNCDF.WebApi.Project.csproj",
+      "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/UNCDF.WebApi.Project.csproj",
       "projectName": "UNCDF.WebApi.Project",
-      "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/UNCDF.WebApi.Project.csproj",
+      "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/UNCDF.WebApi.Project.csproj",
       "packagesPath": "/Users/giancarlotueros/.nuget/packages/",
-      "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/",
+      "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/giancarlotueros/.config/NuGet/NuGet.Config"
@@ -4754,14 +4754,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj": {
-              "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj"
+            "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj": {
+              "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/UNCDF.Layers.Business.csproj"
             },
-            "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj": {
-              "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj"
+            "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj": {
+              "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj"
             },
-            "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj": {
-              "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj"
+            "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj": {
+              "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj"
             }
           }
         }
