@@ -175,6 +175,12 @@
     <Compile Include="Util\FileManager.cs" />
     <Compile Include="Util\JSonResult.cs" />
     <Compile Include="Util\OpenXMLUtil.cs" />
+    <Compile Include="Models\InterfaceControlViewModel.cs" />
+    <Compile Include="Invoke\WebApiInterface.cs" />
+    <Compile Include="Invoke\WebApiInterfaceControlTranslate.cs" />
+    <Compile Include="Invoke\WebApiInterfaceControl.cs" />
+    <Compile Include="Models\InterfaceViewModel.cs" />
+    <Compile Include="Models\InterfaceControlTranslateViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap-datepicker.css" />
