@@ -13,10 +13,10 @@ namespace UNCDF.Layers.Model
         public string Flag { get; set; }
         public string FlagOld { get; set; }
         public string Code { get; set; }
-        public byte[] FileByte { get; set; }
-
         public int Status { get; set; }
-        public string StatusName { get; set; }
+        public byte[] FileByte { get; set; }
         public string FlagExtension { get; set; }
+        public string StatusName { get; set; }
+        
     }
 }

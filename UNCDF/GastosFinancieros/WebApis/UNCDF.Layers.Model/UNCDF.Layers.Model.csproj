@@ -57,6 +57,12 @@
     <Compile Include="MProfileUser.cs" />
     <Compile Include="MProjectDonation.cs" />
     <Compile Include="MStatic.cs" />
+    <Compile Include="MTimeLine.cs" />
+    <Compile Include="MTimeLineMultimedia.cs" />
+    <Compile Include="MTimeLineMultimediaTranslate.cs" />
+    <Compile Include="MTimeLineTestimonial.cs" />
+    <Compile Include="MTimeLineTestimonialTranslate.cs" />
+    <Compile Include="MTimeLineTranslate.cs" />
     <Compile Include="MUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MProject.cs" />

@@ -6,21 +6,22 @@ using System.Linq;
 using System.Web;
 using UNCDF.Layers.Model;
 
+
 namespace UNCDF.CMS
 {
     public class WebApiLanguage
     {
-        public List<MLanguage> GetLanguages(MLanguage eLanguage, Session eSession)
+        public List<MLanguage> GetLanguages(MLanguage MLanguage, Session Session)
         {
             List<MLanguage> languages = new List<MLanguage>();
             LanguageRequest request = new LanguageRequest();
             LanguagesResponse response = new LanguagesResponse();
 
-            eLanguage.Description = eLanguage.Description;
-            eLanguage.Status = eLanguage.Status;
+            MLanguage.Description = MLanguage.Description;
+            MLanguage.Status = MLanguage.Status;
 
-            request.MLanguage = eLanguage;
-            request.Session = eSession;
+            request.LanguageBE = MLanguage;
+            request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -40,14 +41,14 @@ namespace UNCDF.CMS
             return languages;
         }
 
-        public MLanguage GetLanguage(MLanguage ELanguage, Session eSession)
+        public MLanguage GetLanguage(MLanguage MLanguage, Session Session)
         {
             MLanguage language = new MLanguage();
             LanguageRequest request = new LanguageRequest();
             LanguageResponse response = new LanguageResponse();
 
-            request.MLanguage = ELanguage;
-            request.Session = eSession;
+            request.LanguageBE = MLanguage;
+            request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -67,14 +68,14 @@ namespace UNCDF.CMS
             return language;
         }
 
-        public string InsertLanguage(MLanguage ELanguage, Session eSession)
+        public string InsertLanguage(MLanguage MLanguage, Session Session)
         {
             LanguageRequest request = new LanguageRequest();
             LanguageResponse response = new LanguageResponse();
             string returnMsg = string.Empty;
 
-            request.MLanguage = ELanguage;
-            request.Session = eSession;
+            request.LanguageBE = MLanguage;
+            request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -94,19 +95,19 @@ namespace UNCDF.CMS
             return returnMsg;
         }
 
-        public string UpdateLanguage(MLanguage ELanguage, Session eSession)
+        public string UpdateLanguage(MLanguage MLanguage, Session Session)
         {
             LanguageRequest request = new LanguageRequest();
             LanguageResponse response = new LanguageResponse();
             string returnMsg = string.Empty;
 
-            request.MLanguage = ELanguage;
-            request.Session = eSession;
+            request.LanguageBE = MLanguage;
+            request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("appconfig/api/Language", "UpdateLanguage", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("appconfig/api/Language", "UpdatMLanguage", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -121,19 +122,19 @@ namespace UNCDF.CMS
             return returnMsg;
         }
 
-        public string DeleteLanguage(MLanguage ELanguage, Session eSession)
+        public string DeleteLanguage(MLanguage MLanguage, Session Session)
         {
             LanguageRequest request = new LanguageRequest();
             LanguageResponse response = new LanguageResponse();
             string returnMsg = string.Empty;
 
-            request.MLanguage = ELanguage;
-            request.Session = eSession;
+            request.LanguageBE = MLanguage;
+            request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("appconfig/api/Language", "DeleteLanguage", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("appconfig/api/Language", "DeletMLanguage", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -151,7 +152,7 @@ namespace UNCDF.CMS
 
     internal class LanguageRequest
     {
-        public MLanguage MLanguage { get; set; }
+        public MLanguage LanguageBE { get; set; }
         public Session Session { get; set; }
         public string ApplicationToken { get; set; }
     }
