@@ -12,7 +12,7 @@
           "AWSSDK.S3": "3.7.0.19",
           "AWSSDK.SimpleEmail": "3.7.0.17",
           "UNCDF.Layers.DataAccess": "1.0.0",
-          "UNCDF.Layers.Models": "1.0.0"
+          "UNCDF.Layers.Model": "1.0.0"
         },
         "runtime": {
           "UNCDF.Layers.Business.dll": {}
@@ -856,16 +856,16 @@
           "Microsoft.Extensions.Configuration": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
-          "UNCDF.Layers.Models": "1.0.0",
+          "UNCDF.Layers.Model": "1.0.0",
           "UNCDF.Utilities": "1.0.0"
         },
         "runtime": {
           "UNCDF.Layers.DataAccess.dll": {}
         }
       },
-      "UNCDF.Layers.Models/1.0.0": {
+      "UNCDF.Layers.Model/1.0.0": {
         "runtime": {
-          "UNCDF.Layers.Models.dll": {}
+          "UNCDF.Layers.Model.dll": {}
         }
       },
       "UNCDF.Utilities/1.0.0": {
@@ -1432,7 +1432,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "UNCDF.Layers.Models/1.0.0": {
+    "UNCDF.Layers.Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,0 +1,262 @@
+﻿@model UNCDF.CMS.Models.ProjectEditViewModel
+
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+
+<div class="ui-bar ui-bar-default">
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegSubm" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Save
+        </button>
+    </div>
+</div>
+
+<div class="ui-container">
+    @using (Html.BeginForm("Register", "Project", FormMethod.Post, new { id = "frmProjectReg", enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.ProjectId)
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.ProjectCode)
+                    @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-5">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-5">
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @readonly = true })
+                </div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.EffectiveStatus)
+                    @Html.TextBoxFor(m => m.EffectiveStatus, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.StatusEffDateStr)
+                    @Html.TextBoxFor(m => m.StatusEffDateStr, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.StatusEffSeq)
+                    @Html.TextBoxFor(m => m.StatusEffSeq, new { @class = "form-control", @readonly = true })
+                </div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Type)
+                    @Html.TextBoxFor(m => m.Type, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Status)
+                    @Html.TextBoxFor(m => m.Status, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-9">
+                    @Html.LabelFor(m => m.StatusDescription)
+                    @Html.TextBoxFor(m => m.StatusDescription, new { @class = "form-control", @readonly = true })
+                </div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.StartDateStr)
+                    @Html.TextBoxFor(m => m.StartDateStr, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.EndDateStr)
+                    @Html.TextBoxFor(m => m.EndDateStr, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.AwardId)
+                    @Html.TextBoxFor(m => m.AwardId, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.AwardStatus)
+                    @Html.TextBoxFor(m => m.AwardStatus, new { @class = "form-control", @readonly = true })
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-11">
+                    @Html.LabelFor(m => m.Image)
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Image, new { @class = "form-control", @readonly = "readonly" })
+                        <a id="btnAddFile" class="btn btn-default input-group-addon" onclick="document.getElementById('imageFile').click();">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                        </a>
+                        <input type="file" id="imageFile" style="display: none" />
+                    </div>
+                </div>
+                @if (Model.ImageLink.Length > 0)
+                {
+                    <div class="col-md-1">
+                        <a id="btnImage" class="btn btn-default" title="View" href="@Model.ImageLink" target="_blank" style="margin-top:22px;">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-11">
+                    @Html.LabelFor(m => m.Video)
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Video, new { @class = "form-control", @readonly = "readonly" })
+                        <a id="btnAddFileVideo" class="btn btn-default input-group-addon" onclick="document.getElementById('videoFile').click();">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                        </a>
+                        <input type="file" id="videoFile" style="display: none" />
+                    </div>
+                </div>
+
+                @if (Model.VideoLink.Length > 0)
+                {
+                    <div class="col-md-1">
+                        <a id="btnVideo" class="btn btn-default" title="View" href="@Model.VideoLink" target="_blank" style="margin-top:22px;">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </a>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+        <div>
+            Required fields.<span class="input-validation-error-ley"></span>
+        </div>
+    }
+
+</div>
+
+<script type="text/javascript" language="javacript">
+
+    var sizeVideo ='40M';
+    var sizeIMAGE = '5M';
+
+
+    function onCallbackError(e) {
+        unitlife.ui.DropDownListFillJsonError(e, s);
+    }
+
+     document.getElementById('imageFile').onchange = function () {
+         var nameFile = document.getElementById('imageFile').files[0].name;
+         var fileInput = document.getElementById('imageFile');
+         var FileSize = document.getElementById('imageFile').files[0].size / 1024 / 1024;
+         var filePath = fileInput.value;
+         var allowedExtensions = /(.jpg|.jpeg|.png|.jfif|.gif)$/i;
+
+         var funcSize = sizeIMAGE;
+
+        $ ("#@Html.IdFor(m => m.Image)").val(nameFile);
+
+         if (FileSize > funcSize) {
+            unitlife.ui.validation.showMessage("The file size should not exceed " + funcSize + " MB");
+            $("#@Html.IdFor(m => m.Image)").val("");
+            return false;
+        }
+
+         if (!allowedExtensions.exec(filePath)) {
+             unitlife.ui.validation.showMessage("Please upload Image having extensions .jpeg/.jpg/.png only.");
+             $("#@Html.IdFor(m => m.Image)").val("");
+             return false;
+         }
+     }
+
+    document.getElementById('videoFile').onchange = function () {
+        var nameFile = document.getElementById('videoFile').files[0].name;
+        var fileInput = document.getElementById('videoFile');
+        var FileSize = document.getElementById('videoFile').files[0].size / 1024 / 1024;
+        var filePath = fileInput.value;
+
+        var allowedExtensions = /(.mp4)$/i;
+
+        var funcSize = sizeVideo;
+        //console.log(funcSize);
+
+         $("#@Html.IdFor(m => m.Video)").val(nameFile);
+
+        if (FileSize > funcSize) {
+            unitlife.ui.validation.showMessage("The file size should not exceed " + funcSize + " MB");
+            $("#@Html.IdFor(m => m.Video)").val("");
+            return false;
+        }
+
+
+         if (!allowedExtensions.exec(filePath)) {
+             unitlife.ui.validation.showMessage("Please upload Video having extensions .mp4 only.");
+             $("#@Html.IdFor(m => m.Video)").val("");
+             return false;
+         }
+    }
+
+    $(document).ready(function () {
+
+        //iniForm();
+
+        $("#btnRegSubm").on("click", function (e) {
+            e.preventDefault();
+
+            var _frm = unitlife.ui.validation("#frmProjectReg"), condVal = $("#@Html.IdFor(m => m.ProjectId)").val();
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+
+
+            _isValid = _frm.valid();
+            
+            if (_isValid) {
+
+                Confirmar(
+                '¿@Html.Raw(ViewBag.Confirm)?',
+                function () {
+
+                   var form = $("#frmProjectReg");
+                   var data = new FormData();
+
+                   var files = $("#imageFile").get(0).files;
+                   var filesVideo = $("#videoFile").get(0).files;
+
+                   if (files.length > 0) {
+                       data.append("imageFile", files[0]);
+                   }
+                   if (filesVideo.length > 0) {
+                       data.append("videoFile", filesVideo[0]);
+                   }
+                    $.each(form.serializeArray(), function (key, input) {
+                      //
+                       data.append(input.name, input.value);
+                    });
+
+
+                    unitlife.ajax.submitAddFiles('@Url.Action("EditProject", "Project")', data);
+                    unitlife.site.dialog.invoqResultCallback('REG_PROJECT');
+
+                },
+                null
+                );
+            }
+            return false;
+        });
+
+        });
+
+</script>
+

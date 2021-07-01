@@ -1,0 +1,230 @@
+﻿@model UNCDF.CMS.Models.InterfaceControlViewModel
+
+@{
+    ViewBag.Title = "Interface Control register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        Interface Control Maintenance
+    </span>
+    <div class="ui-btn-content">
+        @Ajax.AjaxActionLink("New", "New", "InterfaceControl", new { id = Model.InterfaceId }, new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "dialogBody",
+            OnBegin = "unitlife.site.dialog.onInit",
+            OnComplete = "unitlife.site.dialog.onComplete",
+            OnFailure = "unitlife.site.dialog.onFailure",
+        }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
+    </div>
+    <div class="ui-btn-content">
+        <a id="lnkReturnAct" class="btn btn-default" href="@Url.Link("Index", "Interface", null)">
+            <span class="glyphicon glyphicon-arrow-left"></span>Return
+        </a>
+
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+<div class="ui-container ui-jumb">
+
+    @using (Html.BeginForm("Search", "InterfaceControl", FormMethod.Post, new { id = "frmSearch" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="row">
+                @Html.HiddenFor(m => m.InterfaceId)
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.Type)
+                    @Html.TextBoxFor(m => m.Type, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-11">
+                    @Html.LabelFor(m => m.InterfaceName)
+                    @Html.TextBoxFor(m => m.InterfaceName, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-1 pull-right" style="margin-top: 10px;">
+                    <a id="btnRefresh" class="btn btn-default">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Refresh
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+<div class="ui-container">
+    <span id="countRI" class="bars pull-left" style="font-weight: bold;margin-top: 15px;"></span>
+
+    <table id="tbList" class="table table-hover"
+           data-toggle="table"
+           data-toolbar=".toolbar"
+           data-pagination="true"
+           data-sort-name="@Html.HtmlIdNameFor(x => x.interfaceControls.ControlName)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
+                @*<th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndex.grid.rowCommand"></th>*@
+                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandTranslation" data-events="objIndex.grid.rowCommand"></th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.interfaceControls.InterfaceId)" data-visible="false">@Html.DisplayNameFor(x => x.interfaceControls.InterfaceId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.interfaceControls.InterfaceControlId)" data-visible="false">@Html.DisplayNameFor(x => x.interfaceControls.InterfaceControlId)</th>
+                <th class="col-md-3" data-field="@Html.HtmlIdNameFor(x => x.interfaceControls.ControlName)">@Html.DisplayNameFor(x => x.interfaceControls.ControlName)</th>
+                <th class="col-md-4" data-field="@Html.HtmlIdNameFor(x => x.interfaceControls.Description)">@Html.DisplayNameFor(x => x.interfaceControls.Description)</th>
+                <th class="col-md-5" data-field="@Html.HtmlIdNameFor(x => x.interfaceControls.DescriptionControl)">@Html.DisplayNameFor(x => x.interfaceControls.DescriptionControl)</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+
+    $("#btnRefresh").on("click", function (e) {
+        e.preventDefault();
+        objIndex.grid.get().load("@Url.Action("Search", "InterfaceControl")", "#frmSearch");
+    });
+
+    function rowStyle(value, row, index) {
+        var JsonVar = [value];
+        var EstadoNombre = "";
+        JsonVar.forEach(function (value) {
+            EstadoNombre = value['Status'];
+        });
+        if (EstadoNombre == "0") {
+            return { classes: 'danger' }
+        }
+        return { classes: '' }
+    }
+
+
+    function rebindGrid() {
+        $("#btnSearch").click();
+    }
+
+    $('#dialogMain').on('hidden.bs.modal', function () {
+        rebindGrid()
+    });
+
+    var objIndex={
+        initial: function () {
+
+            $("#btnSearch").on("click", function (e) {
+                e.preventDefault();
+                objIndex.grid.load();
+            });
+
+            unitlife.ui.grid('#tbList').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+
+            @*if ('@HttpContext.Current.Request.Params.Get("ret")' == "true")
+            {*@
+                objIndex.grid.load();
+            //}
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbList");
+            },
+            load: function () {
+
+                unitlife.ui.grid('#tbList').load('@Url.Action("Search", "InterfaceControl", null)', '#frmSearch',
+                    function (e) {
+                        var da = 'Interface List @Html.Raw(MessageResource.GridRowCountInfo)';
+                        da = da.replace("{0}", e.data.length);
+                        $("#countRI").text(da);
+                    }
+                );
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    var Estado = row["Status"];
+
+                    if ("1" == "1") {
+                        var _grid = unitlife.ui.grid("#tbList");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Interface Control"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("Delete", "InterfaceControl", null)', { id: row.InterfaceControlId }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndex.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Interface"))" });
+                    }
+                }
+                , 'click #control': function (e, value, row) {
+                    window.location.href = '@Url.Action("InterfaceControls", "Interface")/' + row.InterfaceId + '@Url.TargetParam()';
+                    return false;
+                }
+            },
+            commandTranslation: function (e, r, i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "NewTranslation", "InterfaceControlTranslate", null, new AjaxOptions
+                     {
+                         HttpMethod = "GET",
+                         InsertionMode = InsertionMode.Replace,
+                         UpdateTargetId = "dialogBody",
+                         OnBegin = "unitlife.site.dialog.onInit",
+                         OnComplete = "unitlife.site.dialog.onComplete",
+                         OnFailure = "unitlife.site.dialog.onFailure",
+                     }, new { @class = "",title= "Interface Control Translations" }, "glyphicon glyphicon-globe")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.InterfaceControlId))[0].outerHTML;
+                return sd;
+                objIndex.grid.load();
+            },
+            commandEdit:function(e,r,i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "InterfaceControl", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                    }, new { @class = "",title="Edit Interface Control" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.InterfaceControlId))[0].outerHTML;
+                return sd;
+                objIndex.grid.load();
+            }
+        },
+        general:{
+        }
+    };
+
+    function ___getModalResult(key, data) {
+        if (key == 'REG_INTERFACECONTROL'){
+            objIndex.grid.load();
+        }
+    }
+
+    $(document).ready(function () {
+
+        objIndex.initial();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+    });
+
+</script>

@@ -1,0 +1,217 @@
+﻿@if (!AutenticationManager.IsLoged)
+{
+    Response.Redirect(Url.Action("Login", "Seguridad"), true);
+    return;
+}
+
+@model UNCDF.CMS.Models.SearchProfileViewModel
+@{
+    ViewBag.Title = "Profile register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">Profile Maintenance</span>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+<div class="ui-container ui-jumb">
+
+    @using (Html.BeginForm("Search", "Profile", FormMethod.Post, new { id = "frmSearch" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Profile)
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Profile, new { @class = "form-control", id = "txtProfile" })
+                        <a id="btnSearch" class="btn btn-default input-group-addon">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Search
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <a id="btnClean2" class="btn btn-default" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+    }
+</div>
+
+<div class="ui-container">
+    <div class="bars pull-left" style="font-weight: bold;margin-top: 15px;">
+        <span class="title">Listado de Perfiles</span>
+        <span class="ui-grid-rows" data-info-grid="#tbListProfile" data-info="@MessageResource.GridRowCountInfo"></span>
+
+    </div>
+    <table id="tbListProfile" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                
+                @*<th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndex.grid.rowCommand"></th>*@
+                
+                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandPerfil" data-events="objIndex.grid.rowCommand"></th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.ProfileId)">@Html.DisplayNameFor(x => x.Result.ProfileId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.Description)">@Html.DisplayNameFor(x => x.Result.Description)</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+
+    $("#btnClean2").on("click", function (e) {
+        e.preventDefault();
+        $("#txtProfile").val("");
+        $("#btnSearch").click();
+    });
+
+    function rowStyle(value, row, index) {
+        var JsonVar = [value];
+        var EstadoNombre = "";
+        JsonVar.forEach(function (value) {
+            EstadoNombre = value['Status'];
+        });
+        if (EstadoNombre == "0") {
+            return { classes: 'danger' }
+        }
+        return { classes: '' }
+    }
+
+    function rebindGrid() {
+        $("#btnSearch").click();
+    }
+
+    $('#dialogMain').on('hidden.bs.modal', function () {
+        rebindGrid()
+    });
+
+    var objIndex={
+        initial: function (){
+
+            $("#btnSearch").on("click", function (e) {
+                e.preventDefault();
+
+                objIndex.grid.load();
+            });
+            unitlife.ui.grid('#tbListProfile').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+
+            if ('@HttpContext.Current.Request.Params.Get("ret")' == "true")
+            {
+                objIndex.grid.load();
+            }
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListProfile");
+            },
+            load:function(){
+                unitlife.ui.grid('#tbListProfile').load('@Url.Action("Search", "Profile", null)', '#frmSearch');
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+                    var _grid = unitlife.ui.grid("#tbListProfile");
+
+                    Confirmar(
+                    '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "profile"))?',
+                    function () {
+                        _grid.invoqCommand('@Url.Action("Delete", "Profile", null)', { id: row.ProfileId }, function (e) {
+                            if (e && e.isError == true)
+                                return;
+                            objIndex.grid.load();
+                        });
+                    },
+                    null
+                    );
+                    return false;
+                },
+                'click #asignarPerfil': function (e, value, row){
+                    window.location.href = '@Url.Action("EditUsers", "Profile")/' + row.ProfileId + '@Url.TargetParam()';
+                    return false;
+                }
+
+            },
+            commandDelete: function (e, r, i) {
+
+                var sd = '<a id="remove" href="javascript:void(0)" title="Delete Record"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>'
+                var desc = r.@Html.HtmlIdNameFor(x => x.Result.Description);
+                if (desc == 'Administrator' || desc == 'ONG') {
+                     sd='';
+                }
+                return sd;
+
+            }
+            ,
+            commandPerfil: function (e, r, i) {
+
+                var sd = '<a id="asignarPerfil" href="javascript:void(0)"  title="Assign profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>' ;
+                var desc = r.@Html.HtmlIdNameFor(x => x.Result.Description);
+                if (desc == 'ONG') {
+                     sd='';
+                }
+                return sd;
+
+            }
+
+            ,
+            commandEdit:function(e,r,i)
+            {
+
+
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "Profile", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                }, new { @class = "", title = " Edit profile" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.Result.ProfileId))[0].outerHTML;
+
+                 var desc = r.@Html.HtmlIdNameFor(x => x.Result.Description);
+
+                if (desc == 'Administrator' || desc == 'ONG') {
+                     sd='';
+                }
+
+                return sd;
+            }
+
+        },
+        general:{
+        }
+    };
+
+    function ___getModalResult(key, data) {
+
+    }
+
+    $(document).ready(function () {
+        objIndex.initial();
+        rebindGrid();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+    });
+
+</script>
+

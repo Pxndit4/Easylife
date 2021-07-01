@@ -7,18 +7,49 @@ using UNCDF.Layers.Model;
 using System.Configuration;
 using Newtonsoft.Json;
 
-namespace UNCDF.CMS.Invoke
+namespace UNCDF.CMS
 {
     public class WebApiInterface
     {
-        public MInterface GetInterface(MInterface MInterface, Session Session)
+        public List<MInterface> GetInterfaces(MInterface eInterface, Session eSession)
+        {
+
+            InterfacesResponse response = new InterfacesResponse();
+            InterfaceRequest request = new InterfaceRequest();
+            List<MInterface> interfaces = new List<MInterface>();
+
+            eInterface.InterfaceName = eInterface.InterfaceName;
+            eInterface.Status = eInterface.Status;
+
+            request.Interface = eInterface;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("appconfig/api/Interface", "FilterInterfaces", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<InterfacesResponse>(bodyresponse);
+
+                if (response.Code.Equals("0"))
+                {
+                    interfaces = response.Interfaces;
+                }
+            }
+
+            return interfaces;
+        }
+
+        public MInterface GetInterface(MInterface EInterface, Session eSession)
         {
             MInterface interfaceE = new MInterface();
             InterfaceRequest request = new InterfaceRequest();
             InterfaceResponse response = new InterfaceResponse();
 
-            request.Interface = MInterface;
-            request.Session = Session;
+            request.Interface = EInterface;
+            request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -38,14 +69,14 @@ namespace UNCDF.CMS.Invoke
             return interfaceE;
         }
 
-        public string InsertInterface(MInterface MInterface, Session Session)
+        public string InsertInterface(MInterface EInterface, Session eSession)
         {
             InterfaceRequest request = new InterfaceRequest();
             InterfaceResponse response = new InterfaceResponse();
             string returnMsg = string.Empty;
 
-            request.Interface = MInterface;
-            request.Session = Session;
+            request.Interface = EInterface;
+            request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -65,14 +96,14 @@ namespace UNCDF.CMS.Invoke
             return returnMsg;
         }
 
-        public string UpdateInterface(MInterface MInterface, Session Session)
+        public string UpdateInterface(MInterface EInterface, Session eSession)
         {
             InterfaceRequest request = new InterfaceRequest();
             InterfaceResponse response = new InterfaceResponse();
             string returnMsg = string.Empty;
 
-            request.Interface = MInterface;
-            request.Session = Session;
+            request.Interface = EInterface;
+            request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -92,14 +123,14 @@ namespace UNCDF.CMS.Invoke
             return returnMsg;
         }
 
-        public string DeleteInterface(MInterface MInterface, Session Session)
+        public string DeleteInterface(MInterface EInterface, Session eSession)
         {
             InterfaceRequest request = new InterfaceRequest();
             InterfaceResponse response = new InterfaceResponse();
             string returnMsg = string.Empty;
 
-            request.Interface = MInterface;
-            request.Session = Session;
+            request.Interface = EInterface;
+            request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);

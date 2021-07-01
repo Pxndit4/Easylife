@@ -7,7 +7,7 @@ using UNCDF.Layers.Model;
 using System.Configuration;
 using Newtonsoft.Json;
 
-namespace UNCDF.CMS.Invoke
+namespace UNCDF.CMS
 {
     public class WebApiInterfaceControl
     {

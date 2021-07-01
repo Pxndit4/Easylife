@@ -1,0 +1,252 @@
+﻿@*@AutenticationManager.EnableDeveloperSession()*@
+
+@if (!AutenticationManager.IsLoged)
+{
+    Response.Redirect(Url.Action("Login", "Seguridad"), true);
+    return;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="Author" content="EASYLIFE" />
+
+    <title>UNCDF > UNCDF - @ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/cpcss")
+    <link href="~/Content/theme/default/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/theme/default/Unitlife.ui.theme.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/Content/images/favicon.png" />
+    <script type="text/javascript">
+        function __suportHtml5() {
+            document.createElement('header');
+            document.createElement('nav');
+            document.createElement('menu');
+            document.createElement('section');
+            document.createElement('article');
+            document.createElement('aside');
+            document.createElement('footer');
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+        <script language="javascript" src="@Url.Content("~/Scripts/jquery-1.12.3.min.js")"></script>
+        <script type="text/javascript">
+            __suportHtml5();
+        </script>
+    <![endif]-->
+    <!--[if gt IE 8]> <!-- -->
+    <script language="javascript" src="@Url.Content("~/Scripts/jquery-2.2.2.min.js")"></script>
+    <!-- <![endif]-->
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/unitlifeui")
+
+    <script language="javascript" src="~/Scripts/Unitlife.lib.ui.js"></script>
+
+    <script type="text/javascript" language="javacript">
+
+        $(document).ready(function () {
+            $.fn.datepicker.defaults.autoclose = true;
+            $.fn.datepicker.defaults.language = 'es';
+            $.fn.datepicker.defaults.enableOnReadonly = false;
+        });
+    </script>
+
+    <!--[if IE 8]>
+            <link href="@Url.Content("~/Content/Unitlife.support.ie8.css")" rel="stylesheet" />
+    <![endif]-->
+
+
+</head>
+<body class="sys-ui-layout">
+    @{
+        bool isAllow = true;
+
+        if (Request.Browser.Browser == "IE" && Request.Browser.MajorVersion < 8)
+        {
+            isAllow = false;
+        }
+
+        if (!isAllow)
+        {
+            Response.Redirect(Url.Action("Browser", "Error"), true);
+            return;
+        }
+    }
+    <header class="sys-header navbar-inverse">
+        <div class="sys-ui-imge"></div>
+        <div class="sys-ui-top1">
+            <div class="sys-ui-top-layout sys-ui-right">
+                <div class="navbar-brand">@AutenticationManager.GetUser().Nombres</div>
+                <a class="sys-ui-top-cmd sys-ui-logout" href="@Url.Action("Index", "Home")" title="Ir al Inicio">
+                    <span class="glyphicon glyphicon glyphicon-home"></span>
+                </a>
+                <a class="sys-ui-top-cmd sys-ui-logout" href="@Url.Action("Logout", "Seguridad")" title="Cerrar Sessi&oacute;n">
+                    <span class="glyphicon glyphicon glyphicon-off"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="sys-ui-top2 ui-shad-normal">
+            <div id="top1leftList" class="sys-ui-top-layout sys-ui-right">
+                <div id="userPerfil" class="sys-ui-perf-form">
+                    <a href="#" class="sys-ui-perf dropdown-toggle" data-toggle="dropdown">
+                        @*<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>*@
+                        <span class="busy-text">Seleccione</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Menu-->
+    <nav class="sys-nav nav-togled">
+        @Html.Hidden("__target", Request.QueryString[this.GetTargetName()], new { id = "__target" })
+        @Html.Hidden("__targetPrfl", ViewUtil.GetPerfilTarget(Request.QueryString[this.GetTargetName()]), new { id = "__targetPrfl" })
+        <div class="sys-menu-top">
+            <a class="sys-menu-top-ico-hamb" href="#" title="">
+                <span class="glyphicon glyphicon-menu-hamburger" style="font-size:1.5em;"></span>
+            </a>
+            <span class="sys-menu-top-text">
+                <span class="glyphicon glyphicon-list"></span>
+                System Options
+            </span>
+            <a class="sys-menu-top-ico" href="#" title="Ocultar Lista">
+                <span class="glyphicon glyphicon-circle-arrow-left" style="font-size:1.5em;"></span>
+            </a>
+        </div>
+        <div id="tabnavbar" class="sys-panel-content">
+        </div>
+        <div id="navbarBusy" class="busy-btn busy-center" style="display:none;">
+            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+            <span class="busy-text">Cargando ...</span>
+        </div>
+    </nav>
+    <!--Contenido-->
+    <section class="sys-content-layout layout-togled">
+        <div id="startModal" class="modal fade in" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="busy-btn busy-center" style="color:#fff;top:-5px;">
+                    <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                    <span class="busy-text">Cargando ...</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="dialogMain" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg ui-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                        <a class="close" data-dismiss="modal" href="#">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+
+                        @if (!string.IsNullOrEmpty(ViewBag.Title))
+                        {
+                            <div>
+                                <span class="glyphicon glyphicon-refresh glyphicon-modal-window"></span>
+                                <span class="modal-title">@ViewBag.Title</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+                                <span class="glyphicon glyphicon-refresh glyphicon-modal-window"></span>
+                                <span class="modal-title"></span>
+                            </div>
+                        }
+                    </div>
+                    <input id="targetValue" type="hidden" value="{}" />
+                    <div id="dialogBody" class="modal-body" style="min-height:150px;"></div>
+                    <div id="dialogBusy" class="busy-btn busy-center">
+                        <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                        <span class="busy-text">Cargando ...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dialogConfirm" class="modal fade" role="document" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog ui-modal">
+                <div class="modal-content" style="width: 450px;">
+
+                    <div class="modal-header">
+                        <a class="close" data-dismiss="modal" href="#">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                        <div>
+                            <span class="glyphicon glyphicon-refresh glyphicon-modal-window"></span>
+                            <span class="modal-title">Confirmation</span>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-body">
+                        <h4 id="confirmMensaje" class="text-center"></h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnConfirmarAceptar" type="button" class="btn btn-primary">Acept</button>
+                        <button id="btnConfirmarCancelar" type="button" class="btn btn-default">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainlayout" class="sys-content">
+            @RenderBody()
+        </div>
+    </section>
+    <footer></footer>
+
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript" language="javacript">
+    /// <reference path="../../Scripts/bootstrap-datepicker.js" />
+
+    function onCallbackError(e, s) {
+        unitlife.ui.DropDownListFillJsonError(e, s);
+    }
+
+    function ddlperrfil_onchange(e) {
+        $('#topPerfil').text($(e).text());
+    }
+
+    $(document).ready(function () {
+        unitlife.site.initialize();
+
+         unitlife.ajax.getView("#top1leftList", '@Url.Action("GetPerfil", "Seguridad", new { id = 0 })', {}, function (e, s) {
+            var defValue = $("#top1leftList").find("#lsPerfilDefault").val();
+            var defData = jQuery.parseJSON(defValue);
+            var currPefl = unitlife.perfil.getCurrent();
+            unitlife.site.busyMain.hide();
+
+            unitlife.perfil.onChangeAtach()
+
+            if (defData == "undefined") {
+                return;
+            }
+            if (currPefl == '') {
+                currPefl = defData.Id;
+            }
+
+            $("#top1leftList").find("#" + currPefl).click();
+        });
+
+        @if ((Session["CURRRENT_USER"] as UserIdentity).IdPerfil != 0)
+            {
+            <text>
+        $("#top1leftList").find("#@((Session["CURRRENT_USER"] as UserIdentity).IdPerfil)").click();
+        </text>
+        }
+    });
+    </script>
+
+</body>
+</html>

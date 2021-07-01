@@ -7,7 +7,7 @@ using UNCDF.Layers.Model;
 using System.Configuration;
 using Newtonsoft.Json;
 
-namespace UNCDF.CMS.Invoke
+namespace UNCDF.CMS
 {
     public class WebApiInterfaceControlTranslate
     {
@@ -95,7 +95,7 @@ namespace UNCDF.CMS.Invoke
             return returnMsg;
         }
 
-        public string UpdatMInterfaceControlTranslate(MInterfaceControlTranslate MInterfaceControlTranslate, Session eSession)
+        public string UpdateInterfaceControlTranslate(MInterfaceControlTranslate MInterfaceControlTranslate, Session eSession)
         {
             InterfaceControlTranslateRequest request = new InterfaceControlTranslateRequest();
             InterfaceControlTranslateResponse response = new InterfaceControlTranslateResponse();
@@ -107,7 +107,7 @@ namespace UNCDF.CMS.Invoke
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("appconfig/api/InterfaceControlTranslate", "UpdatMInterfaceControlTranslate", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("appconfig/api/InterfaceControlTranslate", "UpdateInterfaceControlTranslate", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -134,7 +134,7 @@ namespace UNCDF.CMS.Invoke
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("appconfig/api/InterfaceControlTranslate", "DeletMInterfaceControlTranslate", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("appconfig/api/InterfaceControlTranslate", "DeleteInterfaceControlTranslate", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {

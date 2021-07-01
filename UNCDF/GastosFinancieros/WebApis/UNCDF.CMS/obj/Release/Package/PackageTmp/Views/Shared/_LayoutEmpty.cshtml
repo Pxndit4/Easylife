@@ -1,0 +1,103 @@
+﻿@if (!AutenticationManager.IsLoged)
+{
+    Response.Redirect(Url.Action("Login", "Seguridad"), true);
+    return;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNCDF > UNCDF - @ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/cpcss")
+    <link href="~/Content/theme/default/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/theme/default/Emizo.ui.theme.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        function __suportHtml5()
+        {
+            document.createElement('header');
+            document.createElement('nav');
+            document.createElement('menu');
+            document.createElement('section');
+            document.createElement('article');
+            document.createElement('aside');
+            document.createElement('footer');
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+        <script language="javascript" src="@Url.Content("~/Scripts/jquery-1.12.3.min.js")"></script>
+        <script type="text/javascript">
+            __suportHtml5();
+        </script>
+    <![endif]-->
+    <!--[if gt IE 8]> <!-- -->
+    <script language="javascript" src="@Url.Content("~/Scripts/jquery-2.2.2.min.js")"></script>
+    <!-- <![endif]-->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/emizorui")
+
+    <script language="javascript" src="~/Scripts/Emizor.lib.ui.js"></script>
+
+    <script type="text/javascript" language="javacript">
+
+        $(document).ready(function () {
+            $.fn.datepicker.defaults.autoclose = true;
+            $.fn.datepicker.defaults.language = 'es';
+        });
+    </script>
+
+    <!--[if IE 8]>
+            <link href="@Url.Content("~/Content/Emizor.support.ie8.css")" rel="stylesheet" />
+    <![endif]-->
+
+
+</head>
+<body class="sys-ui-layout">
+
+    <header class="sys-header navbar-inverse">
+        <div class="sys-ui-imge"></div>
+        <div class="sys-ui-top1">
+            <div class="sys-ui-top-layout sys-ui-right">
+                <div class="navbar-brand">@AutenticationManager.GetUser().Nombres</div>
+                <a class="sys-ui-top-cmd sys-ui-logout" href="@Url.Action("Index", "Home")" title="Ir al Inicio">
+                    <span class="glyphicon glyphicon glyphicon-home"></span>
+                </a>
+                <a class="sys-ui-top-cmd sys-ui-logout" href="@Url.Action("Logout", "Seguridad")" title="Cerrar Sessi&oacute;n">
+                    <span class="glyphicon glyphicon glyphicon-off"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="sys-ui-top2 ui-shad-normal">
+            <div id="top1leftList" class="sys-ui-top-layout sys-ui-right">
+            </div>
+        </div>
+    </header>
+
+    <section class="sys-content-layout layout-togled">
+        <div id="mainlayout" class="sys-content">
+            @RenderBody()
+        </div>
+    </section>
+    <footer></footer>
+
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript" language="javacript">
+        $(document).ready(function () {
+
+        });
+    </script>
+
+</body>
+</html>

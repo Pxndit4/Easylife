@@ -1,0 +1,79 @@
+﻿@using System.Web.Script.Serialization
+
+
+@model IEnumerable<UNCDF.CMS.Models.PerfilViewModel>
+
+@{
+    UNCDF.CMS.Models.PerfilViewModel defPerfil = new UNCDF.CMS.Models.PerfilViewModel();
+    if (AutenticationManager.GetUser().IdPerfil != 0)
+    {
+        defPerfil = Model.Where(x => x.Id == AutenticationManager.GetUser().IdPerfil.ToString()).FirstOrDefault();
+    }
+    string defData = "";
+
+    if (defPerfil != null)
+    {
+        if (defPerfil.Perfil == null)
+        {
+            if (Model.Count() == 0)
+            {
+                defPerfil = new UNCDF.CMS.Models.PerfilViewModel { Id = "0", Perfil = "Sin permiso" };
+            }
+            else
+            {
+                defPerfil = Model.FirstOrDefault();
+            }
+
+            defData = new JavaScriptSerializer().Serialize(defPerfil);
+        }
+        else
+        {
+            defData = new JavaScriptSerializer().Serialize(defPerfil);
+        }
+    }
+    else
+    {
+        defPerfil = new UNCDF.CMS.Models.PerfilViewModel { Id = "0", Perfil = "Sin permiso" };
+    }
+}
+<a href="#" class="sys-ui-perf dropdown-toggle" data-toggle="dropdown">
+    <span id="topPerfil">@defPerfil.Perfil</span>
+    <span class="glyphicon glyphicon-chevron-down sys-ui-expand-ico"></span>
+</a>
+
+<div id="userPerfil" class="dropdown-menu sys-ui-perf-form">
+
+    <div style="margin-top:1em; margin-bottom:1em;">
+        @if (Model.Count() == 0)
+        {
+            <div>No hay Perfil</div>
+        }
+        <div class="list-group">
+
+            <input id="lsPerfilDefault" type="hidden" value='@defData' />
+
+            @foreach (var item in Model)
+            {
+                @Ajax.ActionLink(item.Perfil, "GetMenu", "Seguridad", new { id = item.Id }, new AjaxOptions
+                   {
+                       HttpMethod = "GET",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "tabnavbar",
+                       OnBegin = "unitlife.perfil.onBegin",
+                       OnComplete = "unitlife.perfil.onComplete"
+                   }, new { @class = "list-group-item ui-trans-all", id = item.Id, onclick = "ddlperrfil_onchange(this)" })
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language="javacript">
+    $(document).ready(function () {
+        @if (AutenticationManager.GetUser().IdPerfil != 0)
+        {
+            <text>
+        $("#top1leftList").find("#@AutenticationManager.GetUser().IdPerfil").click();
+        </text>
+        }
+    });
+</script>

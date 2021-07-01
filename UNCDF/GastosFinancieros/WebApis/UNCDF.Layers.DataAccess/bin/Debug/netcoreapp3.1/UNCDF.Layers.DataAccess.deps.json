@@ -12,7 +12,7 @@
           "Microsoft.Extensions.Configuration": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
-          "UNCDF.Layers.Models": "1.0.0",
+          "UNCDF.Layers.Model": "1.0.0",
           "UNCDF.Utilities": "1.0.0"
         },
         "runtime": {
@@ -821,9 +821,9 @@
           "System.Xml.ReaderWriter": "4.0.11"
         }
       },
-      "UNCDF.Layers.Models/1.0.0": {
+      "UNCDF.Layers.Model/1.0.0": {
         "runtime": {
-          "UNCDF.Layers.Models.dll": {}
+          "UNCDF.Layers.Model.dll": {}
         }
       },
       "UNCDF.Utilities/1.0.0": {
@@ -1364,7 +1364,7 @@
       "path": "system.xml.xdocument/4.0.11",
       "hashPath": "system.xml.xdocument.4.0.11.nupkg.sha512"
     },
-    "UNCDF.Layers.Models/1.0.0": {
+    "UNCDF.Layers.Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

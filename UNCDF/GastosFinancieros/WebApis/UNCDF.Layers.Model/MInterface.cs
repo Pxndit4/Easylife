@@ -9,5 +9,10 @@ namespace UNCDF.Layers.Model
         public string ControlName { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
+
+
+        //DATOS ADICIONALES PARA LA VISTA
+        public string Type { get; set; }
+        public string StatusName { get; set; }
     }
 }

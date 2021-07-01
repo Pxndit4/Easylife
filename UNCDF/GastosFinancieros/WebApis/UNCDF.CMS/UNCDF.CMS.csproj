@@ -138,6 +138,9 @@
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InterfaceControlController.cs" />
+    <Compile Include="Controllers\InterfaceController.cs" />
+    <Compile Include="Controllers\InterfaceControlTranslateController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -149,6 +152,7 @@
     <Compile Include="Invoke\Helper.cs" />
     <Compile Include="Invoke\WebApiDonorPartner.cs" />
     <Compile Include="Invoke\WebApiFund.cs" />
+    <Compile Include="Invoke\WebApiLanguage.cs" />
     <Compile Include="Invoke\WebApiOptions.cs" />
     <Compile Include="Invoke\WebApiProfile.cs" />
     <Compile Include="Invoke\WebApiProgram.cs" />
@@ -263,6 +267,11 @@
     <Content Include="Views\Program\Index.cshtml" />
     <Content Include="Views\Program\Load.cshtml" />
     <Content Include="Views\Project\Edit.cshtml" />
+    <Content Include="Views\Interface\Index.cshtml" />
+    <Content Include="Views\Interface\InterfaceControls.cshtml" />
+    <Content Include="Views\Interface\Register.cshtml" />
+    <Content Include="Views\InterfaceControl\Register.cshtml" />
+    <Content Include="Views\InterfaceControlTranslate\RegisterTranslate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

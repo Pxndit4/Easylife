@@ -1,0 +1,66 @@
+﻿@using UNCDF.CMS.Models
+@model UNCDF.CMS.Models.PanelViewModel
+
+<div class="panel-group" id="panelContentX">
+    <input id="perfil" type="hidden" />
+    @if (Model.Items.Count == 0)
+    {
+        <div style="text-align:center;">Perfil sin Opciones</div>
+    }
+    else
+    {
+        @BindTabs(Model.Items)
+    }
+
+    @helper BindTabs(List<PanelTab> items)
+    {
+        foreach (var item in items)
+        {
+            <div class="panel panel-sys">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a data-toggle="collapse" data-parent="#panelContent" href="#@item.Id">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                            @item.Text
+                        </a>
+                    </div>
+                </div>
+                @BindTabItems(item)
+            </div>
+        }
+    }
+    @helper BindTabItems(PanelTab tabItem)
+    {
+        <div id="@tabItem.Id" class="panel-collapse collapse" style="height: 0px;">
+            <div class="panel-body">
+                <ul class="panel-items">
+                    @foreach (var item in tabItem.Items)
+                    {
+                        if (item.IsSeparator)
+                        {
+                            <li class="item-separator">
+                                <span class="glyphicon glyphicon-menu-down"></span> @item.Text
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="panel-item ui-trans-all">
+                                @{
+                                    string _unitKey = string.Format("{0}_{1}", item.Id, Model.PerfilId);
+                                    string _trgid = ViewUtil.Target(_unitKey);
+                                }
+                                @Html.ActionLink(item.Text, item.Action, null, new { href = "/" + item.Action + "?trg=" + _trgid, id = _trgid })
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+</div>
+<script type="text/javascript" language="javacript">
+    $(document).ready(function () {
+        unitlife.site.navBar.itemsOn();
+    });
+</script>

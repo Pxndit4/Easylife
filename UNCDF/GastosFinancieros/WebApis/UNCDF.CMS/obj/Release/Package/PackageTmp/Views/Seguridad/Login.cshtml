@@ -1,0 +1,37 @@
+﻿@model UNCDF.CMS.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+<div class="ui-content" style="padding-top:40px;">
+
+
+    @using (Html.BeginForm("Login", "Seguridad", null, FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="ui-form-content">
+            <div style="width:100%; text-align:center; padding-top:20px;">
+                <img src="@Url.Content("~/Content/images/logoUncdfUnitLife.png")">
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.User, new { @class = "form-control", @placeholder = "User" })
+            </div>
+            <div class="form-group">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+            </div>
+
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                <button type="submit" style="width:100%" class="btn btn-primary">Login</button>
+            </div>
+
+            <div style="width: 100%;text-align: center;line-height: 30px;color: #1c1c1c;margin-top:20px;">
+                <p style="font-weight:bold;">© 2020 UNCDF | Developed by <a class="ZX" href="http://easylife.pe/">EasyLife</a></p>
+            </div>
+        </div>
+    }
+
+</div>

@@ -16,3 +16,12 @@
 /Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
 /Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.dll
 /Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\bin\Release\netcoreapp3.1\UNCDF.Utilities.deps.json
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\bin\Release\netcoreapp3.1\UNCDF.Utilities.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\bin\Release\netcoreapp3.1\UNCDF.Utilities.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Release\netcoreapp3.1\UNCDF.Utilities.csprojAssemblyReference.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Release\netcoreapp3.1\UNCDF.Utilities.AssemblyInfoInputs.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Release\netcoreapp3.1\UNCDF.Utilities.AssemblyInfo.cs
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Release\netcoreapp3.1\UNCDF.Utilities.csproj.CoreCompileInputs.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Release\netcoreapp3.1\UNCDF.Utilities.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Release\netcoreapp3.1\UNCDF.Utilities.pdb
