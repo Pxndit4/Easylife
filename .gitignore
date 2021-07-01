@@ -1,842 +1,845 @@
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/project.assets.json
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/project.nuget.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.g.props
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.assets.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.deps.json
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfo.cs
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.assets.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CopyComplete
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.genruntimeconfig.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.MvcApplicationPartsAssemblyInfo.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.RazorTargetAssemblyInfo.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/project.assets.json
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/project.nuget.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.g.props
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.assets.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/project.assets.json
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/project.nuget.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.g.props
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfo.cs
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.assets.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/project.assets.json
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/project.nuget.cache
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.g.props
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.assets.cache
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/project.assets.json
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/project.nuget.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.g.props
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.deps.json
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.deps.json
-UNCDF/Gastos Financieros/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/appsettings.Development.json
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/appsettings.json
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.deps.json
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.exe
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.dev.json
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.json
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/apphost.exe
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.Manifest.cache
-UNCDF/Gastos Financieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.xml
-UNCDF/Gastos Financieros/UNCDF/bin/Debug/DeploymentReport.txt
-UNCDF/Gastos Financieros/UNCDF/bin/Debug/UNCDF.dacpac
-UNCDF/Gastos Financieros/UNCDF/bin/Debug/UNCDF.dll
-UNCDF/Gastos Financieros/UNCDF/bin/Debug/UNCDF.pdb
-UNCDF/Gastos Financieros/UNCDF/bin/Debug/UNCDF.publish.sql
-UNCDF/Gastos Financieros/UNCDF/obj/Debug/Model.xml
-UNCDF/Gastos Financieros/UNCDF/obj/Debug/UNCDF.dll
-UNCDF/Gastos Financieros/UNCDF/obj/Debug/UNCDF.pdb
-UNCDF/Gastos Financieros/UNCDF/obj/Debug/UNCDF.sqlproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/project.assets.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/project.nuget.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.g.props
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/project.assets.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/project.nuget.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.g.props
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/project.assets.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/project.nuget.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.g.props
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/project.assets.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/project.nuget.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.g.props
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/appsettings.Development.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/appsettings.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.dev.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/project.assets.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/project.nuget.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.g.props
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/apphost.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.genruntimeconfig.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.MvcApplicationPartsAssemblyInfo.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.RazorTargetAssemblyInfo.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.Manifest.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.xml
-UNCDF/Gastos Financieros/WebApis/UNCDF/bin/Debug/DeploymentReport_2.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF/bin/Debug/UNCDF_2.publish.sql
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/bin/Debug/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/bin/Debug/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Debug/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF/bin/Debug/DeploymentReport_3.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF/bin/Debug/UNCDF_3.publish.sql
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.dll
+
+
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/project.assets.json
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/project.nuget.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.g.props
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.assets.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.deps.json
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfo.cs
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.assets.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CopyComplete
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.genruntimeconfig.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.MvcApplicationPartsAssemblyInfo.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.RazorTargetAssemblyInfo.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/project.assets.json
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/project.nuget.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.g.props
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.assets.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/project.assets.json
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/project.nuget.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.g.props
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfo.cs
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.assets.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/project.assets.json
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/project.nuget.cache
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.g.props
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.assets.cache
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/project.assets.json
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/project.nuget.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.g.props
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.deps.json
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.deps.json
+UNCDF/GastosFinancieros/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/appsettings.Development.json
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/appsettings.json
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.deps.json
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.exe
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.dev.json
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.json
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/apphost.exe
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.Manifest.cache
+UNCDF/GastosFinancieros/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.xml
+UNCDF/GastosFinancieros/UNCDF/bin/Debug/DeploymentReport.txt
+UNCDF/GastosFinancieros/UNCDF/bin/Debug/UNCDF.dacpac
+UNCDF/GastosFinancieros/UNCDF/bin/Debug/UNCDF.dll
+UNCDF/GastosFinancieros/UNCDF/bin/Debug/UNCDF.pdb
+UNCDF/GastosFinancieros/UNCDF/bin/Debug/UNCDF.publish.sql
+UNCDF/GastosFinancieros/UNCDF/obj/Debug/Model.xml
+UNCDF/GastosFinancieros/UNCDF/obj/Debug/UNCDF.dll
+UNCDF/GastosFinancieros/UNCDF/obj/Debug/UNCDF.pdb
+UNCDF/GastosFinancieros/UNCDF/obj/Debug/UNCDF.sqlproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/project.assets.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/project.nuget.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.g.props
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/UNCDF.Layers.Business.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/project.assets.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/project.nuget.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.g.props
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/UNCDF.Layers.DataAccess.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/project.assets.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/project.nuget.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.g.props
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/UNCDF.Layers.Models.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/project.assets.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/project.nuget.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.g.props
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/UNCDF.Utilities.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/appsettings.Development.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/appsettings.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.dev.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/project.assets.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/project.nuget.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.g.props
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/apphost.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.genruntimeconfig.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.MvcApplicationPartsAssemblyInfo.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Security.RazorTargetAssemblyInfo.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.Manifest.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.xml
+UNCDF/GastosFinancieros/WebApis/UNCDF/bin/Debug/DeploymentReport_2.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF/bin/Debug/UNCDF_2.publish.sql
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/bin/Debug/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/bin/Debug/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Debug/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF/bin/Debug/DeploymentReport_3.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF/bin/Debug/UNCDF_3.publish.sql
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.dll
 <<<<<<< HEAD
 =======
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/UserPrefs.xml
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.Business-Debug.json
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.DataAccess-Debug.json
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.DataAccess-Release.json
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.Models-Debug.json
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.Models-Release.json
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Utilities-Debug.json
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Utilities-Release.json
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.WebApi.Security-Debug.json
-UNCDF/Gastos Financieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.WebApi.Security-Release.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/UserPrefs.xml
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.Business-Debug.json
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.DataAccess-Debug.json
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.DataAccess-Release.json
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.Models-Debug.json
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Layers.Models-Release.json
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Utilities-Debug.json
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.Utilities-Release.json
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.WebApi.Security-Debug.json
+UNCDF/GastosFinancieros/WebApis/.vs/UNCDF/xs/project-cache/UNCDF.WebApi.Security-Release.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Models/obj/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.pdb
 >>>>>>> 7709a86d40d86fd201fa770531764bd7ca557d1a
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/appsettings.Development.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/appsettings.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/appsettings.Development.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/appsettings.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
 <<<<<<< HEAD
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb
 =======
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Layers.Models.pdb
 >>>>>>> 7709a86d40d86fd201fa770531764bd7ca557d1a
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.dll
 <<<<<<< HEAD
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.dev.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/appsettings.Development.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/appsettings.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/publish.rar
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/web.config
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.dev.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/appsettings.Development.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/appsettings.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/publish.rar
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Security.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/web.config
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 =======
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.dev.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.dev.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/UNCDF.WebApi.Security.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
 >>>>>>> 7709a86d40d86fd201fa770531764bd7ca557d1a
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
 <<<<<<< HEAD
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.EntityFrameworkCore.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/apphost.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PublishOutputs.6ad3a0a419.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/UNCDF.WebApi.Security.csproj.EntityFrameworkCore.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/apphost.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PublishOutputs.6ad3a0a419.txt
 =======
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
 >>>>>>> 7709a86d40d86fd201fa770531764bd7ca557d1a
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.genruntimeconfig.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.MvcApplicationPartsAssemblyInfo.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.RazorTargetAssemblyInfo.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.genruntimeconfig.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.MvcApplicationPartsAssemblyInfo.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/UNCDF.WebApi.Security.RazorTargetAssemblyInfo.cache
 <<<<<<< HEAD
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/appsettings.Development.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/appsettings.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/web.config
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.Manifest.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.xml
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/bin/Release/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/bin/Release/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/build.force
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/build.force
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/appsettings.Development.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/appsettings.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Security.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/web.config
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.Manifest.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.xml
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/bin/Release/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/bin/Release/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/build.force
+
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/.NETFramework,Version=v4.6.2.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/build.force
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csprojAssemblyReference.cache
 =======
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.Manifest.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.xml
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.Manifest.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Security/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Security.StaticWebAssets.xml
 >>>>>>> 7709a86d40d86fd201fa770531764bd7ca557d1a
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/project.assets.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/project.nuget.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/UNCDF.WebApi.Project.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/UNCDF.WebApi.Project.csproj.nuget.g.props
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/UNCDF.WebApi.Project.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csprojAssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.genruntimeconfig.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.MvcApplicationPartsAssemblyInfo.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.RazorTargetAssemblyInfo.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Project.StaticWebAssets.Manifest.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Project.StaticWebAssets.xml
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.runtimeconfig.dev.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/appsettings.Development.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/appsettings.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/DesignTimeResolveAssemblyReferences.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.GenerateResource.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.MessageResource.resources
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/TempPE/MessageResource.Designer.cs.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/appsettings.Development.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/appsettings.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.runtimeconfig.dev.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/appsettings.Development.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/appsettings.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/publish.rar
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/web.config
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/UNCDF.WebApi.Project.csproj.EntityFrameworkCore.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/apphost.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.AssemblyInfo.cs
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.AssemblyInfoInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csproj.CopyComplete
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csproj.CoreCompileInputs.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csproj.FileListAbsolute.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.genruntimeconfig.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.MvcApplicationPartsAssemblyInfo.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.RazorTargetAssemblyInfo.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Project.StaticWebAssets.Manifest.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Project.StaticWebAssets.xml
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/apphost.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PublishOutputs.e9823dbdc2.txt
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/appsettings.Development.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/appsettings.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.Core.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.S3.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.SimpleEmail.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.Identity.Client.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.JsonWebTokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Logging.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Protocols.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Tokens.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Newtonsoft.Json.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/System.Configuration.ConfigurationManager.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/System.IdentityModel.Tokens.Jwt.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Business.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Business.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.DataAccess.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.DataAccess.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Model.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Model.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Utilities.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Utilities.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.deps.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.exe
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.pdb
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.runtimeconfig.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/web.config
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/UNCDF.WebApi.Project.csproj.user
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/Properties/PublishProfiles/FolderProfile.pubxml
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/Properties/PublishProfiles/FolderProfile.pubxml.user
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/TempPE/MessageResource.Designer.cs.dll
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/UN_REF_FUNDS2.xlsx
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/UN_REF_FUNDS.xlsx
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/UN_REF_DONORS.xlsx
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/UN_REF_DONORS2.xlsx
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/Program Name.xlsx
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/obj/project.assets.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/obj/project.nuget.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/obj/UNCDF.WebApi.Config.csproj.nuget.dgspec.json
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/obj/UNCDF.WebApi.Config.csproj.nuget.g.props
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/obj/UNCDF.WebApi.Config.csproj.nuget.g.targets
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/obj/Release/netcoreapp3.1/UNCDF.WebApi.Config.assets.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csproj.AssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csproj.AssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.csproj.AssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.AssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.AssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csproj.AssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.AssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.AssemblyReference.cache
-UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.AssemblyReference.cache
-/UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/UNTAR_PROJECT_LIST_WITH_STATUS_3_CargaSinVal.xlsx
-/UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/UNTAR_PROJECT_LIST_WITH_STATUS_2.xlsx
-/UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/UNTAR_PROJECT_LIST_WITH_STATUS_1.xlsx
-/UNCDF/Gastos Financieros/WebApis/UNCDF.CMS/File/UNTAR_PROJECT_LIST_WITH_STATUS.xlsx
-/UNCDF/Gastos Financieros/WebApis/UNCDF.WebApi.Config/obj
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/project.assets.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/project.nuget.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/UNCDF.WebApi.Project.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/UNCDF.WebApi.Project.csproj.nuget.g.props
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/UNCDF.WebApi.Project.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csprojAssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.genruntimeconfig.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.MvcApplicationPartsAssemblyInfo.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.RazorTargetAssemblyInfo.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Project.StaticWebAssets.Manifest.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Project.StaticWebAssets.xml
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.runtimeconfig.dev.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/appsettings.Development.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/appsettings.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.GenerateResource.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.MessageResource.resources
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/TempPE/MessageResource.Designer.cs.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/appsettings.Development.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/appsettings.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.runtimeconfig.dev.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/UNCDF.WebApi.Project.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/UNCDF.WebApi.Project.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/appsettings.Development.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/appsettings.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/publish.rar
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/UNCDF.WebApi.Project.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/web.config
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Release/netcoreapp3.1/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/UNCDF.WebApi.Project.csproj.EntityFrameworkCore.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/apphost.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.AssemblyInfo.cs
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.AssemblyInfoInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csproj.CopyComplete
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csproj.CoreCompileInputs.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csproj.FileListAbsolute.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.genruntimeconfig.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.MvcApplicationPartsAssemblyInfo.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.RazorTargetAssemblyInfo.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Project.StaticWebAssets.Manifest.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/staticwebassets/UNCDF.WebApi.Project.StaticWebAssets.xml
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/apphost.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PublishOutputs.e9823dbdc2.txt
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/appsettings.Development.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/appsettings.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.Core.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.S3.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/AWSSDK.SimpleEmail.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.Identity.Client.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.JsonWebTokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Logging.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Protocols.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Microsoft.IdentityModel.Tokens.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/Newtonsoft.Json.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/System.Configuration.ConfigurationManager.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/System.IdentityModel.Tokens.Jwt.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Business.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Business.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.DataAccess.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.DataAccess.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Model.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Layers.Model.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Utilities.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.Utilities.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.deps.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.exe
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.pdb
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/UNCDF.WebApi.Project.runtimeconfig.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/web.config
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/PubTmp/Out/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/UNCDF.WebApi.Project.csproj.user
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/Properties/PublishProfiles/FolderProfile.pubxml
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/Properties/PublishProfiles/FolderProfile.pubxml.user
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/TempPE/MessageResource.Designer.cs.dll
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/UN_REF_FUNDS2.xlsx
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/UN_REF_FUNDS.xlsx
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/UN_REF_DONORS.xlsx
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/UN_REF_DONORS2.xlsx
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/Program Name.xlsx
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/project.assets.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/project.nuget.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/UNCDF.WebApi.Config.csproj.nuget.dgspec.json
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/UNCDF.WebApi.Config.csproj.nuget.g.props
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/UNCDF.WebApi.Config.csproj.nuget.g.targets
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/Release/netcoreapp3.1/UNCDF.WebApi.Config.assets.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Debug/netcoreapp3.1/UNCDF.WebApi.Project.csproj.AssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/obj/Release/netcoreapp3.1/UNCDF.WebApi.Project.csproj.AssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Debug/UNCDF.Layers.Model.csproj.AssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/obj/Release/UNCDF.Layers.Model.csproj.AssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Debug/UNCDF.CMS.csproj.AssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/UNCDF.CMS.csproj.AssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Business/obj/Release/netcoreapp3.1/UNCDF.Layers.Business.csproj.AssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.AssemblyReference.cache
+UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/Release/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.AssemblyReference.cache
+/UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/UNTAR_PROJECT_LIST_WITH_STATUS_3_CargaSinVal.xlsx
+/UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/UNTAR_PROJECT_LIST_WITH_STATUS_2.xlsx
+/UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/UNTAR_PROJECT_LIST_WITH_STATUS_1.xlsx
+/UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/File/UNTAR_PROJECT_LIST_WITH_STATUS.xlsx
+/UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj
 /.vs/Repo/v16
 UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/bin/Release/netcoreapp3.1/Newtonsoft.Json.dll
 UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/bin/Release/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
@@ -888,3 +891,4 @@ UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/Release/netcoreapp3.1/UN
 UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/obj/Release/netcoreapp3.1/UNCDF.WebApi.Config.AssemblyInfoInputs.cache
 UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
 UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/bin/Release/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+UNCDF.jfm

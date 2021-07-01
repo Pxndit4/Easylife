@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\UNCDF",
+    "\\UNCDF\\GastosFinancieros",
+    "\\UNCDF\\GastosFinancieros\\WebApis",
+    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.WebApi.Project"
   ],
+  "SelectedNode": "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.sln",
   "PreviewInSolutionExplorer": false
 }
