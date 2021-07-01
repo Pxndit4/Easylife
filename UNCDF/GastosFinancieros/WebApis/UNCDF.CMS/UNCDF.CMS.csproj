@@ -138,10 +138,16 @@
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
+    <Compile Include="Controllers\TimeLineController.cs" />
+    <Compile Include="Controllers\TimeLineMultimediaController.cs" />
+    <Compile Include="Controllers\TimeLineTestimonialController.cs" />
+    <Compile Include="Controllers\TimeLineTestimonialTranslateController.cs" />
+    <Compile Include="Controllers\TimeLineTranslateController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,10 +155,16 @@
     <Compile Include="Invoke\Helper.cs" />
     <Compile Include="Invoke\WebApiDonorPartner.cs" />
     <Compile Include="Invoke\WebApiFund.cs" />
+    <Compile Include="Invoke\WebApiLanguage.cs" />
     <Compile Include="Invoke\WebApiOptions.cs" />
     <Compile Include="Invoke\WebApiProfile.cs" />
     <Compile Include="Invoke\WebApiProgram.cs" />
     <Compile Include="Invoke\WebApiProject.cs" />
+    <Compile Include="Invoke\WebApiTimeLine.cs" />
+    <Compile Include="Invoke\WebApiTimeLineMultimedia.cs" />
+    <Compile Include="Invoke\WebApiTimeLineTestimonial.cs" />
+    <Compile Include="Invoke\WebApiTimeLineTestimonialTranslate.cs" />
+    <Compile Include="Invoke\WebApiTimeLineTranslate.cs" />
     <Compile Include="Invoke\WebApiUser.cs" />
     <Compile Include="MessageResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -161,12 +173,18 @@
     </Compile>
     <Compile Include="Models\DonorPartnerViewModel.cs" />
     <Compile Include="Models\FundViewModel.cs" />
+    <Compile Include="Models\LanguageViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\ProgramViewModel.cs" />
     <Compile Include="Models\ProjectViewModel.cs" />
+    <Compile Include="Models\TimeLineMultimediaViewModel.cs" />
+    <Compile Include="Models\TimeLineTestimonialTranslateViewModel.cs" />
+    <Compile Include="Models\TimeLineTestimonialViewModel.cs" />
+    <Compile Include="Models\TimeLineTranslateViewModel.cs" />
+    <Compile Include="Models\TimeLineViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AutenticationManager.cs" />
@@ -267,6 +285,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="File\" />
+    <Folder Include="Views\Language\" />
+    <Folder Include="Views\TimeLineTestimonialTranslate\" />
+    <Folder Include="Views\TimeLineTestimonial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

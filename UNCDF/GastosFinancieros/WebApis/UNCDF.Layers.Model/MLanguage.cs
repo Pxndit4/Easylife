@@ -16,5 +16,7 @@ namespace UNCDF.Layers.Model
         public int Status { get; set; }
         public byte[] FileByte { get; set; }
         public string FlagExtension { get; set; }
+        public string StatusName { get; set; }
+        
     }
 }

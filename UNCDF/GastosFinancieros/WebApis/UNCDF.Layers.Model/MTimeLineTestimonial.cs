@@ -15,5 +15,6 @@ namespace UNCDF.Layers.Model
         public string Photo { get; set; }
         public string Ext { get; set; }
         public byte[] FileByte { get; set; }
+        public string PhotoLink { get; set; }
     }
 }

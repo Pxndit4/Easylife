@@ -11,9 +11,13 @@ namespace UNCDF.Layers.Model
         public int TimeLineMulId { get; set; }
         public int TimeLineId { get; set; }
         public int Type { get; set; }
+
         public string File { get; set; }
         public string Title { get; set; }
         public byte[] FileByte { get; set; }
         public string FileExt { get; set; }
+        //model
+        public string TypeName { get; set; }
+        public string FileLink { get; set; }
     }
 }
