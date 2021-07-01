@@ -1,0 +1,479 @@
+﻿@model UNCDF.CMS.Models.TimeLineViewModel
+
+@{
+    ViewBag.Title = "Time Line Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        TimeLine Edit Maintenance
+    </span>
+    <div class="ui-btn-content">
+
+        @{var formCode = ViewBag.ReturnForm; }
+
+        @if (formCode == "3")
+        {
+            <a id="lnkReturnUnApproved" class="btn btn-default" href="@Url.Link("UnApprovedRejected", "TimeLine", null)"><span class="glyphicon glyphicon-arrow-left"></span>Return</a>
+        }
+        else
+        {
+            <a id="lnkReturnActs" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span>Return</a>
+        }
+
+
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.ProjectId)
+                    @Html.TextBoxFor(m => m.ProjectId, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-11">
+                    @Html.LabelFor(m => m.TitleProject)
+                    @Html.TextBoxFor(m => m.TitleProject, new { @class = "form-control", @readonly = true })
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <div class="ui-container">
+            @using (Html.BeginForm("Register", "TimeLine", FormMethod.Post, new { id = "frmTimeLineEditReg" }))
+            {
+                @Html.HiddenFor(m => m.TimeLineId)
+                @Html.HiddenFor(m => m.ProjectId)
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Title)
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control", maxlength = 200 })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Description)
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            @Html.LabelFor(m => m.Date)
+                            <div id="d_@Html.IdFor(m=>m.Date)" class="input-group date">
+                                @Html.TextBoxFor(m => m.Date, new { @class = "form-control input", maxlength = 10 })
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            @Html.LabelFor(m => m.Advance)
+                            @Html.TextBoxFor(m => m.Advance, new { maxlength = 3, @class = "form-control", Type = "number", })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.LabelFor(m => m.CurrentAdvance)
+                            @Html.TextBoxFor(m => m.CurrentAdvance, new { @class = "form-control", @readonly = true })
+                        </div>
+
+                        <div class="col-md-3">
+                            @Html.LabelFor(m => m.Status)
+                            @Html.DropDownListFor(m => m.Status, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", data_value = Model.Status })
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-11">
+
+                            <div class="ui-btn-content">
+                                @Ajax.AjaxActionLink("", "NewTranslation", "TimeLineTranslate", new { id = Model.TimeLineId }, new AjaxOptions
+                           {
+                               HttpMethod = "GET",
+                               InsertionMode = InsertionMode.Replace,
+                               UpdateTargetId = "dialogBody",
+                               OnBegin = "unitlife.site.dialog.onInit",
+                               OnComplete = "unitlife.site.dialog.onComplete",
+                               OnFailure = "unitlife.site.dialog.onFailure",
+                           }, new { @class = "btn btn-default pull-right" }, "glyphicon glyphicon-globe")
+                            </div>
+
+                        </div>
+                        <div class="col-md-1">
+
+                            <button type="submit" id="btnRegSubm" class="btn btn-default pull-right">
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Update
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    Required fields.<span class="input-validation-error-ley"></span>
+                </div>
+            }
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="panel panel-default">
+
+
+    <div class="panel-body">
+        <div>
+            @using (Html.BeginForm("Search", "TimeLineMultimedia", FormMethod.Post, new { id = "frmSearchMultimedia" }))
+            {
+                @Html.HiddenFor(m => m.TimeLineId)
+            }
+        </div>
+        <div class="ui-bar ui-bar-default">
+            <span class="ui-title">
+                Multimedia List
+            </span>
+            <div class="ui-btn-content">
+                @Ajax.AjaxActionLink("New", "New", "TimeLineMultimedia", new { id = Model.TimeLineId }, new AjaxOptions
+           {
+               HttpMethod = "GET",
+               InsertionMode = InsertionMode.Replace,
+               UpdateTargetId = "dialogBody",
+               OnBegin = "unitlife.site.dialog.onInit",
+               OnComplete = "unitlife.site.dialog.onComplete",
+               OnFailure = "unitlife.site.dialog.onFailure",
+           }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
+            </div>
+        </div>
+        <div id="tbListEditCont1" class="ui-container">
+            <table id="tbListEdit" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-name="@Html.HtmlIdNameFor(x => x.multimediaList.Title)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+                <thead>
+                    <tr>
+                        <th data-class="ui-cell-icon" data-formatter="objIndexEdit.grid.commandEdit" data-events="objIndexEdit.grid.rowCommand"></th>
+                        @*<th data-class="ui-cell-icon" data-formatter="objIndexEdit.grid.commandTranslation" data-events="objIndexEdit.grid.rowCommand"></th>*@
+                        <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexEdit.grid.rowCommand"></th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.TimeLineId)" data-visible="false">@Html.DisplayNameFor(x => x.multimediaList.TimeLineId)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.TimeLineMulId)" data-visible="false">@Html.DisplayNameFor(x => x.multimediaList.TimeLineMulId)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.Title)">@Html.DisplayNameFor(x => x.multimediaList.Title)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.File)">@Html.DisplayNameFor(x => x.multimediaList.File)</th>
+
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div>
+            @using (Html.BeginForm("Search", "TimeLineTestimonial", FormMethod.Post, new { id = "frmSearchTestimonial" }))
+            {
+                @Html.HiddenFor(m => m.TimeLineId)
+            }
+        </div>
+        <div class="ui-bar ui-bar-default">
+            <span class="ui-title">
+                Testimonial List
+            </span>
+            <div class="ui-btn-content">
+                @Ajax.AjaxActionLink("New", "New", "TimeLineTestimonial", new { id = Model.TimeLineId }, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
+            </div>
+        </div>
+        <div id="tbListEditCont2" class="ui-container">
+
+            <table id="tbListEditTest" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.testimonials.Name)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+                <thead>
+                    <tr>
+                        <th data-class="ui-cell-icon" data-formatter="objIndexEditTest.grid.commandEdit" data-events="objIndexEditTest.grid.rowCommand"></th>
+                        <th data-class="ui-cell-icon" data-formatter="objIndexEditTest.grid.commandTranslation" data-events="objIndexEditTest.grid.rowcommand"></th>
+                        <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexEditTest.grid.rowCommand"></th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.testimonials.TimeLineId)" data-visible="false">@Html.DisplayNameFor(x => x.testimonials.TimeLineId)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.testimonials.TimeLineTestId)" data-visible="false">@Html.DisplayNameFor(x => x.testimonials.TimeLineTestId)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.testimonials.Name)">@Html.DisplayNameFor(x => x.testimonials.Name)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.testimonials.Photo)">@Html.DisplayNameFor(x => x.testimonials.Photo)</th>
+
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+    function rebindGrid() {
+     //   $("#btnSearch").click();
+    }
+     var objIndexEdit={
+        initial: function () {
+
+            unitlife.ui.grid('#tbListEdit').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndexEdit.grid.load();
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListEdit");
+            },
+            load: function () {
+                console.log('entra mult');
+                unitlife.ui.grid('#tbListEdit').load('@Url.Action("Search", "TimeLineMultimedia", null)', '#frmSearchMultimedia');
+                console.log('sale mult');
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    var Estado = row["Status"];
+
+                    if ("1" == "1") {
+                        var _grid = unitlife.ui.grid("#tbListEdit");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Time Line Multimedia"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("Delete", "TimeLineMultimedia", null)', { id: row.TimeLineMulId }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndexEdit.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Interface"))" });
+                    }
+                }
+                , 'click #control': function (e, value, row) {
+                    window.location.href = '@Url.Action("InterfaceControls", "Interface")/' + row.InterfaceId + '@Url.TargetParam()';
+
+                    return false;
+                }
+            },
+            commandTranslation: function (e, r, i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "NewTranslation", "TimeLineTestimonialTranslate", null, new AjaxOptions
+                     {
+                         HttpMethod = "GET",
+                         InsertionMode = InsertionMode.Replace,
+                         UpdateTargetId = "dialogBody",
+                         OnBegin = "unitlife.site.dialog.onInit",
+                         OnComplete = "unitlife.site.dialog.onComplete",
+                         OnFailure = "unitlife.site.dialog.onFailure",
+                     }, new { @class = "",title= "Testimonial Translations" }, "glyphicon glyphicon-globe")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.TimeLineId))[0].outerHTML;
+                return sd;
+                objIndexEdit.grid.load();
+            },
+            commandEdit:function(e,r,i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "TimeLineMultimedia", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                    }, new { @class = "",title="Edit Multimedia" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.multimediaList.TimeLineMulId))[0].outerHTML;
+                return sd;
+                objIndexEdit.grid.load();
+            }
+        },
+        general:{
+        }
+    };
+
+    var objIndexEditTest={
+        initial: function () {
+
+            //unitlife.ui.grid('#tbListEdit').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            unitlife.ui.grid('#tbListEditTest').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndexEditTest.grid.load();
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListEditTest");
+
+            },
+            load: function () {
+                unitlife.ui.grid('#tbListEditTest').load('@Url.Action("Search", "TimeLineTestimonial", null)', '#frmSearchTestimonial');
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    var Estado = row["Status"];
+
+                    if ("1" == "1") {
+                        var _grid = unitlife.ui.grid("#tbListEditTest");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Time Line Testimonial"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("Delete", "TimeLineTestimonial", null)', { id: row.TimeLineTestId }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndexEditTest.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Interface"))" });
+                    }
+                }
+                , 'click #control': function (e, value, row) {
+                    window.location.href = '@Url.Action("InterfaceControls", "Interface")/' + row.InterfaceId + '@Url.TargetParam()';
+                    return false;
+                }
+            },
+            commandTranslation: function (e, r, i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "NewTranslation", "TimeLineTestimonialTranslate", null, new AjaxOptions
+                     {
+                         HttpMethod = "GET",
+                         InsertionMode = InsertionMode.Replace,
+                         UpdateTargetId = "dialogBody",
+                         OnBegin = "unitlife.site.dialog.onInit",
+                         OnComplete = "unitlife.site.dialog.onComplete",
+                         OnFailure = "unitlife.site.dialog.onFailure",
+                     }, new { @class = "",title= "Testimonial Translations" }, "glyphicon glyphicon-globe")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.testimonials.TimeLineTestId))[0].outerHTML;
+                return sd;
+                objIndexEditTest.grid.load();
+            },
+            commandEdit:function(e,r,i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "TimeLineTestimonial", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                    }, new { @class = "",title="Edit Testimonial" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.testimonials.TimeLineTestId))[0].outerHTML;
+                return sd;
+                objIndexEditTest.grid.load();
+            }
+        },
+        general:{
+        }
+    };
+    $(document).ready(function () {
+
+        $("#lnkReturnActs").on("click", function (e) {
+            window.location.href = '@Url.Action("ProjectTimeLines", "TimeLine")/' + @Model.ProjectId + '@Url.TargetParam()';
+            return false;
+        });
+
+        @*$("#lnkReturnUnApproved").on("click", function (e) {
+            window.location.href = '@Url.Action("UnApprovedRejected", "TimeLine")';
+            return false;
+        });*@
+
+        $("#btnRegSubm").on("click", function (e) {
+            e.preventDefault();
+            @*console.log($("#@Html.IdFor(m => m.Advance)").val());
+            console.log($("#@Html.IdFor(m => m.CurrentAdvance)").val());*@
+
+            if ($("#@Html.IdFor(m => m.Advance)").val() < $("#@Html.IdFor(m => m.CurrentAdvance)").val()) {
+                unitlife.ui.validation.showMessage("You must enter a major advance");
+                return false;
+            }
+
+            var _frm = unitlife.ui.validation("#frmTimeLineEditReg"), condVal = $("#@Html.IdFor(m => m.TimeLineId)").val();
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+            if (condVal == '01') {
+                _isValid = _frm.validGroup(condVal, '01',
+                    [
+                        "#@Html.IdFor(m => m.Title)"
+                    ]);
+            }
+            else {
+                _isValid = _frm.valid();
+            }
+            if (_isValid) {
+
+                Confirmar(
+                '¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+                        unitlife.ajax.submit('@Url.Action("Register", "TimeLine", null)', "#frmTimeLineEditReg");
+
+                         $.ajax({
+                             url: '@Url.Action("GetTimeLine", "TimeLine")/?id=' + @Model.TimeLineId,
+                            type: 'POST',
+                            success: function(data) {
+                                var Advance = data.data.Advance;
+                                $("#@Html.IdFor(m => m.Advance)").val(Advance);
+                                $("#@Html.IdFor(m => m.CurrentAdvance)").val(Advance)
+
+                            }
+                        });
+
+                        // unitlife.site.dialog.invoqResultCallback('REG_TIMELINE');
+
+                },
+                null
+                );
+            }
+            return false;
+        });
+
+        @*unitlife.ui.input.onlyNumeric("#@Html.IdFor(m => m.Date)");*@
+
+        $('#d_@Html.IdFor(m => m.Date)').datepicker();
+        unitlife.ui.SelectedValue('#@Html.IdFor(x => x.Status)');
+
+        objIndexEdit.initial();
+        objIndexEditTest.initial();
+    });
+
+    function ___getModalResult(key, data) {
+        if (key == 'REG_TIMELINEMULTIMEDIA') {
+            objIndexEdit.grid.load();
+        }
+
+        if (key == 'REG_TIMELINETESTIMONIAL') {
+            objIndexEditTest.grid.load();
+        }
+    }
+</script>

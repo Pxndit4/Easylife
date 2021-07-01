@@ -138,13 +138,10 @@
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-
     <Compile Include="Controllers\InterfaceControlController.cs" />
     <Compile Include="Controllers\InterfaceController.cs" />
     <Compile Include="Controllers\InterfaceControlTranslateController.cs" />
-
     <Compile Include="Controllers\LanguageController.cs" />
-
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -292,13 +289,17 @@
     <Content Include="Views\Interface\Register.cshtml" />
     <Content Include="Views\InterfaceControl\Register.cshtml" />
     <Content Include="Views\InterfaceControlTranslate\RegisterTranslate.cshtml" />
+    <Content Include="Views\TimeLine\Edit.cshtml" />
+    <Content Include="Views\TimeLine\Register.cshtml" />
+    <Content Include="Views\TimeLine\ProjectTimeLines.cshtml" />
+    <Content Include="Views\TimeLineMultimedia\Register.cshtml" />
+    <Content Include="Views\TimeLineTestimonial\Register.cshtml" />
+    <Content Include="Views\TimeLineTestimonialTranslate\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="File\" />
     <Folder Include="Views\Language\" />
-    <Folder Include="Views\TimeLineTestimonialTranslate\" />
-    <Folder Include="Views\TimeLineTestimonial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
