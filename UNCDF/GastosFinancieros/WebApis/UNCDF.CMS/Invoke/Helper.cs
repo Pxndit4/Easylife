@@ -25,13 +25,21 @@ namespace UNCDF.CMS
             //    requestURL = ConfigurationManager.AppSettings["URLServicesSecurity"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             //}
 
-            if (path.Contains("Project"))
-            {
-                //  path = path.Replace("applicationConfig/", "");
-                path = path.Replace("Project/", "");
-                //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-                requestURL = ConfigurationManager.AppSettings["URLServicesproject"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-            }
+            //if (path.Contains("Project"))
+            //{
+            //    //  path = path.Replace("applicationConfig/", "");
+            //    path = path.Replace("Project/", "");
+            //    //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            //    requestURL = ConfigurationManager.AppSettings["URLServicesproject"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            //}
+
+            //if (path.Contains("appconfig/"))
+            //{
+            //    //  path = path.Replace("applicationConfig/", "");
+            //    path = path.Replace("appconfig/", "");
+            //    //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            //    requestURL = ConfigurationManager.AppSettings["URLServicesconfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            //}
             HttpWebRequest request = WebRequest.Create(requestURL) as HttpWebRequest;
             
             HttpClientHandler clientHandler = new HttpClientHandler();

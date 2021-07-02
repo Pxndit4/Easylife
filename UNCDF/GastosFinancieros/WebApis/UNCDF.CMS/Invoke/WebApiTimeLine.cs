@@ -109,7 +109,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("Project/api/TimeLine", "UpdatMTimeLine", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/TimeLine", "UpdateTimeLine", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -136,7 +136,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("Project/api/TimeLine", "DeletMTimeLine", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/TimeLine", "DeleteTimeLine", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {

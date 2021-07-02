@@ -66,10 +66,11 @@
             <tr>
 
                 @*<th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDate)">@Html.DisplayNameFor(x => x.result.StartDate)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDate)">@Html.DisplayNameFor(x => x.result.EndDate)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>*@
+        <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
+        <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDate)">@Html.DisplayNameFor(x => x.result.StartDate)</th>
+        <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDate)">@Html.DisplayNameFor(x => x.result.EndDate)</th>
+        <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>*@
+                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.timeLine" data-events="objIndex.grid.rowCommand"></th>
                 <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
@@ -122,7 +123,12 @@
                 var sd = unitlife.numeric.formatDecimal(e,0)
                 return sd;
             },
-            rowCommand:{
+            rowCommand: {
+                'click #timeLine': function (e, value, row) {
+                    window.location.href = '@Url.Action("ProjectTimeLines", "TimeLine")/' + row.ProjectId + '@Url.TargetParam()';
+                    return false;
+                }
+
             },
             commandEdit:function(e,r,i)
             {

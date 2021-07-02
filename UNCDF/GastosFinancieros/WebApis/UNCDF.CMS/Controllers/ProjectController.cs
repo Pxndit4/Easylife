@@ -52,7 +52,7 @@ namespace UNCDF.CMS.Controllers
                 objResult.data = entList;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 objResult.data = null;
                 objResult.isError = true;

@@ -3,8 +3,7 @@
     "",
     "\\UNCDF",
     "\\UNCDF\\GastosFinancieros",
-    "\\UNCDF\\GastosFinancieros\\WebApis",
-    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.WebApi.Project"
+    "\\UNCDF\\GastosFinancieros\\WebApis"
   ],
   "SelectedNode": "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.sln",
   "PreviewInSolutionExplorer": false

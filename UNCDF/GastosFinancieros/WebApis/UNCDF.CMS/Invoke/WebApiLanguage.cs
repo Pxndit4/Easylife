@@ -20,7 +20,7 @@ namespace UNCDF.CMS
             MLanguage.Description = MLanguage.Description;
             MLanguage.Status = MLanguage.Status;
 
-            request.LanguageBE = MLanguage;
+            request.MLanguage = MLanguage;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -47,7 +47,7 @@ namespace UNCDF.CMS
             LanguageRequest request = new LanguageRequest();
             LanguageResponse response = new LanguageResponse();
 
-            request.LanguageBE = MLanguage;
+            request.MLanguage = MLanguage;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -74,7 +74,7 @@ namespace UNCDF.CMS
             LanguageResponse response = new LanguageResponse();
             string returnMsg = string.Empty;
 
-            request.LanguageBE = MLanguage;
+            request.MLanguage = MLanguage;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -101,7 +101,7 @@ namespace UNCDF.CMS
             LanguageResponse response = new LanguageResponse();
             string returnMsg = string.Empty;
 
-            request.LanguageBE = MLanguage;
+            request.MLanguage = MLanguage;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -128,7 +128,7 @@ namespace UNCDF.CMS
             LanguageResponse response = new LanguageResponse();
             string returnMsg = string.Empty;
 
-            request.LanguageBE = MLanguage;
+            request.MLanguage = MLanguage;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -152,7 +152,7 @@ namespace UNCDF.CMS
 
     internal class LanguageRequest
     {
-        public MLanguage LanguageBE { get; set; }
+        public MLanguage MLanguage { get; set; }
         public Session Session { get; set; }
         public string ApplicationToken { get; set; }
     }

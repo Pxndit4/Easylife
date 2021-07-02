@@ -295,6 +295,7 @@
     <Content Include="Views\TimeLineMultimedia\Register.cshtml" />
     <Content Include="Views\TimeLineTestimonial\Register.cshtml" />
     <Content Include="Views\TimeLineTestimonialTranslate\Register.cshtml" />
+    <Content Include="Views\TimeLineTranslate\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
