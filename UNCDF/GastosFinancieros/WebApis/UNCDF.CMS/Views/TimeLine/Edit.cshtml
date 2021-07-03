@@ -163,7 +163,12 @@
                OnComplete = "unitlife.site.dialog.onComplete",
                OnFailure = "unitlife.site.dialog.onFailure",
            }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
+                <a id="btnClean" class="btn btn-default" >
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 
+                </a>
+
             </div>
+            
         </div>
         <div id="tbListEditCont1" class="ui-container">
             <table id="tbListEdit" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-name="@Html.HtmlIdNameFor(x => x.multimediaList.Title)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
@@ -207,6 +212,10 @@
                     OnComplete = "unitlife.site.dialog.onComplete",
                     OnFailure = "unitlife.site.dialog.onFailure",
                 }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
+
+                <a id="btnCleanTest" class="btn btn-default">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                </a>
             </div>
         </div>
         <div id="tbListEditCont2" class="ui-container">
@@ -232,6 +241,16 @@
 
 
 <script type="text/javascript" language="javacript">
+
+    $("#btnClean").on("click", function (e) {
+        objIndexEdit.grid.load();
+    });
+
+    $("#btnCleanTest").on("click", function (e) {
+        objIndexEditTest.grid.load();
+    });
+
+
     function rebindGrid() {
      //   $("#btnSearch").click();
     }

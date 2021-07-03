@@ -48,6 +48,12 @@
                             </a>
                         </div>
                     </div>
+                    <div class="col-md-1">
+                        <a id="btnClean" class="btn btn-default" style="margin-top:22px;">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                        </a>
+
+                    </div>
                 </div>
             </div>
         }
@@ -65,11 +71,7 @@
         <thead>
             <tr>
 
-                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
-        <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
-        <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDate)">@Html.DisplayNameFor(x => x.result.StartDate)</th>
-        <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDate)">@Html.DisplayNameFor(x => x.result.EndDate)</th>
-        <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>*@
+                
                 <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.timeLine" data-events="objIndex.grid.rowCommand"></th>
                 <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
@@ -87,13 +89,18 @@
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.AwardId)">@Html.DisplayNameFor(x => x.result.AwardId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.AwardStatus)">@Html.DisplayNameFor(x => x.result.AwardStatus)</th>
 
-                @*<th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>*@
             </tr>
         </thead>
     </table>
 </div>
 
 <script type="text/javascript" language="javacript">
+
+    $("#btnClean").on("click", function (e) {
+        e.preventDefault();
+        $("#btnSearch").click();
+    });
+
     var objIndex={
         initial: function () {
 

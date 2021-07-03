@@ -142,6 +142,8 @@ namespace UNCDF.Layers.DataAccess
                             entRow.EffectiveStatus = Convert.ToString(reader["EffectiveStatus"]);
                             entRow.StatusEffDate = Convert.ToInt32(reader["StatusEffDate"]);
                             entRow.StatusEffSeq = Convert.ToInt32(reader["StatusEffSeq"]);
+                            entRow.AwardId = Convert.ToString(reader["AwardId"]);
+                            entRow.AwardStatus = Convert.ToString(reader["AwardStatus"]);
                             entRow.StatusDescription = Convert.ToString(reader["StatusDescription"]);
                             lisQuery.Add(entRow);
                         }

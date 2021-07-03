@@ -104,7 +104,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("Project/api/TimeLineTestimonialTranslate", "UpdatMTimeLineTestimonialTranslate", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/TimeLineTestimonialTranslate", "UpdateTimeLineTestimonialTranslate", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -131,7 +131,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("Project/api/TimeLineTestimonialTranslate", "DeletMTimeLineTestimonialTranslate", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/TimeLineTestimonialTranslate", "DeleteTimeLineTestimonialTranslate", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
