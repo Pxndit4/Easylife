@@ -298,10 +298,11 @@ namespace UNCDF.CMS
 
         public static string ToFormatDateDDMMYYY(this string value)
         {
-            string dateString =
-              value.Substring(6) + "/" +
-              value.Substring(4, 2) + "/" +
-              value.Substring(0, 4);
+            string dateString;
+            if (value == null || value == string.Empty || value == "0")
+                dateString = string.Empty;
+            else
+                dateString = value.Substring(6) + "/" + value.Substring(4, 2) + "/" + value.Substring(0, 4);
 
             return dateString;
         }

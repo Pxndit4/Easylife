@@ -50,6 +50,24 @@ namespace UNCDF.CMS.Controllers
                 }
 
                 objResult.data = entList;
+                objResult.data = entList.Select(x => new MProject
+                {
+                    ProjectId = x.ProjectId,
+                    Department = x.Department,
+                    ProjectCode = x.ProjectCode ,
+                    Description = x.Description,
+                    Type = x.Type,
+                    EffectiveStatus = x.EffectiveStatus,
+                    StatusEffDateStr = Extension.ToFormatDateDDMMYYY(x.StatusEffDate.ToString()),
+                    StatusEffSeq = x.StatusEffSeq,
+                    Status = x.Status,
+                    StatusDescription = x.StatusDescription,
+                    StartDateStr = Extension.ToFormatDateDDMMYYY(x.StartDate.ToString()),
+                    EndDateStr = Extension.ToFormatDateDDMMYYY(x.EndDate.ToString()),
+                    AwardId = x.AwardId,
+                    Title = x.Title,
+                    AwardStatus = x.AwardStatus
+                }).ToList();
 
             }
             catch (Exception e)
@@ -399,14 +417,14 @@ namespace UNCDF.CMS.Controllers
                     ProjectId = objResult.ProjectId,
                     ProjectCode = objResult.ProjectCode,
                     Title = objResult.Title,
-                    StartDateStr = objResult.StartDateStr,
-                    EndDateStr = objResult.EndDateStr,
+                    StartDateStr = Extension.ToFormatDateDDMMYYY(objResult.StartDate.ToString()),
+                    EndDateStr = Extension.ToFormatDateDDMMYYY(objResult.EndDate.ToString()),
                     Image = (objResult.Image.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
                     Video = (objResult.Video.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
                     Description = Extension.ToEmpty(objResult.Description).Trim(),
                     Type = Extension.ToEmpty(objResult.Type).Trim(),
                     EffectiveStatus = Extension.ToEmpty(objResult.EffectiveStatus).Trim(),
-                    StatusEffDateStr = Extension.ToEmpty(objResult.StatusEffDateStr).Trim(),
+                    StatusEffDateStr = Extension.ToFormatDateDDMMYYY(objResult.StatusEffDate.ToString()),
                     StatusEffSeq = objResult.StatusEffSeq,
                     StatusDescription = Extension.ToEmpty(objResult.StatusDescription).Trim(),
                     AwardId = Extension.ToEmpty(objResult.AwardId).Trim(),
