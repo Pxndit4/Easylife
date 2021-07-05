@@ -13,7 +13,15 @@ namespace UNCDF.CMS.Models
         public string File { get; set; }
         [Display(Name = "Project Code")]
         public string ProjectCode { get; set; }
-        public string Description { get; set; }
+        public string Title { get; set; }
+        [Display(Name = "Start Date")]
+        public string StartDate { get; set; }
+        [Display(Name = "End Date")]
+        public string EndDate { get; set; }
+
+        [Display(Name = "Effective Status")]
+        public string EffectiveStatus { get; set; }
+
         public ResultSearchProjectsViewModel result { get; set; }
     }
 

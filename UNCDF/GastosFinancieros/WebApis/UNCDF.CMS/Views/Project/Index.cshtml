@@ -28,20 +28,40 @@
         @using (Html.BeginForm("Search", "Project", FormMethod.Post, new { id = "frmSearch" }))
         {
             @Html.AntiForgeryToken()
-            @*@Html.HiddenFor(m => m.ProjectId)*@
 
             <div class="form-group">
                 <div class="row">
-                    @*@Html.HiddenFor(m => m.ProjectId)*@
                     <div class="col-md-1">
                         @Html.LabelFor(m => m.ProjectCode)
-                        @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control", id = "txtProjectCode" })
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Title)
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", id = "txtTitle" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.StartDate)
+                        <div id="d_@Html.IdFor(m=>m.StartDate)" class="input-group date">
+                            @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control input", maxlength = 10, id = "txtStartDate" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.EndDate)
+                        <div id="d_@Html.IdFor(m=>m.EndDate)" class="input-group date">
+                            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control input", maxlength = 10, id = "txtEndDate" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.EffectiveStatus)
 
-                        @Html.LabelFor(m => m.Description)
                         <div class="input-group">
-                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.EffectiveStatus, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", id = "txtStatus" })
 
                             <a id="btnSearch" class="btn btn-default input-group-addon">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
@@ -71,21 +91,22 @@
         <thead>
             <tr>
 
-                
+
                 <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.timeLine" data-events="objIndex.grid.rowCommand"></th>
                 <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Type)">@Html.DisplayNameFor(x => x.result.Type)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.EffectiveStatus)">@Html.DisplayNameFor(x => x.result.EffectiveStatus)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffDateStr)">@Html.DisplayNameFor(x => x.result.StatusEffDateStr)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffSeq)">@Html.DisplayNameFor(x => x.result.StatusEffSeq)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.Status)">@Html.DisplayNameFor(x => x.result.Status)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusDescription)">@Html.DisplayNameFor(x => x.result.StatusDescription)</th>
+                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffDateStr)">@Html.DisplayNameFor(x => x.result.StatusEffDateStr)</th>*@
+                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffSeq)">@Html.DisplayNameFor(x => x.result.StatusEffSeq)</th>*@
+                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.Status)">@Html.DisplayNameFor(x => x.result.Status)</th>
+        <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusDescription)">@Html.DisplayNameFor(x => x.result.StatusDescription)</th>*@
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDateStr)">@Html.DisplayNameFor(x => x.result.StartDateStr)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDateStr)">@Html.DisplayNameFor(x => x.result.EndDateStr)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
+
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.AwardId)">@Html.DisplayNameFor(x => x.result.AwardId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.AwardStatus)">@Html.DisplayNameFor(x => x.result.AwardStatus)</th>
 
@@ -98,6 +119,11 @@
 
     $("#btnClean").on("click", function (e) {
         e.preventDefault();
+        $("#txtStartDate").val("");
+        $("#txtEndDate").val("");
+        $("#txtProjectCode").val("");
+        $("#txtTitle").val("");
+        $("#txtStatus").val("Active");
         $("#btnSearch").click();
     });
 
@@ -174,6 +200,10 @@
 
         $('.fixed-table-body').addClass('tableFixHead');
 
+        $('#d_@Html.IdFor(m => m.StartDate)').datepicker();
+        $('#d_@Html.IdFor(m => m.EndDate)').datepicker();
+        unitlife.ui.SelectedValue('#@Html.IdFor(x => x.EffectiveStatus)');
     });
+
 </script>
 

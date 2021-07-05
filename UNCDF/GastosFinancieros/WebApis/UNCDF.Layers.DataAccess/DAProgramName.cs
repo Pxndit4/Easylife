@@ -68,5 +68,39 @@ namespace UNCDF.Layers.DataAccess
 
             return lisQuery;
         }
+        public static List<MProgramName> ListValidProgramName()
+        {
+            List<MProgramName> lisQuery = new List<MProgramName>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProgramName_Valid", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProgramName entRow = new MProgramName();
+                            entRow.ProjectCode = Convert.ToString(reader["ProjectCode"]);
+                            entRow.DonorCode = Convert.ToString(reader["DonorCode"]);
+                            lisQuery.Add(entRow);
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    lisQuery = null;
+                }
+            }
+
+            return lisQuery;
+        }
     }
 }

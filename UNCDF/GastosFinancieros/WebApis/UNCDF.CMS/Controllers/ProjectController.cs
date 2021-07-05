@@ -10,6 +10,7 @@ using System.Data;
 using System.IO;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System.Globalization;
 
 namespace UNCDF.CMS.Controllers
 {
@@ -17,6 +18,12 @@ namespace UNCDF.CMS.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Estado = Extension.GetStatus().Select(x => new SelectListItem
+            {
+                Value = x.Value,
+                Text = x.Value
+            });
+
             return View();
         }
 
@@ -29,27 +36,46 @@ namespace UNCDF.CMS.Controllers
 
                 List<MProject> entList = new List<MProject>();
                 MProject proj = new MProject();
-                proj.StartDate = 0;
-                proj.EndDate = 0;
-                proj.Title = "";
-                proj.Status = "";
+                if (string.IsNullOrEmpty(model.StartDate))
+                {
+                    proj.StartDate = 0;
+                }
+                else
+                {
+                    proj.StartDate = Int32.Parse((Extension.ToFormatDateYYYYMMDD(model.StartDate)), CultureInfo.InvariantCulture);
+                }
+
+                if (string.IsNullOrEmpty(model.EndDate))
+                {
+                    proj.EndDate = 0;
+                }
+                else
+                {
+                    proj.EndDate = Int32.Parse((Extension.ToFormatDateYYYYMMDD(model.EndDate)), CultureInfo.InvariantCulture);
+                }
+
+                proj.Title = Extension.ToEmpty(model.Title);
+                proj.EffectiveStatus = Extension.ToEmpty(model.EffectiveStatus);
+                proj.ProjectCode = Extension.ToEmpty(model.ProjectCode);
+                //proj.EffectiveStatus = "";
 
                 entList = new WebApiProject().GetProjects(proj);
 
-                model.ProjectCode = model.ProjectCode ?? "";
-                model.Description = model.Description ?? "";
+                //model.ProjectCode = model.ProjectCode ?? "";
+                //model.Title = model.Title ?? "";
+                //model.EffectiveStatus = model.EffectiveStatus ?? "";
 
-                if (!model.ProjectCode.Equals(""))
-                {
-                    entList = entList.Where(p => p.ProjectCode == model.ProjectCode).ToList();
-                }
+                //if (!model.ProjectCode.Equals(""))
+                //{
+                //    entList = entList.Where(p => p.ProjectCode == model.ProjectCode).ToList();
+                //}
 
-                if (!model.Description.Equals(""))
-                {
-                    entList = entList.Where(p => p.Description == model.Description).ToList();
-                }
+                //if (!model.Title.Equals(""))
+                //{
+                //    entList = entList.Where(p => p.Description == model.Title).ToList();
+                //}
 
-                objResult.data = entList;
+                //objResult.data = entList;
                 objResult.data = entList.Select(x => new MProject
                 {
                     ProjectId = x.ProjectId,
@@ -206,6 +232,9 @@ namespace UNCDF.CMS.Controllers
                     dt = dtResultado.CopyToDataTable();
 
                     List<ModelProjectResult> entlist = new List<ModelProjectResult>();
+                    
+                    List<MProgramName> entVaList = new List<MProgramName>();
+                    entVaList = new WebApiProgram().GetValidProgramNames();
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
@@ -229,12 +258,25 @@ namespace UNCDF.CMS.Controllers
 
                         if (ent.ProjectCode.Length > 10)
                         {
-                            ent.AlertMessage += "<tr><td> - the Project Code column must not must not exceed 10 characters </td></tr> ";
+                            ent.AlertMessage += "<tr><td> - the Project Code column must not exceed 10 characters </td></tr> ";
                         }
 
                         if (ent.ProjectCode.Length == 0)
                         {
                             ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
+                        }
+
+                        var valid = entVaList.Where(p => p.ProjectCode == ent.ProjectCode).FirstOrDefault();
+                        if (valid != null)
+                        {
+                            if (string.IsNullOrEmpty(valid.DonorCode))
+                            {
+                                ent.AlertMessage += "<tr><td> - the Program Name has no Donor Partner </td></tr> ";
+                            }
+                        }
+                        else
+                        {
+                            ent.AlertMessage += "<tr><td> - the Project Code does not exist in Program Name </td></tr> ";
                         }
 
                         if (ent.Department.Length > 10)

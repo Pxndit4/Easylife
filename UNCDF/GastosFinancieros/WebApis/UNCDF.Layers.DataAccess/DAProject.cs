@@ -117,10 +117,11 @@ namespace UNCDF.Layers.DataAccess
                 try
                 {
                     SqlCommand cmd = new SqlCommand("pr_Project_Lis", con);
+                    cmd.Parameters.Add("@IProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
                     cmd.Parameters.Add("@IStarDate", SqlDbType.VarChar).Value = ent.StartDate;
                     cmd.Parameters.Add("@IEndDate", SqlDbType.VarChar).Value = ent.EndDate;
                     cmd.Parameters.Add("@ITitle", SqlDbType.VarChar).Value = ent.Title;
-                    cmd.Parameters.Add("@IStatus", SqlDbType.VarChar).Value = ent.Status;
+                    cmd.Parameters.Add("@IEffectiveStatus", SqlDbType.VarChar).Value = ent.EffectiveStatus;
                     cmd.CommandTimeout = 0;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();

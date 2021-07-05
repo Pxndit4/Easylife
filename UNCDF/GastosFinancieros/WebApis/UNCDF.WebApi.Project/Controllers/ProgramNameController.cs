@@ -65,6 +65,35 @@ namespace UNCDF.WebApi.Project.Controllers
         }
 
         [HttpPost]
+        [Route("0/GetValidProgramNames")]
+        public ProgramNamesResponse GetValidProgramNames([FromBody] BaseRequest request)
+        {
+            ProgramNamesResponse response = new ProgramNamesResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                List<MProgramName> programNames = BProgramName.ListValidProgramName();
+
+                response.ProgramNames = programNames.ToArray();
+                response.Code = "0";
+                response.Message = "Success";
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        [HttpPost]
         [Route("0/InsertProgramName")]
         public BaseResponse InsertProgramName([FromBody] ProgramNamesRequest request)
         {

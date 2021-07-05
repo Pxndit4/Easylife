@@ -12,5 +12,10 @@ namespace UNCDF.Layers.Business
             if (DAAplication.ValidateAplicationToken(Token).Equals(1)) return true;
             else return false;
         }
+        public static string GenerateGuid()
+        {
+            Guid obj = Guid.NewGuid();
+            return obj.ToString();
+        }
     }
 }

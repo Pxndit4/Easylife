@@ -123,7 +123,8 @@ namespace UNCDF.WebApi.Project.Crontrollers
                 }
 
                 MProject project = new MProject();
-                project.Status = request.Project.Status;
+                project.EffectiveStatus = request.Project.EffectiveStatus;
+                project.ProjectCode = request.Project.ProjectCode;
                 project.Title = request.Project.Title;
                 project.StartDate = request.Project.StartDate;
                 project.EndDate = request.Project.EndDate;
@@ -173,10 +174,12 @@ namespace UNCDF.WebApi.Project.Crontrollers
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;
 
+            string Guid = BAplication.GenerateGuid();
+
             MProject ProjectBE = new MProject();
             ProjectBE.ProjectId = request.Project.ProjectId;
-            ProjectBE.Image = ProjectPath + "/" + ((request.Project.FileByte != null) ? request.Project.ProjectId.ToString() + request.Project.Ext : request.Project.Image);
-            ProjectBE.Video = ProjectPath + "/" + ((request.Project.VideoFileByte != null) ? request.Project.ProjectId.ToString()  + request.Project.ExtVideo : request.Project.Video);
+            ProjectBE.Image = ProjectPath + "/" + ((request.Project.FileByte != null) ? request.Project.ProjectId.ToString() + Guid + request.Project.Ext : request.Project.Image);
+            ProjectBE.Video = ProjectPath + "/" + ((request.Project.VideoFileByte != null) ? request.Project.ProjectId.ToString() + Guid + request.Project.ExtVideo : request.Project.Video);
             
             int Val = 0;
 
@@ -197,7 +200,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
                 System.IO.File.WriteAllBytes(pathSave, File);
 
-                if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, ProjectPath, request.Project.ProjectId.ToString()  + request.Project.Ext))
+                if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, ProjectPath, request.Project.ProjectId.ToString() + Guid  + request.Project.Ext))
                 {
                     response.Message = String.Format(Messages.ErrorLoadPhoto, "Project");
                 }
@@ -220,7 +223,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
                 System.IO.File.WriteAllBytes(pathSave, VideoFile);
 
-                if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, ProjectPath, request.Project.ProjectId.ToString() + request.Project.ExtVideo))
+                if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, ProjectPath, request.Project.ProjectId.ToString() + Guid + request.Project.ExtVideo))
                 {
                     response.Message = String.Format(Messages.ErrorLoadVideo, "Project");
                 }

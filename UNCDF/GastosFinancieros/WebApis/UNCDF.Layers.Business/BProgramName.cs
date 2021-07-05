@@ -17,5 +17,10 @@ namespace UNCDF.Layers.Business
         {
             return DAProgramName.Insert(ent);
         }
+        public static List<MProgramName> ListValidProgramName()
+        {
+            return DAProgramName.ListValidProgramName();
+        }
+        
     }
 }

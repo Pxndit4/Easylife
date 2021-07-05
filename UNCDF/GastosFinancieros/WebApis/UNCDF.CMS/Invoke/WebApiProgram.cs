@@ -34,7 +34,30 @@ namespace UNCDF.CMS
 
             return funds;
         }
+        public List<MProgramName> GetValidProgramNames()
+        {
+            List<MProgramName> funds = new List<MProgramName>();
+            BaseRequest request = new BaseRequest();
+            ProgramNamesResponse response = new ProgramNamesResponse();
 
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/ProgramName", "GetValidProgramNames", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<ProgramNamesResponse>(bodyresponse);
+
+                if (response.Code.Equals("0"))
+                {
+                    funds = response.ProgramNames;
+                }
+            }
+
+            return funds;
+        }
         public string InsertProgramName(List<MProgramName> list, Session eSession)
         {
             ProgramNamesRequest request = new ProgramNamesRequest();
