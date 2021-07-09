@@ -44,6 +44,7 @@
     <Compile Include="BaseContract\BaseRequest.cs" />
     <Compile Include="BaseContract\BaseResponse.cs" />
     <Compile Include="BaseContract\Session.cs" />
+    <Compile Include="MDonation.cs" />
     <Compile Include="MLanguage.cs" />
     <Compile Include="MSession.cs" />
     <Compile Include="MAwsEmail.cs" />

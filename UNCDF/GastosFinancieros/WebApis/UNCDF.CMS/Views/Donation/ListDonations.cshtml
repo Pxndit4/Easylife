@@ -1,0 +1,210 @@
+﻿@model UNCDF.CMS.Models.SearchDonationViewModel
+
+@{
+    ViewBag.Title = "Donation List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        Donation List
+    </span>
+    <div class="ui-btn-content">
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+<div class="ui-container ui-jumb">
+
+    @using (Html.BeginForm("SearchDonations", "Donation", FormMethod.Post, new { id = "frmSearch" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.FirstName)
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", maxlength = 200, id = "txtFirstName" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.LastName)
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", maxlength = 200, id = "txtLastName" })
+                    </div>
+
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.StartDate)
+                        <div id="d_@Html.IdFor(m=>m.StartDate)" class="input-group date">
+                            @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control input", maxlength = 10, id = "txtStartDate" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.EndDate)
+                        <div id="d_@Html.IdFor(m=>m.EndDate)" class="input-group date">
+                            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control input", maxlength = 10, id = "txtEndDate" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.TypeDonation)
+                        <div class="input-group">
+                            @Html.DropDownListFor(m => m.TypeDonation, (IEnumerable<SelectListItem>)ViewBag.TypeDonation, new { @class = "form-control", id = "txtTypeDonation" })
+                            <a id="btnSearch" class="btn btn-default input-group-addon">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-1">
+                    <a id="btnClean" class="btn btn-default" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+    }
+</div>
+
+<div class="ui-container">
+    <div class="bars pull-left" style="font-weight: bold;margin-top: 20px;">
+        <span class="title">
+            Donation List
+        </span>
+        <span class="ui-grid-rows" data-info-grid="#tbList" data-info="@MessageResource.GridRowCountInfo"></span>
+    </div>
+    <table id="tbList"
+           data-toggle="table"
+           data-toolbar=".toolbar"
+           data-pagination="true"
+           data-sort-name="@Html.HtmlIdNameFor(x => x.Result.DonationId)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.DateStr)">@Html.DisplayNameFor(x => x.Result.DateStr)</th>
+                <th data-formatter="objIndexDon.grid.commandFormartDecimal" class="text-center" data-field="@Html.HtmlIdNameFor(x => x.Result.Amount)">@Html.DisplayNameFor(x => x.Result.Amount)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.Result.Name)">@Html.DisplayNameFor(x => x.Result.Name)</th>
+                <th class="col-md-4" data-field="@Html.HtmlIdNameFor(x => x.Result.Project)">@Html.DisplayNameFor(x => x.Result.Project)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.DonationId)">@Html.DisplayNameFor(x => x.Result.DonationId)</th>
+                <th data-visible="false" data-field="@Html.HtmlIdNameFor(x => x.Result.Status)">@Html.DisplayNameFor(x => x.Result.Status)</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+
+
+    $("#btnClean").on("click", function (e) {
+        e.preventDefault();
+
+        $("#txtFirstName").val("");
+        $("#txtLastName").val("");
+        $("#txtStartDate").val("");
+        $("#txtEndDate").val("");
+        $("#txtTypeDonation").val("-1");
+
+        $("#btnSearch").click();
+    });
+
+    function ajaxStart() {
+        unitlife.site.dialog.onInit();
+    }
+
+    function rowStyle(value, row, index) {
+        var JsonVar = [value];
+        var EstadoNombre = "";
+        JsonVar.forEach(function (value) {
+            EstadoNombre = value['Status'];
+        });
+        if (EstadoNombre == "0") {
+            return { classes: 'danger' }
+        }
+        return { classes: '' }
+    }
+
+    function rebindGrid() {
+        $("#btnSearch").click();
+    }
+
+    $('#dialogMain').on('hidden.bs.modal', function () {
+        rebindGrid()
+    });
+
+    var objIndexDon={
+        initial: function (){
+            $("#btnSearch").on("click", function (e) {
+                e.preventDefault();
+                objIndexDon.grid.load();
+            });
+
+            unitlife.ui.grid('#tbList').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+
+            @*if ('@HttpContext.Current.Request.Params.Get("ret")' == "true")
+            {*@
+                objIndexDon.grid.load();
+            //}
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbList");
+            },
+            load: function () {
+
+                unitlife.ui.grid('#tbList').load('@Url.Action("SearchDonations", "Donation", null)', '#frmSearch');
+
+            },
+            rowCommand:{
+
+            },
+            commandChecks: function (e, r, i) {
+                var sd = '<input type="checkbox" id="CheckOptions" name="CheckOptions"   onchange="changeCheck()"  value="' + r.DonationId + '" />';
+            return sd;
+            }
+            ,commandFormartDecimal: function (e, r, i) {
+                //var sd = r.Amount+"sdad";
+                var sd = unitlife.numeric.formatDecimal(r.Amount,0)
+                return sd;
+            },
+        },
+        general:{
+        }
+    };
+
+    function ___getModalResult(key, data) {
+        if (key == 'REG_DONATIONLIST') {
+            objIndexDon.grid.load();
+        }
+    }
+
+    $(document).ready(function () {
+        objIndexDon.initial();
+        rebindGrid();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+        $('#d_@Html.IdFor(m => m.StartDate)').datepicker();
+        $('#d_@Html.IdFor(m => m.EndDate)').datepicker();
+    });
+
+</script>

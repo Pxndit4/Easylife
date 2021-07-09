@@ -135,6 +135,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -156,6 +157,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Invoke\Helper.cs" />
+    <Compile Include="Invoke\WebApiDonation.cs" />
     <Compile Include="Invoke\WebApiDonorPartner.cs" />
     <Compile Include="Invoke\WebApiFund.cs" />
     <Compile Include="Invoke\WebApiLanguage.cs" />
@@ -174,6 +176,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DonationViewModel.cs" />
     <Compile Include="Models\DonorPartnerViewModel.cs" />
     <Compile Include="Models\FundViewModel.cs" />
     <Compile Include="Models\LanguageViewModel.cs" />
@@ -296,6 +299,7 @@
     <Content Include="Views\TimeLineTestimonial\Register.cshtml" />
     <Content Include="Views\TimeLineTestimonialTranslate\Register.cshtml" />
     <Content Include="Views\TimeLineTranslate\Register.cshtml" />
+    <Content Include="Views\Donation\ListDonations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
