@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QglMm/M97I1KoJIVpSeQEtcgL2Wd26y1CfM71BTNR/vXZpZUfvEG9M6lImBFVLyc9C/Lnfw/0qmcYKj0xzkqpA==",
+  "dgSpecHash": "Qt8E2qBQQ3u26bGgJAcZ/jMEVrXVBZZe+SlmsRifN5bn6rMexBNwDd6xXXsS0K5cQfUm9LS0Y17eRqNbKE6Pnw==",
   "success": true,
-  "projectFilePath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj",
+  "projectFilePath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
