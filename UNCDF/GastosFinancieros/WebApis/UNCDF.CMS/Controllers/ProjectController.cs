@@ -92,6 +92,7 @@ namespace UNCDF.CMS.Controllers
                     EndDateStr = Extension.ToFormatDateDDMMYYY(x.EndDate.ToString()),
                     AwardId = x.AwardId,
                     Title = x.Title,
+                    IsVisible = x.IsVisible,
                     AwardStatus = x.AwardStatus
                 }).ToList();
 
@@ -468,6 +469,7 @@ namespace UNCDF.CMS.Controllers
                     EffectiveStatus = Extension.ToEmpty(objResult.EffectiveStatus).Trim(),
                     StatusEffDateStr = Extension.ToFormatDateDDMMYYY(objResult.StatusEffDate.ToString()),
                     StatusEffSeq = objResult.StatusEffSeq,
+                    IsVisible = objResult.IsVisible,
                     StatusDescription = Extension.ToEmpty(objResult.StatusDescription).Trim(),
                     AwardId = Extension.ToEmpty(objResult.AwardId).Trim(),
                     AwardStatus = Extension.ToEmpty(objResult.AwardStatus).Trim(),
@@ -531,6 +533,7 @@ namespace UNCDF.CMS.Controllers
                     
                     Ext = Ext,
                     ExtVideo = ExtVideo,
+                    IsVisible = model.IsVisible,
                     Image = model.Image,
                     Video = model.Video,
                     FileByte = imgData,

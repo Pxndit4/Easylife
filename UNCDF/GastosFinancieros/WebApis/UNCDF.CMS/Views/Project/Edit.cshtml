@@ -28,10 +28,16 @@
                     @Html.LabelFor(m => m.Description)
                     @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @readonly = true })
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-3">
                     @Html.LabelFor(m => m.Title)
                     @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @readonly = true })
                 </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.IsVisible)
+                    @Html.CheckBoxFor(m => m.IsVisible, new { @class = "form-control"})
+                </div>
+
+                
 
             </div>
 

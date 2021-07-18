@@ -1,0 +1,231 @@
+﻿@model UNCDF.CMS.Models.SearchBannerViewModel
+
+@{
+    ViewBag.Title = "Banner register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .bclean {
+        margin-top: 22px;
+    }
+</style>
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        Banner Maintenance
+    </span>
+    <div class="ui-btn-content">
+        @Ajax.AjaxActionLink("New", "New", "Banner", null, new AjaxOptions
+                   {
+                       HttpMethod = "GET",
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "dialogBody",
+                       OnBegin = "unitlife.site.dialog.onInit",
+                       OnComplete = "unitlife.site.dialog.onComplete",
+                       OnFailure = "unitlife.site.dialog.onFailure",
+                   }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+<div class="ui-container ui-jumb">
+
+    @using (Html.BeginForm("Search", "Banner", FormMethod.Post, new { id = "frmSearch" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", maxlength = 200, id = "txtTitle" })
+                </div>
+
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Status)
+                    <div class="input-group">
+                        @Html.DropDownListFor(m => m.Status, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", id = "cboStatus" })
+                        <a id="btnSearch" class="btn btn-default input-group-addon">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-1">
+                    <a id="btnClean" class="btn btn-default" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+    }
+</div>
+
+<div class="ui-container">
+
+    <span id="countR" class="bars pull-left" style="font-weight: bold;margin-top: 10px;"></span>
+
+    <table id="tbList" class="table table-hover"
+           data-toggle="table"
+           data-toolbar=".toolbar"
+           data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.Result.Title)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
+                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandTranslation" data-events="objIndex.grid.rowCommand"></th>
+                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndex.grid.rowCommand"></th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.BannerId)" data-visible="false">@Html.DisplayNameFor(x => x.Result.BannerId)</th>
+                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.Result.Title)">@Html.DisplayNameFor(x => x.Result.Title)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.StatusName)">@Html.DisplayNameFor(x => x.Result.StatusName)</th>
+                <th data-visible="false" data-field="@Html.HtmlIdNameFor(x => x.Result.Status)">@Html.DisplayNameFor(x => x.Result.Status)</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+
+    function rowStyle(value, row, index) {
+        var JsonVar = [value];
+        var EstadoNombre = "";
+        JsonVar.forEach(function (value) {
+            EstadoNombre = value['Status'];
+        });
+        if (EstadoNombre == "0") {
+            return { classes: 'danger' }
+        }
+        return { classes: '' }
+    }
+
+    $("#btnClean").on("click", function (e) {
+        e.preventDefault();
+        $("#txtTitle").val("");
+        $("#cboStatus").val("1");
+        $("#btnSearch").click();
+    });
+
+    function rebindGrid() {
+        $("#btnSearch").click();
+    }
+
+    $('#dialogMain').on('hidden.bs.modal', function () {
+        rebindGrid()
+    });
+
+    var objIndex={
+        initial: function (){
+            $("#btnSearch").on("click", function (e) {
+                e.preventDefault();
+                objIndex.grid.load();
+            });
+
+            unitlife.ui.grid('#tbList').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+
+            if ('@HttpContext.Current.Request.Params.Get("ret")' == "true")
+            {
+                objIndex.grid.load();
+            }
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbList");
+            },
+            load:function(){
+                unitlife.ui.grid('#tbList').load('@Url.Action("Search", "Banner", null)', '#frmSearch',
+                    function (e) {
+                        var da = 'Banner List @Html.Raw(MessageResource.GridRowCountInfo)'  ;
+                        da = da.replace("{0}", e.data.length);
+                        $("#countR").text(da);
+                    }
+                );
+
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    var Estado = row["Status"];
+
+                    if (Estado == "1") {
+                        var _grid = unitlife.ui.grid("#tbList");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Banner"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("Delete", "Banner", null)', { id: row.BannerId }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndex.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Banner"))" });
+                    }
+                }
+            },
+            commandEdit:function(e,r,i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "Banner", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                    }, new { @class = "",title="Edit Banner" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.Result.BannerId))[0].outerHTML;
+                return sd;
+                objIndex.grid.load();
+            }, commandTranslation: function (e, r, i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "NewTranslation", "BannerTranslate", null, new AjaxOptions
+                     {
+                         HttpMethod = "GET",
+                         InsertionMode = InsertionMode.Replace,
+                         UpdateTargetId = "dialogBody",
+                         OnBegin = "unitlife.site.dialog.onInit",
+                         OnComplete = "unitlife.site.dialog.onComplete",
+                         OnFailure = "unitlife.site.dialog.onFailure",
+                     }, new { @class = "",title= "Project Translations" }, "glyphicon glyphicon-globe")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.Result.BannerId))[0].outerHTML;
+                return sd;
+                objIndex.grid.load();
+            }
+        },
+        general:{
+        }
+    };
+
+    function ___getModalResult(key, data) {
+        if (key == 'REG_BANNER'){
+            objIndex.grid.load();
+        }
+    }
+
+    $(document).ready(function () {
+        objIndex.initial();
+        rebindGrid();
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+    });
+
+</script>
