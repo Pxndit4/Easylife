@@ -128,6 +128,11 @@ namespace UNCDF.WebApi.Project.Controllers
                         programName.TaskManager = model.TaskManager;
 
                         BProgramName.Insert(programName);
+
+                        if (!programName.SDG.Equals(""))
+                        {
+                            BProgramName.InsertSDG(programName);
+                        }
                     }
 
                     response.Code = "0";

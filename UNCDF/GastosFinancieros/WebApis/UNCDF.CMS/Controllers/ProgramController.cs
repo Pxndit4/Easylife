@@ -82,7 +82,7 @@ namespace UNCDF.CMS.Controllers
             basePath = Server.MapPath("~/File");
             DataTable dt;
 
-            var include = new[] { "A", "C", "D", "E", "F", "G" };
+            var include = new[] { "A", "C", "D", "E", "F", "G", "H" };
             try
             {
                 if (imageFile != null)
@@ -179,6 +179,7 @@ namespace UNCDF.CMS.Controllers
                         ent.ProjectDetails = Extension.ToEmpty(dt.Rows[i][3].ToString());
                         ent.Sector = Extension.ToEmpty(dt.Rows[i][4].ToString());
                         ent.TaskManager = Extension.ToEmpty(dt.Rows[i][5].ToString());
+                        ent.SDG = Extension.ToEmpty(dt.Rows[i][6].ToString());
                         ent.AlertMessage = string.Empty;
                         ent.WithAlert = "N";
 

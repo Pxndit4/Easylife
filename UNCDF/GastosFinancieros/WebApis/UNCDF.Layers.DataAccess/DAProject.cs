@@ -160,6 +160,58 @@ namespace UNCDF.Layers.DataAccess
             return lisQuery;
         }
 
+        public static List<MProject> ListScroll(MProject ent)
+        {
+            List<MProject> lisQuery = new List<MProject>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("pr_Project_Lis", con);
+                    cmd.Parameters.Add("@IProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
+                    cmd.Parameters.Add("@IStarDate", SqlDbType.VarChar).Value = ent.StartDate;
+                    cmd.Parameters.Add("@IEndDate", SqlDbType.VarChar).Value = ent.EndDate;
+                    cmd.Parameters.Add("@ITitle", SqlDbType.VarChar).Value = ent.Title;
+                    cmd.Parameters.Add("@IEffectiveStatus", SqlDbType.VarChar).Value = ent.EffectiveStatus;
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProject entRow = new MProject();
+                            entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                            entRow.ProjectCode = Convert.ToString(reader["ProjectCode"]);
+                            entRow.Title = Convert.ToString(reader["Title"]);
+                            entRow.Type = Convert.ToString(reader["Type"]);
+                            entRow.Description = Convert.ToString(reader["Description"]);
+                            entRow.StartDate = Convert.ToInt32(reader["StartDate"]);
+                            entRow.EndDate = Convert.ToInt32(reader["EndDate"]);
+                            entRow.Status = Convert.ToString(reader["Status"]);
+                            entRow.Department = Convert.ToString(reader["Department"]);
+                            entRow.EffectiveStatus = Convert.ToString(reader["EffectiveStatus"]);
+                            entRow.StatusEffDate = Convert.ToInt32(reader["StatusEffDate"]);
+                            entRow.StatusEffSeq = Convert.ToInt32(reader["StatusEffSeq"]);
+                            entRow.AwardId = Convert.ToString(reader["AwardId"]);
+                            entRow.AwardStatus = Convert.ToString(reader["AwardStatus"]);
+                            entRow.StatusDescription = Convert.ToString(reader["StatusDescription"]);
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    lisQuery = new List<MProject>();
+                }
+            }
+            return lisQuery;
+        }
+
         public static int Update(MProject ent)
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))

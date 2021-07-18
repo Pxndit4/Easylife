@@ -363,5 +363,36 @@ namespace UNCDF.WebApi.Project.Crontrollers
             return response;
         }
 
+
+        [HttpPost]
+        [Route("0/GetProjectsScroll")]
+        public ProjectsResponse GetProjectsScroll([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                List<MProject> projects = BProject.List(project);
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.Projects = projects.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
     }
 }
