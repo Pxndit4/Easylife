@@ -1,0 +1,175 @@
+﻿@model UNCDF.CMS.Models.BannerViewModel
+
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+
+<div class="ui-bar ui-bar-default">
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegSubm" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Save
+        </button>
+    </div>
+</div>
+
+<div class="ui-container">
+    @using (Html.BeginForm("Register", "Banner", FormMethod.Post, new { id = "frmBannerReg", enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.BannerId)
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", maxlength = 200 })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.SubTile)
+                    @Html.TextBoxFor(m => m.SubTile, new { @class = "form-control", maxlength = 200 })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Image)
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Image, new { @class = "form-control", @readonly = "readonly" })
+                        <a id="btnAddFile" class="btn btn-default input-group-addon" onclick="document.getElementById('imageFile').click();">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                        </a>
+                        <input type="file" id="imageFile" style="display: none" />
+                    </div>
+                </div>
+                @if (Model.ImageLink.Length > 0)
+                {
+                    <div class="col-md-1">
+                        <a id="btnImage" class="btn btn-default" title="View" href="@Model.ImageLink" target="_blank" style="margin-top:22px;">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Status)
+                    @Html.DropDownListFor(m => m.Status, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", data_value = Model.Status })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+
+            </div>
+        </div>
+        <div>
+            Required fields.<span class="input-validation-error-ley"></span>
+        </div>
+    }
+
+</div>
+
+<script type="text/javascript" language="javacript">
+    var sizeIMAGE;
+
+    function iniForm() {
+
+        unitlife.ajax.getJson('@Url.Action("getParameter", "Parameter")/?code=' + 'PHOTO+' + '&description=' + 'Size', function (data) {
+            sizeIMAGE = data.data.Valor1;
+        });
+    }
+
+
+    function onCallbackError(e) {
+        unitlife.ui.DropDownListFillJsonError(e, s);
+    }
+    document.getElementById('imageFile').onchange = function () {
+         var FileSize = document.getElementById('imageFile').files[0].size / 1024 / 1024;
+         var nameFile = document.getElementById('imageFile').files[0].name;
+         var fileInput = document.getElementById('imageFile');
+         var filePath = fileInput.value;
+         var allowedExtensions = /(.jpg|.jpeg|.png|.jfif|.gif)$/i;
+         var fSizeIm = sizeIMAGE;
+
+         if (!allowedExtensions.exec(filePath)) {
+             unitlife.ui.validation.showMessage("Please upload file having extensions .jpeg/.jpg/.png/.gif/.jfif only.");
+             $("#@Html.IdFor(m => m.Image)").val("");
+             return false;
+         }
+
+
+         if (FileSize > fSizeIm) {
+                 unitlife.ui.validation.showMessage("The file size should not exceed " + fSizeIm + " MB");
+                $("#@Html.IdFor(m => m.Image)").val("");
+                return false;
+         }
+
+            $("#@Html.IdFor(m => m.Image)").val(nameFile);
+     }
+
+    $(document).ready(function () {
+        iniForm();
+
+        $("#btnRegSubm").on("click", function (e) {
+            e.preventDefault();
+
+            var _frm = unitlife.ui.validation("#frmBannerReg"), condVal = $("#@Html.IdFor(m => m.BannerId)").val();
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+            if (condVal == '01') {
+                _isValid = _frm.validGroup(condVal, '01',
+                    [
+                        "#@Html.IdFor(m => m.Title)"
+                    ]);
+            }
+            else {
+                _isValid = _frm.valid();
+            }
+            if (_isValid) {
+
+                Confirmar(
+                '¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+
+                        var form = $("#frmBannerReg");
+                        var data = new FormData();
+                        var files = $("#imageFile").get(0).files;
+                        if (files.length > 0) {
+                            data.append("imageFile", files[0]);
+                        }
+                        $.each(form.serializeArray(), function (key, input) {
+                            data.append(input.name, input.value);
+                        });
+
+
+                    unitlife.ajax.submitAddFiles('@Url.Action("Register", "Banner")', data);
+                    unitlife.site.dialog.invoqResultCallback('REG_BANNER');
+
+                },
+                null
+                );
+            }
+            return false;
+        });
+
+        unitlife.ui.SelectedValue('#@Html.IdFor(x => x.Status)');
+
+
+
+    });
+
+</script>
+

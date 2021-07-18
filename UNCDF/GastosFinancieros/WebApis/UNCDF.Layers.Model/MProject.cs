@@ -35,7 +35,7 @@ namespace UNCDF.Layers.Model
 
         public string Ext { get; set; }
         public string ExtVideo { get; set; }
-
+        public bool IsVisible { get; set; }
         public byte[] FileByte { get; set; }
         public byte[] VideoFileByte { get; set; }
     }

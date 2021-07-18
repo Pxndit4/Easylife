@@ -40,6 +40,18 @@ namespace UNCDF.CMS
             //    //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             //    requestURL = ConfigurationManager.AppSettings["URLServicesconfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             //}
+
+
+            //if (path.Contains("donation/"))
+            //{
+            //    //  path = path.Replace("applicationConfig/", "");
+            //    path = path.Replace("donation/", "");
+            //    //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            //    requestURL = ConfigurationManager.AppSettings["URLServicesDonati"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            //}
+
+
+
             HttpWebRequest request = WebRequest.Create(requestURL) as HttpWebRequest;
             
             HttpClientHandler clientHandler = new HttpClientHandler();

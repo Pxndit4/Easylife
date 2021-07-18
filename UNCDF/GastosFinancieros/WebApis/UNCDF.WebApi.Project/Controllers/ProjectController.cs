@@ -180,7 +180,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
             ProjectBE.ProjectId = request.Project.ProjectId;
             ProjectBE.Image = ProjectPath + "/" + ((request.Project.FileByte != null) ? request.Project.ProjectId.ToString() + Guid + request.Project.Ext : request.Project.Image);
             ProjectBE.Video = ProjectPath + "/" + ((request.Project.VideoFileByte != null) ? request.Project.ProjectId.ToString() + Guid + request.Project.ExtVideo : request.Project.Video);
-            
+            ProjectBE.IsVisible = request.Project.IsVisible; 
             int Val = 0;
 
             ProjectBE.ProjectId = BProject.Update(ProjectBE);
