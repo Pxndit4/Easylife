@@ -91,9 +91,10 @@ namespace UNCDF.Layers.DataAccess
                             result.AwardStatus = Convert.ToString(reader["AwardStatus"]);
                             result.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Convert.ToString(reader["Image"]);
                             result.Video = (Convert.ToString(reader["Video"]).Equals("")) ? "" : Convert.ToString(reader["Video"]);
-                            result.IsVisible = Convert.ToBoolean(reader["IsVisible"]); 
-                            
-                                
+                            result.IsVisible = Convert.ToBoolean(reader["IsVisible"]);
+                            result.Donation = Convert.ToBoolean(reader["Donation"]);
+
+
                             //                  Val = 0;
                         }
                     }
@@ -148,6 +149,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.AwardStatus = Convert.ToString(reader["AwardStatus"]);
                             entRow.StatusDescription = Convert.ToString(reader["StatusDescription"]);
                             entRow.IsVisible = Convert.ToBoolean(reader["IsVisible"]);
+                            entRow.Donation = Convert.ToBoolean(reader["Donation"]);
                             lisQuery.Add(entRow);
                         }
                     }
@@ -174,6 +176,8 @@ namespace UNCDF.Layers.DataAccess
                     cmd.Parameters.Add("@IImage", SqlDbType.VarChar).Value = ent.Image;
                     cmd.Parameters.Add("@IVideo", SqlDbType.VarChar).Value = ent.Video;
                     cmd.Parameters.Add("@IIsVisible", SqlDbType.Int).Value = ent.IsVisible;
+                    cmd.Parameters.Add("@IDonation", SqlDbType.Int).Value = ent.IsVisible;
+                    
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();

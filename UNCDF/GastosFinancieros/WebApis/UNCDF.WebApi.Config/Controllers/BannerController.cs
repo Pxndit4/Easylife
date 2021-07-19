@@ -142,7 +142,7 @@ namespace UNCDF.WebApi.Config.Controllers
 
             System.IO.File.WriteAllBytes(pathSave, File);
 
-            if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, BannerPath, request.banner.BannerId.ToString() + request.banner.ImageExtension))
+            if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, BannerPath, banner.BannerId.ToString() + request.banner.ImageExtension))
                 //if (!BAplication.AWS_Upload_S3(pathSave, "unitlifebucket", BannerPath, banner.BannerId.ToString() + request.banner.ImageExtension))
             {
                 response.Message = String.Format(Messages.ErrorLoadPhoto, "Banner");

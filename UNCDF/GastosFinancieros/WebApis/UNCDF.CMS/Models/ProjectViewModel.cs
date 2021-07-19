@@ -160,7 +160,9 @@ namespace UNCDF.CMS.Models
         public string Video { get; set; }
         public string ImageLink { get; set; }
         public string VideoLink { get; set; }
+        [Display(Name = "Visible")]
         public bool IsVisible { get; set; }
+        public bool Donation { get; set; }
         public bool IsVisibleBool { get; set; }
     }
 }

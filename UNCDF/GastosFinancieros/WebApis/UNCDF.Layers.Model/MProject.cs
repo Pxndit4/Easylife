@@ -38,5 +38,7 @@ namespace UNCDF.Layers.Model
         public bool IsVisible { get; set; }
         public byte[] FileByte { get; set; }
         public byte[] VideoFileByte { get; set; }
+        public bool Donation { get; set; }
+        
     }
 }
