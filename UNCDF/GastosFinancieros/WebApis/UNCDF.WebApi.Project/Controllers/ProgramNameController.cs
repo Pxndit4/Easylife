@@ -126,6 +126,7 @@ namespace UNCDF.WebApi.Project.Controllers
                         programName.ProjectDetails = model.ProjectDetails;
                         programName.Sector = model.Sector;
                         programName.TaskManager = model.TaskManager;
+                        programName.SDG = model.SDG;
 
                         BProgramName.Insert(programName);
 

@@ -50,6 +50,8 @@ namespace UNCDF.CMS.Models
         [Display(Name = "Details")]
         public string ProjectDetails { get; set; }
         public string Sector { get; set; }
+        
+        public string SDG { get; set; }
         [Display(Name = "Task Manager")]
         public string TaskManager { get; set; }
         public string AlertMessage { get; set; }

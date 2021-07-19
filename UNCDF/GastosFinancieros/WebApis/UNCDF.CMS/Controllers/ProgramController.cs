@@ -320,6 +320,7 @@ namespace UNCDF.CMS.Controllers
                     mFund.ProjectDetails = item.ProjectDetails;
                     mFund.TaskManager = item.TaskManager;
                     mFund.Sector = item.Sector;
+                    mFund.SDG = item.SDG;
                     entList.Add(mFund);
                 }
 
