@@ -255,7 +255,7 @@ namespace UNCDF.Layers.DataAccess
                     cmd.Parameters.Add("@IImage", SqlDbType.VarChar).Value = ent.Image;
                     cmd.Parameters.Add("@IVideo", SqlDbType.VarChar).Value = ent.Video;
                     cmd.Parameters.Add("@IIsVisible", SqlDbType.Int).Value = ent.IsVisible;
-                    cmd.Parameters.Add("@IDonation", SqlDbType.Int).Value = ent.IsVisible;
+                    cmd.Parameters.Add("@IDonation", SqlDbType.Int).Value = ent.Donation;
                     
 
                     cmd.CommandType = CommandType.StoredProcedure;
