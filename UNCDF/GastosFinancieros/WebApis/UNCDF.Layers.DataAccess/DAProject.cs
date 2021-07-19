@@ -162,7 +162,7 @@ namespace UNCDF.Layers.DataAccess
             return lisQuery;
         }
 
-        public static List<MProject> ListScroll(MProject ent)
+        public static List<MProject> ListScroll()
         {
             List<MProject> lisQuery = new List<MProject>();
 
@@ -170,12 +170,7 @@ namespace UNCDF.Layers.DataAccess
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("pr_Project_Lis", con);
-                    cmd.Parameters.Add("@IProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
-                    cmd.Parameters.Add("@IStarDate", SqlDbType.VarChar).Value = ent.StartDate;
-                    cmd.Parameters.Add("@IEndDate", SqlDbType.VarChar).Value = ent.EndDate;
-                    cmd.Parameters.Add("@ITitle", SqlDbType.VarChar).Value = ent.Title;
-                    cmd.Parameters.Add("@IEffectiveStatus", SqlDbType.VarChar).Value = ent.EffectiveStatus;
+                    SqlCommand cmd = new SqlCommand("sp_Project_Lis_Scroll", con);
                     cmd.CommandTimeout = 0;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
@@ -186,20 +181,52 @@ namespace UNCDF.Layers.DataAccess
                         {
                             MProject entRow = new MProject();
                             entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
-                            entRow.ProjectCode = Convert.ToString(reader["ProjectCode"]);
                             entRow.Title = Convert.ToString(reader["Title"]);
-                            entRow.Type = Convert.ToString(reader["Type"]);
                             entRow.Description = Convert.ToString(reader["Description"]);
-                            entRow.StartDate = Convert.ToInt32(reader["StartDate"]);
-                            entRow.EndDate = Convert.ToInt32(reader["EndDate"]);
-                            entRow.Status = Convert.ToString(reader["Status"]);
-                            entRow.Department = Convert.ToString(reader["Department"]);
-                            entRow.EffectiveStatus = Convert.ToString(reader["EffectiveStatus"]);
-                            entRow.StatusEffDate = Convert.ToInt32(reader["StatusEffDate"]);
-                            entRow.StatusEffSeq = Convert.ToInt32(reader["StatusEffSeq"]);
-                            entRow.AwardId = Convert.ToString(reader["AwardId"]);
-                            entRow.AwardStatus = Convert.ToString(reader["AwardStatus"]);
-                            entRow.StatusDescription = Convert.ToString(reader["StatusDescription"]);
+                            entRow.Donation = Convert.ToInt32(reader["Donation"]);
+                            entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
+                            entRow.Video = (Convert.ToString(reader["Video"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Video"]);
+                            entRow.Advance = Convert.ToInt32(reader["Advance"]);
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    lisQuery = new List<MProject>();
+                }
+            }
+            return lisQuery;
+        }
+
+        public static List<MProject> ListFilter(MProject ent)
+        {
+            List<MProject> lisQuery = new List<MProject>();
+                
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_Lis_Filter", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IContinents", SqlDbType.VarChar).Value = ent.Continents;
+                    cmd.Parameters.Add("@ICountries", SqlDbType.VarChar).Value = ent.Countries;
+                    cmd.Parameters.Add("@ITitle", SqlDbType.VarChar).Value = ent.Title;
+                    cmd.Parameters.Add("@IAnio", SqlDbType.VarChar).Value = ent.Anio;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProject entRow = new MProject();
+                            entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                            entRow.Title = Convert.ToString(reader["Title"]);                           
+                            entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
+                            entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
                             lisQuery.Add(entRow);
                         }
                     }
