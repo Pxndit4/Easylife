@@ -25,8 +25,9 @@ namespace UNCDF.Layers.Model
 
         public int StatusEffSeq { get; set; }
         public string StatusDescription { get; set; }
-        
 
+        public int Donation { get; set; }
+        public int Advance { get; set; }
         /* Atributos para la carga de Imagen y Video */
 
 
@@ -38,7 +39,15 @@ namespace UNCDF.Layers.Model
         public bool IsVisible { get; set; }
         public byte[] FileByte { get; set; }
         public byte[] VideoFileByte { get; set; }
+
+        public string Flag { get; set; }
+        //UTILIZADO PARA LOS FILTROS
+        public string Continents { get; set; }
+        public string Countries { get; set; }
+        public string Anio { get; set; }
         public bool Donation { get; set; }
         
     }
+
+    
 }

@@ -164,6 +164,85 @@ namespace UNCDF.Layers.DataAccess
             return lisQuery;
         }
 
+        public static List<MProject> ListScroll()
+        {
+            List<MProject> lisQuery = new List<MProject>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_Lis_Scroll", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProject entRow = new MProject();
+                            entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                            entRow.Title = Convert.ToString(reader["Title"]);
+                            entRow.Description = Convert.ToString(reader["Description"]);
+                            entRow.Donation = Convert.ToInt32(reader["Donation"]);
+                            entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
+                            entRow.Video = (Convert.ToString(reader["Video"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Video"]);
+                            entRow.Advance = Convert.ToInt32(reader["Advance"]);
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    lisQuery = new List<MProject>();
+                }
+            }
+            return lisQuery;
+        }
+
+        public static List<MProject> ListFilter(MProject ent)
+        {
+            List<MProject> lisQuery = new List<MProject>();
+                
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_Lis_Filter", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IContinents", SqlDbType.VarChar).Value = ent.Continents;
+                    cmd.Parameters.Add("@ICountries", SqlDbType.VarChar).Value = ent.Countries;
+                    cmd.Parameters.Add("@ITitle", SqlDbType.VarChar).Value = ent.Title;
+                    cmd.Parameters.Add("@IAnio", SqlDbType.VarChar).Value = ent.Anio;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProject entRow = new MProject();
+                            entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                            entRow.Title = Convert.ToString(reader["Title"]);                           
+                            entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
+                            entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    lisQuery = new List<MProject>();
+                }
+            }
+            return lisQuery;
+        }
+
         public static int Update(MProject ent)
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))

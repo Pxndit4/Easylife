@@ -364,5 +364,73 @@ namespace UNCDF.WebApi.Project.Crontrollers
             return response;
         }
 
+
+        [HttpPost]
+        [Route("0/GetProjectsScroll")]
+        public ProjectsResponse GetProjectsScroll([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                List<MProject> projects = BProject.ListScroll();
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.Projects = projects.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
+        [HttpPost]
+        [Route("0/GetProjectsFilter")]
+        public ProjectsResponse GetProjectsFilter([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                MProject ent = new MProject();
+                ent.Continents = request.Project.Continents;
+                ent.Countries = request.Project.Countries;
+                ent.Title = request.Project.Title;
+                ent.Anio = request.Project.Anio;
+
+                List<MProject> projects = BProject.ListFilter(ent);
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.Projects = projects.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
     }
 }

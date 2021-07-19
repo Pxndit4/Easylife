@@ -22,6 +22,16 @@ namespace UNCDF.Layers.Business
             return DAProject.List(ent);
         }
 
+        public static List<MProject> ListScroll()
+        {
+            return DAProject.ListScroll();
+        }
+
+        public static List<MProject> ListFilter(MProject ent)
+        {
+            return DAProject.ListFilter(ent);
+        }
+
         public static int Update(MProject ent )
         {
             return DAProject.Update(ent);

@@ -102,5 +102,25 @@ namespace UNCDF.Layers.DataAccess
 
             return lisQuery;
         }
+
+        public static int InsertSDG(MProgramName ent)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand("sp_SDG_Ins", con);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@IProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
+                cmd.Parameters.Add("@IObjetives", SqlDbType.VarChar).Value = ent.SDG;
+                
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+
+            return 0;
+        }
     }
 }

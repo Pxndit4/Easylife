@@ -10,5 +10,6 @@ namespace UNCDF.Layers.Model
         public string ProjectDetails { get; set; }
         public string Sector { get; set; }
         public string TaskManager { get; set; }
+        public string SDG { get; set; }
     }
 }
