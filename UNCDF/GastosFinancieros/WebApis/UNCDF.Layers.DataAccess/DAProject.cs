@@ -185,7 +185,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
                             entRow.Title = Convert.ToString(reader["Title"]);
                             entRow.Description = Convert.ToString(reader["Description"]);
-                            entRow.Donation = Convert.ToInt32(reader["Donation"]);
+                            entRow.Donation = Convert.ToBoolean(reader["Donation"]);
                             entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
                             entRow.Video = (Convert.ToString(reader["Video"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Video"]);
                             entRow.Advance = Convert.ToInt32(reader["Advance"]);
