@@ -18,13 +18,28 @@ namespace UNCDF.CMS.Controllers
     {
         public ActionResult Index()
         {
+            
+                 
+             var estados = Extension.GetStatus().Select(x => new SelectListItem
+            {
+                Value = x.Value,
+                Text = x.Value
+            }).ToList();
+
+            estados.Insert(0, new SelectListItem { Text = "---Select---", Value = "-1", Selected = true });
+            ViewBag.Estado  = estados;
+
+            return View();
+        }
+        public ActionResult ProjectActives()
+        {
             ViewBag.Estado = Extension.GetStatus().Select(x => new SelectListItem
             {
                 Value = x.Value,
                 Text = x.Value
             });
 
-            return View();
+            return View("ProjectActives", new ProjectViewModel { EffectiveStatus = "Active"});
         }
 
         [HttpPost]
@@ -487,6 +502,58 @@ namespace UNCDF.CMS.Controllers
             }
         }
 
+        public ActionResult GetRead(string id)
+        {
+            MProject objResult;
+            ViewBag.Title = "Project Details";
+            ViewBag.Confirm = string.Format(MessageResource.UpdateConfirm, "Project");
+            string ProjectPath = ConfigurationManager.AppSettings["URLProject"].ToString();
+
+            try
+            {
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                MProject eProjects = new MProject
+                {
+                    ProjectId = Convert.ToInt32(id)
+                };
+
+                objResult = new WebApiProject().GetProject(eProjects, objSession);
+
+                return View("RegisterReadOnly", new ProjectEditViewModel()
+                {
+                    ProjectId = objResult.ProjectId,
+                    ProjectCode = objResult.ProjectCode,
+                    Title = objResult.Title,
+                    StartDateStr = Extension.ToFormatDateDDMMYYY(objResult.StartDate.ToString()),
+                    EndDateStr = Extension.ToFormatDateDDMMYYY(objResult.EndDate.ToString()),
+                    Image = (objResult.Image.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
+                    Video = (objResult.Video.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
+                    Description = Extension.ToEmpty(objResult.Description).Trim(),
+                    Type = Extension.ToEmpty(objResult.Type).Trim(),
+                    EffectiveStatus = Extension.ToEmpty(objResult.EffectiveStatus).Trim(),
+                    StatusEffDateStr = Extension.ToFormatDateDDMMYYY(objResult.StatusEffDate.ToString()),
+                    StatusEffSeq = objResult.StatusEffSeq,
+                    IsVisible = objResult.IsVisible,
+                    Donation = objResult.Donation,
+                    StatusDescription = Extension.ToEmpty(objResult.StatusDescription).Trim(),
+                    AwardId = Extension.ToEmpty(objResult.AwardId).Trim(),
+                    AwardStatus = Extension.ToEmpty(objResult.AwardStatus).Trim(),
+                    ImageLink = (objResult.Image == String.Empty || objResult.Image == null) ? "" : Extension.S3Server + objResult.Image,
+                    VideoLink = (objResult.Video == String.Empty || objResult.Video == null) ? "" : Extension.S3Server + objResult.Video,
+                    Status = objResult.Status
+                });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("viewError", MessageResource.PartialViewLoadError);
+                return View("_ErrorView");
+            }
+        }
 
         [HttpPost]
         public ActionResult EditProject(ProjectEditViewModel model, HttpPostedFileBase imageFile,
