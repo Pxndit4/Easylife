@@ -1,31 +1,19 @@
 ﻿@model UNCDF.CMS.Models.ProjectViewModel
 
 @{
-    ViewBag.Title = "Projects";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Project Actives";
 }
-
 
 <div class="ui-bar ui-bar-default">
     <span class="ui-title">
-        Projects
+        Projects Actives
     </span>
-    <div class="ui-btn-content">
-        @Ajax.AjaxActionLink("Load", "Load", "Project", null, new AjaxOptions
-           {
-               HttpMethod = "GET",
-               InsertionMode = InsertionMode.Replace,
-               UpdateTargetId = "dialogBody",
-               OnBegin = "unitlife.site.dialog.onInit",
-               OnComplete = "unitlife.site.dialog.onComplete",
-               OnFailure = "unitlife.site.dialog.onFailure",
-           }, new { @class = "btn btn-default" }, "glyphicon glyphicon-file")
-    </div>
+    
 </div>
 
 <div class="ui-container ui-jumb">
     <div>
-        @using (Html.BeginForm("Search", "Project", FormMethod.Post, new { id = "frmSearch" }))
+        @using (Html.BeginForm("Search", "Project", FormMethod.Post, new { id = "frmSearchaActive" }))
         {
             @Html.AntiForgeryToken()
 
@@ -61,8 +49,8 @@
                         @Html.LabelFor(m => m.EffectiveStatus)
 
                         <div class="input-group">
-                            @Html.DropDownListFor(m => m.EffectiveStatus, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", id = "txtStatus" })
-
+                            @*@Html.DropDownListFor(m => m.EffectiveStatus, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", id = "txtStatus",  @readonly = true})*@
+                            @Html.TextBoxFor(m => m.EffectiveStatus, new { @class = "form-control input", maxlength = 10, id = "txtEndDate" , @readonly = true })
                             <a id="btnSearch" class="btn btn-default input-group-addon">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
                             </a>
@@ -90,20 +78,18 @@
     <table id="tbList" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.result.ProjectCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
-
-
-                @*<th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.timeLine" data-events="objIndex.grid.rowCommand"></th>*@
+                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.timeLine" data-events="objIndex.grid.rowCommand"></th>
                 <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Type)">@Html.DisplayNameFor(x => x.result.Type)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.EffectiveStatus)">@Html.DisplayNameFor(x => x.result.EffectiveStatus)</th>
+                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.EffectiveStatus)">@Html.DisplayNameFor(x => x.result.EffectiveStatus)</th>*@
                 @*<th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffDateStr)">@Html.DisplayNameFor(x => x.result.StatusEffDateStr)</th>*@
                 @*<th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffSeq)">@Html.DisplayNameFor(x => x.result.StatusEffSeq)</th>*@
                 @*<th data-field="@Html.HtmlIdNameFor(x => x.result.Status)">@Html.DisplayNameFor(x => x.result.Status)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusDescription)">@Html.DisplayNameFor(x => x.result.StatusDescription)</th>*@
+                    <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusDescription)">@Html.DisplayNameFor(x => x.result.StatusDescription)</th>*@
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDateStr)">@Html.DisplayNameFor(x => x.result.StartDateStr)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDateStr)">@Html.DisplayNameFor(x => x.result.EndDateStr)</th>
 
@@ -123,7 +109,7 @@
         $("#txtEndDate").val("");
         $("#txtProjectCode").val("");
         $("#txtTitle").val("");
-        $("#txtStatus").val("-1");
+        $("#txtStatus").val("Active");
         $("#btnSearch").click();
     });
 
@@ -144,7 +130,7 @@
             },
             load: function () {
                 @*unitlife.ui.grid('#tbList').load('@Url.Action("Search", "ProjectFinancials", null)', '#frmSearch');*@
-                unitlife.ui.grid('#tbList').load('@Url.Action("Search", "Project", null)', '#frmSearch',
+                unitlife.ui.grid('#tbList').load('@Url.Action("Search", "Project", null)', '#frmSearchaActive',
                 function (e) {
                     var da = 'Project List @Html.Raw(MessageResource.GridRowCountInfo)'  ;
                     da = da.replace("{0}", e.data.length);
@@ -157,12 +143,15 @@
                 return sd;
             },
             rowCommand: {
-                
+                'click #timeLine': function (e, value, row) {
+                    window.location.href = '@Url.Action("ProjectTimeLines", "TimeLine")/' + row.ProjectId + '@Url.TargetParam()';
+                    return false;
+                }
 
             },
             commandEdit:function(e,r,i)
             {
-                var sd = '@Ajax.AjaxActionLink("", "GetRead", "Project", null, new AjaxOptions
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "Project", null, new AjaxOptions
                 {
                     HttpMethod = "GET",
                     InsertionMode = InsertionMode.Replace,
@@ -170,7 +159,7 @@
                     OnBegin = "unitlife.site.dialog.onInit",
                     OnComplete = "unitlife.site.dialog.onComplete",
                     OnFailure = "unitlife.site.dialog.onFailure",
-                    }, new { @class = "",title="Project Detail" }, "glyphicon glyphicon-eye-open")'
+                    }, new { @class = "",title="Edit Project" }, "glyphicon glyphicon-pencil")'
 
                 sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.result.ProjectId))[0].outerHTML;
                 return sd;
@@ -203,4 +192,6 @@
     });
 
 </script>
+
+
 

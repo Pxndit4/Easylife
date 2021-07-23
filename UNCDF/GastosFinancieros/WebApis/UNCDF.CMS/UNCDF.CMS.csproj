@@ -309,6 +309,8 @@
     <Content Include="Views\Banner\Index.cshtml" />
     <Content Include="Views\Banner\Register.cshtml" />
     <Content Include="Views\BannerTranslate\Register.cshtml" />
+    <Content Include="Views\Project\ProjectActives.cshtml" />
+    <Content Include="Views\Project\RegisterReadOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
