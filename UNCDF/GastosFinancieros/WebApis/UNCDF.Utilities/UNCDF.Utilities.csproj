@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="iTextSharp" />
+    <None Remove="iTextSharp.NetCore" />
+    <None Remove="hiqpdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="iTextSharp.NetCore" Version="5.5.13.1" />
+  </ItemGroup>
 </Project>

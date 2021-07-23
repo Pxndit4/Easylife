@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "oLXP++bTHKSk3YhTNvdzbreJdLXFm5JWhlm3/byOibUHHw3yJx0PtqGsoT1w8Yepob+VqnZCJ3LPsYI000NaBA==",
+  "dgSpecHash": "R4fN8Njw/YQEGIXUkkyGy4nJjhBh+hgeQZxudvdvqtgyf0e0oz6Js5GckNQzmS9ulFatDD5MBCfy9NrdfpzRag==",
   "success": true,
   "projectFilePath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj",
   "expectedPackageFiles": [
+    "/Users/giancarlotueros/.nuget/packages/itextsharp.netcore/5.5.13.1/itextsharp.netcore.5.5.13.1.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/microsoft.data.sqlclient/2.1.2/microsoft.data.sqlclient.2.1.2.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.1.1/microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
@@ -63,8 +64,10 @@
     "/Users/giancarlotueros/.nuget/packages/system.runtime.interopservices/4.1.0/system.runtime.interopservices.4.1.0.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/system.runtime.serialization.primitives/4.1.1/system.runtime.serialization.primitives.4.1.1.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "/Users/giancarlotueros/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.cryptography.cng/4.7.0/system.security.cryptography.cng.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.cryptography.pkcs/4.7.0/system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/system.security.cryptography.protecteddata/4.7.0/system.security.cryptography.protecteddata.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.cryptography.xml/4.7.0/system.security.cryptography.xml.4.7.0.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/system.security.permissions/4.7.0/system.security.permissions.4.7.0.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg.sha512",
     "/Users/giancarlotueros/.nuget/packages/system.text.encoding/4.0.11/system.text.encoding.4.0.11.nupkg.sha512",

@@ -15,4 +15,9 @@
     <ProjectReference Include="..\UNCDF.Layers.Model\UNCDF.Layers.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="HtmlToPdf" />
+    <None Remove="hiqpdf.free" />
+    <None Remove="hiqpdf" />
+  </ItemGroup>
 </Project>

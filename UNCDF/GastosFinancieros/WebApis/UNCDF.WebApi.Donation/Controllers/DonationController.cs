@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,6 +84,228 @@ namespace UNCDF.WebApi.Donation.Controllers
             }
 
             response.Donations = Donations.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetPaymentStripe")]
+        public JsonResult GetPaymentStripe([FromBody] GetPaymentStripeRequest request)
+        {
+            try
+            {
+                var paymentIntents = new PaymentIntentService();
+                var payment = paymentIntents.Get(request.PaymentId);
+
+                JsonResult json = new JsonResult(new { status = "OK", message = payment.Status });
+
+                if (payment.Status != "succeeded" && payment.Status != "canceled")
+                {
+                    var paymentCancel = paymentIntents.Cancel(request.PaymentId);
+
+                    if (paymentCancel.StripeResponse.StatusCode.Equals("OK"))
+                    {
+                        int resul = BDonorStripe.Cancel(request.PaymentId);
+                    }
+
+                }
+
+                return json;
+            }
+            catch (Exception ex)
+            {
+                JsonResult json = new JsonResult(new { status = "error", message = ex.Message });
+                return json;
+            }
+
+        }
+
+        [HttpPost]
+        [Route("0/CancelPaymentStripe")]
+        public JsonResult CancelPaymentStripe([FromBody] CancelPaymentStripeRequest request)
+        {
+            try
+            {
+                var paymentIntents = new PaymentIntentService();
+                var paymentCancel = paymentIntents.Cancel(request.PaymentId);
+
+                JsonResult json = new JsonResult(new { status = "OK", message = paymentCancel.Status });
+
+                if (paymentCancel.StripeResponse.StatusCode.Equals("OK"))
+                {
+                    int resul = BDonorStripe.Cancel(request.PaymentId);
+                }
+
+                return json;
+            }
+            catch (Exception ex)
+            {
+                JsonResult json = new JsonResult(new { status = "error", message = ex.Message });
+                return json;
+            }
+
+        }
+
+        [HttpPost]
+        [Route("0/CreatePaymentStripe")]
+        public JsonResult CreatePaymentStripe([FromBody] PaymentStripeRequest request)
+        {
+            try
+            {
+                var paymentIntents = new PaymentIntentService();
+                var paymentIntent = paymentIntents.Create(new PaymentIntentCreateOptions
+                {
+                    Amount = request.Amount * 100,
+                    Currency = "usd",
+                    Description = "Unitlife Donation",
+                });
+
+                JsonResult json = new JsonResult(new { clientSecret = paymentIntent.ClientSecret, PaymentId = paymentIntent.Id, status = "ok", message = "success" });
+
+                int resul = BDonorStripe.Create(paymentIntent.Id, paymentIntent.ClientSecret, request.DonorId);
+
+                return json;
+            }
+            catch (Exception ex)
+            {
+                JsonResult json = new JsonResult(new { status = "error", message = ex.Message });
+                return json;
+            }
+        }
+
+        // POST api/values
+        [HttpPost]
+        [Route("0/SaveDonation")]
+        public DonationResponse SaveDonation([FromBody] DonationRequest request)
+        {
+            DonationResponse response = new DonationResponse();
+            MDonation donation = new MDonation();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            try
+            {
+                BaseRequest baseRequest = new BaseRequest();
+
+                donation.DonorId = request.Donation.DonorId;
+                donation.Date = Convert.ToDecimal(DateTime.Now.ToString("yyyyMMdd"));
+                donation.Amount = request.Donation.Amount;
+                donation.PaymentType = request.Donation.PaymentType;
+                donation.ProjectId = request.Donation.ProjectId;
+
+                MDonorFrequency donorFrequencyBE = new MDonorFrequency();
+                donorFrequencyBE = request.DonorFrequency;
+
+                MPayMethod payMethodBE = new MPayMethod();
+
+                if (request.PayMethod == null)
+                {
+                    payMethodBE.DonorStripe = new MDonorStripe();
+                }
+                else
+                {
+                    payMethodBE.DonorStripe = request.PayMethod.DonorStripe;
+                }
+
+                baseRequest.Language = request.Language;
+                baseRequest.Session = request.Session;
+
+                BaseResponse baseResponse = new BaseResponse();
+                
+                if (donation.PaymentType.Equals("4"))
+                {
+                    baseResponse = BDonation.Insert(donation, donorFrequencyBE, payMethodBE, baseRequest);
+                }
+
+                if (baseResponse.Code.Equals("0"))
+                {
+                    string webRoot = _env.ContentRootPath;
+                    string CertifcateName = BDonation.GenarteCerticate(donation.DonorId, webRoot, string.Format("{0:0.##}", donation.Amount), _MAwsS3);
+
+                    donation.Certificate = CertifcateName.Replace("[WSTAMP]", ""); ;
+
+                    BDonation.Update(donation, baseRequest);
+                }
+
+                response.Code = baseResponse.Code;
+                response.Message = baseResponse.Message;
+                response.Donation = donation;
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+                response.Donation = donation;
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetDonations")]
+        public ProjectDonationsResponse GetDonations([FromBody] DonationRequest request)
+        {
+            ProjectDonationsResponse response = new ProjectDonationsResponse();
+            List<MProjectDonation> donations = new List<MProjectDonation>();
+            MDonor donor = new MDonor();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            donor.DonorId = request.Donation.DonorId;
+
+            BaseRequest baseRequest = new BaseRequest();
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+
+            donations = BProjectDonation.List(donor, baseRequest);
+
+            response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+            response.Message = Messages.Success;
+            response.Donations = donations.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetTotals")]
+        public DonationTotalResponse GetTotals([FromBody] DonationRequest request)
+        {
+            DonationTotalResponse response = new DonationTotalResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            List<decimal> totales = new List<decimal>();
+
+            totales = BDonation.GetTotals();
+
+            response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+            response.Message = Messages.Success;
+            response.FoodsTotal = totales[1];
+            response.DonationTotal = totales[0];
+            //response.FoodsTotal = 155000;
+            //response.DonationTotal = 235878561;
 
             return response;
         }
