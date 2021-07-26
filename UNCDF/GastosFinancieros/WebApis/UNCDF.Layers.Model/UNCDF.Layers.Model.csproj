@@ -81,6 +81,8 @@
     <Compile Include="MInterfaceControl.cs" />
     <Compile Include="MAudit.cs" />
     <Compile Include="MInterfaceControlTranslate.cs" />
+    <Compile Include="MDonorFrequency.cs" />
+    <Compile Include="MDonorStripe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

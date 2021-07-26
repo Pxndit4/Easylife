@@ -9,7 +9,64 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DADonation
     {
-       
+
+        public static int Insert(MDonation ent)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Donation_Ins", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IDonorId", SqlDbType.Int).Value = ent.DonorId;
+                    cmd.Parameters.Add("@IDate", SqlDbType.VarChar).Value = ent.Date;
+                    cmd.Parameters.Add("@IAmount", SqlDbType.Decimal).Value = ent.Amount;
+                    cmd.Parameters.Add("@IPaymentType", SqlDbType.VarChar).Value = ent.PaymentType;
+                    cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.Parameters.Add("@OCodeVar", SqlDbType.VarChar, 20).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@ODonationIdInt", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    ent.DonationId = Convert.ToInt32(cmd.Parameters["@ODonationIdInt"].Value);
+                    ent.Code = cmd.Parameters["@OCodeVar"].Value.ToString();
+
+                    con.Close();
+
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    return 2;
+                }
+            }
+        }
+
+        public static int Update(MDonation ent, BaseRequest baseRequest)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Donation_Upd", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IDonationId", SqlDbType.Int).Value = ent.DonationId;
+                    cmd.Parameters.Add("@ICertificate", SqlDbType.VarChar).Value = ent.Certificate;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    return 2;
+                }
+            }
+        }
+
         public static List<MDonation> Lis(MDonation ent, ref int Val)
         {
             List<MDonation> lisQuery = new List<MDonation>();
@@ -53,5 +110,28 @@ namespace UNCDF.Layers.DataAccess
             return lisQuery;
         }
 
+        public static List<decimal> GetTotals()
+        {
+            List<decimal> totales = new List<decimal>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand("sp_Donation_GetTotals", con);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        totales.Add(Convert.ToDecimal(reader["Total"]));
+                        totales.Add(Convert.ToDecimal(reader["Comidas"]));
+                    }
+                }
+                con.Close();
+            }
+
+            return totales;
+        }
     }
 }

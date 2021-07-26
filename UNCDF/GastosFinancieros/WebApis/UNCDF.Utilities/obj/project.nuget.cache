@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "Qt8E2qBQQ3u26bGgJAcZ/jMEVrXVBZZe+SlmsRifN5bn6rMexBNwDd6xXXsS0K5cQfUm9LS0Y17eRqNbKE6Pnw==",
+  "dgSpecHash": "QO2kCfQ27H+CM9AJ4WeT3qL75xV9Y3gFKGpfzHq6NxjmiQip0t0YA73AmpxMpjTQbcNvmRc3yrasoZGsvO/DHA==",
   "success": true,
   "projectFilePath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/giancarlotueros/.nuget/packages/itextsharp.netcore/5.5.13.1/itextsharp.netcore.5.5.13.1.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.drawing.common/4.7.0/system.drawing.common.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.cryptography.cng/4.7.0/system.security.cryptography.cng.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.cryptography.pkcs/4.7.0/system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.cryptography.xml/4.7.0/system.security.cryptography.xml.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.permissions/4.7.0/system.security.permissions.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg.sha512",
+    "/Users/giancarlotueros/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

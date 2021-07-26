@@ -30,4 +30,9 @@ namespace UNCDF.Layers.Model
         //Adecuación Proyecto deseado
         public int ProjectId { get; set; }
     }
+
+    public class MPayMethod
+    {
+        public MDonorStripe DonorStripe { get; set; }
+    }
 }

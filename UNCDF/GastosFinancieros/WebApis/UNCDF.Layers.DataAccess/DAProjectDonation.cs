@@ -30,10 +30,7 @@ namespace UNCDF.Layers.DataAccess
                             MProjectDonation entRow = new MProjectDonation();
                             entRow.DonationId = Convert.ToInt32(reader["DonationId"]);
                             entRow.Date = Convert.ToString(reader["Date"]);
-                            entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
-                            entRow.Title = Convert.ToString(reader["Title"]);
-                            entRow.Amount = Convert.ToDecimal(reader["Amount"]);
-                            entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
+                            entRow.Amount = Convert.ToDecimal(reader["Amount"]);                           
                             lisQuery.Add(entRow);
                         }
                     }
