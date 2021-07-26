@@ -46,8 +46,11 @@
     <Compile Include="BaseContract\Session.cs" />
     <Compile Include="MBanner.cs" />
     <Compile Include="MBannerTranslate.cs" />
+    <Compile Include="MDeparmentExclusion.cs" />
     <Compile Include="MDonation.cs" />
     <Compile Include="MLanguage.cs" />
+    <Compile Include="MPracticeAreaExclusion.cs" />
+    <Compile Include="MProjectExclusion.cs" />
     <Compile Include="MSession.cs" />
     <Compile Include="MAwsEmail.cs" />
     <Compile Include="MAwsS3.cs" />

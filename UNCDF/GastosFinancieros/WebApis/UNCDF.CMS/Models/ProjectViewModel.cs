@@ -25,6 +25,8 @@ namespace UNCDF.CMS.Models
         public ResultSearchProjectsViewModel result { get; set; }
     }
 
+
+
     public class ResultSearchProjectsViewModel
     {
         public int ProjectId { get; set; }
@@ -164,5 +166,41 @@ namespace UNCDF.CMS.Models
         public bool IsVisible { get; set; }
         public bool Donation { get; set; }
         public bool IsVisibleBool { get; set; }
+    }
+
+    public class ProjectExclusionViewModel
+    {
+        public byte[] FileByte { get; set; }
+        public string File { get; set; }
+        [Display(Name = "Project Code")]
+        public string ProjectCode { get; set; }
+        public string Title { get; set; }
+        [Display(Name = "Start Date")]
+        public string StartDate { get; set; }
+        [Display(Name = "End Date")]
+        public string EndDate { get; set; }
+
+        [Display(Name = "Effective Status")]
+        public string EffectiveStatus { get; set; }
+
+        public ResultDeparmentExclViewModel result { get; set; }
+    }
+
+    public class ResultDeparmentExclViewModel
+    {
+        [Display(Name = "Deparment Code")]
+        public string DeparmentCode { get; set; }
+    }
+
+    public class ResultProjectExclViewModel
+    {
+        [Display(Name = "Projec Code")]
+        public string ProjecCode { get; set; }
+    }
+
+    public class ResultPracticeAreaExclViewModel
+    {
+        [Display(Name = "Practice Area")]
+        public string PracticeArea { get; set; }
     }
 }

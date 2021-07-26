@@ -42,6 +42,11 @@ namespace UNCDF.CMS.Controllers
             return View("ProjectActives", new ProjectViewModel { EffectiveStatus = "Active"});
         }
 
+        public ActionResult ProjectExclusion()
+        {
+            return View("ProjectExclusion", new ProjectViewModel { EffectiveStatus = "Active" });
+        }
+
         [HttpPost]
         public JsonResult Search(ProjectViewModel model)
         {
