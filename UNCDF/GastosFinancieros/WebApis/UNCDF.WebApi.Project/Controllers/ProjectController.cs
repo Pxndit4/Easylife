@@ -432,5 +432,45 @@ namespace UNCDF.WebApi.Project.Crontrollers
             return response;
 
         }
+
+
+
+        [HttpPost]
+        [Route("0/GetProjectsCodeExclusions")]
+        public ProjectsResponse GetProjectsCodeExclusions([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                MProject project = new MProject();
+                project.EffectiveStatus = request.Project.EffectiveStatus;
+                project.ProjectCode = request.Project.ProjectCode;
+                project.Title = request.Project.Title;
+                project.StartDate = request.Project.StartDate;
+                project.EndDate = request.Project.EndDate;
+
+                List<MProject> projects = BProject.ListProjectCodeExclusions(project);
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.Projects = projects.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
     }
 }

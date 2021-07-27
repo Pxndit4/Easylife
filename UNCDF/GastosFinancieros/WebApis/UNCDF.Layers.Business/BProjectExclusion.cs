@@ -16,5 +16,11 @@ namespace UNCDF.Layers.Business
         {
             return DAProjectExclusion.Delete(ent, ref val);
         }
+        public static List<MProjectExclusion> ListProjectCodeExcluded()
+        {
+            return DAProjectExclusion.ListProjectCodeExcluded();
+        }
+
+        
     }
 }

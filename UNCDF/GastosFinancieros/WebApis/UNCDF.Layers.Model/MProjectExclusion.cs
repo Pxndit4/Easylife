@@ -9,5 +9,6 @@ namespace UNCDF.Layers.Model
     public class MProjectExclusion
     {
         public string ProjectCode { get; set; }
+        public string[] ListCode { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace UNCDF.CMS.Models
 {
     public class ProjectViewModel
     {
+        public int ProjectId { get; set; }
         public byte[] FileByte { get; set; }
         public string File { get; set; }
         [Display(Name = "Project Code")]
@@ -21,8 +22,11 @@ namespace UNCDF.CMS.Models
 
         [Display(Name = "Effective Status")]
         public string EffectiveStatus { get; set; }
-
+        public string CheckProjectCode { get; set; }
         public ResultSearchProjectsViewModel result { get; set; }
+
+        [Display(Name = "")]
+        public List<ResultSearchProjectsViewModel> resultExc { get; set; }
     }
 
 
@@ -67,6 +71,9 @@ namespace UNCDF.CMS.Models
 
         [Display(Name = "Award Status")]
         public string AwardStatus { get; set; }
+        public int FlagActive { get; set; }
+
+        
     }
 
     public class LoadProjectsViewModel

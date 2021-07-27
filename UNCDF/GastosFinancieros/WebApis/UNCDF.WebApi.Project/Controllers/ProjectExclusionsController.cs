@@ -10,6 +10,7 @@ using UNCDF.Layers.Model;
 using UNCDF.Layers.Business;
 using UNCDF.Utilities;
 using System.Transactions;
+using System.IO;
 
 namespace UNCDF.WebApi.Project.Controllers
 {
@@ -26,9 +27,59 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/InsertProjectExclusion")]
-        public FundsResponse InsertProjectExclusion([FromBody] BaseRequest request)
+        public ProjectExclusionResponse InsertProjectDonation([FromBody] ProjectExclusionRequest request)
         {
-            FundsResponse response = new FundsResponse();
+            ProjectExclusionResponse response = new ProjectExclusionResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            MProjectExclusion ent = new MProjectExclusion();
+
+            ent.ListCode = request.projectExclusion.ListCode;
+
+            int Val = 0;
+
+            foreach(string code in ent.ListCode)
+            {
+                MProjectExclusion obj = new MProjectExclusion();
+                obj.ProjectCode = code;
+                int respt = BProjectExclusion.Insert(obj);
+
+            }
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorInsert, "Project Exclusion");
+            }
+
+            response.projectExclusion = ent;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/ListProjectsCodeExclusions")]
+        public ProjectExclusionsResponse ListProjectsCodeExclusions([FromBody] ProjectExclusionRequest request)
+        {
+            ProjectExclusionsResponse response = new ProjectExclusionsResponse();
 
             try
             {
@@ -39,11 +90,12 @@ namespace UNCDF.WebApi.Project.Controllers
                     return response;
                 }
 
-                List<MFund> funds = BFund.List();
+               
+                List<MProjectExclusion> projectsCode = BProjectExclusion.ListProjectCodeExcluded();
 
-                response.Funds = funds.ToArray();
                 response.Code = "0";
                 response.Message = "Success";
+                response.projectExclusions = projectsCode.ToArray();
             }
             catch (Exception ex)
             {
@@ -54,5 +106,52 @@ namespace UNCDF.WebApi.Project.Controllers
             return response;
 
         }
+
+        [HttpPost]
+        [Route("0/DeleteProjectCode")]
+        public ProjectExclusionResponse DeleteProjectCode([FromBody] ProjectExclusionRequest request)
+        {
+            ProjectExclusionResponse response = new ProjectExclusionResponse();
+            MProjectExclusion ent = new MProjectExclusion();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            ent.ProjectCode = request.projectExclusion.ProjectCode;
+
+            int Val = 0;
+
+            int rpt = BProjectExclusion.Delete(ent, ref Val);
+
+            //Record the audit
+            //Val = BAudit.RecordAudit("Banner", ent.BannerId, 3, baseRequest.Session.UserId);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorDelete, "Banner");
+            }
+
+            response.projectExclusion = ent;
+
+            return response;
+        }
+        
     }
 }

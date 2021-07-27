@@ -36,5 +36,10 @@ namespace UNCDF.Layers.Business
         {
             return DAProject.Update(ent);
         }
+
+        public static List<MProject> ListProjectCodeExclusions(MProject ent)
+        {
+            return DAProject.ListProjectCodeExclusions(ent);
+        }
     }
 }

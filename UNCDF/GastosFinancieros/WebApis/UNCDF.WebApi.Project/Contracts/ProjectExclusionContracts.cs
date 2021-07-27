@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UNCDF.Layers.Model;
 
 
-namespace UNCDF.WebApi.Project.Contracts
+namespace UNCDF.WebApi.Project
 {
     public class ProjectExclusionsResponse : BaseResponse
     {

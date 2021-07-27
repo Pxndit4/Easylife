@@ -14,12 +14,11 @@ namespace UNCDF.Layers.DataAccess
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
             {
+
                 SqlCommand cmd = new SqlCommand("sp_ProjectExclusion_Ins", con);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@IProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
-
-
                 con.Open();
 
                 cmd.ExecuteNonQuery();
@@ -59,6 +58,39 @@ namespace UNCDF.Layers.DataAccess
                 }
             }
 
+        }
+
+        public static List<MProjectExclusion> ListProjectCodeExcluded()
+        {
+            List<MProjectExclusion> lisQuery = new List<MProjectExclusion>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProjectExclusions_Lis", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProjectExclusion entRow = new MProjectExclusion();
+                            entRow.ProjectCode = Convert.ToString(reader["ProjectCode"]);
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    lisQuery = new List<MProjectExclusion>();
+                }
+            }
+            return lisQuery;
         }
     }
 }
