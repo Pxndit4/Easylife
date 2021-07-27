@@ -15,6 +15,18 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <None Include="$(NuGetPackageRoot)hiqpdf.free.netcore/12.0.0/contentFiles/any/any/HiQPdf.dep" Condition="Exists('$(NuGetPackageRoot)hiqpdf.free.netcore/12.0.0/contentFiles/any/any/HiQPdf.dep')">
+      <NuGetPackageId>HiQPdf.Free.NetCore</NuGetPackageId>
+      <NuGetPackageVersion>12.0.0</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>HiQPdf.dep</TargetPath>
+      <Private>True</Private>
+      <Link>HiQPdf.dep</Link>
+    </None>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">/Users/giancarlotueros/.nuget/packages/newtonsoft.json/9.0.1</PkgNewtonsoft_Json>
     <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">/Users/giancarlotueros/.nuget/packages/awssdk.core/3.7.0.18</PkgAWSSDK_Core>

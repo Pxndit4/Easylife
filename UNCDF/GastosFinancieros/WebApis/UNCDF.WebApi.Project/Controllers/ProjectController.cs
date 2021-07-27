@@ -472,5 +472,198 @@ namespace UNCDF.WebApi.Project.Crontrollers
             return response;
 
         }
+
+        [HttpPost]
+        [Route("0/GetTimeLines")]
+        public TimeLinesResponse GetTimeLines([FromBody] TimeLineRequest request)
+        {
+            TimeLinesResponse response = new TimeLinesResponse();
+            List<MTimeLine> timeLines = new List<MTimeLine>();
+            MProject ProjectBE = new MProject();
+            BaseRequest baseRequest = new BaseRequest();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            ProjectBE.ProjectId = request.TimeLine.ProjectId;
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+
+            timeLines = BTimeLine.List(ProjectBE, baseRequest, ref Val);
+
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "TimeLines");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "TimeLines");
+            }
+
+            response.TimeLines = timeLines.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetTimeLine")]
+        public TimeLineResponse GetTimeLine([FromBody] TimeLineRequest request)
+        {
+            TimeLineResponse response = new TimeLineResponse();
+            MTimeLine timeLine = new MTimeLine();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            timeLine.TimeLineId = request.TimeLine.TimeLineId;
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+
+            timeLine = BTimeLine.Sel(timeLine, baseRequest, ref Val);
+
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorSelect, "TimeLine");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NoExistsSelect, "TimeLine");
+            }
+
+            response.TimeLine = timeLine;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetTimeLineMultimedia")]
+        public TimeLineMultimediasResponse GetTimeLineMultimedia([FromBody] TimeLineRequest request)
+        {
+            TimeLineMultimediasResponse response = new TimeLineMultimediasResponse();
+            List<MTimeLineMultimedia> timeLines = new List<MTimeLineMultimedia>();
+            MTimeLine timeLine = new MTimeLine();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            timeLine.TimeLineId = request.TimeLine.TimeLineId;
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+
+            timeLines = BTimeLineMultimedia.List(timeLine, baseRequest, ref Val);
+
+            if (timeLines.Count.Equals(0))
+            {
+                MTimeLineMultimedia timeLineMultimedia = new MTimeLineMultimedia();
+
+                timeLineMultimedia.TimeLineId = request.TimeLine.TimeLineId;
+                timeLineMultimedia.Title = "Image";
+                timeLineMultimedia.Type = 1;
+                timeLineMultimedia.File = Path.Combine(Constant.S3Server, "project/timeline/multimedia") + "/without_image.png";
+                timeLines.Add(timeLineMultimedia);
+
+                timeLineMultimedia = new MTimeLineMultimedia();
+                timeLineMultimedia.TimeLineId = request.TimeLine.TimeLineId;
+                timeLineMultimedia.Title = "Video";
+                timeLineMultimedia.Type = 2;
+                timeLineMultimedia.File = Path.Combine(Constant.S3Server, "project/timeline/multimedia") + "/WithoutVideo.mp4";
+                timeLines.Add(timeLineMultimedia);
+            }
+            else
+            {
+                MTimeLineMultimedia timeLineMultimedia = new MTimeLineMultimedia();
+                timeLineMultimedia = timeLines.Find(x => x.Type.Equals(1));
+
+                if (timeLineMultimedia == null)
+                {
+                    timeLineMultimedia = new MTimeLineMultimedia();
+                    timeLineMultimedia.TimeLineId = request.TimeLine.TimeLineId;
+                    timeLineMultimedia.Title = "Image";
+                    timeLineMultimedia.Type = 1;
+                    timeLineMultimedia.File = Path.Combine(Constant.S3Server, "project/timeline/multimedia") + "/without_image.png";
+                    timeLines.Add(timeLineMultimedia);
+                }
+
+                timeLineMultimedia = new MTimeLineMultimedia();
+                timeLineMultimedia = timeLines.Find(x => x.Type.Equals(2));
+
+                if (timeLineMultimedia == null)
+                {
+                    timeLineMultimedia = new MTimeLineMultimedia();
+                    timeLineMultimedia.TimeLineId = request.TimeLine.TimeLineId;
+                    timeLineMultimedia.Title = "Video";
+                    timeLineMultimedia.Type = 2;
+                    timeLineMultimedia.File = Path.Combine(Constant.S3Server, "project/timeline/multimedia") + "/WithoutVideo.mp4";
+                    timeLines.Add(timeLineMultimedia);
+                }
+            }
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "TimeLine Multimedias");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "TimeLine Multimedias");
+            }
+
+            response.TimeLineMultimedias = timeLines.ToArray();
+
+            return response;
+        }
     }
 }

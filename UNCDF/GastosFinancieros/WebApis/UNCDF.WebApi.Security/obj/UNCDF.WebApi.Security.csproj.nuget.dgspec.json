@@ -57,6 +57,10 @@
             "AWSSDK.SimpleEmail": {
               "target": "Package",
               "version": "[3.7.0.17, )"
+            },
+            "HiQPdf.Free.NetCore": {
+              "target": "Package",
+              "version": "[12.0.0, )"
             }
           },
           "imports": [
