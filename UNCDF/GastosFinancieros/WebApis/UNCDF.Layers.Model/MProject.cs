@@ -46,7 +46,20 @@ namespace UNCDF.Layers.Model
         public string Countries { get; set; }
         public string Anio { get; set; }
         //public bool Donation { get; set; }
-        
+
+        //DATOS DE DETALLES
+        public string ProgramName { get; set; }
+        public string DonorName { get; set; }
+        public string DonorDescription { get; set; }
+        public string Country { get; set; }
+        public string Sector { get; set; }
+        public string SDG { get; set; }
+        public string AprovalDate { get; set; }
+        public string TaskManager { get; set; }
+        public string StartDateDet { get; set; }
+        public string EndDateDet { get; set; }
+        public decimal TotalBudget { get; set; }
+        public decimal TotalExpenditure { get; set; }
     }
 
     

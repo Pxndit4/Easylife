@@ -17,7 +17,7 @@ namespace UNCDF.WebApi.Config.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("AllowMyOrigin")]
+    [EnableCors("_corsPolicy")]
     public class BannerController : ControllerBase
     {
 

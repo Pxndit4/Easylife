@@ -17,7 +17,7 @@ namespace UNCDF.WebApi.Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("AllowMyOrigin")]
+    [EnableCors("_corsPolicy")]
     public class TimeLineTestimonialTranslateController : Controller
     {
 

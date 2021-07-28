@@ -16,7 +16,7 @@ namespace UNCDF.WebApi.Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("AllowMyOrigin")]
+    [EnableCors("_corsPolicy")]
     public class TimeLineTestimonialController : ControllerBase
     {
         private readonly IWebHostEnvironment _env;

@@ -176,15 +176,15 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
             string Guid = BAplication.GenerateGuid();
 
-            MProject ProjectBE = new MProject();
-            ProjectBE.ProjectId = request.Project.ProjectId;
-            ProjectBE.Image = ProjectPath + "/" + ((request.Project.FileByte != null) ? request.Project.ProjectId.ToString() + Guid + request.Project.Ext : request.Project.Image);
-            ProjectBE.Video = ProjectPath + "/" + ((request.Project.VideoFileByte != null) ? request.Project.ProjectId.ToString() + Guid + request.Project.ExtVideo : request.Project.Video);
-            ProjectBE.IsVisible = request.Project.IsVisible;
-            ProjectBE.Donation = request.Project.Donation;
+            MProject MProject = new MProject();
+            MProject.ProjectId = request.Project.ProjectId;
+            MProject.Image = ProjectPath + "/" + ((request.Project.FileByte != null) ? request.Project.ProjectId.ToString() + Guid + request.Project.Ext : request.Project.Image);
+            MProject.Video = ProjectPath + "/" + ((request.Project.VideoFileByte != null) ? request.Project.ProjectId.ToString() + Guid + request.Project.ExtVideo : request.Project.Video);
+            MProject.IsVisible = request.Project.IsVisible;
+            MProject.Donation = request.Project.Donation;
             int Val = 0;
 
-            ProjectBE.ProjectId = BProject.Update(ProjectBE);
+            MProject.ProjectId = BProject.Update(MProject);
 
 
             if (request.Project.FileByte != null)
@@ -193,7 +193,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
                 Uri webRootUri = new Uri(webRoot);
                 string pathAbs = webRootUri.AbsolutePath;
-                var pathSave = pathAbs + rootPath + ProjectBE.Image;
+                var pathSave = pathAbs + rootPath + MProject.Image;
 
                 if (!Directory.Exists(pathAbs + rootPath + ProjectPath)) Directory.CreateDirectory(pathAbs + rootPath + ProjectPath);
 
@@ -216,7 +216,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
                 Uri webRootUri = new Uri(webRoot);
                 string pathAbs = webRootUri.AbsolutePath;
-                var pathSave = pathAbs + rootPath + ProjectBE.Video;
+                var pathSave = pathAbs + rootPath + MProject.Video;
 
                 if (!Directory.Exists(pathAbs + rootPath + ProjectPath)) Directory.CreateDirectory(pathAbs + rootPath + ProjectPath);
 
@@ -244,7 +244,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
                 response.Message = String.Format(Messages.ErrorUpdate, "Banner");
             }
 
-            response.Project = ProjectBE;
+            response.Project = MProject;
 
             return response;
         }
@@ -479,7 +479,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
         {
             TimeLinesResponse response = new TimeLinesResponse();
             List<MTimeLine> timeLines = new List<MTimeLine>();
-            MProject ProjectBE = new MProject();
+            MProject MProject = new MProject();
             BaseRequest baseRequest = new BaseRequest();
 
             /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
@@ -491,14 +491,14 @@ namespace UNCDF.WebApi.Project.Crontrollers
             }
             /*************FIN DEL METODO*************/
 
-            ProjectBE.ProjectId = request.TimeLine.ProjectId;
+            MProject.ProjectId = request.TimeLine.ProjectId;
 
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;
 
             int Val = 0;
 
-            timeLines = BTimeLine.List(ProjectBE, baseRequest, ref Val);
+            timeLines = BTimeLine.List(MProject, baseRequest, ref Val);
 
 
             if (Val.Equals(0))
@@ -662,6 +662,149 @@ namespace UNCDF.WebApi.Project.Crontrollers
             }
 
             response.TimeLineMultimedias = timeLines.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetTestimonials")]
+        public TimeLineTestimonialsResponse GetTestimonials([FromBody] TimeLineTestimonialRequest request)
+        {
+            TimeLineTestimonialsResponse response = new TimeLineTestimonialsResponse();
+            List<MTimeLineTestimonial> testimonials = new List<MTimeLineTestimonial>();
+            BaseRequest baseRequest = new BaseRequest();
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            MTimeLineTestimonial MTimeLineTestimonial = new MTimeLineTestimonial();
+            MTimeLineTestimonial.TimeLineId = request.Testimonial.TimeLineId;
+            MTimeLineTestimonial.Name = request.Testimonial.Name;
+
+            int Val = 0;
+
+            testimonials = BTimeLineTestimonial.List(MTimeLineTestimonial, baseRequest, ref Val);
+
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "Testimonials");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "Testimonials");
+            }
+
+            response.Testimonials = testimonials.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetRandomProjects")]
+        public ProjectsResponse GetRandomProjects([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
+            List<MProject> projects = new List<MProject>();
+            BaseRequest baseRequest = new BaseRequest();
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            int Val = 0;
+
+            projects = BProject.RandomLis(baseRequest, ref Val);
+
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "Projects");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "Projects");
+            }
+
+            response.Projects = projects.ToArray();
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetProjectDetails")]
+        public ProjectResponse GetProjectDetails([FromBody] ProjectRequest request)
+        {
+            ProjectResponse response = new ProjectResponse();
+            MProject timeLine = new MProject();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            timeLine.ProjectId = request.Project.ProjectId;
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+
+            timeLine = BProject.GetDetails(timeLine, ref Val);
+
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorSelect, "Project");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NoExistsSelect, "Project");
+            }
+
+            response.Project = timeLine;
 
             return response;
         }

@@ -29,7 +29,7 @@ namespace UNCDF.Layers.DataAccess
                     cmd.Parameters.Add("@IStatusEffSeq", SqlDbType.Int).Value = ent.StatusEffSeq;
 
                     cmd.Parameters.Add("@IStatus", SqlDbType.VarChar).Value = ent.Status;
-                    
+
                     cmd.Parameters.Add("@IStatusDescription", SqlDbType.VarChar).Value = ent.StatusDescription;
 
 
@@ -54,6 +54,99 @@ namespace UNCDF.Layers.DataAccess
             return 0;
         }
 
+        public static List<MProject> RandomLis(BaseRequest baseRequest, ref int Val)
+        {
+            List<MProject> lisQuery = new List<MProject>();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_RandomLis", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@ILanguage", SqlDbType.VarChar).Value = baseRequest.Language;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 0;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProject entRow = new MProject();
+                            entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                            entRow.Title = Convert.ToString(reader["Title"]);
+                            entRow.Image = Constant.S3Server + Convert.ToString(reader["Image"]);
+                            entRow.Video = Constant.S3Server + Convert.ToString(reader["Video"]);
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+
+        public static MProject GetDetails(MProject ent, ref int val)
+        {
+            MProject result = new MProject();
+
+            val = 0;
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_Sel", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            result.ProjectId = Convert.ToInt32(reader["ProjectId"]);                           
+                            result.Title = Convert.ToString(reader["Title"]);
+                            result.ProgramName = Convert.ToString(reader["ProgramName"]);
+                            result.Description = Convert.ToString(reader["Projectdetails"]);
+                            result.DonorName = Convert.ToString(reader["DonorName"]);
+                            result.DonorDescription = Convert.ToString(reader["DonorDescription"]);
+                            result.Status = Convert.ToString(reader["Status"]);
+                            result.Country = Convert.ToString(reader["Country"]);
+                            result.Sector = Convert.ToString(reader["Sector"]);
+                            result.SDG = Convert.ToString(reader["SDG"]);
+                            result.AprovalDate = Convert.ToString(reader["AprovalDate"]);
+                            result.TaskManager = Convert.ToString(reader["TaskManager"]);
+                            result.StartDateDet = Convert.ToString(reader["StartDate"]);
+                            result.EndDateDet = Convert.ToString(reader["EndDate"]);
+                            result.Advance = Convert.ToInt32(reader["Advance"]);
+                            result.Donation = Convert.ToBoolean(reader["Donation"]);
+                            result.TotalBudget = Convert.ToDecimal(reader["TotalBudget"]);
+                            result.TotalExpenditure = Convert.ToDecimal(reader["TotalExpenditure"]);
+                            result.Flag = Convert.ToString(reader["Flag"]);
+                        }
+
+                        val = 1;
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    val = 2;
+                }
+            }
+
+            return result;
+        }
+
         public static MProject Get(MProject ent)
         {
             MProject result = new MProject();
@@ -67,7 +160,7 @@ namespace UNCDF.Layers.DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
 
-        //            Val = 1;
+                    //            Val = 1;
 
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -79,7 +172,7 @@ namespace UNCDF.Layers.DataAccess
                             result.Title = Convert.ToString(reader["Title"]);
                             result.Type = Convert.ToString(reader["Type"]);
                             result.Description = Convert.ToString(reader["Description"]);
-                            result.StartDate = Convert.ToInt32(reader["StartDate"]) ;
+                            result.StartDate = Convert.ToInt32(reader["StartDate"]);
                             result.EndDate = Convert.ToInt32(reader["EndDate"]);
                             result.Status = Convert.ToString(reader["Status"]);
                             result.Department = Convert.ToString(reader["Department"]);
@@ -103,13 +196,13 @@ namespace UNCDF.Layers.DataAccess
 
                 catch (Exception ex)
                 {
-            //        Val = 2;
+                    //        Val = 2;
                 }
             }
             return result;
         }
 
-       
+
         public static List<MProject> ListProjectCodeExclusions(MProject ent)
         {
             List<MProject> lisQuery = new List<MProject>();
@@ -248,7 +341,7 @@ namespace UNCDF.Layers.DataAccess
         public static List<MProject> ListFilter(MProject ent)
         {
             List<MProject> lisQuery = new List<MProject>();
-                
+
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
             {
                 try
@@ -268,7 +361,7 @@ namespace UNCDF.Layers.DataAccess
                         {
                             MProject entRow = new MProject();
                             entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
-                            entRow.Title = Convert.ToString(reader["Title"]);                           
+                            entRow.Title = Convert.ToString(reader["Title"]);
                             entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
                             entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
                             lisQuery.Add(entRow);
@@ -291,14 +384,14 @@ namespace UNCDF.Layers.DataAccess
             {
                 try
                 {
-                    
+
                     SqlCommand cmd = new SqlCommand("pr_Project_Upd", con);
                     cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
                     cmd.Parameters.Add("@IImage", SqlDbType.VarChar).Value = ent.Image;
                     cmd.Parameters.Add("@IVideo", SqlDbType.VarChar).Value = ent.Video;
                     cmd.Parameters.Add("@IIsVisible", SqlDbType.Int).Value = ent.IsVisible;
                     cmd.Parameters.Add("@IDonation", SqlDbType.Int).Value = ent.Donation;
-                    
+
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
@@ -310,7 +403,7 @@ namespace UNCDF.Layers.DataAccess
 
                 catch (Exception ex)
                 {
-                    
+
                     return ent.ProjectId = 0;
 
                 }
