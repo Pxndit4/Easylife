@@ -60,6 +60,9 @@ namespace UNCDF.Layers.Model
         public string EndDateDet { get; set; }
         public decimal TotalBudget { get; set; }
         public decimal TotalExpenditure { get; set; }
+
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
     }
 
     

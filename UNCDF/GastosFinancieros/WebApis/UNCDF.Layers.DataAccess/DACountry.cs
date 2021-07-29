@@ -9,6 +9,50 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DACountry
     {
+        public static List<MCountry> List(MCountry ent, ref int Val)
+        {
+            List<MCountry> lisQuery = new List<MCountry>();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Country_Lis", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IContinentID", SqlDbType.VarChar).Value = ent.ContinentId;
+                    cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
+                    cmd.Parameters.Add("@IStatus", SqlDbType.Int).Value = ent.Status;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MCountry entRow = new MCountry();
+                            entRow.CountryId = Convert.ToInt32(reader["CountryId"]);
+                            entRow.ContinentId = Convert.ToInt32(reader["ContinentId"]);
+                            entRow.ContinentName = Convert.ToString(reader["ContinentName"]);
+                            entRow.Description = Convert.ToString(reader["Description"]);
+                            entRow.Prefix = Convert.ToString(reader["Prefix"]);
+                            entRow.Flag = Convert.ToString(reader["Flag"]);
+                            entRow.Status = Convert.ToInt32(reader["Status"]);
+                            lisQuery.Add(entRow);
+
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+
         public static MCountry Select(MCountry ent, ref int Val)
         {
             MCountry result = new MCountry();

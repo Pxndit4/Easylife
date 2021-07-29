@@ -29,5 +29,6 @@ namespace UNCDF.Layers.Model
         public string ReasonReject { get; set; }
         public string TitleProject { get; set; }
 
+        public string File { get; set; }
     }
 }

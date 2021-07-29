@@ -7,11 +7,19 @@ namespace UNCDF.Layers.Business
 {
     public class BProject
     {
+        public static List<String> YearLis(MProjectFinancials ent, ref int Val)
+        {
+            return DAProject.YearLis(ent, ref Val);
+        }
         public static int Insert(MProject ent)
         {
             return DAProject.Insert(ent);
         }
 
+        public static List<String> GetFlags(ref int Val)
+        {
+            return DAProject.GetFlags(ref Val);
+        }
         public static List<MProject> RandomLis(BaseRequest baseRequest, ref int Val)
         {
             return DAProject.RandomLis(baseRequest, ref Val);

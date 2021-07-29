@@ -9,6 +9,70 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DAProject
     {
+        public static List<String> YearLis(MProjectFinancials ent, ref int Val)
+        {
+            List<string> lisQuery = new List<string>();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProjectFinancials_YearLis", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lisQuery.Add(Convert.ToString(reader["Year"]));
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+        public static List<String> GetFlags(ref int Val)
+        {
+            List<string> lisQuery = new List<string>();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_GetFlags", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lisQuery.Add(Convert.ToString(Constant.S3Server + reader["Flag"]));
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+
         public static int Insert(MProject ent)
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
@@ -96,7 +160,7 @@ namespace UNCDF.Layers.DataAccess
         {
             MProject result = new MProject();
 
-            val = 0;
+            val = 1;
 
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
             {
@@ -131,10 +195,10 @@ namespace UNCDF.Layers.DataAccess
                             result.Donation = Convert.ToBoolean(reader["Donation"]);
                             result.TotalBudget = Convert.ToDecimal(reader["TotalBudget"]);
                             result.TotalExpenditure = Convert.ToDecimal(reader["TotalExpenditure"]);
-                            result.Flag = Convert.ToString(reader["Flag"]);
+                            result.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
                         }
 
-                        val = 1;
+                        val = 0;
                     }
                     con.Close();
                 }
@@ -362,8 +426,16 @@ namespace UNCDF.Layers.DataAccess
                             MProject entRow = new MProject();
                             entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
                             entRow.Title = Convert.ToString(reader["Title"]);
+                            entRow.Description = Convert.ToString(reader["Projectdetails"]);
                             entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
                             entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
+
+                            entRow.Longitude = Convert.ToString(reader["Longitude"]);
+                            entRow.Latitude = Convert.ToString(reader["Latitude"]);
+
+                            entRow.StartDateStr = Convert.ToString(reader["StartDate"]);
+                            entRow.EndDateStr = Convert.ToString(reader["EndDate"]);
+
                             lisQuery.Add(entRow);
                         }
                     }

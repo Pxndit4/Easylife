@@ -808,5 +808,100 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
             return response;
         }
+
+        [HttpPost]
+        [Route("0/GetProjectsFlags")]
+        public ProjectsFlagsResponse GetProjectsFlags([FromBody] ProjectRequest request)
+        {
+            ProjectsFlagsResponse response = new ProjectsFlagsResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+
+            int Val = 0;
+            string[] Flags;
+
+            Flags = BProject.GetFlags(ref Val).ToArray();
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "Flags");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "Flags");
+            }
+
+            response.Flags = Flags;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetProjectFinancialsYears")]
+        public ProjectsFinancialYearResponse GetProjectFinancialsYears([FromBody] ProjectFinancialRequest request)
+        {
+            ProjectsFinancialYearResponse response = new ProjectsFinancialYearResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            MProjectFinancials projectFinancial = new MProjectFinancials();
+            BaseRequest baseRequest = new BaseRequest();
+
+            projectFinancial.ProjectId = request.ProjectFinancial.ProjectId;
+            projectFinancial.Year = request.ProjectFinancial.Year;
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+            string[] Years;
+
+            Years = BProject.YearLis(projectFinancial, ref Val).ToArray();
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "Years");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "Years");
+            }
+
+            response.Years = Years;
+
+            return response;
+        }
     }
 }
