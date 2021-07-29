@@ -196,6 +196,7 @@ namespace UNCDF.Layers.DataAccess
                             result.TotalBudget = Convert.ToDecimal(reader["TotalBudget"]);
                             result.TotalExpenditure = Convert.ToDecimal(reader["TotalExpenditure"]);
                             result.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
+                            result.GifLoad = Constant.S3Server + Convert.ToString(reader["GifLoad"]);
                         }
 
                         val = 0;

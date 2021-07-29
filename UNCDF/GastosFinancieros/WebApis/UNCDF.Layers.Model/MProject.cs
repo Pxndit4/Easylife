@@ -41,6 +41,7 @@ namespace UNCDF.Layers.Model
         public byte[] VideoFileByte { get; set; }
 
         public string Flag { get; set; }
+        public string GifLoad { get; set; }
         //UTILIZADO PARA LOS FILTROS
         public string Continents { get; set; }
         public string Countries { get; set; }
