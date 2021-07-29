@@ -12,5 +12,10 @@ namespace UNCDF.Layers.Business
         {
             return DACountry.Select(ent, ref Val);
         }
+
+        public static List<MCountry> List(MCountry ent, ref int Val)
+        {
+            return DACountry.List(ent, ref Val);
+        }
     }
 }

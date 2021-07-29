@@ -8,6 +8,18 @@ namespace UNCDF.WebApi.Project
     #region Response
 
     [Serializable]
+    public class ProjectsFinancialYearResponse : BaseResponse
+    {
+        public string[] Years { get; set; }
+    }
+
+    [Serializable]
+    public class ProjectsFlagsResponse : BaseResponse
+    {
+        public string[] Flags { get; set; }
+    }
+
+    [Serializable]
     public class ProjectsResponse : BaseResponse
     {
         public MProject[] Projects { get; set; }
@@ -48,6 +60,12 @@ namespace UNCDF.WebApi.Project
     public class ProjectRequest : BaseRequest
     {
         public MProject Project { get; set; }
+    }
+
+    [Serializable]
+    public class ProjectFinancialRequest : BaseRequest
+    {
+        public MProjectFinancials ProjectFinancial { get; set; }
     }
 
     #endregion    

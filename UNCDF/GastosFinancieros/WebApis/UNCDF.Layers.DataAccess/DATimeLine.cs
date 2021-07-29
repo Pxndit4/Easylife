@@ -36,6 +36,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Day = Convert.ToString(reader["Day"]);
                             entRow.Title = Convert.ToString(reader["Title"]);
                             entRow.Description = Convert.ToString(reader["Description"]);
+                            entRow.File = Constant.S3Server + Convert.ToString(reader["File"]);
                             //entRow.Advance = Convert.ToInt32(reader["Advance"]);
                             lisQuery.Add(entRow);
                             Val = 0;
