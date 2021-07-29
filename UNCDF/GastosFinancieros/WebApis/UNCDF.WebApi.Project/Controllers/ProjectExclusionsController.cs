@@ -152,6 +152,295 @@ namespace UNCDF.WebApi.Project.Controllers
 
             return response;
         }
-        
+        [HttpPost]
+        [Route("0/InsertDeparmentExclusion")]
+        public DeparmentExclusionResponse InsertDeparmentExclusion([FromBody] DeparmentExclusionRequest request)
+        {
+            DeparmentExclusionResponse response = new DeparmentExclusionResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            MDeparmentExclusion ent = new MDeparmentExclusion();
+
+            ent.ListCode = request.deparmentExclusion.ListCode;
+
+            int Val = 0;
+
+            foreach (string code in ent.ListCode)
+            {
+                MDeparmentExclusion obj = new MDeparmentExclusion();
+                obj.DeparmentCode = code;
+                int respt = BDeparmentExclusion.Insert(obj);
+
+            }
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorInsert, "Project Exclusion");
+            }
+
+            response.deparmentExclusion = ent;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/ListProjectsCodeExclusions")]
+        public DeparmentExclusionsResponse ListDeparmentCodeExclusions([FromBody] DeparmentExclusionRequest request)
+        {
+            DeparmentExclusionsResponse response = new DeparmentExclusionsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+
+                List<MDeparmentExclusion> deparmentCode = BDeparmentExclusion.ListDeparmentCodeExcluded();
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.departementExclusions = deparmentCode.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
+        [HttpPost]
+        [Route("0/DeleteDeparmentCode")]
+        public DeparmentExclusionResponse DeleteDeparmentCode([FromBody] DeparmentExclusionRequest request)
+        {
+            DeparmentExclusionResponse response = new DeparmentExclusionResponse();
+            MDeparmentExclusion ent = new MDeparmentExclusion();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            ent.DeparmentCode = request.deparmentExclusion.DeparmentCode;
+
+            int Val = 0;
+
+            int rpt = BDeparmentExclusion.Delete(ent, ref Val);
+
+            //Record the audit
+            //Val = BAudit.RecordAudit("Banner", ent.BannerId, 3, baseRequest.Session.UserId);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorDelete, "Banner");
+            }
+
+            response.deparmentExclusion = ent;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/FilDeparmentCodeExcluded")]
+        public DeparmentsResponse FilDeparmentCodeExcluded([FromBody] BaseRequest request)
+        {
+            DeparmentsResponse response = new DeparmentsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                List<MDeparment> deparments = BDeparmentExclusion.FilDeparmentCodeExcluded();
+
+                response.Deparments = deparments.ToArray();
+                response.Code = "0";
+                response.Message = "Success";
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
+
+
+        [HttpPost]
+        [Route("0/InsertPracticeAreaExclusion")]
+        public DeparmentExclusionResponse InsertPracticeAreaExclusion([FromBody] DeparmentExclusionRequest request)
+        {
+            DeparmentExclusionResponse response = new DeparmentExclusionResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            MDeparmentExclusion ent = new MDeparmentExclusion();
+
+            ent.ListCode = request.deparmentExclusion.ListCode;
+
+            int Val = 0;
+
+            foreach (string code in ent.ListCode)
+            {
+                MDeparmentExclusion obj = new MDeparmentExclusion();
+                obj.DeparmentCode = code;
+                int respt = BDeparmentExclusion.Insert(obj);
+
+            }
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorInsert, "Project Exclusion");
+            }
+
+            response.deparmentExclusion = ent;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/ListPracticeAreasExclusions")]
+        public PracticeAreasResponse ListPracticeAreasExclusions([FromBody] PracticeAreaExclusionRequest request)
+        {
+            PracticeAreasResponse response = new PracticeAreasResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+
+                List<MPracticeAreaExclusion> list = BPracticeAreaExclusion.ListPracticeAreaCodeExcluded();
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.practiceAreaExclusions = list.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
+        [HttpPost]
+        [Route("0/DeletePracticeAreaExclusion")]
+        public PracticeAreaExclusionResponse DeletePracticeAreaExclusion([FromBody] PracticeAreaExclusionRequest request)
+        {
+            PracticeAreaExclusionResponse response = new PracticeAreaExclusionResponse();
+            MPracticeAreaExclusion ent = new MPracticeAreaExclusion();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            ent.PracticeArea = request.practiceAreaExclusion.PracticeArea;
+
+            int Val = 0;
+
+            int rpt = BPracticeAreaExclusion.Delete(ent, ref Val);
+
+            //Record the audit
+            //Val = BAudit.RecordAudit("Banner", ent.BannerId, 3, baseRequest.Session.UserId);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorDelete, "Practice Area");
+            }
+
+            response.practiceAreaExclusion = ent;
+
+            return response;
+        }
+
+
     }
 }
