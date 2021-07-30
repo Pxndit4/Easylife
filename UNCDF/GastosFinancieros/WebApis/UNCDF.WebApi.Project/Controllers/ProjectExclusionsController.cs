@@ -203,7 +203,7 @@ namespace UNCDF.WebApi.Project.Controllers
         }
 
         [HttpPost]
-        [Route("0/ListProjectsCodeExclusions")]
+        [Route("0/ListDeparmentCodeExclusions")]
         public DeparmentExclusionsResponse ListDeparmentCodeExclusions([FromBody] DeparmentExclusionRequest request)
         {
             DeparmentExclusionsResponse response = new DeparmentExclusionsResponse();

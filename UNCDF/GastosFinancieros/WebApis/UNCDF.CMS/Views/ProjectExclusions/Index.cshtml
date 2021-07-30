@@ -64,7 +64,7 @@
                         Department
                     </span>
                     <div class="ui-btn-content">
-                        @Ajax.AjaxActionLink("", "New", "TimeLineMultimedia", new { id = 0 }, new AjaxOptions
+                        @Ajax.AjaxActionLink("", "AddDeparmentCode", "ProjectExclusions", new { id = 0 }, new AjaxOptions
                         {
                             HttpMethod = "GET",
                             InsertionMode = InsertionMode.Replace,
@@ -78,8 +78,8 @@
                 <div class="panel-body">
 
 
-                    <div id="tbListEditCont1" class="ui-container">
-                        <table id="tbListEdit" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+                    <div id="tbListEditDep" class="ui-container">
+                        <table id="tbListEditDep" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
                             <thead>
                                 <tr>
                                 </tr>
@@ -173,11 +173,56 @@
                     }
                 }
             },
-            
+
         },
         general:{
         }
     };
+
+
+    var objIndexDep={
+        initial: function () {
+
+            unitlife.ui.grid('#tbListEditDep').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndexDep.grid.load();
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListEditDep");
+            },
+            load: function () {
+                unitlife.ui.grid('#tbListEditDep').load('@Url.Action("SearchProjectsCodeExclusions", "ProjectExclusions", null)', null);
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    if ("1" == "1") {
+                        var _grid = unitlife.ui.grid("#tbListEditDep");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Deparment Code"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("Delete", "ProjectExclusions", null)', { id: row.ProjectCode }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndexDep.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Deparment Exclusions"))" });
+                    }
+                }
+            },
+
+        },
+        general:{
+        }
+    };
+
+
 
     $(document).ready(function () {
         objIndexEdit.initial();

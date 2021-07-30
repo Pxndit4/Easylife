@@ -20,4 +20,10 @@ namespace UNCDF.WebApi.Project
     {
         public MDeparment[] Deparments { get; set; }
     }
+
+    [Serializable]
+    public class DeparmentRequest : BaseRequest
+    {
+        public MDeparment Deparment { get; set; }
+    }
 }

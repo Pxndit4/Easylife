@@ -34,6 +34,16 @@ namespace UNCDF.CMS.Controllers
             return View("AddProjectCode", new ProjectViewModel { EffectiveStatus = "Active" });
         }
 
+        public ActionResult AddDeparmentCode(ProjectViewModel model)
+        {
+
+            ViewBag.Title = "Deparments";
+            ViewBag.Confirm = string.Format(MessageResource.SaveConfirm, "Assignment");
+
+
+            return View("AddDeparmentCode", new DeparmentViewModel { });
+        }
+
         [HttpPost]
         public JsonResult SearchProjects(ProjectViewModel model)
         {
@@ -195,38 +205,18 @@ namespace UNCDF.CMS.Controllers
             JSonResult objResult = new JSonResult();
             try
             {
-                List<MProject> entList = new List<MProject>();
-                MProject proj = new MProject();
-                if (string.IsNullOrEmpty(model.StartDate))
-                {
-                    proj.StartDate = 0;
-                }
-                else
-                {
-                    proj.StartDate = Int32.Parse((Extension.ToFormatDateYYYYMMDD(model.StartDate)), CultureInfo.InvariantCulture);
-                }
-
-                if (string.IsNullOrEmpty(model.EndDate))
-                {
-                    proj.EndDate = 0;
-                }
-                else
-                {
-                    proj.EndDate = Int32.Parse((Extension.ToFormatDateYYYYMMDD(model.EndDate)), CultureInfo.InvariantCulture);
-                }
-
-                proj.Title = Extension.ToEmpty(model.Title);
-                proj.EffectiveStatus = Extension.ToEmpty(model.EffectiveStatus);
-                proj.ProjectCode = Extension.ToEmpty(model.ProjectCode);
+                List<MDeparment> entList = new List<MDeparment>();
+                MDeparment proj = new MDeparment();
+               
                 //proj.EffectiveStatus = "";
 
-                entList = new WebApiProject().GetProjectsCodeExclusions(proj);
+                entList = new WebApiDeparment().FilDeparmentExclusion(proj);
 
-                objResult.data = entList.Select(x => new MProject
+                objResult.data = entList.Select(x => new MDeparment
                 {
-                    ProjectId = x.ProjectId,
-                    ProjectCode = x.ProjectCode,
-                    Title = x.Title
+                   DeparmentId = x.DeparmentId,
+                    DeparmentCode = x.DeparmentCode,
+                    Description = x.Description
                 }).ToList();
 
             }
