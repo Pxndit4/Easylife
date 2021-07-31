@@ -131,7 +131,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("Project/api/ProjectExclusions", "ListProjectsCodeExclusions", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/ProjectExclusions", "ListDeparmentCodeExclusions", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -282,6 +282,33 @@ namespace UNCDF.CMS
             }
 
             return returnMsg;
+        }
+
+        public List<MPracticeAreaExclusion> FilPracticeAreasExclusions(MPracticeAreaExclusion eProject)
+        {
+            List<MPracticeAreaExclusion> projects = new List<MPracticeAreaExclusion>();
+            PracticeAreaExclusionRequest request = new PracticeAreaExclusionRequest();
+            PracticeAreasResponse response = new PracticeAreasResponse();
+
+            request.practiceAreaExclusion = eProject;
+
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/ProjectExclusions", "FilPracticeAreasExclusions", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<PracticeAreasResponse>(bodyresponse);
+
+                if (response.Code.Equals("0"))
+                {
+                    projects = response.practiceAreaExclusions;
+                }
+            }
+
+            return projects;
         }
 
     }

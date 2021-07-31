@@ -50,7 +50,7 @@
 
 <div class="ui-container">
     <span class="title">
-        Project List
+        Deparment List
     </span>
     <span class="ui-grid-rows a" data-info-grid="#tbListAddDep" data-info="@MessageResource.GridRowCountInfo"></span>
     <table id="tbListAddDep" class="table table-hover" data-pagination="true" data-height="300" data-sort-name="@Html.HtmlIdNameFor(x => x.result.DeparmentId)" data-sort-order="desc" data-search="true" data-row-style="rowStyle"
@@ -72,22 +72,7 @@
 
 
 
-    function changeCheckProject(e) {
-        var checkboxValues = new Array();
-        $('input[name="CheckOptionProjectDep"]').each(function () {
-            if (this.checked) {
-
-                checkboxValues.push($(this).val());
-
-            }
-        });
-        var x = checkboxValues.toString();
-
-        $('#@Html.IdFor(m => m.CheckDeparmentCode)').val(x);
-
-    }
-
-      function changeCheckProject(e) {
+    function changeCheckProjectDep(e) {
         var checkboxValues = new Array();
         $('input[name="CheckOptionProjectDep"]').each(function () {
             if (this.checked) {
@@ -104,7 +89,7 @@
 
 
 
-    function rebindGrid() {
+    function rebindGridDep() {
         $("#btnSearchDep").click();
     }
 
@@ -138,7 +123,7 @@
             }
             , commandRadioButton: function (e, r, i) {
 
-                var sd = '<input type="checkbox" id="CheckOptionProjectDep" name="CheckOptionProjectDep" onchange="changeCheckProjectDep(this)" value="' + r.ProjectCode +'"  />';
+                var sd = '<input type="checkbox" id="CheckOptionProjectDep" name="CheckOptionProjectDep" onchange="changeCheckProjectDep(this)" value="' + r.DeparmentCode +'"  />';
                 return sd;
             }
         },
@@ -150,7 +135,7 @@
 
     $(document).ready(function () {
         objIndexDep.initial();
-        rebindGrid();
+        rebindGridDep();
 
         $("#btnRegSubmSaveDep").on("click", function (e) {
 
@@ -170,7 +155,7 @@
                     '¿@Html.Raw(ViewBag.Confirm)?',
                     function () {
 
-                        unitlife.ajax.submit('@Url.Action("RegisterProjectCode", "ProjectExclusions", null)', "#frmSearchAddDep", function (e){
+                        unitlife.ajax.submit('@Url.Action("RegisterDeparmentCode", "ProjectExclusions", null)', "#frmSearchAddDep", function (e){
 
                             unitlife.site.dialog.invoqResultCallback('REG_DEPARMENTCODEEXCLUSION');
 

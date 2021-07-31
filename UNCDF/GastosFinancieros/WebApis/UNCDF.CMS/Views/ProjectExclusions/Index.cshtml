@@ -78,10 +78,13 @@
                 <div class="panel-body">
 
 
-                    <div id="tbListEditDep" class="ui-container">
+                    <div id="tbListEditDepCont" class="ui-container">
                         <table id="tbListEditDep" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
                             <thead>
                                 <tr>
+                                    <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexDepEx.grid.rowCommand"></th>
+                                    <th data-field="@Html.HtmlIdNameFor(x => x.resultDepartExc.DeparmentCode)">@Html.DisplayNameFor(x => x.resultDepartExc.DeparmentCode)</th>
+
                                 </tr>
                             </thead>
 
@@ -97,7 +100,7 @@
                         Practice Area
                     </span>
                     <div class="ui-btn-content">
-                        @Ajax.AjaxActionLink("", "New", "TimeLineMultimedia", new { id = 0 }, new AjaxOptions
+                        @Ajax.AjaxActionLink("", "AddPracticeArea", "ProjectExclusions", new { id = 0 }, new AjaxOptions
                         {
                             HttpMethod = "GET",
                             InsertionMode = InsertionMode.Replace,
@@ -109,15 +112,15 @@
                     </div>
                 </div>
                 <div class="panel-body">
-
-
-                    <div id="tbListEditCont1" class="ui-container">
-                        <table id="tbListEdit" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+                    <div id="tbListEditCont3" class="ui-container">
+                        <table id="tbListEditPrac" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
                             <thead>
                                 <tr>
+                                    <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexPracExc.grid.rowCommand"></th>
+                                    <th data-field="@Html.HtmlIdNameFor(x => x.resultPracticeExcl.PracticeArea)">@Html.DisplayNameFor(x => x.resultPracticeExcl.PracticeArea)</th>
+
                                 </tr>
                             </thead>
-
                         </table>
                     </div>
                 </div>
@@ -180,11 +183,11 @@
     };
 
 
-    var objIndexDep={
+    var objIndexDepEx={
         initial: function () {
 
             unitlife.ui.grid('#tbListEditDep').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
-            objIndexDep.grid.load();
+            objIndexDepEx.grid.load();
 
         },
         grid:{
@@ -192,7 +195,7 @@
                 return unitlife.ui.grid("#tbListEditDep");
             },
             load: function () {
-                unitlife.ui.grid('#tbListEditDep').load('@Url.Action("SearchProjectsCodeExclusions", "ProjectExclusions", null)', null);
+                unitlife.ui.grid('#tbListEditDep').load('@Url.Action("SearchDeparmentCodeExclusions", "ProjectExclusions", null)', null);
             },
             rowCommand:{
                 'click #remove': function (e, value, row) {
@@ -203,10 +206,10 @@
                         Confirmar(
                             '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Deparment Code"))?',
                         function () {
-                            _grid.invoqCommand('@Url.Action("Delete", "ProjectExclusions", null)', { id: row.ProjectCode }, function (e) {
+                            _grid.invoqCommand('@Url.Action("DeleteDeparmentCode", "ProjectExclusions", null)', { id: row.ProjectCode }, function (e) {
                                 if (e && e.isError == true)
                                     return;
-                                objIndexDep.grid.load();
+                                objIndexDepEx.grid.load();
                             });
                         },
                         null
@@ -222,16 +225,66 @@
         }
     };
 
+    var objIndexPracExc={
+        initial: function () {
+
+            unitlife.ui.grid('#tbListEditPrac').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndexPracExc.grid.load();
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListEditPrac");
+            },
+            load: function () {
+                unitlife.ui.grid('#tbListEditPrac').load('@Url.Action("SearchPracticeAreaExclusions", "ProjectExclusions", null)', null);
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    if ("1" == "1") {
+                        var _grid = unitlife.ui.grid("#tbListEditPrac");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Practice Area"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("DeletePracticeAreaCode", "ProjectExclusions", null)', { id: row.PracticeArea }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndexPracExc.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Practice Area"))" });
+                    }
+                }
+            },
+
+        },
+        general:{
+        }
+    };
 
 
     $(document).ready(function () {
         objIndexEdit.initial();
+        objIndexDepEx.initial();
+        objIndexPracExc.initial();
     });
 
 
     function ___getModalResult(key, data) {
         if (key == 'REG_PROJECTCODEEXCLUSION') {
             objIndexEdit.grid.load();
+        }
+        if (key == 'REG_DEPARMENTCODEEXCLUSION') {
+            objIndexDepEx.grid.load();
+        }
+
+        if (key == 'REG_PRACTICEAREAEXCLUSION') {
+            objIndexPracExc.grid.load();
         }
     }
 

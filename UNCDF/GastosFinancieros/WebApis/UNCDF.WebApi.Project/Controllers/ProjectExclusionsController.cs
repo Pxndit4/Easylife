@@ -315,9 +315,9 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/InsertPracticeAreaExclusion")]
-        public DeparmentExclusionResponse InsertPracticeAreaExclusion([FromBody] DeparmentExclusionRequest request)
+        public PracticeAreaExclusionResponse InsertPracticeAreaExclusion([FromBody] PracticeAreaExclusionRequest request)
         {
-            DeparmentExclusionResponse response = new DeparmentExclusionResponse();
+            PracticeAreaExclusionResponse response = new PracticeAreaExclusionResponse();
 
             /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
             if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
@@ -333,17 +333,17 @@ namespace UNCDF.WebApi.Project.Controllers
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;
 
-            MDeparmentExclusion ent = new MDeparmentExclusion();
+            MPracticeAreaExclusion ent = new MPracticeAreaExclusion();
 
-            ent.ListCode = request.deparmentExclusion.ListCode;
+            ent.ListCode = request.practiceAreaExclusion.ListCode;
 
             int Val = 0;
 
             foreach (string code in ent.ListCode)
             {
-                MDeparmentExclusion obj = new MDeparmentExclusion();
-                obj.DeparmentCode = code;
-                int respt = BDeparmentExclusion.Insert(obj);
+                MPracticeAreaExclusion obj = new MPracticeAreaExclusion();
+                obj.PracticeArea = code;
+                int respt = BPracticeAreaExclusion.Insert(obj);
 
             }
 
@@ -358,7 +358,7 @@ namespace UNCDF.WebApi.Project.Controllers
                 response.Message = String.Format(Messages.ErrorInsert, "Project Exclusion");
             }
 
-            response.deparmentExclusion = ent;
+            response.practiceAreaExclusion = ent;
 
             return response;
         }
@@ -394,6 +394,43 @@ namespace UNCDF.WebApi.Project.Controllers
             return response;
 
         }
+
+        [HttpPost]
+        [Route("0/FilPracticeAreasExclusions")]
+        public PracticeAreasResponse FilPracticeAreasExclusions([FromBody] PracticeAreaExclusionRequest request)
+        {
+            PracticeAreasResponse response = new PracticeAreasResponse();
+            MPracticeAreaExclusion ent = new MPracticeAreaExclusion();
+
+
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                int val = 0;
+                ent.PracticeArea = request.practiceAreaExclusion.PracticeArea;
+                List<MPracticeAreaExclusion> list = BPracticeAreaExclusion.List(ent,ref val);
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.practiceAreaExclusions = list.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
+
 
         [HttpPost]
         [Route("0/DeletePracticeAreaExclusion")]

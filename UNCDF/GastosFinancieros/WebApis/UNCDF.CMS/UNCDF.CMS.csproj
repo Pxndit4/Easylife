@@ -193,6 +193,7 @@
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
+    <Compile Include="Models\PracticeAreaViewModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\ProgramViewModel.cs" />
     <Compile Include="Models\ProjectExplusionsViewModel.cs" />
@@ -319,6 +320,7 @@
     <Content Include="Views\ProjectExclusions\Index.cshtml" />
     <Content Include="Views\ProjectExclusions\AddProjectCode.cshtml" />
     <Content Include="Views\ProjectExclusions\AddDeparmentCode.cshtml" />
+    <Content Include="Views\ProjectExclusions\AddPracticeArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,6 +9,6 @@ namespace UNCDF.Layers.Model
     public class MDeparmentExclusion
     {
         public string DeparmentCode { get; set; }
-        public string[] ListCode { get; set; }
+        public string[] ListCode  { get; set; }
     }
 }
