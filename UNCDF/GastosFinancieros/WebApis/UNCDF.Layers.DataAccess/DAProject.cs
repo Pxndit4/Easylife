@@ -197,6 +197,7 @@ namespace UNCDF.Layers.DataAccess
                             result.TotalExpenditure = Convert.ToDecimal(reader["TotalExpenditure"]);
                             result.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
                             result.GifLoad = Constant.S3Server + Convert.ToString(reader["GifLoad"]);
+                            result.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
                         }
 
                         val = 0;
@@ -389,6 +390,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
                             entRow.Video = (Convert.ToString(reader["Video"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Video"]);
                             entRow.Advance = Convert.ToInt32(reader["Advance"]);
+                            entRow.GifLoad = Constant.S3Server + Convert.ToString(reader["GifLoad"]);
                             lisQuery.Add(entRow);
                         }
                     }
@@ -484,6 +486,83 @@ namespace UNCDF.Layers.DataAccess
 
         }
 
+        public static MProjectFinancials GetFinancialsByYear(MProjectFinancials ent, ref int Val)
+        {
+            MProjectFinancials lisQuery = new MProjectFinancials();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProjectFinancial_LisByYear", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.Parameters.Add("@IYear", SqlDbType.VarChar).Value = ent.Year;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
 
+                    Val = 0;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            lisQuery.Budget = Convert.ToDecimal(reader["Budget"]);
+                            lisQuery.Expenditure = Convert.ToDecimal(reader["Expenditure"]);
+                            lisQuery.GifLoadPresupuesto = Constant.S3Server + Convert.ToString(reader["GifLoadPresupuesto"]);
+                            lisQuery.GifLoadGasto = Constant.S3Server + Convert.ToString(reader["GifLoadGasto"]);
+                            lisQuery.AdvanceBudget = Convert.ToDecimal(reader["AdvanceBudget"]);
+                            lisQuery.AdvanceExpenditure = Convert.ToDecimal(reader["AdvanceExpenditure"]);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+
+        public static MProjectFinancials GetFinancials(MProjectFinancials ent, ref int Val)
+        {
+            MProjectFinancials lisQuery = new MProjectFinancials();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProjectFinancial_LisTotals", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 0;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            
+                            lisQuery.Budget = Convert.ToDecimal(reader["Budget"]);
+                            lisQuery.Expenditure = Convert.ToDecimal(reader["Expenditure"]);
+                            lisQuery.GifLoadPresupuesto = Constant.S3Server + Convert.ToString(reader["GifLoadPresupuesto"]);
+                            lisQuery.GifLoadGasto = Constant.S3Server + Convert.ToString(reader["GifLoadGasto"]);
+                            lisQuery.AdvanceBudget = Convert.ToDecimal(reader["AdvanceBudget"]);
+                            lisQuery.AdvanceExpenditure = Convert.ToDecimal(reader["AdvanceExpenditure"]);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
     }
 }

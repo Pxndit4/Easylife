@@ -14,6 +14,12 @@ namespace UNCDF.WebApi.Project
     }
 
     [Serializable]
+    public class ProjectsFinancialResponse : BaseResponse
+    {
+        public MProjectFinancials Financial { get; set; }
+    }
+
+    [Serializable]
     public class ProjectsFlagsResponse : BaseResponse
     {
         public string[] Flags { get; set; }

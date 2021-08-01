@@ -7,6 +7,16 @@ namespace UNCDF.Layers.Business
 {
     public class BProject
     {
+        public static MProjectFinancials GetFinancials(MProjectFinancials ent, ref int Val)
+        {
+            return DAProject.GetFinancials(ent, ref Val);
+        }
+
+        public static MProjectFinancials GetFinancialsByYear(MProjectFinancials ent, ref int Val)
+        {
+            return DAProject.GetFinancialsByYear(ent, ref Val);
+        }
+
         public static List<String> YearLis(MProjectFinancials ent, ref int Val)
         {
             return DAProject.YearLis(ent, ref Val);
@@ -50,7 +60,7 @@ namespace UNCDF.Layers.Business
             return DAProject.ListFilter(ent);
         }
 
-        public static int Update(MProject ent )
+        public static int Update(MProject ent)
         {
             return DAProject.Update(ent);
         }

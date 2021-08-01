@@ -903,5 +903,100 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
             return response;
         }
+
+        [HttpPost]
+        [Route("0/GetProjectFinancialsByYears")]
+        public ProjectsFinancialResponse GetProjectFinancialsByYears([FromBody] ProjectFinancialRequest request)
+        {
+            ProjectsFinancialResponse response = new ProjectsFinancialResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            MProjectFinancials projectFinancial = new MProjectFinancials();
+            BaseRequest baseRequest = new BaseRequest();
+
+            projectFinancial.ProjectId = request.ProjectFinancial.ProjectId;
+            projectFinancial.Year = request.ProjectFinancial.Year;
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+
+
+            response.Financial = BProject.GetFinancialsByYear(projectFinancial, ref Val);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "Financials");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "Financials");
+            }
+            
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetProjectFinancials")]
+        public ProjectsFinancialResponse GetProjectFinancials([FromBody] ProjectFinancialRequest request)
+        {
+            ProjectsFinancialResponse response = new ProjectsFinancialResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            MProjectFinancials projectFinancial = new MProjectFinancials();
+            BaseRequest baseRequest = new BaseRequest();
+
+            projectFinancial.ProjectId = request.ProjectFinancial.ProjectId;
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+
+
+            response.Financial = BProject.GetFinancials(projectFinancial, ref Val);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "Financials");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "Financials");
+            }
+
+            return response;
+        }
     }
 }
