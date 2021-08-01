@@ -162,6 +162,7 @@
     <Compile Include="Invoke\Helper.cs" />
     <Compile Include="Invoke\WebApiBanner.cs" />
     <Compile Include="Invoke\WebApiBannerTranslate.cs" />
+    <Compile Include="Invoke\WebApiDeparment.cs" />
     <Compile Include="Invoke\WebApiDonation.cs" />
     <Compile Include="Invoke\WebApiDonorPartner.cs" />
     <Compile Include="Invoke\WebApiFund.cs" />
@@ -184,6 +185,7 @@
     </Compile>
     <Compile Include="Models\BannerTranslateViewModel.cs" />
     <Compile Include="Models\BannerViewModel.cs" />
+    <Compile Include="Models\DeparmentViewModel.cs" />
     <Compile Include="Models\DonationViewModel.cs" />
     <Compile Include="Models\DonorPartnerViewModel.cs" />
     <Compile Include="Models\FundViewModel.cs" />
@@ -191,6 +193,7 @@
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
+    <Compile Include="Models\PracticeAreaViewModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\ProgramViewModel.cs" />
     <Compile Include="Models\ProjectExplusionsViewModel.cs" />
@@ -316,6 +319,8 @@
     <Content Include="Views\Project\RegisterReadOnly.cshtml" />
     <Content Include="Views\ProjectExclusions\Index.cshtml" />
     <Content Include="Views\ProjectExclusions\AddProjectCode.cshtml" />
+    <Content Include="Views\ProjectExclusions\AddDeparmentCode.cshtml" />
+    <Content Include="Views\ProjectExclusions\AddPracticeArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

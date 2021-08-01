@@ -1,0 +1,178 @@
+﻿@model UNCDF.CMS.Models.DeparmentViewModel
+
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        Select Deparment
+    </span>
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegSubmSaveDep" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Save
+        </button>
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+<div class="ui-container ui-jumb">
+
+    @using (Html.BeginForm("SearchDeparment", "ProjectExclusions", FormMethod.Post, new { id = "frmSearchAddDep" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.DeparmentId)
+
+
+        @Html.HiddenFor(m => m.CheckDeparmentCode)
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    @Html.LabelFor(m => m.Description)
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", maxlength = 200 })
+                        <a id="btnSearchDep" class="btn btn-default input-group-addon">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+    }
+</div>
+
+<div class="ui-container">
+    <span class="title">
+        Deparment List
+    </span>
+    <span class="ui-grid-rows a" data-info-grid="#tbListAddDep" data-info="@MessageResource.GridRowCountInfo"></span>
+    <table id="tbListAddDep" class="table table-hover" data-pagination="true" data-height="300" data-sort-name="@Html.HtmlIdNameFor(x => x.result.DeparmentId)" data-sort-order="desc" data-search="true" data-row-style="rowStyle"
+           data-unique-id="@Html.HtmlIdNameFor(m => m.result.DeparmentCode)">
+        <thead>
+            <tr>
+                <th data-formatter="objIndexDep.grid.commandRadioButton" data-field="@Html.HtmlIdNameFor(m => m.result.FlagActive)" class="text-center"> </th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.DeparmentId)" data-visible="false"></th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.DeparmentCode)">@Html.DisplayNameFor(x => x.result.DeparmentCode)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+
+
+
+    function changeCheckProjectDep(e) {
+        var checkboxValues = new Array();
+        $('input[name="CheckOptionProjectDep"]').each(function () {
+            if (this.checked) {
+
+                checkboxValues.push($(this).val());
+
+            }
+        });
+        var x = checkboxValues.toString();
+
+        $('#@Html.IdFor(m => m.CheckDeparmentCode)').val(x);
+
+    }
+
+
+
+    function rebindGridDep() {
+        $("#btnSearchDep").click();
+    }
+
+    var objIndexDep={
+        initial: function (){
+            $("#btnSearchDep").on("click", function (e) {
+                e.preventDefault();
+                objIndexDep.grid.load();
+            });
+
+            unitlife.ui.grid('#tbListAddDep').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+
+            if ('@HttpContext.Current.Request.Params.Get("ret")' == "true")
+            {
+
+                objIndexDep.grid.load();
+            }
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListAddDep");
+            },
+            load:function(){
+
+                unitlife.ui.grid('#tbListAddDep').load('@Url.Action("SearchDeparment", "ProjectExclusions", null)', '#frmSearchAddDep');
+            },
+            rowCommand: {
+
+
+            }
+            , commandRadioButton: function (e, r, i) {
+
+                var sd = '<input type="checkbox" id="CheckOptionProjectDep" name="CheckOptionProjectDep" onchange="changeCheckProjectDep(this)" value="' + r.DeparmentCode +'"  />';
+                return sd;
+            }
+        },
+        general:{
+        }
+    };
+
+
+
+    $(document).ready(function () {
+        objIndexDep.initial();
+        rebindGridDep();
+
+        $("#btnRegSubmSaveDep").on("click", function (e) {
+
+            e.preventDefault();
+            var checkboxValues = new Array();
+
+            $('input[name="CheckOptionProjectDep"]').each(function () {
+                if (this.checked) {
+                    checkboxValues.push($(this).val());
+                }
+            });
+            var x = checkboxValues.toString();
+
+            $('#@Html.IdFor(m => m.CheckDeparmentCode)').val(x);
+
+                Confirmar(
+                    '¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+
+                        unitlife.ajax.submit('@Url.Action("RegisterDeparmentCode", "ProjectExclusions", null)', "#frmSearchAddDep", function (e){
+
+                            unitlife.site.dialog.invoqResultCallback('REG_DEPARMENTCODEEXCLUSION');
+
+                        });
+
+
+                },
+                null
+                );
+            //}
+            return false;
+        });
+
+
+    });
+
+</script>
+
+
+

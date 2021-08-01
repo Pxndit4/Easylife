@@ -10,6 +10,7 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DAProjectExclusion
     {
+
         public static int Insert(MProjectExclusion ent)
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
@@ -92,5 +93,6 @@ namespace UNCDF.Layers.DataAccess
             }
             return lisQuery;
         }
+        
     }
 }

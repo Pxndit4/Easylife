@@ -95,6 +95,38 @@ namespace UNCDF.Layers.DataAccess
             return lisQuery;
         }
 
+        public static List<MPracticeAreaExclusion> ListPracticeAreaCodeExcluded()
+        {
+            List<MPracticeAreaExclusion> lisQuery = new List<MPracticeAreaExclusion>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_PracticeAreaExclusions_Lis", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MPracticeAreaExclusion entRow = new MPracticeAreaExclusion();
+                            entRow.PracticeArea = Convert.ToString(reader["PracticeArea"]);
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    lisQuery = new List<MPracticeAreaExclusion>();
+                }
+            }
+            return lisQuery;
+        }
 
     }
 }

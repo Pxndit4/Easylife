@@ -20,5 +20,10 @@ namespace UNCDF.Layers.Business
         {
             return DAPracticeAreaExclusion.List(ent, ref Val);
         }
+
+        public static List<MPracticeAreaExclusion> ListPracticeAreaCodeExcluded()
+        {
+            return DAPracticeAreaExclusion.ListPracticeAreaCodeExcluded();
+        }
     }
 }

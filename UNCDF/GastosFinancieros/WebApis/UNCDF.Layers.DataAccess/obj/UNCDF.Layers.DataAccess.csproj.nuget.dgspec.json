@@ -1,44 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\UNCDF.Layers.DataAccess.csproj": {}
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj": {}
   },
   "projects": {
-    "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\UNCDF.Layers.DataAccess.csproj": {
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\UNCDF.Layers.DataAccess.csproj",
+        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj",
         "projectName": "UNCDF.Layers.DataAccess",
-        "projectPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\UNCDF.Layers.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\Giancarlo\\.nuget\\packages\\",
-        "outputPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\obj\\",
+        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/UNCDF.Layers.DataAccess.csproj",
+        "packagesPath": "/Users/giancarlotueros/.nuget/packages/",
+        "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.DataAccess/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Giancarlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/giancarlotueros/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "H:\\2021\\DonBigotes\\DonBigotes.Capas\\DLL": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/fNujD8g8qOaJDUdMNmkPeTWeqbrPrYfQ1fhRsgDvWpNCuYAizi/api": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj": {
-                "projectPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj"
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj"
               },
-              "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj": {
-                "projectPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj"
+              "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj": {
+                "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj"
               }
             }
           }
@@ -85,45 +78,38 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj": {
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj": {
       "restore": {
-        "projectUniqueName": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj",
+        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj",
         "projectName": "UNCDF.Layers.Model",
-        "projectPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj"
+        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Layers.Model/UNCDF.Layers.Model.csproj"
       },
       "frameworks": {
         "net462": {}
       }
     },
-    "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj": {
+    "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj",
+        "projectUniqueName": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj",
         "projectName": "UNCDF.Utilities",
-        "projectPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj",
-        "packagesPath": "C:\\Users\\Giancarlo\\.nuget\\packages\\",
-        "outputPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\obj\\",
+        "projectPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/UNCDF.Utilities.csproj",
+        "packagesPath": "/Users/giancarlotueros/.nuget/packages/",
+        "outputPath": "/Users/giancarlotueros/Easylife/UNCDF/GastosFinancieros/WebApis/UNCDF.Utilities/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Giancarlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/giancarlotueros/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "H:\\2021\\DonBigotes\\DonBigotes.Capas\\DLL": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/fNujD8g8qOaJDUdMNmkPeTWeqbrPrYfQ1fhRsgDvWpNCuYAizi/api": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -161,7 +147,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
         }
       }
     }

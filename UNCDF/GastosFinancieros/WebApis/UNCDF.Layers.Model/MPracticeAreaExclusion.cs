@@ -9,5 +9,6 @@ namespace UNCDF.Layers.Model
     public class MPracticeAreaExclusion
     {
         public string PracticeArea { get; set; }
+        public string[] ListCode { get; set; }
     }
 }

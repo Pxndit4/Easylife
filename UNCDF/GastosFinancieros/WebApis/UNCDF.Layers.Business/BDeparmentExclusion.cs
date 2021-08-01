@@ -17,5 +17,15 @@ namespace UNCDF.Layers.Business
         {
             return DADeparmentExclusion.Delete(ent, ref val);
         }
+
+        public static List<MDeparmentExclusion> ListDeparmentCodeExcluded()
+        {
+            return DADeparmentExclusion.ListDeparmentCodeExcluded();
+        }
+
+        public static List<MDeparment> FilDeparmentCodeExcluded()
+        {
+            return DADeparmentExclusion.FilDeparmentCodeExcluded();
+        }
     }
 }

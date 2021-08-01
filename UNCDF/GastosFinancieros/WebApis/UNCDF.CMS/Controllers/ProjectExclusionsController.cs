@@ -34,6 +34,27 @@ namespace UNCDF.CMS.Controllers
             return View("AddProjectCode", new ProjectViewModel { EffectiveStatus = "Active" });
         }
 
+        public ActionResult AddDeparmentCode(ProjectViewModel model)
+        {
+
+            ViewBag.Title = "Deparments";
+            ViewBag.Confirm = string.Format(MessageResource.SaveConfirm, "Assignment");
+
+
+            return View("AddDeparmentCode", new DeparmentViewModel { });
+        }
+
+
+        public ActionResult AddPracticeArea(ProjectViewModel model)
+        {
+
+            ViewBag.Title = "Practice Area";
+            ViewBag.Confirm = string.Format(MessageResource.SaveConfirm, "Assignment");
+
+
+            return View("AddPracticeArea", new PracticeAreaViewModel { });
+        }
+
         [HttpPost]
         public JsonResult SearchProjects(ProjectViewModel model)
         {
@@ -187,6 +208,278 @@ namespace UNCDF.CMS.Controllers
 
             return Json(objResult);
         }
+
+
+        [HttpPost]
+        public JsonResult SearchDeparment(DeparmentViewModel model)
+        {
+            JSonResult objResult = new JSonResult();
+            try
+            {
+                List<MDeparment> entList = new List<MDeparment>();
+                MDeparment proj = new MDeparment();
+               
+                //proj.Description = model.Description;
+                //proj.DeparmentCode = model.DeparmentCode;
+
+                entList = new WebApiDeparment().FilDeparmentExclusion(proj);
+
+                objResult.data = entList.Select(x => new MDeparment
+                {
+                   DeparmentId = x.DeparmentId,
+                    DeparmentCode = x.DeparmentCode,
+                    Description = x.Description
+                }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Project");
+            }
+
+            return Json(objResult);
+        }
+
+
+
+        [HttpPost]
+        public async Task<ActionResult> RegisterDeparmentCode(DeparmentViewModel model, List<string> opc)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+
+                string[] codes = model.CheckDeparmentCode.Split(',').ToArray();
+
+                MDeparmentExclusion objEnt = new MDeparmentExclusion
+                {
+                    //ProjectId = model.ProjectId,
+                    ListCode = codes
+                };
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+                response = new WebApiProjectExclusions().InsertDeparmentExlusions(objEnt, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                string MessageResul = string.Format(MessageResource.SaveSuccess, "Deparments");
+
+                objResult.isError = statusCode.Equals("2") ? true : false;
+                objResult.message = statusCode.Equals("2") ? statusMessage : MessageResul;
+            }
+            catch (Exception ex)
+            {
+                objResult.isError = true;
+                objResult.data = null;
+
+                objResult.message = string.Format(MessageResource.SaveSuccess, "Deparments");
+            }
+            return Json(objResult);
+        }
+
+
+        [HttpPost]
+        public JsonResult SearchDeparmentCodeExclusions(ProjectViewModel model)
+        {
+            JSonResult objResult = new JSonResult();
+            try
+            {
+                List<MDeparmentExclusion> entList = new List<MDeparmentExclusion>();
+                MDeparmentExclusion proj = new MDeparmentExclusion();
+
+                entList = new WebApiProjectExclusions().ListDeparmentCodeExclusions(proj);
+
+                objResult.data = entList.Select(x => new MDeparmentExclusion
+                {
+                    DeparmentCode = x.DeparmentCode
+                }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Deparment");
+            }
+
+            return Json(objResult);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteDeparmentCode(string id)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+                MDeparmentExclusion objEnt = new MDeparmentExclusion();
+                objEnt.DeparmentCode = id;
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                response = new WebApiProjectExclusions().DeleteDeparmentCode(objEnt, objSession); //Falta crear el metodo de editar
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                objResult.isError = statusCode.Equals("2") ? true : false;
+                objResult.message = string.Format(MessageResource.RowDeleteOK, "Deparment"); ;
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = MessageResource.ControllerDeleteExceptionMessage;
+            }
+
+            return Json(objResult);
+        }
+
+
+
+        [HttpPost]
+        public JsonResult SearchPracticeArea(PracticeAreaViewModel model)
+        {
+            JSonResult objResult = new JSonResult();
+            try
+            {
+                List<MPracticeAreaExclusion> entList = new List<MPracticeAreaExclusion>();
+                MPracticeAreaExclusion proj = new MPracticeAreaExclusion();
+
+                entList = new WebApiProjectExclusions().FilPracticeAreasExclusions(proj);
+
+                objResult.data = entList.Select(x => new MDeparment
+                {
+                    PracticeArea = x.PracticeArea
+                }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Practice Area");
+            }
+
+            return Json(objResult);
+        }
+
+
+
+        [HttpPost]
+        public async Task<ActionResult> RegisterPracticeAreaCode(PracticeAreaViewModel model)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+
+                string[] codes = model.CheckPracticeAreaCode.Split(',').ToArray();
+
+                MPracticeAreaExclusion objEnt = new MPracticeAreaExclusion
+                {
+                    ListCode = codes
+                };
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+                response = new WebApiProjectExclusions().InsertPracticeAreaExlusions(objEnt, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                string MessageResul = string.Format(MessageResource.SaveSuccess, "Practice Area");
+
+                objResult.isError = statusCode.Equals("2") ? true : false;
+                objResult.message = statusCode.Equals("2") ? statusMessage : MessageResul;
+            }
+            catch (Exception ex)
+            {
+                objResult.isError = true;
+                objResult.data = null;
+
+                objResult.message = string.Format(MessageResource.SaveSuccess, "Practice Area");
+            }
+            return Json(objResult);
+        }
+
+
+        [HttpPost]
+        public JsonResult SearchPracticeAreaExclusions(ProjectViewModel model)
+        {
+            JSonResult objResult = new JSonResult();
+            try
+            {
+                List<MPracticeAreaExclusion> entList = new List<MPracticeAreaExclusion>();
+                MPracticeAreaExclusion proj = new MPracticeAreaExclusion();
+
+                entList = new WebApiProjectExclusions().ListPracticeAreasExclusions(proj);
+
+                objResult.data = entList.Select(x => new MPracticeAreaExclusion
+                {
+                    PracticeArea = x.PracticeArea
+                }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Practice Area");
+            }
+
+            return Json(objResult);
+        }
+
+        [HttpPost]
+        public JsonResult DeletePracticeAreaCode(string id)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+                MPracticeAreaExclusion objEnt = new MPracticeAreaExclusion();
+                objEnt.PracticeArea = id;
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                response = new WebApiProjectExclusions().DeletePracticeArea(objEnt, objSession); 
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                objResult.isError = statusCode.Equals("2") ? true : false;
+                objResult.message = string.Format(MessageResource.RowDeleteOK, "Practice Area"); ;
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = MessageResource.ControllerDeleteExceptionMessage;
+            }
+
+            return Json(objResult);
+        }
+
 
 
     }
