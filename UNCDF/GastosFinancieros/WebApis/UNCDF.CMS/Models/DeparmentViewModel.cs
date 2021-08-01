@@ -40,4 +40,34 @@ namespace UNCDF.CMS.Models
         public int FlagActive { get; set; }
 
     }
+
+    public class LoadDeparmentsViewModel
+    {
+        public byte[] FileByte { get; set; }
+        [Required]
+        public string File { get; set; }
+
+        public ResultLoadDeparmentsViewModel resulLoad { get; set; }
+    }
+
+    public class ResultLoadDeparmentsViewModel
+    {
+        public int DeparmentId { get; set; }
+        [Display(Name = "Deparment Code")]
+        public string DeparmentCode { get; set; }
+        [Display(Name = "Deparment")]
+        public string Description { get; set; }
+        [Display(Name = "Region")]
+        public string Region { get; set; }
+        [Display(Name = "Practice Area")]
+        public string PracticeArea { get; set; }
+        public string AlertMessage { get; set; }
+        public string WithAlert { get; set; }
+    }
+
+    public class ModelDeparmentResult : MDeparment
+    {
+        public string AlertMessage { get; set; }
+        public string WithAlert { get; set; }
+    }
 }

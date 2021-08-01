@@ -481,6 +481,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
             List<MTimeLine> timeLines = new List<MTimeLine>();
             MProject MProject = new MProject();
             BaseRequest baseRequest = new BaseRequest();
+            string Error = string.Empty;
 
             try
             {
@@ -498,9 +499,9 @@ namespace UNCDF.WebApi.Project.Crontrollers
                 baseRequest.Language = request.Language;
                 baseRequest.Session = request.Session;
 
-                int Val = 0;
+                int Val = 0;                
 
-                timeLines = BTimeLine.List(MProject, baseRequest, ref Val);
+                timeLines = BTimeLine.List(MProject, baseRequest, ref Val, ref Error);
 
 
                 if (Val.Equals(0))
@@ -524,8 +525,8 @@ namespace UNCDF.WebApi.Project.Crontrollers
             catch (Exception ex)
             {
                 response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
-                response.Message = ex.Message;
-            }
+                response.Message = ex.Message + "|" + ex.StackTrace + "|" + Error;
+            }   
 
             return response;
         }

@@ -37,8 +37,55 @@ namespace UNCDF.CMS
             return projects;
         }
 
-    }
+        public List<MDeparment> GetDeparments()
+        {
+            List<MDeparment> funds = new List<MDeparment>();
+            BaseRequest request = new BaseRequest();
+            DeparmentsResponse response = new DeparmentsResponse();
 
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/Deparment", "GetDeparments", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<DeparmentsResponse>(bodyresponse);
+
+                if (response.Code.Equals("0"))
+                {
+                    funds = response.Deparments;
+                }
+            }
+
+            return funds;
+        }
+
+        public string InsertDeparment(List<MDeparment> list, Session eSession)
+        {
+            DeparmentsRequest request = new DeparmentsRequest();
+            BaseResponse response = new BaseResponse();
+            string returnMsg = string.Empty;
+
+            request.Deparments = list;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("project/api/Deparment", "InsertDeparment", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<BaseResponse>(bodyresponse);
+                returnMsg = response.Code + "|" + response.Message;
+            }
+
+            return returnMsg;
+        }
+
+    }
 
     [Serializable]
     public class DeparmentsResponse : BaseResponse
@@ -50,7 +97,7 @@ namespace UNCDF.CMS
     [Serializable]
     public class DeparmentsRequest : BaseRequest
     {
-        public MDeparment[] Deparments { get; set; }
+        public List<MDeparment> Deparments { get; set; }
     }
 
     [Serializable]

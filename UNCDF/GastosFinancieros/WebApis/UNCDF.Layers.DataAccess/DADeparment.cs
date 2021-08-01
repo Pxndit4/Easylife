@@ -53,6 +53,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.DeparmentCode = Convert.ToString(reader["DeparmentCode"]);
                             entRow.Description = Convert.ToString(reader["Description"]);
                             entRow.PracticeArea = Convert.ToString(reader["PracticeArea"]);
+                            entRow.Region = Convert.ToString(reader["Region"]);
                             lisQuery.Add(entRow);
                         }
                     }

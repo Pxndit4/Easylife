@@ -22,7 +22,7 @@ namespace UNCDF.CMS
                 //  path = path.Replace("applicationConfig/", "");
                 path = path.Replace("security/", "");
                 //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-                requestURL = ConfigurationManager.AppSettings["URLServicesSecurity"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+                //requestURL = ConfigurationManager.AppSettings["URLServicesSecurity"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             }
 
             if (path.Contains("Project"))
@@ -30,7 +30,7 @@ namespace UNCDF.CMS
                 //  path = path.Replace("applicationConfig/", "");
                 path = path.Replace("Project/", "");
                 //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-                requestURL = ConfigurationManager.AppSettings["URLServicesproject"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+                //requestURL = ConfigurationManager.AppSettings["URLServicesproject"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             }
 
             if (path.Contains("appconfig/"))
@@ -38,7 +38,7 @@ namespace UNCDF.CMS
                 //  path = path.Replace("applicationConfig/", "");
                 path = path.Replace("appconfig/", "");
                 //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-                requestURL = ConfigurationManager.AppSettings["URLServicesconfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+                //requestURL = ConfigurationManager.AppSettings["URLServicesconfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             }
 
 
@@ -47,7 +47,7 @@ namespace UNCDF.CMS
                 //  path = path.Replace("applicationConfig/", "");
                 path = path.Replace("donation/", "");
                 //     requestURL = ConfigurationManager.AppSettings["URLServicesapplicationConfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-                requestURL = ConfigurationManager.AppSettings["URLServicesDonati"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+                //requestURL = ConfigurationManager.AppSettings["URLServicesDonati"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             }
 
 
