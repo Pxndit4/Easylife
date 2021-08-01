@@ -482,42 +482,50 @@ namespace UNCDF.WebApi.Project.Crontrollers
             MProject MProject = new MProject();
             BaseRequest baseRequest = new BaseRequest();
 
-            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
-            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            try
             {
-                response.Code = "2";
-                response.Message = Messages.ApplicationTokenNoAutorize;
-                return response;
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                MProject.ProjectId = request.TimeLine.ProjectId;
+
+                baseRequest.Language = request.Language;
+                baseRequest.Session = request.Session;
+
+                int Val = 0;
+
+                timeLines = BTimeLine.List(MProject, baseRequest, ref Val);
+
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorObtainingReults, "TimeLines");
+                }
+                else
+                {
+                    response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.NotReults, "TimeLines");
+                }
+
+                response.TimeLines = timeLines.ToArray();
             }
-            /*************FIN DEL METODO*************/
-
-            MProject.ProjectId = request.TimeLine.ProjectId;
-
-            baseRequest.Language = request.Language;
-            baseRequest.Session = request.Session;
-
-            int Val = 0;
-
-            timeLines = BTimeLine.List(MProject, baseRequest, ref Val);
-
-
-            if (Val.Equals(0))
-            {
-                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
-                response.Message = Messages.Success;
-            }
-            else if (Val.Equals(2))
+            catch (Exception ex)
             {
                 response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
-                response.Message = String.Format(Messages.ErrorObtainingReults, "TimeLines");
+                response.Message = ex.Message;
             }
-            else
-            {
-                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
-                response.Message = String.Format(Messages.NotReults, "TimeLines");
-            }
-
-            response.TimeLines = timeLines.ToArray();
 
             return response;
         }
