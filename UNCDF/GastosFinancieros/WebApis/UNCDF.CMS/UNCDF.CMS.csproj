@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BannerController.cs" />
     <Compile Include="Controllers\BannerTranslateController.cs" />
+    <Compile Include="Controllers\DeparmentController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
@@ -326,6 +327,8 @@
     <Content Include="Views\ProjectExclusions\AddPracticeArea.cshtml" />
     <Content Include="Views\ProjectFinancial\Index.cshtml" />
     <Content Include="Views\ProjectFinancial\Load.cshtml" />
+    <Content Include="Views\Deparment\Index.cshtml" />
+    <Content Include="Views\Deparment\Load.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,7 +9,7 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DATimeLine
     {
-        public static List<MTimeLine> List(MProject ent, BaseRequest baseRequest, ref int Val)
+        public static List<MTimeLine> List(MProject ent, BaseRequest baseRequest, ref int Val, ref string Error)
         {
             List<MTimeLine> lisQuery = new List<MTimeLine>();
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
@@ -36,7 +36,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Day = Convert.ToString(reader["Day"]);
                             entRow.Title = Convert.ToString(reader["Title"]);
                             entRow.Description = Convert.ToString(reader["Description"]);
-                            entRow.File = Constant.S3Server + Convert.ToString(reader["File"]);
+                            entRow.File = Constant.S3Server + Convert.ToString(reader["ImageFile"]);
                             //entRow.Advance = Convert.ToInt32(reader["Advance"]);
                             lisQuery.Add(entRow);
                             Val = 0;

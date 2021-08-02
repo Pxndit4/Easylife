@@ -9,9 +9,9 @@ namespace UNCDF.Layers.Business
 {
     public class BTimeLine
     {
-        public static List<MTimeLine> List(MProject ent, BaseRequest baseRequest, ref int Val)
+        public static List<MTimeLine> List(MProject ent, BaseRequest baseRequest, ref int Val, ref string Error)
         {
-            return DATimeLine.List(ent, baseRequest, ref Val);
+            return DATimeLine.List(ent, baseRequest, ref Val, ref Error);
         }
         public static MTimeLine Sel(MTimeLine ent, BaseRequest baseRequest, ref int Val)
         {
