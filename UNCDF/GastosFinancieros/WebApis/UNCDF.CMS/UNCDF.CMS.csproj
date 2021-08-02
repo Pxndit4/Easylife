@@ -149,6 +149,7 @@
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ProjectExclusionsController.cs" />
+    <Compile Include="Controllers\ProjectFinancialController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Controllers\TimeLineController.cs" />
     <Compile Include="Controllers\TimeLineMultimediaController.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Invoke\WebApiProgram.cs" />
     <Compile Include="Invoke\WebApiProject.cs" />
     <Compile Include="Invoke\WebApiProjectExclusions.cs" />
+    <Compile Include="Invoke\WebApiProjectFinancial.cs" />
     <Compile Include="Invoke\WebApiTimeLine.cs" />
     <Compile Include="Invoke\WebApiTimeLineMultimedia.cs" />
     <Compile Include="Invoke\WebApiTimeLineTestimonial.cs" />
@@ -197,6 +199,7 @@
     <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\ProgramViewModel.cs" />
     <Compile Include="Models\ProjectExplusionsViewModel.cs" />
+    <Compile Include="Models\ProjectFinancialViewModel.cs" />
     <Compile Include="Models\ProjectViewModel.cs" />
     <Compile Include="Models\TimeLineMultimediaViewModel.cs" />
     <Compile Include="Models\TimeLineTestimonialTranslateViewModel.cs" />
@@ -321,6 +324,8 @@
     <Content Include="Views\ProjectExclusions\AddProjectCode.cshtml" />
     <Content Include="Views\ProjectExclusions\AddDeparmentCode.cshtml" />
     <Content Include="Views\ProjectExclusions\AddPracticeArea.cshtml" />
+    <Content Include="Views\ProjectFinancial\Index.cshtml" />
+    <Content Include="Views\ProjectFinancial\Load.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
