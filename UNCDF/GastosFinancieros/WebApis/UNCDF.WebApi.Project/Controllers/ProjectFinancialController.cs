@@ -134,5 +134,74 @@ namespace UNCDF.WebApi.Project.Controllers
 
             return response;
         }
+
+
+        [HttpPost]
+        [Route("0/InsertProjectFinancialHistory")]
+        public BaseResponse InsertProjectFinancialHistory([FromBody] ProjectFinancialsRequest request)
+        {
+            BaseResponse response = new BaseResponse();
+
+            TransactionOptions transactionOptions = new TransactionOptions();
+            transactionOptions.IsolationLevel = IsolationLevel.ReadCommitted;
+            transactionOptions.Timeout = TimeSpan.MaxValue;
+
+            using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
+            {
+                try
+                {
+                    if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                    {
+                        response.Code = "2";
+                        response.Message = Messages.ApplicationTokenNoAutorize;
+                        return response;
+                    }
+
+                    string webRoot = _env.ContentRootPath;
+                    string rootPath = _appSettings.Value.rootPath;
+                    string ProjectPath = _appSettings.Value.ProjectPath;
+
+                    BaseRequest baseRequest = new BaseRequest();
+
+                    foreach (MProjectFinancials model in request.ProjectFinancials)
+                    {
+                        MProjectFinancials ProjectFinancial = new MProjectFinancials();
+                        ProjectFinancial.ProjectId = model.ProjectId;
+                        ProjectFinancial.Year = model.Year;
+                        ProjectFinancial.OperUnit = model.OperUnit;
+                        ProjectFinancial.DeparmentCode = model.DeparmentCode;
+                        ProjectFinancial.ProjectCode = model.ProjectCode;
+                        ProjectFinancial.DescrProject = model.DescrProject;
+                        ProjectFinancial.ProjectManager = model.ProjectManager;
+                        ProjectFinancial.ImplementAgencyCode = model.ImplementAgencyCode;
+                        ProjectFinancial.ShortDesc = model.ShortDesc;
+                        ProjectFinancial.FundCode = model.FundCode;
+                        ProjectFinancial.DescrFund = model.DescrFund;
+                        ProjectFinancial.Budget = model.Budget;
+                        ProjectFinancial.PreEncumbrance = model.PreEncumbrance;
+                        ProjectFinancial.Encumbrance = model.Encumbrance;
+                        ProjectFinancial.Disbursement = model.Disbursement;
+                        ProjectFinancial.Expenditure = model.Expenditure;
+                        ProjectFinancial.Balance = model.Balance;
+                        ProjectFinancial.Spent = model.Spent;
+                        BProjectFinancial.InsertHistory(ProjectFinancial);
+                    }
+
+                    response.Code = "0";
+                    response.Message = "Success";
+
+                    scope.Complete();
+                }
+                catch (Exception ex)
+                {
+                    response.Code = "2";
+                    response.Message = ex.Message;
+
+                    scope.Dispose();
+                }
+            }
+
+            return response;
+        }
     }
 }

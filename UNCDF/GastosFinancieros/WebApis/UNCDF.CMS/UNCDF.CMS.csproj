@@ -329,6 +329,8 @@
     <Content Include="Views\ProjectFinancial\Load.cshtml" />
     <Content Include="Views\Deparment\Index.cshtml" />
     <Content Include="Views\Deparment\Load.cshtml" />
+    <Content Include="Views\ProjectFinancial\IndexHistory.cshtml" />
+    <Content Include="Views\ProjectFinancial\LoadHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

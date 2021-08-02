@@ -59,6 +59,32 @@ namespace UNCDF.CMS
 
             return returnMsg;
         }
+
+        public string InsertProjectFinancialHistory(List<MProjectFinancials> list, Session eSession)
+        {
+            ProjectFinancialsRequest request = new ProjectFinancialsRequest();
+            BaseResponse response = new BaseResponse();
+            string returnMsg = string.Empty;
+
+            request.ProjectFinancials = list;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/ProjectFinancial", "InsertProjectFinancialHistory", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<BaseResponse>(bodyresponse);
+                returnMsg = response.Code + "|" + response.Message;
+            }
+
+            return returnMsg;
+        }
+
+
+        
     }
 
     [Serializable]

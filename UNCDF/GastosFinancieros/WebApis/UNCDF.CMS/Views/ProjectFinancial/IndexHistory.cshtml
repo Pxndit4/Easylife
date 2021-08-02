@@ -1,18 +1,18 @@
 ﻿@model UNCDF.CMS.Models.ProjectFinancialViewModel
 
 @{
-    ViewBag.Title = "ProjectFinancials";
+    ViewBag.Title = "Project Financials History";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <div class="ui-bar ui-bar-default">
     <span class="ui-title">
-        Project Financials
+        Project Financials History
     </span>
 
     <div class="ui-btn-content">
-        @Ajax.AjaxActionLink("Load", "Load", "ProjectFinancial", null, new AjaxOptions
+        @Ajax.AjaxActionLink("Load", "LoadHistory", "ProjectFinancial", null, new AjaxOptions
            {
                HttpMethod = "GET",
                InsertionMode = InsertionMode.Replace,
@@ -36,7 +36,7 @@
                     <div class="col-md-2">
                         @Html.LabelFor(m => m.Year)
                         <div class="input-group">
-                            @Html.TextBoxFor(m => m.Year, new { @class = "form-control" , maxlength = 10 })
+                            @Html.TextBoxFor(m => m.Year, new { @class = "form-control", maxlength = 10 })
                             <a id="btnSearch" class="btn btn-default input-group-addon">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
                             </a>
@@ -60,22 +60,20 @@
             <tr>
                 @*<th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectFinancialId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectFinancialId)</th>*@
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Year)">@Html.DisplayNameFor(x => x.result.Year)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.OperUnit)">@Html.DisplayNameFor(x => x.result.OperUnit)</th>
                 <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.DeparmentCode)">@Html.DisplayNameFor(x => x.result.DeparmentCode)</th>
                 <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.DescrProject)">@Html.DisplayNameFor(x => x.result.DescrProject)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.ProjectManager)">@Html.DisplayNameFor(x => x.result.ProjectManager)</th>
+                
                 <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.ImplementAgencyCode)">@Html.DisplayNameFor(x => x.result.ImplementAgencyCode)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.ShortDesc)">@Html.DisplayNameFor(x => x.result.ShortDesc)</th>
+                
                 <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.FundCode)">@Html.DisplayNameFor(x => x.result.FundCode)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.DescrFund)">@Html.DisplayNameFor(x => x.result.DescrFund)</th>
+                
                 <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Budget)">@Html.DisplayNameFor(x => x.result.Budget)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.PreEncumbrance)">@Html.DisplayNameFor(x => x.result.PreEncumbrance)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Encumbrance)">@Html.DisplayNameFor(x => x.result.Encumbrance)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Disbursement)">@Html.DisplayNameFor(x => x.result.Disbursement)</th>
+                
+                
+                
                 <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Expenditure)">@Html.DisplayNameFor(x => x.result.Expenditure)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Balance)">@Html.DisplayNameFor(x => x.result.Balance)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Spent)">@Html.DisplayNameFor(x => x.result.Spent)</th>
+                
+                
             </tr>
         </thead>
 
@@ -83,16 +81,16 @@
 </div>
 
 <script type="text/javascript" language="javacript">
-    var objIndex={
+    var objIndexHis={
         initial: function () {
 
             $("#btnSearch").on("click", function (e) {
                 e.preventDefault();
-                objIndex.grid.load();
+                objIndexHis.grid.load();
             });
 
             unitlife.ui.grid('#tbList').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
-            objIndex.grid.load();
+            objIndexHis.grid.load();
         },
         grid:{
             get:function(){
@@ -120,13 +118,13 @@
     };
 
     function ___getModalResult(key, data) {
-        if (key == 'REG_PROJECTFINANCIAL') {
-            objIndex.grid.load();
+        if (key == 'REG_PROJECTFINANCIALHIS') {
+            objIndexHis.grid.load();
         }
     }
 
     $(document).ready(function () {
-        objIndex.initial();
+        objIndexHis.initial();
         var $th = $('.tableFixHead').find('thead th')
         $('.tableFixHead').on('scroll', function () {
             $th.css('transform', 'translateY(' + this.scrollTop + 'px)');

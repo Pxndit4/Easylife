@@ -12,6 +12,11 @@ namespace UNCDF.Layers.Business
         {
            return  DAProjectFinancial.Insert(ent);
         }
+        public static int InsertHistory(MProjectFinancials ent)
+        {
+            return DAProjectFinancial.InsertHistory(ent);
+        }
+        
 
         public static List<MProjectFinancials> FilProjectFinancial(MProjectFinancials ent, ref int Val)
         {

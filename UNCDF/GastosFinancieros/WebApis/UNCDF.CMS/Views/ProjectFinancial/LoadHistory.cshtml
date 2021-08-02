@@ -47,28 +47,22 @@
     <span class="title">
         Previus
     </span>
-    
+
     <table id="tbLisPreviusPF" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-height="400" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.Year)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
-                <th data-class="ui-cell-icon" data-formatter="objIndexLoadPF.grid.commandAlert" data-events="objIndexLoadPF.grid.rowCommand"></th>
+                <th data-class="ui-cell-icon" data-formatter="objIndexLoadPFHist.grid.commandAlert" data-events="objIndexLoadPFHist.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Year)">@Html.DisplayNameFor(x => x.resulLoad.Year)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.OperUnit)">@Html.DisplayNameFor(x => x.resulLoad.OperUnit)</th>
+                
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.DeparmentCode)">@Html.DisplayNameFor(x => x.resulLoad.DeparmentCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectCode)">@Html.DisplayNameFor(x => x.resulLoad.ProjectCode)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.DescrProject)">@Html.DisplayNameFor(x => x.resulLoad.DescrProject)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectManager)">@Html.DisplayNameFor(x => x.resulLoad.ProjectManager)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.ImplementAgencyCode)">@Html.DisplayNameFor(x => x.resulLoad.ImplementAgencyCode)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.ShortDesc)">@Html.DisplayNameFor(x => x.resulLoad.ShortDesc)</th>
+                
+                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.ImplementAgencyCode)">@Html.DisplayNameFor(x => x.resulLoad.ImplementAgencyCode)</th>                
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.FundCode)">@Html.DisplayNameFor(x => x.resulLoad.FundCode)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.DescrFund)">@Html.DisplayNameFor(x => x.resulLoad.DescrFund)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Budget)">@Html.DisplayNameFor(x => x.resulLoad.Budget)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.PreEncumbrance)">@Html.DisplayNameFor(x => x.resulLoad.PreEncumbrance)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Encumbrance)">@Html.DisplayNameFor(x => x.resulLoad.Encumbrance)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Disbursement)">@Html.DisplayNameFor(x => x.resulLoad.Disbursement)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Expenditure)">@Html.DisplayNameFor(x => x.resulLoad.Expenditure)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Balance)">@Html.DisplayNameFor(x => x.resulLoad.Balance)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Spent)">@Html.DisplayNameFor(x => x.resulLoad.Spent)</th>
+                
+                
             </tr>
         </thead>
 
@@ -113,7 +107,7 @@
             });
 
             $("#btnRegSave").prop("disabled", false);
-            unitlife.ui.grid('#tbLisPreviusPF').loadFile('@Url.Action("LoadFile", "ProjectFinancial", null)', data);
+            unitlife.ui.grid('#tbLisPreviusPF').loadFile('@Url.Action("LoadFileHistory", "ProjectFinancial", null)', data);
 
         }
         event.target.value = '';
@@ -124,18 +118,18 @@
         window.location = '@Url.Action("Download", "ProjectFinancials")/' + @Model.ProjectId + '@Url.TargetParam()';
     }*@
 
-    var objIndexLoadPF={
+    var objIndexLoadPFHist={
         initial: function () {
 
             unitlife.ui.grid('#tbLisPreviusPF').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
-            objIndexLoadPF.grid.load();
+            objIndexLoadPFHist.grid.load();
         },
         grid:{
             get:function(){
                 return unitlife.ui.grid("#tbLisPreviusPF");
             },
             load: function () {
-                unitlife.ui.grid('#tbLisPreviusPF').load('@Url.Action("SearchLoad", "ProjectFinancial", null)', '#frmLoadReg', null,
+                unitlife.ui.grid('#tbLisPreviusPF').load('@Url.Action("SearchLoadHistory", "ProjectFinancial", null)', '#frmLoadReg', null,
                     function (e) {
 
                 });
@@ -195,15 +189,15 @@
                 Confirmar(
                     '¿@Html.Raw(ViewBag.Confirm)?',
                     function () {
-                        unitlife.ajax.submit('@Url.Action("Register", "ProjectFinancial", null)', "#frmLoadReg");
-                        unitlife.site.dialog.invoqResultCallback('REG_PROJECTFINANCIAL');
+                        unitlife.ajax.submit('@Url.Action("RegisterHistory", "ProjectFinancial", null)', "#frmLoadReg");
+                        unitlife.site.dialog.invoqResultCallback('REG_PROJECTFINANCIALHIS');
                     },
                     null
                 );
             }
             return false;
         });
-        objIndexLoadPF.initial();
+        objIndexLoadPFHist.initial();
 
     });
 

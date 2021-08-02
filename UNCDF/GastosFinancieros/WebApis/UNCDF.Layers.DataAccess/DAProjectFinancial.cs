@@ -51,6 +51,49 @@ namespace UNCDF.Layers.DataAccess
             return 0;
         }
 
+
+        public static int InsertHistory(MProjectFinancials ent)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProjectFinancialHist_Ins", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.Parameters.Add("@IBudgetPeriod", SqlDbType.VarChar).Value = ent.Year;
+                    cmd.Parameters.Add("@IOperUnit", SqlDbType.VarChar).Value = ent.OperUnit;
+                    cmd.Parameters.Add("@IDepartment", SqlDbType.VarChar).Value = ent.DeparmentCode;
+                    cmd.Parameters.Add("@IPProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
+                    cmd.Parameters.Add("@IDescProject", SqlDbType.VarChar).Value = ent.DescrProject;
+                    cmd.Parameters.Add("@IProjectManager", SqlDbType.VarChar).Value = ent.ProjectManager;
+                    cmd.Parameters.Add("@IImplementAgencyCode", SqlDbType.VarChar).Value = ent.ImplementAgencyCode;
+                    cmd.Parameters.Add("@IShortDesc", SqlDbType.VarChar).Value = ent.ShortDesc;
+                    cmd.Parameters.Add("@IFundCode", SqlDbType.VarChar).Value = ent.FundCode;
+                    cmd.Parameters.Add("@IDescrFund", SqlDbType.VarChar).Value = ent.DescrFund;
+                    cmd.Parameters.Add("@IBudget", SqlDbType.Decimal).Value = ent.Budget;
+                    cmd.Parameters.Add("@IPreEncumbrance", SqlDbType.Decimal).Value = ent.PreEncumbrance;
+                    cmd.Parameters.Add("@IEncumbrance", SqlDbType.Decimal).Value = ent.Encumbrance;
+                    cmd.Parameters.Add("@IDisbursement", SqlDbType.Decimal).Value = ent.Disbursement;
+                    cmd.Parameters.Add("@IExpenditure", SqlDbType.Decimal).Value = ent.Expenditure;
+                    cmd.Parameters.Add("@IBalance", SqlDbType.Decimal).Value = ent.Balance;
+                    cmd.Parameters.Add("@ISpent", SqlDbType.Decimal).Value = ent.Spent;
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    return 2;
+                }
+            }
+
+            return 0;
+        }
+
         public static List<MProjectFinancials> FilProjectFinancial(MProjectFinancials ent, ref int Val)
         {
             //MProjectFinancials lisQuery = new MProjectFinancials();
@@ -74,7 +117,7 @@ namespace UNCDF.Layers.DataAccess
 
                             MProjectFinancials lisQuery = new MProjectFinancials();
                             lisQuery.ProjectCode = Convert.ToString(reader["ProjectCode"]);
-                            lisQuery.DeparmentCode = Convert.ToString(reader["Budget"]);
+                            lisQuery.DeparmentCode = Convert.ToString(reader["DeparmentCode"]);
                             lisQuery.ImplementAgencyCode = Convert.ToString(reader["ImplementAgencyCode"]);
                             lisQuery.FundCode = Convert.ToString(reader["FundCode"]);
                             lisQuery.Year = Convert.ToString(reader["BudgetPeriod"]);

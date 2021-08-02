@@ -11,13 +11,17 @@ namespace UNCDF.CMS.Models
     public class ProjectFinancialViewModel
     {
         public byte[] FileByte { get; set; }
-        public string File { get; set; }        
+        public string File { get; set; }
+        
+        [RegularExpression("(^[0-9]+$)", ErrorMessage = "Only Numbers")]
         public string Year { get; set; }
         public ResultSearchProjectFinancialViewModel result { get; set; }
     }
 
     public class ResultSearchProjectFinancialViewModel
     {
+
+        [Display(Name = "Project Code")]
         public string ProjectCode { get; set; }
         public string Year { get; set; }
         public string GifLoadPresupuesto { get; set; }
@@ -28,16 +32,29 @@ namespace UNCDF.CMS.Models
         public decimal Expenditure { get; set; }
         public decimal AdvanceBudget { get; set; }
         public decimal AdvanceExpenditure { get; set; }
+        [Display(Name = "Oper Unit")]
         public string OperUnit { get; set; }
+        [Display(Name = "Project Manager")]
         public string ProjectManager { get; set; }
+        [Display(Name = "Deparment Code")]
         public string DeparmentCode { get; set; }
+
+        [Display(Name = "Short Desc")]
         public string ShortDesc { get; set; }
+
+        [Display(Name = "Fund Code")]
         public string FundCode { get; set; }
+
+        [Display(Name = "Descr Fund")]
         public string DescrFund { get; set; }
+        [Display(Name = "Pre Encumbrance")]
         public decimal PreEncumbrance { get; set; }
+        
         public decimal Encumbrance { get; set; }
         public decimal Disbursement { get; set; }
+        [Display(Name = "Project")]
         public string DescrProject { get; set; }
+        [Display(Name = "Imp. Agency Code")]
         public string ImplementAgencyCode { get; set; }
         public decimal Spent { get; set; }
     }
@@ -53,6 +70,7 @@ namespace UNCDF.CMS.Models
 
     public class ResultLoadProjectFinaViewModel
     {
+        [Display(Name = "Project Code")]
         public string ProjectCode { get; set; }
         public string Year { get; set; }
         public string GifLoadPresupuesto { get; set; }
@@ -63,16 +81,29 @@ namespace UNCDF.CMS.Models
         public decimal Expenditure { get; set; }
         public decimal AdvanceBudget { get; set; }
         public decimal AdvanceExpenditure { get; set; }
+        [Display(Name = "Oper Unit")]
         public string OperUnit { get; set; }
+        [Display(Name = "Project Manager")]
         public string ProjectManager { get; set; }
+        [Display(Name = "Deparment Code")]
         public string DeparmentCode { get; set; }
+
+        [Display(Name = "Short Desc")]
         public string ShortDesc { get; set; }
+
+        [Display(Name = "Fund Code")]
         public string FundCode { get; set; }
+
+        [Display(Name = "Descr Fund")]
         public string DescrFund { get; set; }
+        [Display(Name = "Pre Encumbrance")]
         public decimal PreEncumbrance { get; set; }
+
         public decimal Encumbrance { get; set; }
         public decimal Disbursement { get; set; }
+        [Display(Name = "Project")]
         public string DescrProject { get; set; }
+        [Display(Name = "Imp. Agency Code")]
         public string ImplementAgencyCode { get; set; }
         public decimal Spent { get; set; }
         public string AlertMessage { get; set; }
