@@ -16,5 +16,6 @@ namespace UNCDF.Layers.Model
         public string FlagOld { get; set; }
         public byte[] FileByte { get; set; }
         public string FlagExtension { get; set; }
+        public string Continents { get; set; }
     }
 }

@@ -42,6 +42,7 @@ namespace UNCDF.Layers.Model
 
         public string Flag { get; set; }
         public string GifLoad { get; set; }
+        public string GifLoadApp { get; set; }
         //UTILIZADO PARA LOS FILTROS
         public string Continents { get; set; }
         public string Countries { get; set; }

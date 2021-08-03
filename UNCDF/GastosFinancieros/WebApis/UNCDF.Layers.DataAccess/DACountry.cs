@@ -18,9 +18,7 @@ namespace UNCDF.Layers.DataAccess
                 {
                     SqlCommand cmd = new SqlCommand("sp_Country_Lis", con);
                     cmd.CommandTimeout = 0;
-                    cmd.Parameters.Add("@IContinentID", SqlDbType.VarChar).Value = ent.ContinentId;
-                    cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
-                    cmd.Parameters.Add("@IStatus", SqlDbType.Int).Value = ent.Status;
+                    cmd.Parameters.Add("@IContinents", SqlDbType.VarChar).Value = ent.Continents;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     Val = 1;

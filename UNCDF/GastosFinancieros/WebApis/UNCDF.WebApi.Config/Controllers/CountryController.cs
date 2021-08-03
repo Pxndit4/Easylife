@@ -107,9 +107,7 @@ namespace UNCDF.WebApi.Config.Controllers
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;
 
-            country.ContinentId = request.Country.ContinentId;            
-            country.Description = request.Country.Description;
-            country.Status = request.Country.Status;
+            country.Continents = request.Country.Continents;            
 
             int Val = 0;
 
