@@ -65,6 +65,41 @@ namespace UNCDF.WebApi.Project.Controllers
         }
 
         [HttpPost]
+        [Route("0/GetDeparment")]
+        public DeparmentResponse GetDeparment([FromBody] DeparmentRequest request)
+        {
+            DeparmentResponse response = new DeparmentResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                MDeparment ent = new MDeparment();
+
+                ent.DeparmentId = request.Deparment.DeparmentId;
+
+                MDeparment deparment = BDeparment.Get(ent);
+
+                response.Deparment = deparment;
+                response.Code = "0";
+                response.Message = "Success";
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
+        [HttpPost]
         [Route("0/InsertDeparment")]
         public BaseResponse InsertDeparment([FromBody] DeparmentsRequest request)
         {
@@ -98,6 +133,55 @@ namespace UNCDF.WebApi.Project.Controllers
 
                         BDeparment.Insert(Deparment);
                     }
+
+                    scope.Complete();
+                    response.Code = "0";
+                    response.Message = "Success";
+                }
+                catch (Exception ex)
+                {
+                    response.Code = "2";
+                    response.Message = ex.Message;
+
+                    scope.Dispose();
+                }
+            }
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/UpdateDeparment")]
+        public BaseResponse UpdateDeparment([FromBody] DeparmentRequest request)
+        {
+            BaseResponse response = new BaseResponse();
+
+            using (TransactionScope scope = new TransactionScope())
+            {
+                try
+                {
+                    if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                    {
+                        response.Code = "2";
+                        response.Message = Messages.ApplicationTokenNoAutorize;
+                        return response;
+                    }
+
+                    string webRoot = _env.ContentRootPath;
+                    string rootPath = _appSettings.Value.rootPath;
+                    string ProjectPath = _appSettings.Value.ProjectPath;
+
+                    BaseRequest baseRequest = new BaseRequest();
+
+
+                    MDeparment Deparment = new MDeparment();
+
+                    Deparment.DeparmentId = request.Deparment.DeparmentId;
+                    Deparment.Longitude = request.Deparment.Longitude;
+                    Deparment.Latitude = request.Deparment.Latitude;
+                    Deparment.CountryId = request.Deparment.CountryId;
+
+                    BDeparment.Update(Deparment);
 
                     scope.Complete();
                     response.Code = "0";

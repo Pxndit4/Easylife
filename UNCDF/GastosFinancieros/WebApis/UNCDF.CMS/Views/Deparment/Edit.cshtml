@@ -1,0 +1,108 @@
+﻿@model UNCDF.CMS.Models.DeparmentViewModel
+
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+
+<div class="ui-bar ui-bar-default">
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegSubm" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Save
+        </button>
+    </div>
+</div>
+
+<div class="ui-container">
+    @using (Html.BeginForm("Register", "Deparment", FormMethod.Post, new { id = "frmDeparmentReg", enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.DeparmentId)
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.DeparmentCode)
+                    @Html.TextBoxFor(m => m.DeparmentCode, new { @class = "form-control", @readonly = true })
+                </div>
+
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.PracticeArea)
+                    @Html.TextBoxFor(m => m.PracticeArea, new { @class = "form-control", @readonly = true })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Region)
+                    @Html.TextBoxFor(m => m.Region, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Longitude)
+                    @Html.TextBoxFor(m => m.Longitude, new { @class = "form-control" })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Latitude)
+                    @Html.TextBoxFor(m => m.Latitude, new { @class = "form-control" })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.CountryId)
+                    @Html.DropDownListFor(m => m.CountryId, (IEnumerable<SelectListItem>)ViewBag.Countries, new { @class = "form-control", data_value = Model.CountryId })
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            Required fields.<span class="input-validation-error-ley"></span>
+        </div>
+    }
+</div>
+
+<script type="text/javascript" language="javacript">
+    function onCallbackError(e) {
+        unitlife.ui.DropDownListFillJsonError(e, s);
+    }
+
+    $(document).ready(function () {
+        $("#btnRegSubm").on("click", function (e) {
+
+            e.preventDefault();
+
+            var _frm = unitlife.ui.validation("#frmDeparmentReg"), condVal = $("#@Html.IdFor(m => m.DeparmentId)").val();
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+
+            _isValid = _frm.valid();
+
+            if (_isValid) {
+                Confirmar(
+                    '¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+
+                        var form = $("#frmProjectReg");
+                        var data = new FormData();
+
+                        
+                        $.each(form.serializeArray(), function (key, input) {
+                           data.append(input.name, input.value);
+                        });
+
+                        unitlife.ajax.submit('@Url.Action("EditDeparment", "Deparment", null)', "#frmDeparmentReg");
+                        unitlife.site.dialog.invoqResultCallback('REG_PROJECT');
+
+                    },
+                null
+                );
+            }
+
+            return false;
+        });
+    });
+</script>

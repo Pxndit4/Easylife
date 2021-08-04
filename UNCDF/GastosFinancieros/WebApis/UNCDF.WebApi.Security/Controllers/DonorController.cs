@@ -407,7 +407,68 @@ namespace UNCDF.WebApi.Security.Controllers
             {
                 response.Code = "2";
                 response.Message = ex.Message;
-            }            
+            }
+
+            response.Donor = donor;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/CreateDonorSocial")]
+        public CreateDonorResponse CreateDonorSocial([FromBody] DonorRequest request)
+        {
+            CreateDonorResponse response = new CreateDonorResponse();
+            MDonor donor = new MDonor();
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                //donor.Cellphone = request.Donor.Cellphone;
+                donor.Email = request.Donor.Email;
+                donor.FirstName = request.Donor.FirstName;
+                donor.LastName = request.Donor.LastName;
+                donor.Password = UEncrypt.Encrypt(UCommon.RandomNumber(1000, 9999).ToString());
+                //donor.CountryId = request.Donor.CountryId;
+                donor.Token = UCommon.GetTokem();
+                donor.Status = 1;
+
+                baseRequest.Session = request.Session;
+
+                int DonorId = 0;
+
+                donor = BDonor.InsertSocial(donor, baseRequest, ref DonorId);
+
+                response.Code = DonorId.ToString(); //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+
+                if (DonorId == 0)
+                {
+                    response.Message = Messages.Success;
+                }
+                else if (DonorId == 1)
+                {
+                    //response.Message = "The cell phone number and email entered are already used.";
+                    response.Message = "The email entered are already used.";
+                }
+                else
+                {
+                    response.Message = String.Format(Messages.ErrorInsert, "Donor");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
 
             response.Donor = donor;
 
@@ -516,7 +577,7 @@ namespace UNCDF.WebApi.Security.Controllers
                 response.Code = "2";
                 response.Message = ex.Message;
             }
-            
+
             response.Donor = donor;
             response.Donor.Token = request.Session.Token;
 
@@ -577,7 +638,7 @@ namespace UNCDF.WebApi.Security.Controllers
             {
                 response.Code = "2";
                 response.Message = ex.Message;
-            }            
+            }
 
             response.Donor = donor;
 
@@ -599,7 +660,7 @@ namespace UNCDF.WebApi.Security.Controllers
                 _MAwsEmail.Message = parameterBEs[0].Valor1.Replace("[Password]", UEncrypt.Decrypt(Password));
                 _MAwsEmail.ToEmail = Email;
 
-                BAwsSDK.SendEmailAsync(_MAwsEmail);               
+                BAwsSDK.SendEmailAsync(_MAwsEmail);
             }
 
         }

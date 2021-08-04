@@ -107,7 +107,14 @@ namespace UNCDF.WebApi.Config.Controllers
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;
 
-            country.Continents = request.Country.Continents;            
+            if (request.Country.Continents == null)
+            {
+                country.Continents = "";
+            }
+            else
+            {
+                country.Continents = request.Country.Continents;
+            }
 
             int Val = 0;
 

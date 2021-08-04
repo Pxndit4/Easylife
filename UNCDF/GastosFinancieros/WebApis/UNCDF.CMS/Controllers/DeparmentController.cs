@@ -264,6 +264,97 @@ namespace UNCDF.CMS.Controllers
             return Json(objResult);
         }
 
+        public ActionResult Edit(string id)
+        {
+            MDeparment objResult;
+            ViewBag.Title = "Edit Deparment";
+            ViewBag.Confirm = string.Format(MessageResource.UpdateConfirm, "Deparment");            
+
+            try
+            {
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                MDeparment eProjects = new MDeparment
+                {
+                    DeparmentId = Convert.ToInt32(id)
+                };
+
+                ViewBag.Countries = new WebApiCountry().GetCountries(new MCountry
+                {
+                    Continents = ""
+                }, objSession).Select(x => new SelectListItem
+                {
+                    Value = (x.CountryId).ToString(),
+                    Text = x.Description
+                });
+
+                objResult = new WebApiDeparment().GetDeparment(eProjects);
+
+                return View("Edit", new DeparmentViewModel()
+                {
+                    DeparmentId = objResult.DeparmentId,
+                    DeparmentCode = objResult.DeparmentCode,
+                    Description = objResult.Description,
+                    PracticeArea = objResult.PracticeArea,
+                    Region = objResult.Region,
+                    Latitude = objResult.Latitude,
+                    Longitude = objResult.Longitude,
+                    CountryId = objResult.CountryId                    
+                });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("viewError", MessageResource.PartialViewLoadError);
+                return View("_ErrorView");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditDeparment(DeparmentViewModel model)
+        {
+            JSonResult objResult = new JSonResult();
+
+            try
+            {                
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+
+                MDeparment objEnt = new MDeparment
+                {
+                    DeparmentId = model.DeparmentId,
+                    Latitude = model.Latitude,
+                    Longitude = model.Longitude,
+                    CountryId = model.CountryId
+                };
+
+                string response = string.Empty;
+                response = new WebApiDeparment().UpdateDeparment(objEnt, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                string MessageResul = (model.DeparmentId == 0) ? string.Format(MessageResource.SaveSuccess, "Deparment") : string.Format(MessageResource.UpdateSuccess, "Deparment");
+
+                objResult.isError = (statusCode.Equals("2") || statusCode.Equals("1")) ? true : false;
+                objResult.message = (statusCode.Equals("2") || statusCode.Equals("1")) ? statusMessage : MessageResul;
+
+            }
+            catch (Exception ex)
+            {
+                objResult.isError = true;
+                objResult.data = null;
+                objResult.message = string.Format(MessageResource.UpdateError + "Error :" + ex.Message, "Deparment");
+            }
+            return Json(objResult);
+        }
+
         [HttpPost]
         public ActionResult Register(LoadDeparmentsViewModel model, HttpPostedFileBase imageFile)
         {

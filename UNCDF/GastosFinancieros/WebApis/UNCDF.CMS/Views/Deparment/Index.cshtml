@@ -64,6 +64,7 @@
     <table id="tbList" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.result.DeparmentCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
+                <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.DeparmentId)" data-visible="false">@Html.DisplayNameFor(x => x.result.DeparmentId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.DeparmentCode)">@Html.DisplayNameFor(x => x.result.DeparmentCode)</th>
                 <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>
@@ -106,6 +107,22 @@
                 return sd;
             },
             rowCommand:{
+            },
+            commandEdit:function(e,r,i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "Deparment", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                    }, new { @class = "",title="Project Detail" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.result.DeparmentId))[0].outerHTML;
+                return sd;
+                objIndex.grid.load();
             }
         },
         general:{

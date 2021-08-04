@@ -13,6 +13,11 @@ namespace UNCDF.WebApi.Project
         public MDeparment[] Deparments { get; set; }
     }
 
+    public class DeparmentResponse : BaseResponse
+    {
+        public MDeparment Deparment { get; set; }
+    }
+
     #endregion
 
     [Serializable]

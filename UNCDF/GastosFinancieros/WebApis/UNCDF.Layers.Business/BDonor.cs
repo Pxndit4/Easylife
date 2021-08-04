@@ -24,7 +24,27 @@ namespace UNCDF.Layers.Business
             {
                 return Result;
             }
+        }
 
+        public static MDonor InsertSocial(MDonor ent, BaseRequest baseRequest, ref int DonorId)
+        {
+            int Registered = 0;
+
+            int Result = DADonor.ValidateInsert(ent.Cellphone, ent.Email, ref Registered, ref DonorId);
+
+            ent.Registered = Registered;
+
+            if (Result == 0)
+            {
+                DADonor.InsertSocial(ent, baseRequest);
+                ent = DADonor.Loginsocial(ent, ref Registered);
+                return ent;
+            }
+            else
+            {
+                ent = DADonor.Loginsocial(ent, ref Registered);
+                return ent;
+            }
         }
 
         public static int Update(MDonor ent)

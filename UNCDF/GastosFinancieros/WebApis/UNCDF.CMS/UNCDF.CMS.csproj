@@ -164,6 +164,7 @@
     <Compile Include="Invoke\Helper.cs" />
     <Compile Include="Invoke\WebApiBanner.cs" />
     <Compile Include="Invoke\WebApiBannerTranslate.cs" />
+    <Compile Include="Invoke\WebApiCountry.cs" />
     <Compile Include="Invoke\WebApiDeparment.cs" />
     <Compile Include="Invoke\WebApiDonation.cs" />
     <Compile Include="Invoke\WebApiDonorPartner.cs" />
@@ -331,6 +332,7 @@
     <Content Include="Views\Deparment\Load.cshtml" />
     <Content Include="Views\ProjectFinancial\IndexHistory.cshtml" />
     <Content Include="Views\ProjectFinancial\LoadHistory.cshtml" />
+    <Content Include="Views\Deparment\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

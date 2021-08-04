@@ -31,6 +31,28 @@ namespace UNCDF.Layers.DataAccess
             return 0;
         }
 
+        public static int Update(MDeparment ent)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand("sp_Deparment_Upd", con);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@IDeparmentId", SqlDbType.VarChar).Value = ent.DeparmentId;
+                cmd.Parameters.Add("@ILongitude", SqlDbType.VarChar).Value = ent.Longitude;
+                cmd.Parameters.Add("@ILatitude", SqlDbType.VarChar).Value = ent.Latitude;
+                cmd.Parameters.Add("@ICountryId", SqlDbType.VarChar).Value = ent.CountryId;
+
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+
+            return 0;
+        }
+
         public static List<MDeparment> List()
         {
             List<MDeparment> lisQuery = new List<MDeparment>();
@@ -55,6 +77,47 @@ namespace UNCDF.Layers.DataAccess
                             entRow.PracticeArea = Convert.ToString(reader["PracticeArea"]);
                             entRow.Region = Convert.ToString(reader["Region"]);
                             lisQuery.Add(entRow);
+                        }
+                    }
+
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    lisQuery = null;
+                }
+            }
+
+            return lisQuery;
+        }
+
+        public static MDeparment Get(MDeparment ent)
+        {
+            MDeparment lisQuery = new MDeparment();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Deparment_Get", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@IDeparmentId", SqlDbType.VarChar).Value = ent.DeparmentId;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            lisQuery.DeparmentId = Convert.ToInt32(reader["DeparmentId"]);
+                            lisQuery.DeparmentCode = Convert.ToString(reader["DeparmentCode"]);
+                            lisQuery.Description = Convert.ToString(reader["Description"]);
+                            lisQuery.PracticeArea = Convert.ToString(reader["PracticeArea"]);
+                            lisQuery.Region = Convert.ToString(reader["Region"]);
+                            lisQuery.Latitude = Convert.ToString(reader["Latitude"]);
+                            lisQuery.Longitude = Convert.ToString(reader["Longitude"]);
+                            lisQuery.CountryId = Convert.ToInt32(reader["CountryId"]);
                         }
                     }
 

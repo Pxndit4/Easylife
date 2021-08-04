@@ -62,6 +62,33 @@ namespace UNCDF.CMS
             return funds;
         }
 
+        public MDeparment GetDeparment(MDeparment ent)
+        {
+            MDeparment funds = new MDeparment();
+            DeparmentRequest request = new DeparmentRequest();
+            DeparmentResponse response = new DeparmentResponse();
+
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            request.Deparment = ent;
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/Deparment", "GetDeparment", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<DeparmentResponse>(bodyresponse);
+
+                if (response.Code.Equals("0"))
+                {
+                    funds = response.Deparment;
+                }
+            }
+
+            return funds;
+        }
+
         public string InsertDeparment(List<MDeparment> list, Session eSession)
         {
             DeparmentsRequest request = new DeparmentsRequest();
@@ -85,6 +112,29 @@ namespace UNCDF.CMS
             return returnMsg;
         }
 
+        public string UpdateDeparment(MDeparment list, Session eSession)
+        {
+            DeparmentRequest request = new DeparmentRequest();
+            BaseResponse response = new BaseResponse();
+            string returnMsg = string.Empty;
+
+            request.Deparment = list;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("project/api/Deparment", "UpdateDeparment", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<BaseResponse>(bodyresponse);
+                returnMsg = response.Code + "|" + response.Message;
+            }
+
+            return returnMsg;
+        }
+
     }
 
     [Serializable]
@@ -93,6 +143,11 @@ namespace UNCDF.CMS
         public List<MDeparment> Deparments { get; set; }
     }
 
+    [Serializable]
+    public class DeparmentResponse : BaseResponse
+    {
+        public MDeparment Deparment { get; set; }
+    }
 
     [Serializable]
     public class DeparmentsRequest : BaseRequest

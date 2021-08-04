@@ -46,6 +46,43 @@ namespace UNCDF.Layers.DataAccess
             }
         }
 
+        public static int InsertSocial(MDonor ent, BaseRequest baseRequest)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Donor_Ins_Social", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IFirstName", SqlDbType.VarChar).Value = ent.FirstName;
+                    cmd.Parameters.Add("@ILastName", SqlDbType.VarChar).Value = ent.LastName;
+                    cmd.Parameters.Add("@IEmail", SqlDbType.VarChar).Value = ent.Email;
+                    cmd.Parameters.Add("@IPassword", SqlDbType.VarChar).Value = ent.Password;
+                    cmd.Parameters.Add("@ICellphone", SqlDbType.VarChar).Value = ent.Cellphone;
+                    cmd.Parameters.Add("@IAddress", SqlDbType.VarChar).Value = ent.Address;
+                    cmd.Parameters.Add("@ICountryId", SqlDbType.Int).Value = ent.CountryId;
+                    cmd.Parameters.Add("@IGender", SqlDbType.VarChar).Value = ent.Gender;
+                    cmd.Parameters.Add("@IBirthday", SqlDbType.Decimal).Value = ent.Birthday;
+                    cmd.Parameters.Add("@IPhoto", SqlDbType.DateTime).Value = ent.Photo;
+                    cmd.Parameters.Add("@IStatus", SqlDbType.Int).Value = ent.Status;
+                    cmd.Parameters.Add("@IToken", SqlDbType.VarChar).Value = ent.Token;
+                    cmd.Parameters.Add("@ODonorID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    ent.DonorId = Convert.ToInt32(cmd.Parameters["@ODonorID"].Value);
+                    con.Close();
+
+                    return 0;
+                }
+
+                catch (Exception ex)
+                {
+                    return 2;
+                }
+            }
+        }
+
         public static int Update(MDonor ent)
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
@@ -339,6 +376,52 @@ namespace UNCDF.Layers.DataAccess
                     cmd.CommandTimeout = 0;
                     cmd.Parameters.Add("@IEmail", SqlDbType.VarChar).Value = ent.Email;
                     cmd.Parameters.Add("@IPassword", SqlDbType.VarChar).Value = ent.Password;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.DonorId = Convert.ToInt32(reader["DonorId"]);
+                            result.FirstName = Convert.ToString(reader["FirstName"]);
+                            result.LastName = Convert.ToString(reader["LastName"]);
+                            result.Email = Convert.ToString(reader["Email"]);
+
+                            result.Password = Convert.ToString(reader["Password"]);
+                            result.Cellphone = Convert.ToString(reader["Cellphone"]);
+                            result.Address = Convert.ToString(reader["Address"]);
+                            result.CountryId = Convert.ToInt32(reader["CountryId"]);
+                            result.Birthday = Convert.ToDecimal(reader["Birthday"]);
+                            result.Photo = (Convert.ToString(reader["Photo"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Photo"]);
+                            result.Token = Convert.ToString(reader["Token"]);
+
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return result;
+        }
+
+        public static MDonor Loginsocial(MDonor ent, ref int Val)
+        {
+            MDonor result = new MDonor();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Donor_Login_Social", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IEmail", SqlDbType.VarChar).Value = ent.Email;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
 
