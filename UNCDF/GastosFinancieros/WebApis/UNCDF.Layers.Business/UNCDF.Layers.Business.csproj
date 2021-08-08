@@ -9,6 +9,7 @@
     <PackageReference Include="AWSSDK.S3" Version="3.7.0.19" />
     <PackageReference Include="AWSSDK.SimpleEmail" Version="3.7.0.17" />
     <PackageReference Include="HiQPdf.Free.NetCore" Version="12.0.0" />
+    <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.6.7" />
   </ItemGroup>
 
   <ItemGroup>

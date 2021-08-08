@@ -104,6 +104,11 @@ namespace UNCDF.Layers.Business
             return DADonation.GetTotals();
         }
 
+        public static MDonation Select(MDonation ent, ref int Val)
+        {
+            return DADonation.Select(ent, ref Val);
+        }
+
         public static string GenarteCerticate(int DonorId, string webRoot, string Amount, MAwsS3 mAwsS3)
         {
             string CertificateName = string.Empty;

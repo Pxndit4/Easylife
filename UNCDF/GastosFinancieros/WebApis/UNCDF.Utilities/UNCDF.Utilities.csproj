@@ -9,7 +9,8 @@
     <None Remove="iTextSharp.NetCore" />
     <None Remove="hiqpdf" />
   </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="iTextSharp.NetCore" Version="5.5.13.1" />
+    <PackageReference Include="iTextSharp.LGPLv2.Core" Version="1.6.7" />
   </ItemGroup>
 </Project>

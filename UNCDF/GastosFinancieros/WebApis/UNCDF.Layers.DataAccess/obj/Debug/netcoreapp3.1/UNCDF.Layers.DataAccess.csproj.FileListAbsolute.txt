@@ -12,3 +12,17 @@
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.csproj.CopyComplete
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.dll
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.DataAccess/obj/Debug/netcoreapp3.1/UNCDF.Layers.DataAccess.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.deps.json
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.Model.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Utilities.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.Model.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Utilities.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.AssemblyInfo.cs
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.csproj.CopyComplete
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.pdb

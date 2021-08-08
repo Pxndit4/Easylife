@@ -2,14 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>1f18207e-352b-46ea-8cea-87cc47209add</UserSecretsId>
   </PropertyGroup>
 
 
   <ItemGroup>
+    <None Remove="Certificate\Firma.jpg" />
     <None Remove="Stripe.net" />
     <None Remove="Contracts\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="HiQPdf.Free.NetCore" Version="12.0.0" />
     <PackageReference Include="Stripe.net" Version="39.57.0" />
   </ItemGroup>
   <ItemGroup>
@@ -22,5 +25,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contracts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Certificate\Firma.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Certificate\certificado.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificate\IconoDonacion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificate\logoUncdfUnitLife.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificate\PlatoIzq.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Certificate\TemplateMail.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

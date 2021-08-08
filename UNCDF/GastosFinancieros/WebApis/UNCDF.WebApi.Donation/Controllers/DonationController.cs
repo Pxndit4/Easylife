@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using Stripe;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using UNCDF.Layers.Business;
@@ -308,6 +309,89 @@ namespace UNCDF.WebApi.Donation.Controllers
             //response.DonationTotal = 235878561;
 
             return response;
+        }
+
+        [HttpPost]
+        [Route("0/SendCertificate")]
+        public DonationResponse SendCertificate([FromBody] CertificateRequest request)
+        {
+            DonationResponse response = new DonationResponse();
+            MDonation donation = new MDonation();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            donation.DonationId = request.DonationId;
+
+            int Val = 0;
+
+            donation = BDonation.Select(donation, ref Val);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+
+                try
+                {
+                    int val = 0;
+                    MParameter parameterBE = new MParameter();
+                    List<MParameter> parameterBEs = new List<MParameter>();
+
+                    parameterBE.Code = "MAIL_CERT";
+                    parameterBEs = BParameter.List(parameterBE, ref val);
+
+                    if (val.Equals(0))
+                    {
+                        string Message = parameterBEs[0].Valor1.Replace("[CERTIFICATE]", Path.Combine(Constant.S3Server, "certificates") + "/" + donation.Certificate);
+                        string Subject = "UNITLIFE - Donation certificate";
+
+                        if (request.Email.Equals(""))
+                        {
+                            request.Email = donation.Email;
+                        }
+
+                        SendSES(Subject, Message, request.Email);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = "Failed to send the certificate.";
+                }
+
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = "Failed to send the certificate.";
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = "Donation does not exist.";
+            }
+
+            response.Donation = donation;
+
+
+            return response;
+        }
+
+        private void SendSES(string Subject, string Message, string Email)
+        {
+            _MAwsEmail.Subject = Subject;
+            _MAwsEmail.Message = Message;
+            _MAwsEmail.ToEmail = Email;
+
+            BAwsSDK.SendEmailAsync(_MAwsEmail);
         }
     }
 }

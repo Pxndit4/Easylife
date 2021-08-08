@@ -141,9 +141,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "iTextSharp.NetCore": {
+            "iTextSharp.LGPLv2.Core": {
               "target": "Package",
-              "version": "[5.5.13.1, )"
+              "version": "[1.6.7, )"
             }
           },
           "imports": [

@@ -12,6 +12,13 @@ namespace UNCDF.WebApi.Donation
     }
 
     [Serializable]
+    public class CertificateRequest : BaseRequest
+    {
+        public int DonationId { get; set; }
+        public string Email { get; set; }
+    }
+
+    [Serializable]
     public class PayMethod
     {       
         public MDonorStripe DonorStripe { get; set; }

@@ -10,6 +10,47 @@ namespace UNCDF.Layers.DataAccess
     public class DADonation
     {
 
+        public static MDonation Select(MDonation ent, ref int Val)
+        {
+            MDonation entRow = new MDonation();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Donation_Sel", con);
+                    cmd.Parameters.Add("@IDonationId", SqlDbType.Int).Value = ent.DonationId;
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            entRow.DonationId = Convert.ToInt32(reader["DonationId"]);
+                            entRow.DonorId = Convert.ToInt32(reader["DonorId"]);
+                            entRow.Date = Convert.ToDecimal(reader["Date"]);
+                            entRow.PaymentType = Convert.ToString(reader["PaymentType"]);
+                            entRow.Amount = Convert.ToDecimal(reader["Amount"]);
+                            entRow.Code = Convert.ToString(reader["Code"]);
+                            entRow.Status = Convert.ToInt32(reader["Status"]);
+                            entRow.Certificate = Convert.ToString(reader["Certificate"]);
+                            entRow.Email = Convert.ToString(reader["Email"]);
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return entRow;
+        }
+
         public static int Insert(MDonation ent)
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
