@@ -52,6 +52,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.DonorPartnerId = Convert.ToInt32(reader["DonorPartnerId"]);
                             entRow.DonorCode = Convert.ToString(reader["DonorCode"]);
                             entRow.DonorName = Convert.ToString(reader["DonorName"]);
+                            entRow.FundingPartner = Convert.ToString(reader["FundingPartner"]);
                             lisQuery.Add(entRow);
                         }
                     }

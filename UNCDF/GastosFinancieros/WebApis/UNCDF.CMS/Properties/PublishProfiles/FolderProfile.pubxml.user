@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\app.publish\</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\Publicacion\UNCDF\CMS</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -224,10 +224,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2021 20:06:23</publishTime>
     </File>
     <File Include="bin/UNCDF.CMS.dll">
-      <publishTime>08/08/2021 20:35:26</publishTime>
+      <publishTime>08/09/2021 13:42:37</publishTime>
     </File>
     <File Include="bin/UNCDF.CMS.pdb">
-      <publishTime>08/08/2021 20:35:26</publishTime>
+      <publishTime>08/09/2021 13:42:37</publishTime>
     </File>
     <File Include="bin/UNCDF.Layers.Model.dll">
       <publishTime>08/08/2021 20:35:23</publishTime>
@@ -461,19 +461,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2021 20:06:19</publishTime>
     </File>
     <File Include="Views/Project/Edit.cshtml">
-      <publishTime>08/08/2021 20:06:19</publishTime>
+      <publishTime>08/09/2021 13:27:51</publishTime>
     </File>
     <File Include="Views/Project/Index.cshtml">
-      <publishTime>08/08/2021 20:06:19</publishTime>
+      <publishTime>08/09/2021 13:27:51</publishTime>
     </File>
     <File Include="Views/Project/Load.cshtml">
-      <publishTime>08/08/2021 20:06:19</publishTime>
+      <publishTime>08/09/2021 13:27:51</publishTime>
     </File>
     <File Include="Views/Project/ProjectActives.cshtml">
       <publishTime>08/08/2021 20:06:19</publishTime>
     </File>
     <File Include="Views/Project/RegisterReadOnly.cshtml">
-      <publishTime>08/08/2021 20:06:19</publishTime>
+      <publishTime>08/09/2021 13:27:51</publishTime>
     </File>
     <File Include="Views/ProjectExclusions/AddDeparmentCode.cshtml">
       <publishTime>08/08/2021 20:06:19</publishTime>
