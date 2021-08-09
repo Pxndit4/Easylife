@@ -28,25 +28,51 @@
         @using (Html.BeginForm("Search", "Project", FormMethod.Post, new { id = "frmSearch" }))
         {
             @Html.AntiForgeryToken()
-            @*@Html.HiddenFor(m => m.ProjectId)*@
 
             <div class="form-group">
                 <div class="row">
-                    @*@Html.HiddenFor(m => m.ProjectId)*@
                     <div class="col-md-1">
                         @Html.LabelFor(m => m.ProjectCode)
-                        @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control", id = "txtProjectCode" })
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-4">
+                        @Html.LabelFor(m => m.Title)
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", id = "txtTitle" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.StartDate)
+                        <div id="d_@Html.IdFor(m=>m.StartDate)" class="input-group date">
+                            @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control input", maxlength = 10, id = "txtStartDate" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.EndDate)
+                        <div id="d_@Html.IdFor(m=>m.EndDate)" class="input-group date">
+                            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control input", maxlength = 10, id = "txtEndDate" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.EffectiveStatus)
 
-                        @Html.LabelFor(m => m.Description)
                         <div class="input-group">
-                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.EffectiveStatus, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", id = "txtStatus" })
 
                             <a id="btnSearch" class="btn btn-default input-group-addon">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
                             </a>
                         </div>
+                    </div>
+                    <div class="col-md-1">
+                        <a id="btnClean" class="btn btn-default" style="margin-top:22px;">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -65,34 +91,42 @@
         <thead>
             <tr>
 
-                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDate)">@Html.DisplayNameFor(x => x.result.StartDate)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDate)">@Html.DisplayNameFor(x => x.result.EndDate)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>*@
+
+                @*<th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.timeLine" data-events="objIndex.grid.rowCommand"></th>*@
                 <th data-class="ui-cell-icon" data-formatter="objIndex.grid.commandEdit" data-events="objIndex.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Description)">@Html.DisplayNameFor(x => x.result.Description)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Type)">@Html.DisplayNameFor(x => x.result.Type)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.EffectiveStatus)">@Html.DisplayNameFor(x => x.result.EffectiveStatus)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffDateStr)">@Html.DisplayNameFor(x => x.result.StatusEffDateStr)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffSeq)">@Html.DisplayNameFor(x => x.result.StatusEffSeq)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.Status)">@Html.DisplayNameFor(x => x.result.Status)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusDescription)">@Html.DisplayNameFor(x => x.result.StatusDescription)</th>
+                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffDateStr)">@Html.DisplayNameFor(x => x.result.StatusEffDateStr)</th>*@
+                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.StatusEffSeq)">@Html.DisplayNameFor(x => x.result.StatusEffSeq)</th>*@
+                @*<th data-field="@Html.HtmlIdNameFor(x => x.result.Status)">@Html.DisplayNameFor(x => x.result.Status)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.result.StatusDescription)">@Html.DisplayNameFor(x => x.result.StatusDescription)</th>*@
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.StartDateStr)">@Html.DisplayNameFor(x => x.result.StartDateStr)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.EndDateStr)">@Html.DisplayNameFor(x => x.result.EndDateStr)</th>
-                <th data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>
+
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.AwardId)">@Html.DisplayNameFor(x => x.result.AwardId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.AwardStatus)">@Html.DisplayNameFor(x => x.result.AwardStatus)</th>
 
-                @*<th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Title)">@Html.DisplayNameFor(x => x.result.Title)</th>*@
             </tr>
         </thead>
     </table>
 </div>
 
 <script type="text/javascript" language="javacript">
+
+    $("#btnClean").on("click", function (e) {
+        e.preventDefault();
+        $("#txtStartDate").val("");
+        $("#txtEndDate").val("");
+        $("#txtProjectCode").val("");
+        $("#txtTitle").val("");
+        $("#txtStatus").val("-1");
+        $("#btnSearch").click();
+    });
+
     var objIndex={
         initial: function () {
 
@@ -122,11 +156,13 @@
                 var sd = unitlife.numeric.formatDecimal(e,0)
                 return sd;
             },
-            rowCommand:{
+            rowCommand: {
+                
+
             },
             commandEdit:function(e,r,i)
             {
-                var sd = '@Ajax.AjaxActionLink("", "Edit", "Project", null, new AjaxOptions
+                var sd = '@Ajax.AjaxActionLink("", "GetRead", "Project", null, new AjaxOptions
                 {
                     HttpMethod = "GET",
                     InsertionMode = InsertionMode.Replace,
@@ -134,7 +170,7 @@
                     OnBegin = "unitlife.site.dialog.onInit",
                     OnComplete = "unitlife.site.dialog.onComplete",
                     OnFailure = "unitlife.site.dialog.onFailure",
-                    }, new { @class = "",title="Edit Project" }, "glyphicon glyphicon-pencil")'
+                    }, new { @class = "",title="Project Detail" }, "glyphicon glyphicon-eye-open")'
 
                 sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.result.ProjectId))[0].outerHTML;
                 return sd;
@@ -161,6 +197,10 @@
 
         $('.fixed-table-body').addClass('tableFixHead');
 
+        $('#d_@Html.IdFor(m => m.StartDate)').datepicker();
+        $('#d_@Html.IdFor(m => m.EndDate)').datepicker();
+        unitlife.ui.SelectedValue('#@Html.IdFor(x => x.EffectiveStatus)');
     });
+
 </script>
 
