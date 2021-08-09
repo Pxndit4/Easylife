@@ -227,7 +227,7 @@ namespace UNCDF.CMS.Controllers
                 objResult.data = entList.Select(x => new MDeparment
                 {
                    DeparmentId = x.DeparmentId,
-                    DeparmentCode = x.DeparmentCode,
+                    DeparmentCode = '8'+ x.DeparmentCode,
                     Description = x.Description
                 }).ToList();
 
@@ -299,7 +299,7 @@ namespace UNCDF.CMS.Controllers
 
                 objResult.data = entList.Select(x => new MDeparmentExclusion
                 {
-                    DeparmentCode = x.DeparmentCode
+                    DeparmentCode = "8"+x.DeparmentCode
                 }).ToList();
 
             }

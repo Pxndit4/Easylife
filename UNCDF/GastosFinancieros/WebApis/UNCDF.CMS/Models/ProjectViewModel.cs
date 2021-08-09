@@ -88,7 +88,7 @@ namespace UNCDF.CMS.Models
     public class ResultLoadProjectsViewModel
     {
         public int ProjectId { get; set; }
-        [Display(Name = "Project Code")]
+        
 
         public string Department { get; set; }
         [Display(Name = "Project Code")]

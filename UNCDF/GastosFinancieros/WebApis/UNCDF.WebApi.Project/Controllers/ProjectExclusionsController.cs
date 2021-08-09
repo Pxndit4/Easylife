@@ -181,7 +181,7 @@ namespace UNCDF.WebApi.Project.Controllers
             foreach (string code in ent.ListCode)
             {
                 MDeparmentExclusion obj = new MDeparmentExclusion();
-                obj.DeparmentCode = code;
+                obj.DeparmentCode = code.Substring(1);
                 int respt = BDeparmentExclusion.Insert(obj);
 
             }

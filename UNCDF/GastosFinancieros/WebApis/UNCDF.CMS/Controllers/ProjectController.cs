@@ -95,7 +95,7 @@ namespace UNCDF.CMS.Controllers
                 objResult.data = entList.Select(x => new MProject
                 {
                     ProjectId = x.ProjectId,
-                    Department = x.Department,
+                    Department = '8'+ x.Department,
                     ProjectCode = x.ProjectCode ,
                     Description = x.Description,
                     Type = x.Type,
@@ -258,6 +258,7 @@ namespace UNCDF.CMS.Controllers
                     {
                         ModelProjectResult ent = new ModelProjectResult();
                         ent.Department = Extension.ToEmpty(dt.Rows[i][0].ToString());
+                        ent.Department = '8'+(ent.Department.Substring(1)); // regla de negocio
                         ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][1].ToString());
                         ent.Description = Extension.ToEmpty(dt.Rows[i][2].ToString());
                         ent.Type = Extension.ToEmpty(dt.Rows[i][3].ToString());
@@ -284,7 +285,7 @@ namespace UNCDF.CMS.Controllers
                             ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
                         }
 
-                        var valid = entVaList.Where(p => p.ProjectCode == ent.ProjectCode).FirstOrDefault();
+                        var valid = entVaList.Where(p => Convert.ToInt32(p.ProjectCode) == Convert.ToInt32(ent.ProjectCode)).FirstOrDefault();
                         if (valid != null)
                         {
                             if (string.IsNullOrEmpty(valid.DonorCode))
@@ -386,6 +387,27 @@ namespace UNCDF.CMS.Controllers
                 // Session["ListProjectFinancials"] = null;
                 objResult.data = entList;
 
+                //objResult.data = entList.Select(x => new MProject
+                //{
+                //    //ProjectId = x.ProjectId,
+                //    Department = '8' + (x.Department)==null?"": x.Department,
+                //    //ProjectCode = x.ProjectCode,
+                //    //Description = x.Description,
+                //    //Type = x.Type,
+                //    //EffectiveStatus = x.EffectiveStatus,
+                //    //StatusEffDateStr = Extension.ToFormatDateDDMMYYY(x.StatusEffDate.ToString()),
+                //    //StatusEffSeq = x.StatusEffSeq,
+                //    //Status = x.Status,
+                //    //StatusDescription = x.StatusDescription,
+                //    //StartDateStr = Extension.ToFormatDateDDMMYYY(x.StartDate.ToString()),
+                //    //EndDateStr = Extension.ToFormatDateDDMMYYY(x.EndDate.ToString()),
+                //    //AwardId = x.AwardId,
+                //    //Title = x.Title,
+                //    //IsVisible = x.IsVisible,
+                //    //Donation = x.Donation,
+                //    //AwardStatus = x.AwardStatus
+                //}).ToList();
+
             }
             catch (Exception ex)
             {
@@ -417,7 +439,7 @@ namespace UNCDF.CMS.Controllers
                 foreach (ModelProjectResult item in entListData)
                 {
                     MProject mProject = new MProject();
-                    mProject.Department = item.Department;
+                    mProject.Department = item.Department.Substring(1);
                     mProject.ProjectCode = item.ProjectCode;
                     mProject.Description = item.Description;
                     mProject.Type = item.Type;
@@ -477,6 +499,7 @@ namespace UNCDF.CMS.Controllers
                     ProjectId = objResult.ProjectId,
                     ProjectCode = objResult.ProjectCode,
                     Title = objResult.Title,
+                    Department = '8' + objResult.Department,
                     StartDateStr = Extension.ToFormatDateDDMMYYY(objResult.StartDate.ToString()),
                     EndDateStr = Extension.ToFormatDateDDMMYYY(objResult.EndDate.ToString()),
                     Image = (objResult.Image.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),
@@ -530,6 +553,7 @@ namespace UNCDF.CMS.Controllers
                     ProjectId = objResult.ProjectId,
                     ProjectCode = objResult.ProjectCode,
                     Title = objResult.Title,
+                    Department = '8'+ objResult.Department,
                     StartDateStr = Extension.ToFormatDateDDMMYYY(objResult.StartDate.ToString()),
                     EndDateStr = Extension.ToFormatDateDDMMYYY(objResult.EndDate.ToString()),
                     Image = (objResult.Image.Replace(Extension.S3Server, "")).Replace(ProjectPath, ""),

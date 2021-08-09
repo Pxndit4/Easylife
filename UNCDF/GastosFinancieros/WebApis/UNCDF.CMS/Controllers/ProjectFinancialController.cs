@@ -46,7 +46,32 @@ namespace UNCDF.CMS.Controllers
 
                 entList = new WebApiProjectFinancial().GetProjectFinancials(proj);
 
-                objResult.data = entList;
+                //objResult.data = entList;
+
+                objResult.data = entList.Select(x => new MProjectFinancials
+                {
+                       
+                       Year                   = x.Year
+                      ,OperUnit               = x.OperUnit
+                      ,DeparmentCode          = "8" + x.DeparmentCode 
+                      ,ProjectCode            = x.ProjectCode
+                      ,DescrProject           = x.DescrProject
+                      ,ProjectManager         = x.ProjectManager
+                      ,ImplementAgencyCode    = x.ImplementAgencyCode
+                      ,ShortDesc              = x.ShortDesc
+                      ,FundCode               = x.FundCode
+                      ,DescrFund              = x.DescrFund
+                      ,Budget                 = x.Budget
+                      ,PreEncumbrance         = x.PreEncumbrance
+                      ,Encumbrance            = x.Encumbrance
+                      ,Disbursement           = x.Disbursement
+                      ,Expenditure            = x.Expenditure
+                      ,Balance                = x.Balance
+                      ,Spent                  = x.Spent
+
+
+                }).ToList();
+
 
             }
             catch (Exception)
@@ -205,7 +230,8 @@ namespace UNCDF.CMS.Controllers
                         ModelProjectFinancialResult ent = new ModelProjectFinancialResult();
                         ent.Year                    = Extension.ToEmpty(dt.Rows[i][0].ToString());
                         ent.OperUnit                = Extension.ToEmpty(dt.Rows[i][1].ToString());
-                        ent.DeparmentCode           = Extension.ToEmpty(dt.Rows[i][2].ToString());
+                        ent.DeparmentCode           = (Extension.ToEmpty(dt.Rows[i][2].ToString()));
+                        ent.DeparmentCode = "8" + (ent.DeparmentCode.Substring(1));
                         ent.ProjectCode             = Extension.ToEmpty(dt.Rows[i][3].ToString());
                         ent.DescrProject            = Extension.ToEmpty(dt.Rows[i][4].ToString());
                         ent.ProjectManager          = Extension.ToEmpty(dt.Rows[i][5].ToString());
@@ -334,7 +360,7 @@ namespace UNCDF.CMS.Controllers
                     MProjectFinancials mProjectFinancial = new MProjectFinancials();
                     mProjectFinancial.Year                =item.Year;
                     mProjectFinancial.OperUnit = item.OperUnit;
-                    mProjectFinancial.DeparmentCode = item.DeparmentCode;
+                    mProjectFinancial.DeparmentCode = item.DeparmentCode.Substring(1);
                     mProjectFinancial.ProjectCode = item.ProjectCode;
                     mProjectFinancial.DescrProject = item.DescrProject;
                     mProjectFinancial.ProjectManager = item.ProjectManager;
@@ -535,6 +561,7 @@ namespace UNCDF.CMS.Controllers
                         ModelProjectFinancialResult ent = new ModelProjectFinancialResult();
                         ent.Year = Extension.ToEmpty(dt.Rows[i][0].ToString());
                         ent.DeparmentCode = Extension.ToEmpty(dt.Rows[i][1].ToString());
+                        ent.DeparmentCode = "8"+ ent.DeparmentCode.Substring(1);
                         ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][2].ToString());
                         ent.ImplementAgencyCode = Extension.ToEmpty(dt.Rows[i][3].ToString());
                         ent.FundCode = Extension.ToEmpty(dt.Rows[i][4].ToString());
@@ -648,7 +675,7 @@ namespace UNCDF.CMS.Controllers
                     MProjectFinancials mProjectFinancial = new MProjectFinancials();
                     mProjectFinancial.Year = item.Year;
                     mProjectFinancial.OperUnit = item.OperUnit;
-                    mProjectFinancial.DeparmentCode = item.DeparmentCode;
+                    mProjectFinancial.DeparmentCode = item.DeparmentCode.Substring(1);
                     mProjectFinancial.ProjectCode = item.ProjectCode;
                     mProjectFinancial.DescrProject = item.DescrProject;
                     mProjectFinancial.ProjectManager = item.ProjectManager;
