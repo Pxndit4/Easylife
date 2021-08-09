@@ -156,18 +156,7 @@ namespace UNCDF.CMS.Controllers
                                         cel = cel.Substring(0, 1);
                                         if (include.Any(x => cel.Contains(x)))
                                         {//Continue adding the row to the table
-                                            
-                                            if (OpenXMLUtil.GetValue(doc, cell).Contains("Descr"))
-                                            {
-                                                dt.Columns.Add(OpenXMLUtil.GetValue(doc, cell)+ cel);
-                                            }
-                                            else
-                                            {
-
-                                                dt.Columns.Add(OpenXMLUtil.GetValue(doc, cell));
-                                            }
-
-                                            
+                                            dt.Columns.Add(OpenXMLUtil.GetValue(doc, cell));
                                         }
 
                                     }
@@ -197,7 +186,7 @@ namespace UNCDF.CMS.Controllers
                 {
                     objResult.isError = true;
                     objResult.data = null;
-                    objResult.message = ex.ToString()+ string.Format("Error: Please check the template for this upload ", "ProjectFinancials");
+                    objResult.message = string.Format("Error: Please check the template for this upload ", "ProjectFinancials");
                     return Json(objResult);
                 }
 
@@ -205,7 +194,7 @@ namespace UNCDF.CMS.Controllers
                 {
                     objResult.isError = true;
                     objResult.data = null;
-                    objResult.message =  string.Format("The uploaded file has no rows", "ProjectFinancials");
+                    objResult.message = string.Format("The uploaded file has no rows", "ProjectFinancials");
                     return Json(objResult);
                 }
 

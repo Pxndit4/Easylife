@@ -26,17 +26,3 @@ H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debu
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.csproj.CopyComplete
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.pdb
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.deps.json
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.dll
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.pdb
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.Model.dll
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Utilities.dll
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Layers.Model.pdb
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\bin\Debug\netcoreapp3.1\UNCDF.Utilities.pdb
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.csprojAssemblyReference.cache
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.AssemblyInfoInputs.cache
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.AssemblyInfo.cs
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.csproj.CoreCompileInputs.cache
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.csproj.CopyComplete
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.dll
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.DataAccess\obj\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.pdb
