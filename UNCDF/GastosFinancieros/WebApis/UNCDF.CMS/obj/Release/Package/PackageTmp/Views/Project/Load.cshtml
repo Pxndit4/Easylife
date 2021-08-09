@@ -49,6 +49,7 @@
     <table id="tbLisPrevius2" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
+                
                 <th data-class="ui-cell-icon" data-formatter="objIndexLoad.grid.commandAlert" data-events="objIndexLoad.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectCode)">@Html.DisplayNameFor(x => x.resulLoad.ProjectCode)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.resulLoad.Description)">@Html.DisplayNameFor(x => x.resulLoad.Description)</th>
@@ -165,7 +166,7 @@
                 var sd = unitlife.numeric.formatDecimal(e,0)
                 return sd;
             },
-            rowCommand:{
+            rowCommand: {
             }
         },
         general:{

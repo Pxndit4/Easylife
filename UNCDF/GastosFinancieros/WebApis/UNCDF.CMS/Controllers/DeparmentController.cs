@@ -172,7 +172,7 @@ namespace UNCDF.CMS.Controllers
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         ModelDeparmentResult ent = new ModelDeparmentResult();
-                        ent.DeparmentCode = Extension.ToEmpty(dt.Rows[i][0].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
+                        ent.DeparmentCode = Extension.ToEmpty(dt.Rows[i][0].ToString()).Substring(1, dt.Rows[i][0].ToString().Length - 1);//Convert.ToInt32(dt.Rows[i]["StudentId"]);
                         ent.Description = Extension.ToEmpty(dt.Rows[i][1].ToString());
                         ent.PracticeArea = Extension.ToEmpty(dt.Rows[i][2].ToString());
                         ent.Region = Extension.ToEmpty(dt.Rows[i][3].ToString());
