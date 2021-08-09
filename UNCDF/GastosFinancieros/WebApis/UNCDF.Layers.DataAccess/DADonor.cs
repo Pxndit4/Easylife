@@ -250,9 +250,9 @@ namespace UNCDF.Layers.DataAccess
                             result.LastName = Convert.ToString(reader["LastName"]);
                             result.Email = Convert.ToString(reader["Email"]);
 
-                            result.Password = Convert.ToString(reader["Password"]);
+                            result.Password = Convert.ToString(reader["Clave"]);
                             result.Cellphone = Convert.ToString(reader["Cellphone"]);
-                            result.Address = Convert.ToString(reader["Address"]);
+                            result.Address = Convert.ToString(reader["AddressOf"]);
                             result.CountryId = Convert.ToInt32(reader["CountryId"]);
                             result.Birthday = Convert.ToDecimal(reader["Birthday"]);
                             result.Photo = (Convert.ToString(reader["Photo"]).Equals("")) ? "" :  Constant.S3Server + Convert.ToString(reader["Photo"]);

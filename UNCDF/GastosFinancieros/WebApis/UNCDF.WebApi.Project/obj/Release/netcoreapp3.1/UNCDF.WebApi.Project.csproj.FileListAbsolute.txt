@@ -112,7 +112,6 @@ H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\AWSSDK.S3.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\AWSSDK.SimpleEmail.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\HiQPdf.Free.NetCore.dll
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\iTextSharp.NetCore.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\Microsoft.Identity.Client.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -165,3 +164,5 @@ H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\obj\Release
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\obj\Release\netcoreapp3.1\UNCDF.WebApi.Project.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\obj\Release\netcoreapp3.1\UNCDF.WebApi.Project.pdb
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\obj\Release\netcoreapp3.1\UNCDF.WebApi.Project.genruntimeconfig.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\iTextSharp.LGPLv2.Core.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll

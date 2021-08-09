@@ -22,6 +22,7 @@ namespace UNCDF.Layers.DataAccess
                 cmd.Parameters.Add("@IProjectDetails", SqlDbType.VarChar).Value = ent.ProjectDetails;
                 cmd.Parameters.Add("@ISector", SqlDbType.VarChar).Value = ent.Sector;
                 cmd.Parameters.Add("@ITaskManager", SqlDbType.VarChar).Value = ent.TaskManager;
+                cmd.Parameters.Add("@ISDG", SqlDbType.VarChar).Value = ent.SDG;
                 con.Open();
 
                 cmd.ExecuteNonQuery();
