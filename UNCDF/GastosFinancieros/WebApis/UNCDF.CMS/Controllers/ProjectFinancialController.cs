@@ -527,7 +527,7 @@ namespace UNCDF.CMS.Controllers
                 {
                     objResult.isError = true;
                     objResult.data = null;
-                    objResult.message = string.Format("Error: Please check the template for this upload ", "ProjectFinancials");
+                    objResult.message = ex.ToString() + string.Format("Error: Please check the template for this upload ", "ProjectFinancials");
                     return Json(objResult);
                 }
 
@@ -543,6 +543,14 @@ namespace UNCDF.CMS.Controllers
                 {
                     var dtResultado = dt.Rows.Cast<DataRow>().Where(row => !Array.TrueForAll(row.ItemArray, value => { return value.ToString().Length == 0; }));
                     dt = dtResultado.CopyToDataTable();
+
+                    //for (int i = dt.Rows.Count - 1; i >= 0; i--)
+                    //{
+                    //    DataRow dr = dt.Rows[i];
+                    //    if (dr["DeptID"] == "N / A")
+                    //        dr.Delete();
+                    //}
+                    //dt.AcceptChanges();
 
                     List<ModelProjectFinancialResult> entlist = new List<ModelProjectFinancialResult>();
 
@@ -569,21 +577,49 @@ namespace UNCDF.CMS.Controllers
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        ModelProjectFinancialResult ent = new ModelProjectFinancialResult();
-                        ent.Year = Extension.ToEmpty(dt.Rows[i][0].ToString());
+
+                        try
+                        {
+                            ModelProjectFinancialResult ent = new ModelProjectFinancialResult();
+                        if (dt.Rows[i][0].ToString().Equals("N/A") ||
+                            Extension.ToEmpty(dt.Rows[i][1].ToString()).Equals("N/A") ||
+                            Extension.ToEmpty(dt.Rows[i][2].ToString()).Equals("N/A") ||
+                            Extension.ToEmpty(dt.Rows[i][3].ToString()).Equals("N/A") ||
+                            Extension.ToEmpty(dt.Rows[i][4].ToString()).Equals("N/A") ||
+                            Extension.ToEmpty(dt.Rows[i][5].ToString()).Equals("N/A") ||
+                            Extension.ToEmpty(dt.Rows[i][0].ToString()).Equals("")||
+                             Extension.ToEmpty(dt.Rows[i][2].ToString()).Equals("")
+                            )
+                        {
+                            continue;
+                        }
+                                
+
+
+                        ent.Year = (Extension.ToEmpty(dt.Rows[i][0].ToString()));
                         ent.DeparmentCode = Extension.ToEmpty(dt.Rows[i][1].ToString());
                         ent.DeparmentCode = "8"+ ent.DeparmentCode.Substring(1);
                         ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][2].ToString());
                         ent.ImplementAgencyCode = Extension.ToEmpty(dt.Rows[i][3].ToString());
                         ent.FundCode = Extension.ToEmpty(dt.Rows[i][4].ToString());
-                        ent.Budget = Convert.ToDecimal(Extension.ToEmpty(dt.Rows[i][5].ToString()));
-                        ent.Expenditure = Convert.ToDecimal(Extension.ToEmpty(dt.Rows[i][5].ToString()));
+
+
+                            decimal h2 = //Decimal.Parse(Extension.ToEmpty(dt.Rows[i][5].ToString())), System.System.Globalization.NumberStyles.Any);
+                           (Decimal.Parse(Extension.ToEmpty(  dt.Rows[i][5].ToString()==""?"0": dt.Rows[i][5].ToString()), System.Globalization.NumberStyles.Float));
+
+                            ent.Budget = Decimal.Round(h2, 2); //= Convert.ToFlo(.Round(decimalValue, 2); ;
+                            ent.Expenditure = ent.Budget;// Convert.ToDecimal(Extension.ToEmpty(dt.Rows[i][5].ToString()));
 
                         
+                        
+
+
+
                         ent.OperUnit = string.Empty;
                         ent.DescrProject = string.Empty;
                         ent.ProjectManager = string.Empty;
                         ent.ShortDesc = string.Empty;
+
                         
                         ent.DescrFund = string.Empty;
                         
@@ -614,11 +650,11 @@ namespace UNCDF.CMS.Controllers
                         }
 
 
-                        var validDep = codDeparment.Where(p => p == ent.DeparmentCode).FirstOrDefault();
-                        if (validDep == null)
-                        {
-                            ent.AlertMessage += "<tr><td> - the Deparment Code does not exist </td></tr> ";
-                        }
+                        //var validDep = codDeparment.Where(p => p == ent.DeparmentCode).FirstOrDefault();
+                        //if (validDep == null)
+                        //{
+                        //    ent.AlertMessage += "<tr><td> - the Deparment Code does not exist </td></tr> ";
+                        //}
 
                         //if (ent.DescrProject.Length > 255)
                         //{
@@ -637,6 +673,14 @@ namespace UNCDF.CMS.Controllers
                         }
 
                         entlist.Add(ent);
+
+                        }
+                        catch (Exception e)
+                        {
+
+                            throw;
+                        }
+
                     }
 
                     Session["ListProjectFinancialsHis"] = entlist;
@@ -645,8 +689,9 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
+                    
                     objResult.data = null;
-                    objResult.message = "ProjectFinancials :" + "Format error, check records";
+                    objResult.message = ex.ToString()+"ProjectFinancials :" + "Format error, check records";
                     return Json(objResult);
                 }
 
