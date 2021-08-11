@@ -142,6 +142,7 @@
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImplementAgencyController.cs" />
     <Compile Include="Controllers\InterfaceControlController.cs" />
     <Compile Include="Controllers\InterfaceController.cs" />
     <Compile Include="Controllers\InterfaceControlTranslateController.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Invoke\WebApiDonation.cs" />
     <Compile Include="Invoke\WebApiDonorPartner.cs" />
     <Compile Include="Invoke\WebApiFund.cs" />
+    <Compile Include="Invoke\WebApiImplementAgency.cs" />
     <Compile Include="Invoke\WebApiLanguage.cs" />
     <Compile Include="Invoke\WebApiOptions.cs" />
     <Compile Include="Invoke\WebApiProfile.cs" />
@@ -193,6 +195,7 @@
     <Compile Include="Models\DonationViewModel.cs" />
     <Compile Include="Models\DonorPartnerViewModel.cs" />
     <Compile Include="Models\FundViewModel.cs" />
+    <Compile Include="Models\ImplementAgencyViewModel.cs" />
     <Compile Include="Models\LanguageViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
@@ -333,6 +336,8 @@
     <Content Include="Views\ProjectFinancial\IndexHistory.cshtml" />
     <Content Include="Views\ProjectFinancial\LoadHistory.cshtml" />
     <Content Include="Views\Deparment\Edit.cshtml" />
+    <Content Include="Views\ImplementAgency\Index.cshtml" />
+    <Content Include="Views\ImplementAgency\Load.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

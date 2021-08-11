@@ -70,7 +70,11 @@ namespace UNCDF.WebApi.Project.Controllers
         {
             BaseResponse response = new BaseResponse();
 
-            using (TransactionScope scope = new TransactionScope())
+            TransactionOptions transactionOptions = new TransactionOptions();
+            transactionOptions.IsolationLevel = IsolationLevel.ReadCommitted;
+            transactionOptions.Timeout = TimeSpan.MaxValue;
+
+            using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
             {
                 try
                 {
