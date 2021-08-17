@@ -166,3 +166,4 @@ H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\obj\Release
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\obj\Release\netcoreapp3.1\UNCDF.WebApi.Project.genruntimeconfig.cache
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\iTextSharp.LGPLv2.Core.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Project\bin\Release\netcoreapp3.1\web.config

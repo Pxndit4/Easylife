@@ -417,7 +417,7 @@ namespace UNCDF.WebApi.Security.Controllers
             parameterBE.Code = "MAIL_PASSUSER";
             parameterBEs = BParameter.List(parameterBE, ref Val);
 
-            _MAwsEmail.Subject = "UNITLIFE - User generation";
+            _MAwsEmail.Subject = "UNCDF - User generation";
             _MAwsEmail.Message = parameterBEs[0].Valor1.Replace("[Password]", UEncrypt.Decrypt(Password));
             _MAwsEmail.ToEmail = User;
 
