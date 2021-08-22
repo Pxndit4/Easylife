@@ -448,21 +448,9 @@ namespace UNCDF.WebApi.Security.Controllers
 
                 donor = BDonor.InsertSocial(donor, baseRequest, ref DonorId);
 
-                response.Code = DonorId.ToString(); //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
 
-                if (DonorId == 0)
-                {
-                    response.Message = Messages.Success;
-                }
-                else if (DonorId == 1)
-                {
-                    //response.Message = "The cell phone number and email entered are already used.";
-                    response.Message = "The email entered are already used.";
-                }
-                else
-                {
-                    response.Message = String.Format(Messages.ErrorInsert, "Donor");
-                }
+                response.Message = Messages.Success;
             }
             catch (Exception ex)
             {

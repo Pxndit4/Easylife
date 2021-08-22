@@ -484,7 +484,7 @@ namespace UNCDF.Layers.DataAccess
 
                 catch (Exception ex)
                 {
-                    return 2;
+                    throw ex;
                 }
             }
         }
