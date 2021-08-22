@@ -50,6 +50,7 @@
     <Compile Include="MDeparmentExclusion.cs" />
     <Compile Include="MDonation.cs" />
     <Compile Include="MGender.cs" />
+    <Compile Include="MGenderTranslate.cs" />
     <Compile Include="MLanguage.cs" />
     <Compile Include="MPracticeAreaExclusion.cs" />
     <Compile Include="MProjectExclusion.cs" />

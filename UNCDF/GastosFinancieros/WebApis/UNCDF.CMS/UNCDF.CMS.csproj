@@ -141,12 +141,15 @@
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
+    <Compile Include="Controllers\GenderController.cs" />
+    <Compile Include="Controllers\GenderTranslateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImplementAgencyController.cs" />
     <Compile Include="Controllers\InterfaceControlController.cs" />
     <Compile Include="Controllers\InterfaceController.cs" />
     <Compile Include="Controllers\InterfaceControlTranslateController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Controllers\ParameterController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -170,9 +173,12 @@
     <Compile Include="Invoke\WebApiDonation.cs" />
     <Compile Include="Invoke\WebApiDonorPartner.cs" />
     <Compile Include="Invoke\WebApiFund.cs" />
+    <Compile Include="Invoke\WebApiGender.cs" />
+    <Compile Include="Invoke\WebApiGenderTranslate.cs" />
     <Compile Include="Invoke\WebApiImplementAgency.cs" />
     <Compile Include="Invoke\WebApiLanguage.cs" />
     <Compile Include="Invoke\WebApiOptions.cs" />
+    <Compile Include="Invoke\WebApiParameter.cs" />
     <Compile Include="Invoke\WebApiProfile.cs" />
     <Compile Include="Invoke\WebApiProgram.cs" />
     <Compile Include="Invoke\WebApiProject.cs" />
@@ -195,10 +201,13 @@
     <Compile Include="Models\DonationViewModel.cs" />
     <Compile Include="Models\DonorPartnerViewModel.cs" />
     <Compile Include="Models\FundViewModel.cs" />
+    <Compile Include="Models\GenderTranslateViewModel.cs" />
+    <Compile Include="Models\GenderViewModel.cs" />
     <Compile Include="Models\ImplementAgencyViewModel.cs" />
     <Compile Include="Models\LanguageViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
+    <Compile Include="Models\ParameterViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
     <Compile Include="Models\PracticeAreaViewModel.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
@@ -338,6 +347,11 @@
     <Content Include="Views\Deparment\Edit.cshtml" />
     <Content Include="Views\ImplementAgency\Index.cshtml" />
     <Content Include="Views\ImplementAgency\Load.cshtml" />
+    <Content Include="Views\Gender\Index.cshtml" />
+    <Content Include="Views\Gender\Register.cshtml" />
+    <Content Include="Views\GenderTranslate\Register.cshtml" />
+    <Content Include="Views\Parameter\Index.cshtml" />
+    <Content Include="Views\Parameter\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

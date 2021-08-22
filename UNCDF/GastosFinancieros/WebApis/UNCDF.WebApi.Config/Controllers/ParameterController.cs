@@ -64,5 +64,105 @@ namespace UNCDF.WebApi.Config.Controllers
 
             return response;
         }
+
+        [HttpPost]
+        [Route("0/UpdateParameter")]
+        public ParameterResponse UpdateParameter([FromBody] ParameterRequest request)
+        {
+            ParameterResponse response = new ParameterResponse();
+            MParameter ent = new MParameter();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            ent.ParameterId = request.Parameter.ParameterId;
+            ent.Code = request.Parameter.Code;
+            ent.Description = request.Parameter.Description;
+            ent.Valor1 = request.Parameter.Valor1;
+            ent.Valor2 = request.Parameter.Valor2;
+            ent.Status = request.Parameter.Status;
+
+            int Val = 0;
+
+            ent.ParameterId = BParameter.Update(ent, ref Val);
+
+            //Record the audit
+            Val = BAudit.RecordAudit("Parameters", ent.ParameterId, 2, baseRequest.Session.UserId);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorUpdate, "Parameter");
+            }
+
+            response.Parameter = ent;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/GetParameter")]
+        public ParameterResponse GetParameter([FromBody] ParameterRequest request)
+        {
+            ParameterResponse response = new ParameterResponse();
+            MParameter ent = new MParameter();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            ent.ParameterId = request.Parameter.ParameterId;
+
+            int Val = 0;
+
+            ent = BParameter.Select(ent, ref Val);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(1))
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NoExistsSelect, "Parameter");
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorSelect, "Parameter");
+            }
+
+            response.Parameter = ent;
+
+            return response;
+        }
+
     }
 }

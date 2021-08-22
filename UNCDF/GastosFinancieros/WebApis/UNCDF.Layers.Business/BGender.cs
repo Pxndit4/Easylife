@@ -15,5 +15,28 @@ namespace UNCDF.Layers.Business
             return DAGender.Lis(ent, ref Val, Language);
 
         }
+
+        public static int Update(MGender ent, ref int Val)
+        {
+            return DAGender.Update(ent, ref Val);
+
+        }
+
+        public static MGender Select(MGender ent, ref int Val)
+        {
+            return DAGender.Select(ent, ref Val);
+        }
+
+        public static int Insert(MGender ent, ref int Val)
+        {
+            return DAGender.Insert(ent, ref Val);
+
+        }
+
+
+        public static int Delete(MGender ent, ref int Val)
+        {
+            return DAGender.Delete(ent, ref Val);
+        }
     }
 }
