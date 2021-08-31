@@ -59,7 +59,7 @@ namespace UNCDF.Layers.DataAccess
             }
 
         }
-        public static List<MDeparmentExclusion> ListDeparmentCodeExcluded()
+        public static List<MDeparmentExclusion> ListDeparmentCodeExcluded( )
         {
             List<MDeparmentExclusion> lisQuery = new List<MDeparmentExclusion>();
 
@@ -93,7 +93,7 @@ namespace UNCDF.Layers.DataAccess
         }
 
 
-        public static List<MDeparment> FilDeparmentCodeExcluded()
+        public static List<MDeparment> FilDeparmentCodeExcluded(MDeparment ent, ref int Val)
         {
             List<MDeparment> lisQuery = new List<MDeparment>();
 
@@ -103,6 +103,8 @@ namespace UNCDF.Layers.DataAccess
                 {
                     SqlCommand cmd = new SqlCommand("sp_DeparmentExclusion_Fil", con);
                     cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IDeparmentCode", SqlDbType.VarChar).Value = ent.DeparmentCode;
+                    cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.Description;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
 

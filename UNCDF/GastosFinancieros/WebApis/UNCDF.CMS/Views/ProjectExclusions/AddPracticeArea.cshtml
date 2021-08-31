@@ -149,6 +149,11 @@
 
             $('#@Html.IdFor(m => m.CheckPracticeAreaCode)').val(x);
 
+             if ($("#@Html.IdFor(m => m.CheckPracticeAreaCode)").val()== '') {
+                 unitlife.ui.validation.showMessage("Select a Practice Area");
+                return false;
+            }
+
                 Confirmar(
                     '¿@Html.Raw(ViewBag.Confirm)?',
                     function () {

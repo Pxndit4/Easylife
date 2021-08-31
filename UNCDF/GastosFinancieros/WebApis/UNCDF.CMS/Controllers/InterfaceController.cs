@@ -28,6 +28,48 @@ namespace UNCDF.CMS.Controllers
             return View();
         }
 
+        public ActionResult IndexReturn(int id)
+        {
+
+
+            MInterface objResult;
+
+            ViewBag.Estado = Extension.GetStatus().Select(x => new SelectListItem
+            {
+                Value = x.Id,
+                Text = x.Value
+            });
+
+            ViewBag.Type = Extension.GetTypeInterface().Select(x => new SelectListItem
+            {
+                Value = x.Id,
+                Text = x.Value
+            });
+
+
+            MInterface eInterface = new MInterface
+            {
+                InterfaceId = Convert.ToInt32(id)
+            };
+
+            Session objSession = new Session()
+            {
+                UserId = AutenticationManager.GetUser().IdUsuario,
+            };
+
+            objResult = new WebApiInterface().GetInterface(eInterface, objSession);
+
+
+            return View("Index", new SearchInterfaceViewModel() {
+                //InterfaceId = objResult.InterfaceId,
+                //Description = objResult.Description,
+                //InterfaceName = objResult.InterfaceName,
+                TypeId = objResult.TypeId,
+                Status = Convert.ToInt32(objResult.Status.ToString())
+            });
+        }
+
+
         [HttpPost]
         public JsonResult Search(SearchInterfaceViewModel model)
         {
@@ -256,6 +298,7 @@ namespace UNCDF.CMS.Controllers
                 ViewInterfaceControl.InterfaceId = objresult.InterfaceId;
                 ViewInterfaceControl.InterfaceName = objresult.InterfaceName;
                 ViewInterfaceControl.Type = (objresult.TypeId == 2) ? "Web" : "App";
+                ViewInterfaceControl.Status = (objresult.Status);
 
                 return View("InterfaceControls", ViewInterfaceControl);
             }

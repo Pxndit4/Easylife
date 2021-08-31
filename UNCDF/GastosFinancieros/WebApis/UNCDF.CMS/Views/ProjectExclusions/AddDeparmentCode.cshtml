@@ -30,16 +30,27 @@
         @Html.HiddenFor(m => m.CheckDeparmentCode)
         <div class="form-group">
             <div class="row">
+                @*<div class="col-sm-2">
+                    @Html.LabelFor(m => m.DeparmentCode)
+                    @Html.TextBoxFor(m => m.DeparmentCode, new { @class = "form-control", maxlength = 10, id = "txtDeparmentCode" })
+                    
+                </div>*@
                 <div class="col-sm-4">
                     @Html.LabelFor(m => m.Description)
                     <div class="input-group">
-                        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", maxlength = 200 })
+                        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", maxlength = 200, id = "txtDescription" })
                         <a id="btnSearchDep" class="btn btn-default input-group-addon">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
                         </a>
                     </div>
                 </div>
-                
+                <div class="col-sm-1">
+                    <a id="btnCleanExDep" class="btn btn-default" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>
+
+                </div>
+
             </div>
         </div>
         <div>
@@ -70,7 +81,13 @@
 
 <script type="text/javascript" language="javacript">
 
+    $("#btnCleanExDep").on("click", function (e) {
+        e.preventDefault();
+        $("#txtDescription").val("");
+        //$("#txtDeparmentCode").val("");
 
+        $("#btnSearchDep").click();
+    });
 
     function changeCheckProjectDep(e) {
         var checkboxValues = new Array();
@@ -150,6 +167,11 @@
             var x = checkboxValues.toString();
 
             $('#@Html.IdFor(m => m.CheckDeparmentCode)').val(x);
+
+            if ($("#@Html.IdFor(m => m.CheckDeparmentCode)").val()== '') {
+                unitlife.ui.validation.showMessage("Select a Deparment");
+                return false;
+            }
 
                 Confirmar(
                     '¿@Html.Raw(ViewBag.Confirm)?',

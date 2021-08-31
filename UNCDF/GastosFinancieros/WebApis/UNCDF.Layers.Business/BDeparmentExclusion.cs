@@ -23,9 +23,9 @@ namespace UNCDF.Layers.Business
             return DADeparmentExclusion.ListDeparmentCodeExcluded();
         }
 
-        public static List<MDeparment> FilDeparmentCodeExcluded()
+        public static List<MDeparment> FilDeparmentCodeExcluded(MDeparment ent,ref int Val)
         {
-            return DADeparmentExclusion.FilDeparmentCodeExcluded();
+            return DADeparmentExclusion.FilDeparmentCodeExcluded(ent, ref Val);
         }
     }
 }

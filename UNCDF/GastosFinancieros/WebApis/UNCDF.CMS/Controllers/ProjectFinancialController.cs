@@ -20,11 +20,27 @@ namespace UNCDF.CMS.Controllers
         // GET: ProjectFinancial
         public ActionResult Index()
         {
+            var years = Extension.GetYear().Select(x => new SelectListItem
+            {
+                Value = x.Value,
+                Text = x.Value
+            }).ToList();
+
+            ViewBag.year = years;
             return View();
         }
 
         public ActionResult IndexHistory()
         {
+
+            var years = Extension.GetYear().Select(x => new SelectListItem
+            {
+                Value = x.Value,
+                Text = x.Value
+            }).ToList();
+
+            ViewBag.year = years;
+
             return View();
         }
 

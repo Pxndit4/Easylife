@@ -42,7 +42,7 @@ namespace UNCDF.CMS.Controllers
 
                 if (!model.Description.Equals(""))
                 {
-                    entList = entList.Where(p => p.Description == model.Description).ToList();
+                    entList = entList.Where(p => p.Description.Contains(model.Description.Trim())).ToList();
                 }
 
                 objResult.data = entList;

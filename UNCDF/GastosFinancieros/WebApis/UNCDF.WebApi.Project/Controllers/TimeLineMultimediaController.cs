@@ -190,7 +190,8 @@ namespace UNCDF.WebApi.Project.Controllers
 
                 System.IO.File.WriteAllBytes(pathSave, File);
 
-                if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, TimeLineMultimediaPath, timeLineMultimedia.File.Replace("/", string.Empty)))
+                //if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, TimeLineMultimediaPath, timeLineMultimedia.File.Replace("/", string.Empty)))
+                if (!BAwsSDK.UploadS3(_MAwsS3, pathSave, TimeLineMultimediaPath, timeLineMultimedia.TimeLineMulId.ToString() + request.TimeLineMultimedia.FileExt))
                 {
                     response.Message = String.Format(Messages.ErrorLoadPhoto, "TimeLine Multimedia");
                 }

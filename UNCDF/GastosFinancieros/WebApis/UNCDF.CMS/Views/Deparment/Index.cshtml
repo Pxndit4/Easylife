@@ -1,13 +1,13 @@
 ﻿@model UNCDF.CMS.Models.DeparmentViewModel
 
 @{
-    ViewBag.Title = "Donors";
+    ViewBag.Title = "Departments";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="ui-bar ui-bar-default">
     <span class="ui-title">
-        Donors
+        Departments
     </span>
 
     <div class="ui-btn-content">
@@ -35,18 +35,24 @@
                     @*@Html.HiddenFor(m => m.ProjectId)*@
                     <div class="col-md-1">
                         @Html.LabelFor(m => m.DeparmentCode)
-                        @Html.TextBoxFor(m => m.DeparmentCode, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.DeparmentCode, new { @class = "form-control", id = "txtDeparmentCode" })
                     </div>
                     <div class="col-md-10">
 
                         @Html.LabelFor(m => m.Description)
                         <div class="input-group">
-                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.Description, new { @class = "form-control", id = "txtDescription" })
 
                             <a id="btnSearch" class="btn btn-default input-group-addon">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
                             </a>
                         </div>
+                    </div>
+                    <div class="col-md-1">
+                        <a id="btnClean" class="btn btn-default" style="margin-top:22px;">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -77,6 +83,12 @@
 </div>
 
 <script type="text/javascript" language="javacript">
+    $("#btnClean").on("click", function (e) {
+        e.preventDefault();
+        $("#txtDeparmentCode").val("");
+        $("#txtDescription").val("");
+        $("#btnSearch").click();
+    });
     var objIndex={
         initial: function () {
 

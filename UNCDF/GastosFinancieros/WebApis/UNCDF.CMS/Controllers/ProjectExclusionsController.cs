@@ -219,9 +219,9 @@ namespace UNCDF.CMS.Controllers
                 List<MDeparment> entList = new List<MDeparment>();
                 MDeparment proj = new MDeparment();
                
-                //proj.Description = model.Description;
-                //proj.DeparmentCode = model.DeparmentCode;
-
+                proj.Description = Extension.ToEmpty(model.Description);
+                proj.DeparmentCode =  Extension.ToEmpty(model.DeparmentCode);
+                //proj.DeparmentCode = proj.DeparmentCode.Substring(1);
                 entList = new WebApiDeparment().FilDeparmentExclusion(proj);
 
                 objResult.data = entList.Select(x => new MDeparment

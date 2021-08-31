@@ -282,7 +282,7 @@ namespace UNCDF.WebApi.Project.Controllers
 
         [HttpPost]
         [Route("0/FilDeparmentCodeExcluded")]
-        public DeparmentsResponse FilDeparmentCodeExcluded([FromBody] BaseRequest request)
+        public DeparmentsResponse FilDeparmentCodeExcluded([FromBody] DeparmentRequest request)
         {
             DeparmentsResponse response = new DeparmentsResponse();
 
@@ -295,7 +295,12 @@ namespace UNCDF.WebApi.Project.Controllers
                     return response;
                 }
 
-                List<MDeparment> deparments = BDeparmentExclusion.FilDeparmentCodeExcluded();
+                MDeparment ent = new MDeparment();
+                ent.DeparmentCode = request.Deparment.DeparmentCode;
+                ent.Description = request.Deparment.Description;
+                int Val = 0;
+
+                List<MDeparment> deparments = BDeparmentExclusion.FilDeparmentCodeExcluded(ent, ref Val);
 
                 response.Deparments = deparments.ToArray();
                 response.Code = "0";

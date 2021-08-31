@@ -25,6 +25,7 @@ namespace UNCDF.CMS.Models
         public string DescriptionControl { get; set; }
 
         public string Type { get; set; }
+        public string Status { get; set; }
 
         public ResultSearchInterfaceControlViewModel interfaceControls { get; set; }
     }

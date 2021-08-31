@@ -131,6 +131,19 @@ namespace UNCDF.CMS
             return lisQuery;
         }
 
+        public static List<MStatic> GetYear()
+        {
+            List<MStatic> lisQuery = new List<MStatic>();
+            for (int i = 1960; i <= 2100; i++)
+            {
+                MStatic entRow = new MStatic();
+                entRow.Id = i.ToString();
+                entRow.Value = i.ToString();
+                lisQuery.Add(entRow);
+            }
+
+            return lisQuery;
+        }
 
         public static List<MStatic> GetTypeDonation()
         {
