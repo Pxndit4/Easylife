@@ -9,6 +9,34 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DAProfile
     {
+        public static int ValidateUserPM(MUser ent)
+        {            
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                int val = 0;
+
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProjectManager_Validate", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IUserId", SqlDbType.Int).Value = ent.UserId;
+                    cmd.Parameters.Add("@OResult", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    val = Convert.ToInt32(cmd.Parameters["@OResult"].Value);
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    val = 2;
+                }
+
+                return val;
+            }
+        }
+
         public static List<MProfile> LisByUser(MProfile ent, ref int Val)
         {
             List<MProfile> lisQuery = new List<MProfile>();

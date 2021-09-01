@@ -8,7 +8,40 @@ using UNCDF.Layers.Model;
 namespace UNCDF.Layers.Business
 {
     public class BTimeLine
-    {
+    {        
+        public static int Approved(int TimeLineId, int OngUserId)
+        {
+            MTimeLine ent = new MTimeLine();
+            ent.TimeLineId = TimeLineId;
+
+            try
+            {
+
+                return DATimeLine.Approved(ent);
+            }
+            catch (Exception)
+            {
+
+                return 2;
+            }
+
+        }
+
+        public static int UnApproved(MTimeLine ent)
+        {
+            try
+            {
+
+                return DATimeLine.UnApproved(ent);
+            }
+            catch (Exception)
+            {
+
+                return 2;
+            }
+        }
+
+
         public static List<MTimeLine> List(MProject ent, BaseRequest baseRequest, ref int Val, ref string Error)
         {
             return DATimeLine.List(ent, baseRequest, ref Val, ref Error);

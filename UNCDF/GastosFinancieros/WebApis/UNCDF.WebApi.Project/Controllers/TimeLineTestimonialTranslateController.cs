@@ -20,7 +20,19 @@ namespace UNCDF.WebApi.Project.Controllers
     [EnableCors("_corsPolicy")]
     public class TimeLineTestimonialTranslateController : Controller
     {
+        private readonly IWebHostEnvironment _env;
+        private readonly IOptions<AppSettings> _appSettings;
+        private readonly MAwsEmail _MAwsEmail;
+        private readonly MAwsS3 _MAwsS3;
 
+
+        public TimeLineTestimonialTranslateController(IWebHostEnvironment env, IOptions<AppSettings> appSettings, IOptions<MAwsEmail> MAwsEmail, IOptions<MAwsS3> MAwsS3)
+        {
+            _env = env;
+            _appSettings = appSettings;
+            _MAwsEmail = MAwsEmail.Value;
+            _MAwsS3 = MAwsS3.Value;
+        }
         // POST api/values
         [HttpPost]
         [Route("0/GetTimeLineTestimonialTranslates")]
@@ -159,7 +171,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 MTimeLineTestimonial testimonialEnt = new MTimeLineTestimonial();
                 testimonialEnt = BTimeLineTestimonial.Select(testimonialEnt, ref Val);
 
-                
+                Val = BUtilities.UnApproved(testimonialEnt.TimeLineId, request.Session.UserId, _MAwsEmail);
+
                 if (Val.Equals(0))
                 {
                     response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
@@ -222,6 +235,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 MTimeLineTestimonial testimonialEnt = new MTimeLineTestimonial();
                 testimonialEnt = BTimeLineTestimonial.Select(testimonialEnt, ref Val);
 
+                Val = BUtilities.UnApproved(testimonialEnt.TimeLineId, request.Session.UserId, _MAwsEmail);
+
                 if (Val.Equals(0))
                 {
                     response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
@@ -230,7 +245,7 @@ namespace UNCDF.WebApi.Project.Controllers
                 else if (Val.Equals(2))
                 {
                     response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
-                    response.Message = String.Format(Messages.ErrorUpdate, "TimeLine Testimonial Translate");
+                    response.Message = String.Format(Messages.ErrorInsert, "TimeLine Testimonial Translate");
                 }
             }
             else if (Val.Equals(2))

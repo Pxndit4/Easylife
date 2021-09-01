@@ -9,6 +9,82 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DUser
     {
+        public static List<MUser> ListProjectUser(int TimeLineId, ref int Val)
+        {
+            List<MUser> lisQuery = new List<MUser>();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_User_LisProjectUser", con);
+                    cmd.Parameters.Add("@ITimelineId", SqlDbType.VarChar).Value = TimeLineId;
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MUser entRow = new MUser();
+                            entRow.User = Convert.ToString(reader["Email"]);
+                            entRow.Name = Convert.ToString(reader["Name"]);
+                            lisQuery.Add(entRow);
+
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+
+        public static List<MUser> LisApproved(ref int Val)
+        {
+            List<MUser> lisQuery = new List<MUser>();
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_User_LisApproved", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MUser entRow = new MUser();
+                            entRow.UserId = Convert.ToInt32(reader["UserId"]);
+                            entRow.User = Convert.ToString(reader["User"]);
+                            entRow.Name = Convert.ToString(reader["Name"]);
+                            lisQuery.Add(entRow);
+
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                }
+            }
+            return lisQuery;
+        }
+
         public static int Insert(MUser ent, ref int Val)
         {
             using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))

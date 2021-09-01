@@ -20,7 +20,19 @@ namespace UNCDF.WebApi.Project.Controllers
     [EnableCors("_corsPolicy")]
     public class TimeLineTranslateController : Controller
     {
+        private readonly IWebHostEnvironment _env;
+        private readonly IOptions<AppSettings> _appSettings;
+        private readonly MAwsEmail _MAwsEmail;
+        private readonly MAwsS3 _MAwsS3;
 
+
+        public TimeLineTranslateController(IWebHostEnvironment env, IOptions<AppSettings> appSettings, IOptions<MAwsEmail> MAwsEmail, IOptions<MAwsS3> MAwsS3)
+        {
+            _env = env;
+            _appSettings = appSettings;
+            _MAwsEmail = MAwsEmail.Value;
+            _MAwsS3 = MAwsS3.Value;
+        }
         // POST api/values
         [HttpPost]
         [Route("0/GetTimeLineTranslates")]
@@ -156,6 +168,19 @@ namespace UNCDF.WebApi.Project.Controllers
 
                 response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                 response.Message = Messages.Success;
+
+                Val = BUtilities.UnApproved(MTimeLineTranslate.TimeLineId, request.Session.UserId, _MAwsEmail);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorInsert, "TimeLine Translate");
+                }
             }
             else if (Val.Equals(2))
             {
@@ -205,6 +230,18 @@ namespace UNCDF.WebApi.Project.Controllers
                 response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                 response.Message = Messages.Success;
 
+                Val = BUtilities.UnApproved(MTimeLineTranslate.TimeLineId, request.Session.UserId, _MAwsEmail);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorInsert, "TimeLine Translate");
+                }
             }
             else if (Val.Equals(2))
             {
