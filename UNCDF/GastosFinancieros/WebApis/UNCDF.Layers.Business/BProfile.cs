@@ -8,6 +8,8 @@ namespace UNCDF.Layers.Business
 {
     public class BProfile
     {
+        
+
         public static List<MProfile> LisByUser(MProfile ent, ref int Val)
         {
             return DAProfile.LisByUser(ent, ref Val);
@@ -16,6 +18,11 @@ namespace UNCDF.Layers.Business
         public static List<MProfile> Lis(MProfile ent, ref int Val)
         {
             return DAProfile.Lis(ent, ref Val);
+        }
+
+        public static int ValidateUserPM(MUser ent)
+        {
+            return DAProfile.ValidateUserPM(ent);
         }
 
         public static int Insert(MProfile ent, List<MProfileOptions> entOpcs, ref int ProfileId)

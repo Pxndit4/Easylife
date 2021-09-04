@@ -108,6 +108,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                 response.Message = Messages.Success;
 
+                Val = BUtilities.UnApproved(timeLineMultimedia.TimeLineId, request.Session.UserId, _MAwsEmail);
+
                 if (Val.Equals(0))
                 {
                     response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
@@ -208,6 +210,8 @@ namespace UNCDF.WebApi.Project.Controllers
                 response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                 response.Message = Messages.Success;
 
+                Val = BUtilities.UnApproved(timeLineMultimedia.TimeLineId, request.Session.UserId, _MAwsEmail);
+
                 if (Val.Equals(0))
                 {
                     response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
@@ -216,7 +220,7 @@ namespace UNCDF.WebApi.Project.Controllers
                 else if (Val.Equals(2))
                 {
                     response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
-                    response.Message = String.Format(Messages.ErrorUpdate, "TimeLine Multimedia");
+                    response.Message = String.Format(Messages.ErrorInsert, "TimeLine Multimedia");
                 }
             }
             else if (Val.Equals(2))

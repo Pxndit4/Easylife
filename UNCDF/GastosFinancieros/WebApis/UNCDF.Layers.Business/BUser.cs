@@ -23,6 +23,16 @@ namespace UNCDF.Layers.Business
             return DUser.Lis(ent, ref Val);
         }
 
+        public static List<MUser> LisApproved(ref int Val)
+        {
+            return DUser.LisApproved(ref Val);
+        }
+
+        public static List<MUser> ListProjectUser(int TimeLineId, ref int Val)
+        {
+            return DUser.ListProjectUser(TimeLineId, ref Val);
+        }
+
         public static int ChangePassword(MUser ent, ref int Val)
         {
             return DUser.ChangePassword(ent, ref Val);

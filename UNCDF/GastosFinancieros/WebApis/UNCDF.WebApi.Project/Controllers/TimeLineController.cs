@@ -19,6 +19,16 @@ namespace UNCDF.WebApi.Project.Controllers
     [EnableCors("_corsPolicy")]
     public class TimeLineController : Controller
     {
+        private readonly IOptions<AppSettings> _appSettings;
+        private readonly MAwsEmail _MAwsEmail;
+        private readonly MAwsS3 _MAwsS3;
+
+        public TimeLineController(IOptions<AppSettings> appSettings, IOptions<MAwsEmail> MAwsEmail, IOptions<MAwsS3> MAwsS3)
+        {
+            _appSettings = appSettings;
+            _MAwsEmail = MAwsEmail.Value;
+            _MAwsS3 = MAwsS3.Value;
+        }
 
         [HttpPost]
         [Route("0/GetTimeLine")]
@@ -106,14 +116,27 @@ namespace UNCDF.WebApi.Project.Controllers
             if (Val.Equals(0))
             {
                 //Record the audit
-                //Val = BAplication.RecordAudit("TimeLine", MTimeLine.TimeLineId, 1, baseRequest.Session.UserId);
+                Val = BAudit.RecordAudit("TimeLine", MTimeLine.TimeLineId, 1, baseRequest.Session.UserId);
 
                 response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                 response.Message = Messages.Success;
 
+                Val = BUtilities.UnApproved(MTimeLine.TimeLineId, request.Session.UserId, _MAwsEmail);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorInsert, "TimeLine");
+                }
+
             }
             else if (Val.Equals(2))
-            {
+            {   
                 response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                 response.Message = String.Format(Messages.ErrorInsert, "TimeLine");
             }
@@ -162,11 +185,23 @@ namespace UNCDF.WebApi.Project.Controllers
             if (Val.Equals(0))
             {
                 //Record the audit
-                //Val = BAplication.RecordAudit("TimeLine", MTimeLine.TimeLineId, 2, baseRequest.Session.UserId);
+                Val = BAudit.RecordAudit("TimeLine", MTimeLine.TimeLineId, 2, baseRequest.Session.UserId);
 
                 response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                 response.Message = Messages.Success;
 
+                Val = BUtilities.UnApproved(MTimeLine.TimeLineId, request.Session.UserId, _MAwsEmail);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorUpdate, "TimeLine");
+                }
             }
             else if (Val.Equals(2))
             {
@@ -212,7 +247,7 @@ namespace UNCDF.WebApi.Project.Controllers
             if (Val.Equals(0))
             {
                 //Record the audit
-                //Val = BAplication.RecordAudit("TimeLine", MTimeLine.TimeLineId, 3, baseRequest.Session.UserId);
+                Val = BAudit.RecordAudit("TimeLine", MTimeLine.TimeLineId, 3, baseRequest.Session.UserId);
 
                 response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
                 response.Message = Messages.Success;
@@ -383,8 +418,106 @@ namespace UNCDF.WebApi.Project.Controllers
             return response;
         }
 
-       
+        [HttpPost]
+        [Route("0/TimeLineApproved")]
+        public TimeLineResponse TimeLineApproved([FromBody] TimeLineRequest request)
+        {
+            TimeLineResponse response = new TimeLineResponse();
 
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
 
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            MTimeLine TimeLineBE = new MTimeLine();
+
+            TimeLineBE.TimeLineId = request.TimeLine.TimeLineId;
+
+            int Val = 0;
+
+            TimeLineBE.TimeLineId = BTimeLine.Approved(TimeLineBE.TimeLineId, request.Session.UserId);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorUpdate, "TimeLine");
+                }
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorUpdate, "TimeLine");
+            }
+
+            response.TimeLine = TimeLineBE;
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("0/TimeLineReject")]
+        public TimeLineResponse TimeLineReject([FromBody] TimeLineRequest request)
+        {
+            TimeLineResponse response = new TimeLineResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            MTimeLine TimeLineBE = new MTimeLine();
+
+            TimeLineBE.TimeLineId = request.TimeLine.TimeLineId;
+            TimeLineBE.ReasonReject = request.TimeLine.ReasonReject;
+
+            int Val = 0;
+
+            Val = BTimeLine.Reject(TimeLineBE, ref Val);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+
+                BUtilities.RejectMail(TimeLineBE.TimeLineId, BUser.ListProjectUser(TimeLineBE.TimeLineId, ref Val), TimeLineBE.ReasonReject, _MAwsEmail);
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorUpdate, "TimeLine");
+            }
+
+            response.TimeLine = TimeLineBE;
+
+            return response;
+        }
     }
 }
