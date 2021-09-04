@@ -3,7 +3,9 @@
     "",
     "\\UNCDF",
     "\\UNCDF\\GastosFinancieros",
-    "\\UNCDF\\GastosFinancieros\\WebApis"
+    "\\UNCDF\\GastosFinancieros\\WebApis",
+    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.CMS",
+    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.CMS\\Invoke"
   ],
   "SelectedNode": "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.sln",
   "PreviewInSolutionExplorer": false

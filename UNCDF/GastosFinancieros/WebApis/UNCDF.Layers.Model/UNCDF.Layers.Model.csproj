@@ -74,6 +74,7 @@
     <Compile Include="MTimeLineTestimonialTranslate.cs" />
     <Compile Include="MTimeLineTranslate.cs" />
     <Compile Include="MUser.cs" />
+    <Compile Include="MUserProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MProject.cs" />
     <Compile Include="MDonorPartner.cs" />
