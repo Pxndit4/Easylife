@@ -260,7 +260,6 @@ E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\System.
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\UNCDF.Layers.Model.dll
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\WebGrease.dll
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\UNCDF.Layers.Model.pdb
-E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\DocumentFormat.OpenXml.xml
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\EPPlus.xml
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\Microsoft.IO.RecyclableMemoryStream.xml
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.CMS\bin\System.Web.Helpers.xml

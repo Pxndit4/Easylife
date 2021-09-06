@@ -162,6 +162,7 @@
     <Compile Include="Controllers\TimeLineTestimonialTranslateController.cs" />
     <Compile Include="Controllers\TimeLineTranslateController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserProjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +191,7 @@
     <Compile Include="Invoke\WebApiTimeLineTestimonialTranslate.cs" />
     <Compile Include="Invoke\WebApiTimeLineTranslate.cs" />
     <Compile Include="Invoke\WebApiUser.cs" />
+    <Compile Include="Invoke\WebApiUserProject.cs" />
     <Compile Include="MessageResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -220,6 +222,7 @@
     <Compile Include="Models\TimeLineTestimonialViewModel.cs" />
     <Compile Include="Models\TimeLineTranslateViewModel.cs" />
     <Compile Include="Models\TimeLineViewModel.cs" />
+    <Compile Include="Models\UserProjectViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AutenticationManager.cs" />
@@ -352,6 +355,8 @@
     <Content Include="Views\GenderTranslate\Register.cshtml" />
     <Content Include="Views\Parameter\Index.cshtml" />
     <Content Include="Views\Parameter\Register.cshtml" />
+    <Content Include="Views\UserProject\Index.cshtml" />
+    <Content Include="Views\UserProject\AddProjectsUsser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

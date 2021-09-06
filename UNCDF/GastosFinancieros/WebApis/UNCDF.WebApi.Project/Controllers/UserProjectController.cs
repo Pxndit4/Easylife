@@ -19,10 +19,119 @@ namespace UNCDF.WebApi.Project.Controllers
     [EnableCors("_corsPolicy")]
     public class UserProjectController : Controller
     {
+        [HttpPost]
+        [Route("0/GetUserProjectList")]
+        public UserProjectsResponse GetUserProjectList([FromBody] UserProjectRequest request)
+        {
+            UserProjectsResponse response = new UserProjectsResponse();
+            MUserProject profile = new MUserProject();
+            List<MUserProject> profiles = new List<MUserProject>();
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+                
+                profile.User = request.UserProject.User;
+                profile.Name = request.UserProject.Name;
+
+                int Val = 0;
+
+                profiles = BUserProject.List(profile, ref Val);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorObtainingReults, "Users UnAssigned");
+                }
+                else
+                {
+                    response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.NotReults, "Users UnAssigned");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }
+
+            response.UserProjects = profiles.ToArray();
+
+            return response;
+        }
 
         [HttpPost]
-        [Route("0/RegisterUsersProfile")]
-        public UserProjectResponse RegisterUsersProfile([FromBody] UserProjectRequest request)
+        [Route("0/GetAssignedList")]
+        public UserProjectsResponse GetAssignedList([FromBody] UserProjectRequest request)
+        {
+            UserProjectsResponse response = new UserProjectsResponse();
+            MUserProject profile = new MUserProject();
+            List<MUserProject> profiles = new List<MUserProject>();
+            BaseRequest baseRequest = new BaseRequest();
+
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+
+
+                profile.UserId = request.UserProject.UserId;
+                
+                int Val = 0;
+
+                profiles = BUserProject.ListAssigned(profile, ref Val);
+
+                if (Val.Equals(0))
+                {
+                    response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = Messages.Success;
+                }
+                else if (Val.Equals(2))
+                {
+                    response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.ErrorObtainingReults, "Users UnAssigned");
+                }
+                else
+                {
+                    response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                    response.Message = String.Format(Messages.NotReults, "Users UnAssigned");
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = ex.Message;
+            }
+
+            response.UserProjects = profiles.ToArray();
+
+            return response;
+        }
+
+
+        [HttpPost]
+        [Route("0/RegisterUserProject")]
+        public UserProjectResponse RegisterUserProject([FromBody] UserProjectRequest request)
         {
             UserProjectResponse response = new UserProjectResponse();
             MUserProject profile = new MUserProject();
