@@ -406,6 +406,98 @@ namespace UNCDF.Layers.DataAccess
             return lisQuery;
         }
 
+        public static List<MProject> ListGroupbyCountry(MProject ent)
+        {
+            List<MProject> lisQuery = new List<MProject>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_Lis_GroupByCountry", con);
+                    cmd.CommandTimeout = 0;                    
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProject entRow = new MProject();
+                            entRow.CountryId = Convert.ToInt32(reader["CountryId"]);
+                            entRow.Quantity = Convert.ToInt32(reader["Quanty"]);                           
+                            entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);                       
+                            entRow.Longitude = Convert.ToString(reader["Longitude"]);
+                            entRow.Latitude = Convert.ToString(reader["Latitude"]);                            
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    lisQuery = new List<MProject>();
+                }
+            }
+            return lisQuery;
+        }
+
+        public static List<MProject> ListbyCountry(MProject ent)
+        {
+            List<MProject> lisQuery = new List<MProject>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_Lis_FilterByCountry", con);
+                    cmd.CommandTimeout = 0;
+                   
+                    cmd.Parameters.Add("@ICountryId", SqlDbType.VarChar).Value = ent.CountryId;
+                   
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProject entRow = new MProject();
+                            entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                            entRow.Department = Convert.ToString(reader["DeparmentCode"]);
+                            entRow.Title = Convert.ToString(reader["Title"]);
+                            entRow.Description = Convert.ToString(reader["Projectdetails"]);
+                            entRow.Image = (Convert.ToString(reader["Image"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Image"]);
+                            entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
+
+                            entRow.Donation = Convert.ToBoolean(reader["Donation"]);
+
+                            entRow.Longitude = Convert.ToString(reader["Longitude"]);
+                            entRow.Latitude = Convert.ToString(reader["Latitude"]);
+
+                            entRow.StartDateStr = Convert.ToString(reader["StartDate"]);
+                            entRow.EndDateStr = Convert.ToString(reader["EndDate"]);
+                            entRow.Advance = Convert.ToInt32(reader["Advance"]);
+
+                            entRow.TotalBudget = Convert.ToDecimal(reader["Budget"]);
+                            entRow.TotalExpenditure = Convert.ToDecimal(reader["Expenditure"]);
+
+                            lisQuery.Add(entRow);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    lisQuery = new List<MProject>();
+                }
+            }
+            return lisQuery;
+        }
+
         public static List<MProject> ListFilter(MProject ent)
         {
             List<MProject> lisQuery = new List<MProject>();

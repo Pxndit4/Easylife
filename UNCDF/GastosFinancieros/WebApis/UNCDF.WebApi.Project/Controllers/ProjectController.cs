@@ -433,7 +433,72 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
         }
 
+        [HttpPost]
+        [Route("0/GetProjectsGroupByCountry")]
+        public ProjectsResponse GetProjectsGroupByCountry([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
 
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                MProject ent = new MProject();            
+
+                List<MProject> projects = BProject.ListGroupbyCountry(ent);
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.Projects = projects.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
+        [HttpPost]
+        [Route("0/GetProjectsByCountry")]
+        public ProjectsResponse GetProjectsByCountry([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                MProject ent = new MProject();
+                ent.CountryId = request.Project.CountryId;
+
+                List<MProject> projects = BProject.ListbyCountry(ent);
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.Projects = projects.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
 
         [HttpPost]
         [Route("0/GetProjectsCodeExclusions")]
