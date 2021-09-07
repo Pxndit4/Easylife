@@ -60,4 +60,42 @@ namespace UNCDF.CMS.Models
         
     }
 
+    public class ProjectAddViewModel
+    {
+        public int ProjectId { get; set; }       
+        
+        [Display(Name = "Project Code")]
+        public string ProjectCode { get; set; }
+        public string Title { get; set; }
+        [Display(Name = "Start Date")]
+        public string StartDate { get; set; }
+        [Display(Name = "End Date")]
+        public string EndDate { get; set; }
+
+        public string Filter { get; set; }
+
+        public int UserId { get; set; }
+
+        [Display(Name = "Effective Status")]
+        public string EffectiveStatus { get; set; }        
+        public ResultSearchProjectAddViewModel Result { get; set; }
+
+        //[Display(Name = "")]
+        //public List<ResultSearchProjectsViewModel> resultExc { get; set; }
+    }
+
+    public class ResultSearchProjectAddViewModel
+    {
+       
+        public int UserId { get; set; }
+        public int ProjectId { get; set; }
+        
+        
+        public string ProjectCode { get; set; }
+        
+        public string Title { get; set; }              
+    }
+
+
+
 }

@@ -26,5 +26,13 @@ namespace UNCDF.Layers.Business
         {
             return DAUserProject.ListAssigned(ent, ref Val);
         }
+
+        public static List<MProject> NotAssignedList(MProject ent)
+        {
+            return DAUserProject.NotAssignedList(ent );
+        }
+
+        
+
     }
 }

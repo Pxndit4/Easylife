@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using UNCDF.Layers.Model;
 using UNCDF.CMS.Models;
-
+using System.Globalization;
 
 namespace UNCDF.CMS.Controllers
 {
@@ -120,40 +120,128 @@ namespace UNCDF.CMS.Controllers
 
         public ActionResult SearchUserProjectAdd(string id)
         {
-            SearchUserProfileViewModel ViewPerfilUsuario = new SearchUserProfileViewModel();
-            ViewPerfilUsuario.ProfileId = (id.ToInt32());
-            return View("SearchUserProfile", ViewPerfilUsuario);
+            ProjectAddViewModel ViewPerfilUsuario = new ProjectAddViewModel();
+            ViewPerfilUsuario.UserId = (id.ToInt32());
+            return View("SearchProjectAdd", ViewPerfilUsuario);
         }
 
-        //[HttpPost]
-        //public JsonResult SearchUserProfile(SearchUserProfileViewModel model)
-        //{
-        //    JSonResult objResult = new JSonResult();
-        //    //BE.EPerfilUsuarios objEntParam;
-        //    try
-        //    {
-        //        BE.MProfileUser MProfile = new BE.MProfileUser();
 
-        //        MProfile.ProfileId = model.ProfileId;
-        //        MProfile.User = Extension.ToEmpty(model.User);
-        //        MProfile.Name = Extension.ToEmpty(model.Name);
+        [HttpPost]
+        public JsonResult SearchProjectAdd(ProjectAddViewModel model)
+        {
+            JSonResult objResult = new JSonResult();
+            try
+            {
+                List<MProject> entList = new List<MProject>();
+                MProject proj = new MProject();
+                proj.UserId = model.UserId;
+                
+                proj.StartDate = 0;
+                proj.EndDate = 0;
+                proj.Title = Extension.ToEmpty(model.Title);
+                proj.EffectiveStatus = "-1";// String.Empty;//Extension.ToEmpty(model.EffectiveStatus);
+                proj.ProjectCode = Extension.ToEmpty(model.ProjectCode);
+                //proj.EffectiveStatus = "";
 
-        //        objResult.data = new WebApiProfile().GetUsersUnAssigned(MProfile).Select(x => new ResultSearchUserProfileViewModelViewModel
-        //        {
-        //            ProfileId = model.ProfileId,
-        //            UserId = x.UserId,
-        //            User = x.User,
-        //            Name = x.Name
-        //        }).ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        objResult.data = null;
-        //        objResult.isError = true;
-        //        objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Users");
-        //    }
-        //    return Json(objResult);
-        //}
+                entList = new WebApiUserProject().GetProjectNotAssignedList(proj);
+
+                objResult.data = entList.Select(x => new MProject
+                {
+                    UserId = model.UserId,
+                    ProjectId = x.ProjectId,
+                    ProjectCode = x.ProjectCode,
+                    Title = x.Title
+                }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Project");
+            }
+
+            return Json(objResult);
+        }
+
+        [HttpPost]
+        public ActionResult RegisterUserProject(string ProjectId, string UserId)
+        {
+            //BE.ERetorno objDbResult = null;
+            JSonResult objResult = new JSonResult();
+            try
+            {
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                MUserProject MProfileUsers = new MUserProject();
+
+                MProfileUsers.ProjectId = ProjectId.ToInt32();
+                MProfileUsers.UserId = UserId.ToInt32();
+
+                string response = string.Empty;
+
+
+                response = new WebApiUserProject().RegisterUserProject(MProfileUsers, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                string MessageResul = string.Format(MessageResource.SaveSuccess, "User Project");
+
+                objResult.isError = statusCode.Equals("2") ? true : false;
+                objResult.message = statusCode.Equals("2") ? statusMessage : MessageResul;
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = MessageResource.ControllerDeleteExceptionMessage;
+            }
+            return Json(objResult);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteProject(string ProjectId, string UserId)
+        {
+            //BE.ERetorno objDbResult = null;
+            JSonResult objResult = new JSonResult();
+            try
+            {
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                MUserProject MProfileUsers = new MUserProject();
+
+                MProfileUsers.ProjectId = ProjectId.ToInt32();
+                MProfileUsers.UserId = UserId.ToInt32();
+
+                string response = string.Empty;
+
+                response = new WebApiUserProject().DeleteUserProject(MProfileUsers, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                string MessageResul = string.Format(MessageResource.SaveSuccess, "User Project");
+
+                objResult.isError = statusCode.Equals("2") ? true : false;
+                objResult.message = statusCode.Equals("2") ? statusMessage : MessageResul;
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = MessageResource.ControllerDeleteExceptionMessage;
+            }
+            return Json(objResult);
+        }
+
 
     }
 }

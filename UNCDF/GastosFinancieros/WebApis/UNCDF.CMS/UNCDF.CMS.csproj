@@ -357,6 +357,7 @@
     <Content Include="Views\Parameter\Register.cshtml" />
     <Content Include="Views\UserProject\Index.cshtml" />
     <Content Include="Views\UserProject\AddProjectsUsser.cshtml" />
+    <Content Include="Views\UserProject\SearchProjectAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

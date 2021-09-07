@@ -75,6 +75,45 @@ namespace UNCDF.WebApi.Project.Controllers
         }
 
         [HttpPost]
+        [Route("0/GetUserProjectNotAssignedList")]
+        public ProjectsResponse GetUserProjectNotAssignedList([FromBody] ProjectRequest request)
+        {
+            ProjectsResponse response = new ProjectsResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+
+                MProject project = new MProject();
+                project.UserId = request.Project.UserId;
+                project.EffectiveStatus = request.Project.EffectiveStatus;
+                project.ProjectCode = request.Project.ProjectCode;
+                project.Title = request.Project.Title;
+                project.StartDate = request.Project.StartDate;
+                project.EndDate = request.Project.EndDate;
+
+                List<MProject> projects = BUserProject.NotAssignedList(project);
+
+                response.Code = "0";
+                response.Message = "Success";
+                response.Projects = projects.ToArray();
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
+
+
+        [HttpPost]
         [Route("0/GetAssignedList")]
         public UserProjectsResponse GetAssignedList([FromBody] UserProjectRequest request)
         {
@@ -228,5 +267,6 @@ namespace UNCDF.WebApi.Project.Controllers
             return response;
         }
 
+        
     }
 }

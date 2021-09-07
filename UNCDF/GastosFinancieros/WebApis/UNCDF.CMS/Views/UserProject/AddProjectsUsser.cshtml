@@ -103,8 +103,8 @@
                     Confirmar(
                         '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Project"))?',
                         function () {
-                            _grid.invoqCommand('@Url.Action("DeleteUser", "Profile", null)', { ProfileId: row.ProfileId, UserId: row.UserId }, objNuevoAsignarProject.grid.rebind);
-                            _grid.load("@Url.Action("ListUsers", "Profile")", "#frmSearch");
+                            _grid.invoqCommand('@Url.Action("DeleteProject", "UserProject", null)', { ProjectId: row.ProjectId, UserId: row.UserId }, objNuevoAsignarProject.grid.rebind);
+                            _grid.load("@Url.Action("ListProjects", "UserProject")", "#frmSearch");
                         },
                         null
                     );

@@ -20,6 +20,11 @@ namespace UNCDF.CMS.Models
         [Display(Name = "End Date")]
         public string EndDate { get; set; }
 
+        public string Filter { get; set; }
+
+        public int UserId { get; set; }
+
+
         [Display(Name = "Effective Status")]
         public string EffectiveStatus { get; set; }
         public string CheckProjectCode { get; set; }

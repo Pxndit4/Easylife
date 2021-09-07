@@ -38,3 +38,4 @@ E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\bin\Debug\UNCDF
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\bin\Debug\UNCDF.pdb
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\UNCDF.dll
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\UNCDF.pdb
+E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\UNCDF.sqlprojAssemblyReference.cache

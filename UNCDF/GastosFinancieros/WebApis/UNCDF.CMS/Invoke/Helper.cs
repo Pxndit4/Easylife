@@ -18,31 +18,31 @@ namespace UNCDF.CMS
 
             string responseBody = "";
 
-            //if (path.Contains("security"))
-            //{
-            //    path = path.Replace("security/", "");
-            //    requestURL = ConfigurationManager.AppSettings["URLServicesSecurity"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-            //}
+            if (path.Contains("security"))
+            {
+                path = path.Replace("security/", "");
+                requestURL = ConfigurationManager.AppSettings["URLServicesSecurity"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            }
 
 
-            //if (path.Contains("Project"))
-            //{
-            //    path = path.Replace("Project/", "");
-            //    requestURL = ConfigurationManager.AppSettings["URLServicesproject"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-            //}
+            if (path.Contains("Project"))
+            {
+                path = path.Replace("Project/", "");
+                requestURL = ConfigurationManager.AppSettings["URLServicesproject"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            }
 
-            //if (path.Contains("appconfig/"))
-            //{
-            //    path = path.Replace("appconfig/", "");
-            //    requestURL = ConfigurationManager.AppSettings["URLServicesconfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-            //}
+            if (path.Contains("appconfig/"))
+            {
+                path = path.Replace("appconfig/", "");
+                requestURL = ConfigurationManager.AppSettings["URLServicesconfig"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            }
 
 
-            //if (path.Contains("donation/"))
-            //{
-            //    path = path.Replace("donation/", "");
-            //    requestURL = ConfigurationManager.AppSettings["URLServicesDonati"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
-            //}
+            if (path.Contains("donation/"))
+            {
+                path = path.Replace("donation/", "");
+                requestURL = ConfigurationManager.AppSettings["URLServicesDonati"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
+            }
 
             HttpWebRequest request = WebRequest.Create(requestURL) as HttpWebRequest;
             

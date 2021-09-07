@@ -1,0 +1,114 @@
+﻿@model UNCDF.CMS.Models.ProjectAddViewModel
+
+@{
+    ViewBag.Title = "Search Project";
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+<div class="ui-container  ui-jumb">
+    @using (Html.BeginForm("SearchProjectAdd", "UserProject", FormMethod.Post, new { @class = "ui-form", id = "frmSearchProU" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Filter)
+        @Html.HiddenFor(m => m.UserId)
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.ProjectCode)
+                    @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control input-sm", id = "txtProjectCode" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Title)
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control input-sm", id = "txtTitle" })
+                        <a id="btnSearch" href="#" class="btn btn-default input-group-addon">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a id="btnClean2" class="btn btn-default form-control input-sm" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="ui-container">
+    <span class="title">Result</span>
+    <table id="tbListBuscador" data-height="250" data-toggle="table">
+        <thead>
+            <tr>
+                <th data-visible="false" data-field="@Html.HtmlIdNameFor(x => x.Result.UserId)">@Html.DisplayNameFor(x => x.Result.UserId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.ProjectId)" data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.add" data-events="objBuscador.grid.rowCommand"></th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.ProjectCode)">@Html.DisplayNameFor(x => x.Result.ProjectCode)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.Title)">@Html.DisplayNameFor(x => x.Result.Title)</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/javascript" language="javacript">
+
+    $("#btnClean2").on("click", function (e) {
+        e.preventDefault();
+        $("#txtProjectCode").val("");
+        $("#txtTitle").val("");
+        $("#frmSearchProU #btnSearch").click();
+    });
+
+    var objBuscador = {
+        initial: function () {
+            var _grid = unitlife.ui.grid("#tbListBuscador");
+
+            $("#frmSearchProU #btnSearch").on("click", function (e) {
+                e.preventDefault();
+                var da = unitlife.site.dialog.getTargetValue();
+
+                da = da.replace('[', '').replace(']', '');
+                $('#@Html.IdFor(m => m.Filter)').val(da);
+
+                @*_grid.load('@Url.Action("BuscardorPerfilUsuario", "Perfiles", null)', { Codigo: row.Codigo, Usuario: row.Usuario, idPerfil: row.IdPerfil }, objBuscador.grid.rebind);*@
+                _grid.load('@Url.Action("SearchProjectAdd", "UserProject", null)', '#frmSearchProU');
+                return false;
+            });
+
+            _grid.gridElement().bootstrapTable({
+                cache: false,
+                search: false,
+                pagination: false
+            });
+        },
+        grid: {
+            rebind: function (e) {
+                var _grid = unitlife.ui.grid("#tbListBuscador")
+                if (e && e.isError == true)
+                    return;
+                _grid.load("@Url.Action("SearchProjectAdd", "UserProject")", "#frmSearchProU");
+            },
+            rowCommand: {
+                'click #add': function (e, value, row) {
+                    var _grid = unitlife.ui.grid("#tbListBuscador");
+                    e.preventDefault();
+                    _grid.invoqCommand('@Url.Action("RegisterUserProject", "UserProject", null)', { ProjectId: row.ProjectId, UserId: row.UserId }, objBuscador.grid.rebind);
+                    _grid.load("@Url.Action("SearchProjectAdd", "UserProject")", "#frmSearchProU");
+                    @*_grid.load('@Url.Action("BuscardorPerfilUsuario", "Perfiles", {idusuario= row.Idperfil, })', '#frmSearchProU');*@
+                    unitlife.site.dialog.invoqResultCallback('BUSC_PROJECTUSER', row);
+                    var _gridUsuarios = unitlife.ui.grid("#tbList");
+                    _gridUsuarios.load("@Url.Action("ListProjects", "UserProject")", "#frmSearch");
+                    //unitlife.site.dialog.close();
+                    return false;
+                }
+            },
+        }
+    };
+
+
+    $(document).ready(function () {
+        objBuscador.initial();
+    });
+
+
+</script>

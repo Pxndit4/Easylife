@@ -117,6 +117,33 @@ namespace UNCDF.CMS
             return returnMsg;
         }
 
+        public List<MProject> GetProjectNotAssignedList(MProject eProject)
+        {
+            List<MProject> projects = new List<MProject>();
+            ProjectsRequest request = new ProjectsRequest();
+            ProjectsResponse response = new ProjectsResponse();
+
+            request.Project = eProject;
+
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/UserProject", "GetUserProjectNotAssignedList", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<ProjectsResponse>(bodyresponse);
+
+                if (response.Code.Equals("0"))
+                {
+                    projects = response.projects;
+                }
+            }
+
+            return projects;
+        }
+
 
     }
     public class UserProjectsResponse : BaseResponse
