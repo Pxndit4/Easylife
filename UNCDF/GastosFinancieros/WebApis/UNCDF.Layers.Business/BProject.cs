@@ -17,6 +17,16 @@ namespace UNCDF.Layers.Business
             return DAProject.GetFinancialsByYear(ent, ref Val);
         }
 
+        public static List<MProject> ListGroupbyCountry(MProject ent)
+        {
+            return DAProject.ListGroupbyCountry(ent);
+        }
+
+        public static List<MProject> ListbyCountry(MProject ent)
+        {
+            return DAProject.ListbyCountry(ent);
+        }
+
         public static List<String> YearLis(MProjectFinancials ent, ref int Val)
         {
             return DAProject.YearLis(ent, ref Val);

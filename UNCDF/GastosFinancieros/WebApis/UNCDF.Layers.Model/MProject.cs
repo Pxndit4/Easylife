@@ -65,6 +65,8 @@ namespace UNCDF.Layers.Model
 
         public string Latitude { get; set; }
         public string Longitude { get; set; }
+        public int CountryId { get; set; }
+        public int Quantity { get; set; }
 
         public int UserId { get; set; }
     }
