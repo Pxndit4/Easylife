@@ -51,6 +51,8 @@
     <Compile Include="MDonation.cs" />
     <Compile Include="MGender.cs" />
     <Compile Include="MGenderTranslate.cs" />
+    <Compile Include="MIntroduction.cs" />
+    <Compile Include="MIntroductionTranslate.cs" />
     <Compile Include="MLanguage.cs" />
     <Compile Include="MPracticeAreaExclusion.cs" />
     <Compile Include="MProjectExclusion.cs" />

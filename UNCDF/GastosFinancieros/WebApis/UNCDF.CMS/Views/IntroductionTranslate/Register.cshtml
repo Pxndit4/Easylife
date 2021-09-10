@@ -1,0 +1,247 @@
+﻿@model UNCDF.CMS.Models.IntroductionTranslateViewModel
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+<meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+
+<div class="ui-bar ui-bar-default">
+
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegSubmSave" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Save
+        </button>
+    </div>
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegCancel" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Cancel
+        </button>
+    </div>
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegSubm" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Add
+        </button>
+    </div>
+</div>
+
+<div class="ui-container">
+
+
+    @using (Html.BeginForm("Register", "IntroductionTranslate", FormMethod.Post, new { id = "frmIntroductionTranslateReg" }))
+    {
+        @Html.HiddenFor(m => m.IntroductionId)
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-3">
+                    @Html.LabelFor(m => m.IntroductionId)
+                    @Html.TextBoxFor(m => m.IntroductionId, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="col-sm-9">
+                    @Html.LabelFor(m => m.TitleName)
+                    @Html.TextBoxFor(m => m.TitleName, new { @class = "form-control", @readonly = true })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.LanguageId)
+                    @Html.DropDownListFor(m => m.LanguageId, (IEnumerable<SelectListItem>)ViewBag.Languages, new { @class = "form-control", data_value = Model.LanguageId })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", maxlength = 255 })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", maxlength = 255 })
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            Required fields.<span class="input-validation-error-ley"></span>
+        </div>
+    }
+
+
+</div>
+
+<div class="ui-container">
+    <span class="title">
+        Translates
+    </span>
+    <span class="ui-grid-rows" data-info-grid="#tbListTranslate" data-info="@MessageResource.GridRowCountInfo"></span>
+    <table id="tbListTranslate" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.Translates.Language)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.edit" data-events="objIndexTran.grid.rowCommand"></th>
+                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexTran.grid.rowCommand"></th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.IntroductionId)" data-visible="false">@Html.DisplayNameFor(x => x.Translates.IntroductionId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.LanguageId)" data-visible="false">@Html.DisplayNameFor(x => x.Translates.LanguageId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.Language)">@Html.DisplayNameFor(x => x.Translates.Language)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.Title)">@Html.DisplayNameFor(x => x.Translates.Title)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.Description)">@Html.DisplayNameFor(x => x.Translates.Description)</th>
+
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+
+
+
+    $('#dialogMain').on('hidden.bs.modal', function () {
+        rebindGrid()
+    });
+
+    var objIndexTran={
+        initial: function () {
+
+            unitlife.ui.grid('#tbListTranslate').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+
+           objIndexTran.grid.load();
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListTranslate");
+            },
+            load: function () {
+
+                unitlife.ui.grid('#tbListTranslate').load('@Url.Action("Search", "IntroductionTranslate", null)', { id: @Model.IntroductionId});
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    var Estado = row["Status"];
+
+                    if ("1" == "1") {
+                        var _grid = unitlife.ui.grid("#tbListTranslate");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Introduction Translate"))?',
+                            function () {
+                                _grid.invoqCommand('@Url.Action("Delete", "IntroductionTranslate", null)', { id: row.IntroductionId, LanguageId: row.LanguageId }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndexTran.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Introduction Translate"))" });
+                    }
+                }
+                ,
+                'click #edit': function (e, value, row) {
+
+                     $('#btnRegSubm').hide();
+                     $('#btnRegSubmSave, #btnRegCancel').show();
+
+                    $('#@Html.IdFor(m => m.LanguageId)').val(row.LanguageId);
+                    $('#@Html.IdFor(m => m.Description)').val(row.Description);
+                    $('#@Html.IdFor(m => m.Title)').val(row.Title);
+
+                    return false;
+                }
+
+            }
+        },
+        general:{
+        }
+    };
+
+    $(document).ready(function () {
+
+        $('#btnRegSubmSave, #btnRegCancel').hide();
+
+        objIndexTran.initial();
+
+        $("#btnRegSubm").on("click", function (e) {
+            e.preventDefault();
+
+            var _grid = unitlife.ui.grid("#tbListTranslate");
+
+            var _frm = unitlife.ui.validation("#frmIntroductionTranslateReg"), condVal = $("#@Html.IdFor(m => m.IntroductionId)").val();
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+
+            _isValid = _frm.valid();
+            if (_isValid) {
+
+                    Confirmar('¿@Html.Raw(ViewBag.Confirm)?',
+                        function () {
+                            _grid.invoqCommandOpt('@Url.Action("Register", "IntroductionTranslate", null)', "#frmIntroductionTranslateReg", function (e) {
+                                if (e && e.isError == true)
+                                    return;
+
+                                $('#btnRegSubm').show();
+                                $('#btnRegSubmSave, #btnRegCancel').hide();
+                                $('#@Html.IdFor(m => m.Description)').val("");
+                                $('#@Html.IdFor(m => m.Title)').val("");
+
+                                objIndexTran.grid.load();
+
+                                 });
+                              },
+                                null
+                    );
+
+            }
+            return false;
+        });
+
+        $("#btnRegSubmSave").on("click", function (e) {
+            e.preventDefault();
+
+            var _grid = unitlife.ui.grid("#tbListTranslate");
+
+            Confirmar('¿@Html.Raw(ViewBag.Confirm)?',
+                function () {
+                    _grid.invoqCommandOpt('@Url.Action("Update", "IntroductionTranslate", null)', ("#frmIntroductionTranslateReg"), function (e) {
+                        if (e && e.isError == true)
+                            return;
+
+                        $('#btnRegSubm').show();
+                        $('#btnRegSubmSave, #btnRegCancel').hide();
+                        $('#@Html.IdFor(m => m.Description)').val("");
+                        $('#@Html.IdFor(m => m.Title)').val("");
+
+                        objIndexTran.grid.load();
+
+                         });
+                    },
+                        null
+                );
+        });
+
+
+        $("#btnRegCancel").on("click", function (e) {
+            e.preventDefault();
+            $('#btnRegSubm').show();
+            $('#btnRegSubmSave, #btnRegCancel').hide();
+            $('#@Html.IdFor(m => m.Description)').val("");
+            $('#@Html.IdFor(m => m.Title)').val("");
+
+        });
+
+        unitlife.ui.SelectedValue('#@Html.IdFor(x => x.LanguageId)');
+    });
+
+</script>
