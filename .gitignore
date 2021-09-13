@@ -2170,3 +2170,10 @@ UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/bin/Debug/netcoreapp3.1/iTex
 UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/bin/Release/netcoreapp3.1/BouncyCastle.Crypto.dll
 UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Config/bin/Release/netcoreapp3.1/iTextSharp.LGPLv2.Core.dll
 UNCDF/GastosFinancieros/WebApis/UNCDF.WebApi.Project/bin/Debug/netcoreapp3.1/web.config
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/bin/DocumentFormat.OpenXml.xml
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/Package/PackageTmp/Views/Introduction/Index.cshtml
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/Package/PackageTmp/Views/Introduction/Register.cshtml
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/Package/PackageTmp/Views/IntroductionTranslate/Register.cshtml
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/Package/PackageTmp/Views/UserProject/AddProjectsUsser.cshtml
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/Package/PackageTmp/Views/UserProject/Index.cshtml
+UNCDF/GastosFinancieros/WebApis/UNCDF.CMS/obj/Release/Package/PackageTmp/Views/UserProject/SearchProjectAdd.cshtml

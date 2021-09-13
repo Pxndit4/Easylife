@@ -15,7 +15,7 @@ namespace UNCDF.Layers.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int[] ListDonations { get; set; }
-
+        public string Certificate { get; set; }
         public String Image { get; set; }
     }
 }

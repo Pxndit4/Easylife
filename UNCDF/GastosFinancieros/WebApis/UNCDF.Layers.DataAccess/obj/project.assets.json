@@ -2762,7 +2762,7 @@
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
-      "sha512": "prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
+      "sha512": "LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
       "type": "package",
       "path": "system.collections.nongeneric/4.3.0",
       "files": [
@@ -6108,41 +6108,45 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Miller-PC\\.nuget\\packages\\": {},
+    "C:\\Users\\Giancarlo\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\PROYECTOS\\GTUEROS\\Repo6\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\UNCDF.Layers.DataAccess.csproj",
+      "projectUniqueName": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\UNCDF.Layers.DataAccess.csproj",
       "projectName": "UNCDF.Layers.DataAccess",
-      "projectPath": "E:\\PROYECTOS\\GTUEROS\\Repo6\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\UNCDF.Layers.DataAccess.csproj",
-      "packagesPath": "C:\\Users\\Miller-PC\\.nuget\\packages\\",
-      "outputPath": "E:\\PROYECTOS\\GTUEROS\\Repo6\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\obj\\",
+      "projectPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\UNCDF.Layers.DataAccess.csproj",
+      "packagesPath": "C:\\Users\\Giancarlo\\.nuget\\packages\\",
+      "outputPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Miller-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Giancarlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "H:\\2021\\DonBigotes\\DonBigotes.Capas\\DLL": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\PROYECTOS\\GTUEROS\\Repo6\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj": {
-              "projectPath": "E:\\PROYECTOS\\GTUEROS\\Repo6\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj"
+            "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj": {
+              "projectPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Layers.Model\\UNCDF.Layers.Model.csproj"
             },
-            "E:\\PROYECTOS\\GTUEROS\\Repo6\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj": {
-              "projectPath": "E:\\PROYECTOS\\GTUEROS\\Repo6\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj"
+            "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj": {
+              "projectPath": "H:\\GIT-Easylife\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.Utilities\\UNCDF.Utilities.csproj"
             }
           }
         }
@@ -6189,7 +6193,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

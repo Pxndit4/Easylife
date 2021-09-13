@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Text;
 using UNCDF.Layers.Model;
 
@@ -30,7 +31,8 @@ namespace UNCDF.Layers.DataAccess
                             MProjectDonation entRow = new MProjectDonation();
                             entRow.DonationId = Convert.ToInt32(reader["DonationId"]);
                             entRow.Date = Convert.ToString(reader["Date"]);
-                            entRow.Amount = Convert.ToDecimal(reader["Amount"]);                           
+                            entRow.Amount = Convert.ToDecimal(reader["Amount"]);
+                            entRow.Certificate = Path.Combine(Constant.S3Server, "certificates") + "/" + Convert.ToString(reader["DonorCertificate"]);
                             lisQuery.Add(entRow);
                         }
                     }
