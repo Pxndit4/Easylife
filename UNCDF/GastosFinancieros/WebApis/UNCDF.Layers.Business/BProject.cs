@@ -55,9 +55,9 @@ namespace UNCDF.Layers.Business
             return DAProject.GetDetails(ent, ref val);
         }
 
-        public static List<MProject> List(MProject ent)
+        public static List<MProject> List(MProject ent,Session session)
         {
-            return DAProject.List(ent);
+            return DAProject.List(ent, session);
         }
 
         public static List<MProject> ListScroll()

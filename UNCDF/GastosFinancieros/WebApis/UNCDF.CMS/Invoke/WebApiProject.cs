@@ -11,13 +11,14 @@ namespace UNCDF.CMS
 {
     public class WebApiProject
     {
-        public List<MProject> GetProjects(MProject eProject)
+        public List<MProject> GetProjects(MProject eProject, Session eSession)
         {
             List<MProject> projects = new List<MProject>();
             ProjectsRequest request = new ProjectsRequest();
             ProjectsResponse response = new ProjectsResponse();
 
             request.Project = eProject;
+            request.Session = eSession;
 
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 

@@ -115,6 +115,7 @@ namespace UNCDF.CMS.Controllers
         [HttpPost]
         public ActionResult LoadFile(LoadProjectFinancialsViewModel model, HttpPostedFileBase imageFile)
         {
+
             JSonResult objResult = new JSonResult();
             string fileName = string.Empty;
             string Ext = string.Empty;
@@ -125,6 +126,11 @@ namespace UNCDF.CMS.Controllers
 
             basePath = Server.MapPath("~/File");
             DataTable dt;
+
+            Session objSession = new Session()
+            {
+                UserId = AutenticationManager.GetUser().IdUsuario,
+            };
 
             var include = new[] { "B", "C" , "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R" };
             try
@@ -240,7 +246,7 @@ namespace UNCDF.CMS.Controllers
                         EndDate = 0,
                         Title = string.Empty,
                         EffectiveStatus = "-1"
-                    });
+                    }, objSession);
 
                     var codProjects = entVaProject.Select(x => x.ProjectCode).Distinct();
 
@@ -466,7 +472,10 @@ namespace UNCDF.CMS.Controllers
 
             basePath = Server.MapPath("~/File");
             DataTable dt;
-
+            Session objSession = new Session()
+            {
+                UserId = AutenticationManager.GetUser().IdUsuario,
+            };
             var include = new[] { "A", "B", "C", "D", "E", "F" };
             try
             {
@@ -579,7 +588,7 @@ namespace UNCDF.CMS.Controllers
                         EndDate = 0,
                         Title = string.Empty,
                         EffectiveStatus = "-1"
-                    });
+                    }, objSession);
 
                     var codProjects = entVaProject.Select(x => x.ProjectCode).Distinct();
 

@@ -129,7 +129,10 @@ namespace UNCDF.WebApi.Project.Crontrollers
                 project.StartDate = request.Project.StartDate;
                 project.EndDate = request.Project.EndDate;
 
-                List<MProject> projects = BProject.List(project);
+                BaseRequest baseRequest = new BaseRequest();
+                baseRequest.Session = request.Session;
+
+                List<MProject> projects = BProject.List(project,baseRequest.Session);
 
                 response.Code = "0";
                 response.Message = "Success";

@@ -50,8 +50,15 @@ namespace UNCDF.CMS.Controllers
             try
             {
 
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
                 List<MProject> entList = new List<MProject>();
                 MProject proj = new MProject();
+
+
                 if (string.IsNullOrEmpty(model.StartDate))
                 {
                     proj.StartDate = 0;
@@ -75,7 +82,7 @@ namespace UNCDF.CMS.Controllers
                 proj.ProjectCode = Extension.ToEmpty(model.ProjectCode);
                 //proj.EffectiveStatus = "";
 
-                entList = new WebApiProject().GetProjects(proj);
+                entList = new WebApiProject().GetProjects(proj, objSession);
 
                 //model.ProjectCode = model.ProjectCode ?? "";
                 //model.Title = model.Title ?? "";

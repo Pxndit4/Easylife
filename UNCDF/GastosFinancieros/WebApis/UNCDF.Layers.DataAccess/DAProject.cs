@@ -312,7 +312,7 @@ namespace UNCDF.Layers.DataAccess
         }
 
 
-        public static List<MProject> List(MProject ent)
+        public static List<MProject> List(MProject ent,Session session)
         {
             List<MProject> lisQuery = new List<MProject>();
 
@@ -321,6 +321,7 @@ namespace UNCDF.Layers.DataAccess
                 try
                 {
                     SqlCommand cmd = new SqlCommand("pr_Project_Lis", con);
+                    cmd.Parameters.Add("@IUserId", SqlDbType.VarChar).Value = session.UserId;
                     cmd.Parameters.Add("@IProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
                     cmd.Parameters.Add("@IStarDate", SqlDbType.VarChar).Value = ent.StartDate;
                     cmd.Parameters.Add("@IEndDate", SqlDbType.VarChar).Value = ent.EndDate;
