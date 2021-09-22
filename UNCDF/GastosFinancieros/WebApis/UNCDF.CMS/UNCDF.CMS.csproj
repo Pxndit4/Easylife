@@ -367,11 +367,12 @@
     <Content Include="Views\Introduction\Index.cshtml" />
     <Content Include="Views\Introduction\Register.cshtml" />
     <Content Include="Views\IntroductionTranslate\Register.cshtml" />
+    <Content Include="Views\Language\Index.cshtml" />
+    <Content Include="Views\Language\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="File\" />
-    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

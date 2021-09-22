@@ -1,0 +1,169 @@
+﻿@model UNCDF.CMS.Models.LanguageViewModel
+
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+
+<div class="ui-bar ui-bar-default">
+    <div class="ui-btn-content">
+        <button type="submit" id="btnRegSubm" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Save
+        </button>
+    </div>
+</div>
+
+<div class="ui-container">
+    @using (Html.BeginForm("Register", "Language", FormMethod.Post, new { id = "frmLanguageReg", enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.LanguageId)
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Description)
+                    @Html.TextBoxFor(m => m.Description, new { @class = "form-control", maxlength = 400 })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Code)
+                    @Html.TextBoxFor(m => m.Code, new { @class = "form-control", maxlength = 400 })
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Flag)
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.Flag, new { @class = "form-control", @readonly = "readonly" })
+                        <a id="btnAddFile" class="btn btn-default input-group-addon" onclick="document.getElementById('imageFile').click();">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                        </a>
+                        <input type="file" id="imageFile" style="display: none" />
+                    </div>
+                </div>
+                @if (Model.FlagLink.Length > 0)
+                {
+                    <div class="col-md-1">
+                        <a id="btnImage" class="btn btn-default" title="View" href="@Model.FlagLink" target="_blank" style="margin-top:22px;">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.LabelFor(m => m.Status)
+                    @Html.DropDownListFor(m => m.Status, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", data_value = Model.Status })
+                </div>
+            </div>
+        </div>
+        <div>
+            Required fields.<span class="input-validation-error-ley"></span>
+        </div>
+    }
+
+</div>
+
+<script type="text/javascript" language="javacript">
+
+    var sizeIMAGE;
+
+    function iniFormLan() {
+
+        unitlife.ajax.getJson('@Url.Action("getParameter", "Parameter")/?code=' + 'PHOTO+' + '&description=' + 'Size', function (data) {
+            sizeIMAGE = data.data.Valor1;
+        });
+    }
+
+    function onCallbackError(e) {
+        unitlife.ui.DropDownListFillJsonError(e, s);
+    }
+
+    document.getElementById('imageFile').onchange = function () {
+         var FileSize = document.getElementById('imageFile').files[0].size / 1024 / 1024;
+         var nameFile = document.getElementById('imageFile').files[0].name;
+         var fileInput = document.getElementById('imageFile');
+         var filePath = fileInput.value;
+         var allowedExtensions = /(.jpg|.jpeg|.png|.jfif|.gif)$/i;
+        var fSizeIm = sizeIMAGE;
+
+         if (!allowedExtensions.exec(filePath)) {
+             unitlife.ui.validation.showMessage("Please upload file having extensions .jpeg/.jpg/.png/.gif/.jfif only.");
+             $("#@Html.IdFor(m => m.Flag)").val("");
+             return false;
+        }
+
+        if (FileSize > fSizeIm) {
+                 unitlife.ui.validation.showMessage("The file size should not exceed " + fSizeIm + " MB");
+                $("#@Html.IdFor(m => m.Flag)").val("");
+                return false;
+        }
+
+        $("#@Html.IdFor(m => m.Flag)").val(nameFile);
+     }
+
+    $(document).ready(function () {
+        iniFormLan();
+
+        $("#btnRegSubm").on("click", function (e) {
+            e.preventDefault();
+
+            var _frm = unitlife.ui.validation("#frmLanguageReg"), condVal = $("#@Html.IdFor(m => m.LanguageId)").val();
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+
+
+            if (condVal == '01') {
+                _isValid = _frm.validGroup(condVal, '01',
+                    [
+                    "#@Html.IdFor(m => m.Description)",
+                    "#@Html.IdFor(m => m.Code)"
+                    ]);
+            }
+            else {
+                _isValid = _frm.valid();
+            }
+            if (_isValid) {
+
+                Confirmar(
+                '¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+
+                        var form = $("#frmLanguageReg");
+                        var data = new FormData();
+                        var files = $("#imageFile").get(0).files;
+                        if (files.length > 0) {
+                            data.append("imageFile", files[0]);
+                        }
+                        $.each(form.serializeArray(), function (key, input) {
+                            data.append(input.name, input.value);
+                        });
+
+
+                    unitlife.ajax.submitAddFiles('@Url.Action("Register", "Language")', data);
+                    unitlife.site.dialog.invoqResultCallback('REG_LANGUAGE');
+                },
+                null
+                );
+            }
+            return false;
+        });
+
+        unitlife.ui.SelectedValue('#@Html.IdFor(x => x.Status)');
+
+
+    });
+
+</script>
+

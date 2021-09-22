@@ -107,7 +107,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("appconfig/api/Language", "UpdatMLanguage", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("appconfig/api/Language", "UpdateLanguage", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -134,7 +134,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("appconfig/api/Language", "DeletMLanguage", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("appconfig/api/Language", "DeleteLanguage", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
