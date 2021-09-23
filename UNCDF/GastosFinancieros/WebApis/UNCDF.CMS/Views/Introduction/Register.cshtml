@@ -51,9 +51,7 @@
                 @if (Model.ImageLink.Length > 0)
                 {
                     <div class="col-md-1">
-                        <a id="btnImage" class="btn btn-default" title="View" href="@Model.ImageLink" target="_blank" style="margin-top:22px;">
-                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                        </a>
+                        <a id="btnImage" class="btn btn-default" style="margin-top:22px;" title="View"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                     </div>
                 }
                 <div class="form-group">
@@ -140,6 +138,12 @@
 
     $(document).ready(function () {
         iniForm();
+
+        $("#btnImage").on("click", function (e) {
+            window.open('@Model.ImageLink' +'?nocache=' + (new Date()).getTime(), '_blank');
+            return false;
+        });
+
 
         $("#btnRegSubm").on("click", function (e) {
 
