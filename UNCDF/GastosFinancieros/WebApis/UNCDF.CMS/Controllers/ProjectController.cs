@@ -360,6 +360,13 @@ namespace UNCDF.CMS.Controllers
                     }
 
                     Session["ListProjects"] = entlist;
+
+                    //DataTable restul = Extension.ToDataTable<ModelProjectResult>(entlist);
+
+                    //var results = (from myRow in restul.AsEnumerable()
+                    //              where myRow.Field<string>("WithAlert") == "S"
+                    //              select myRow).CopyToDataTable();
+
                     objResult.data = entlist;
                 }
                 catch (Exception ex)

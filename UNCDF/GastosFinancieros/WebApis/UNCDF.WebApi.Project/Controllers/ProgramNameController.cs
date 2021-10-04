@@ -130,10 +130,10 @@ namespace UNCDF.WebApi.Project.Controllers
 
                         BProgramName.Insert(programName);
 
-                        if (!programName.SDG.Equals(""))
-                        {
-                            BProgramName.InsertSDG(programName);
-                        }
+                        //if (!programName.SDG.Equals(""))
+                        //{
+                        //    BProgramName.InsertSDG(programName);
+                        //}
                     }
 
                     response.Code = "0";

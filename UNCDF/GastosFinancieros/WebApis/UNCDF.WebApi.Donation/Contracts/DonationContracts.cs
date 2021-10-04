@@ -22,6 +22,8 @@ namespace UNCDF.WebApi.Donation
     public class PayMethod
     {       
         public MDonorStripe DonorStripe { get; set; }
+
+        public MDonorPayPal DonorPayPal { get; set; }
     }
 
     [Serializable]
@@ -29,6 +31,13 @@ namespace UNCDF.WebApi.Donation
     {
         public long Amount { get; set; }
         public int DonorId { get; set; }
+    }
+
+    [Serializable]
+    public class DonationPaypalRequest : BaseRequest
+    {
+        public string TypeDonation { get; set; }
+        public decimal Amount { get; set; }
     }
 
     [Serializable]
@@ -66,5 +75,10 @@ namespace UNCDF.WebApi.Donation
         public decimal DonationTotal { get; set; }
     }
 
-
+    [Serializable]
+    public class DonationPaypalResponse : BaseResponse
+    {
+        public string PaymentId { get; set; }
+        public string PaymentURL { get; set; }
+    }
 }
