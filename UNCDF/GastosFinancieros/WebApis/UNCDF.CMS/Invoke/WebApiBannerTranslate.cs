@@ -9,6 +9,7 @@ using UNCDF.Layers.Model;
 namespace UNCDF.CMS
 {
     public class WebApiBannerTranslate
+
     {
         public List<MBannerTranslate> GetBannerTranslates(MBannerTranslate eBanner, Session Session)
         {
@@ -19,7 +20,7 @@ namespace UNCDF.CMS
 
             //eBanner.BannerId = eBanner.BannerId;
 
-            request.BannerTranslateBE = eBanner;
+            request.MBannerTranslate = eBanner;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -45,7 +46,7 @@ namespace UNCDF.CMS
             BannerTranslateRequest request = new BannerTranslateRequest();
             BannerTranslateResponse response = new BannerTranslateResponse();
 
-            request.BannerTranslateBE = MBannerTranslate;
+            request.MBannerTranslate = MBannerTranslate;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -71,7 +72,8 @@ namespace UNCDF.CMS
             BannerTranslatesResponse response = new BannerTranslatesResponse();
             string returnMsg = string.Empty;
 
-            request.BannerTranslateBE = MBannerTranslate;
+            request.MBannerTranslate = MBannerTranslate;
+            request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -97,7 +99,8 @@ namespace UNCDF.CMS
             BannerTranslateResponse response = new BannerTranslateResponse();
             string returnMsg = string.Empty;
 
-            request.BannerTranslateBE = MBannerTranslate;
+            request.MBannerTranslate = MBannerTranslate;
+            request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -123,7 +126,8 @@ namespace UNCDF.CMS
             BannerTranslatesResponse response = new BannerTranslatesResponse();
             string returnMsg = string.Empty;
 
-            request.BannerTranslateBE = MBannerTranslate;
+            request.MBannerTranslate = MBannerTranslate;
+            request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -146,7 +150,7 @@ namespace UNCDF.CMS
 
     internal class BannerTranslateRequest
     {
-        public MBannerTranslate BannerTranslateBE { get; set; }
+        public MBannerTranslate MBannerTranslate { get; set; }
         public Session Session { get; set; }
         public string ApplicationToken { get; set; }
     }
