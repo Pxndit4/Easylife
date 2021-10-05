@@ -43,6 +43,15 @@ namespace UNCDF.Layers.Business
 
                             CodeResult3 = BDonorStripe.Confirm(donorCriptoBE, baseRequest);
                         }
+                        else if (ent.PaymentType.Equals("2")) //PAYPAL
+                        {
+                            MDonorPayPal donorPayPalBE = new MDonorPayPal();
+
+                            donorPayPalBE.DonorId = ent.DonorId;
+                            donorPayPalBE.Mail = payMethodBE.DonorPayPal.Mail;
+
+                            //CodeResult3 = DonorPayPalBN.Insert(donorPayPalBE, baseRequest);
+                        }
 
                         baseResponse.Code = CodeResult3.ToString();
 

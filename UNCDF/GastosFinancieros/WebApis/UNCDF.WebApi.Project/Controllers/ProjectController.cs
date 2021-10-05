@@ -148,6 +148,37 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
         }
 
+        [HttpPost]
+        [Route("0/ProjectsTotals")]
+        public ProjectTotalsResponse ProjectsTotals(BaseRequest request)
+        {
+            ProjectTotalsResponse response = new ProjectTotalsResponse();
+
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            List<int> lisQuery = BProject.TotalsProjects();
+
+            if (lisQuery.Count > 0)
+            {
+                response.Projects = lisQuery[0];
+                response.Countries = lisQuery[1];
+            }
+
+            response.Code = "0";
+            response.Message = "Success";
+
+            return response;
+        }
 
         [HttpPost]
         [Route("0/UpdateProject")]

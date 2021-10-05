@@ -36,6 +36,8 @@ namespace UNCDF.WebApi.Donation
 
             services.Configure<MAwsS3>(Configuration.GetSection("MAwsS3"));
 
+            services.Configure<MPaypal>(Configuration.GetSection("MPaypal"));
+
             services.Configure<FormOptions>(x =>
             {
                 x.ValueLengthLimit = int.MaxValue;

@@ -49,11 +49,13 @@
     <Compile Include="MContinent.cs" />
     <Compile Include="MDeparmentExclusion.cs" />
     <Compile Include="MDonation.cs" />
+    <Compile Include="MDonorPayPal.cs" />
     <Compile Include="MGender.cs" />
     <Compile Include="MGenderTranslate.cs" />
     <Compile Include="MIntroduction.cs" />
     <Compile Include="MIntroductionTranslate.cs" />
     <Compile Include="MLanguage.cs" />
+    <Compile Include="MPaypal.cs" />
     <Compile Include="MPracticeAreaExclusion.cs" />
     <Compile Include="MProjectExclusion.cs" />
     <Compile Include="MProjectFinancials.cs" />

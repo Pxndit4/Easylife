@@ -38,6 +38,13 @@ namespace UNCDF.WebApi.Project
     }
 
     [Serializable]
+    public class ProjectTotalsResponse : BaseResponse
+    {
+        public int Projects { get; set; }
+        public int Countries { get; set; }
+    }
+
+    [Serializable]
     public class ProjectPropertiesResponse : BaseResponse
     {
         public MProgramName[] ProgramNames { get; set; }

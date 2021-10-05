@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using PayPal.Api;
 using Stripe;
 using System;
 using System.Collections.Generic;
@@ -24,14 +25,16 @@ namespace UNCDF.WebApi.Donation.Controllers
 
         private readonly MAwsEmail _MAwsEmail;
         private readonly MAwsS3 _MAwsS3;
+        private readonly MPaypal _myPaypalSettings;
         private readonly IWebHostEnvironment _env;
 
-        public DonationController(IOptions<MAwsEmail> MAwsEmail, IOptions<MAwsS3> MAwsS3,
+        public DonationController(IOptions<MAwsEmail> MAwsEmail, IOptions<MAwsS3> MAwsS3, IOptions<MPaypal> MPaypal,
                                     IWebHostEnvironment env)
         {
             _env = env;
             _MAwsEmail = MAwsEmail.Value;
             _MAwsS3 = MAwsS3.Value;
+            _myPaypalSettings = MPaypal.Value;
         }
 
         // POST api/values
@@ -174,6 +177,116 @@ namespace UNCDF.WebApi.Donation.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("0/PaypalDonation")]
+        public DonationPaypalResponse PaypalDonation([FromBody] DonationPaypalRequest request)
+        {
+            DonationPaypalResponse response = new DonationPaypalResponse();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            var accessToken = new OAuthTokenCredential(_myPaypalSettings.clientId, _myPaypalSettings.clientSecret).GetAccessToken();
+            var apiContext = new APIContext(accessToken);
+
+            string baseURIOk = string.Empty;
+            string baseURIFail = string.Empty;
+
+            //baseURIOk = "http://3.23.158.238/uncdf/donations/periodically/thank-you?";
+
+            //baseURIFail = "http://3.23.158.238/uncdf/donations/error?";
+
+            baseURIOk = "http://localhost/uncdf/donations/periodically/thank-you?";
+
+            baseURIFail = "http://localhost/uncdf/donations/error?";
+
+            try
+            {
+                Payment payment = null;
+
+                Item item = new Item();
+                item.name = "Donation UNCDF";
+                item.currency = "USD";
+                item.price = request.Amount.ToString();
+                item.quantity = "1";
+                item.sku = "donation";
+                item.description = "Your donation will help feed families around the world.";
+
+                List<Item> itms = new List<Item>();
+                itms.Add(item);
+                ItemList itemList = new ItemList();
+                itemList.items = itms;
+
+                Payer payr = new Payer();
+                payr.payment_method = "paypal";
+                Random rndm = new Random();
+                var guid = Convert.ToString(rndm.Next(100000));
+
+                RedirectUrls redirUrls = new RedirectUrls();
+                redirUrls.cancel_url = baseURIFail + "guid=" + guid;
+                redirUrls.return_url = baseURIOk + "guid=" + guid;
+
+                Details details = new Details();
+                details.tax = "0";
+                details.shipping = "0";
+                details.subtotal = request.Amount.ToString();
+
+                Amount amnt = new Amount();
+                amnt.currency = "USD";
+                amnt.total = request.Amount.ToString();
+                amnt.details = details;
+
+                List<Transaction> transactionList = new List<Transaction>();
+                Transaction tran = new Transaction();
+                tran.description = "Donation UNCDF";
+                tran.amount = amnt;
+                tran.item_list = itemList;
+
+                transactionList.Add(tran);
+
+                payment = new Payment();
+                payment.intent = "sale";
+                payment.payer = payr;
+                payment.transactions = transactionList;
+                payment.redirect_urls = redirUrls;
+
+
+                var createdPayment = payment.Create(apiContext);
+                string paypalRedirectUrl = null;
+                var links = createdPayment.links.GetEnumerator();
+
+                while (links.MoveNext())
+                {
+                    Links lnk = links.Current;
+
+                    if (lnk.rel.ToLower().Trim().Equals("approval_url"))
+                    {
+                        //saving the payapalredirect URL to which user will be redirected for payment
+                        paypalRedirectUrl = lnk.href;
+                    }
+                }
+
+                response.Code = "0";
+                response.PaymentId = createdPayment.id;
+                response.Message = Messages.Success;
+                response.PaymentURL = paypalRedirectUrl;
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = Messages.ErrorPayment;
+                response.PaymentURL = baseURIFail;
+            }
+
+            return response;
+        }
+
         // POST api/values
         [HttpPost]
         [Route("0/SaveDonation")]
@@ -209,19 +322,37 @@ namespace UNCDF.WebApi.Donation.Controllers
                 if (request.PayMethod == null)
                 {
                     payMethodBE.DonorStripe = new MDonorStripe();
+                    payMethodBE.DonorPayPal = new MDonorPayPal();
                 }
                 else
                 {
                     payMethodBE.DonorStripe = request.PayMethod.DonorStripe;
+                    payMethodBE.DonorPayPal = request.PayMethod.DonorPayPal;
                 }
 
                 baseRequest.Language = request.Language;
                 baseRequest.Session = request.Session;
 
                 BaseResponse baseResponse = new BaseResponse();
-                
+
                 if (donation.PaymentType.Equals("4"))
                 {
+                    baseResponse = BDonation.Insert(donation, donorFrequencyBE, payMethodBE, baseRequest);
+                }
+                else if (donation.PaymentType.Equals("2"))
+                {
+                    if (payMethodBE.DonorPayPal.Guid != null)
+                    {
+                        var accessToken = new OAuthTokenCredential(_myPaypalSettings.clientId, _myPaypalSettings.clientSecret).GetAccessToken();
+                        var apiContext = new APIContext(accessToken);
+
+                        var guid = payMethodBE.DonorPayPal.Guid;
+                        var paymentId = payMethodBE.DonorPayPal.PaymentId;
+                        var paymentExecution = new PaymentExecution() { payer_id = payMethodBE.DonorPayPal.PayerID };
+                        var pymnt = new Payment() { id = paymentId };
+                        var executedPayment = pymnt.Execute(apiContext, paymentExecution);
+                    }
+
                     baseResponse = BDonation.Insert(donation, donorFrequencyBE, payMethodBE, baseRequest);
                 }
 

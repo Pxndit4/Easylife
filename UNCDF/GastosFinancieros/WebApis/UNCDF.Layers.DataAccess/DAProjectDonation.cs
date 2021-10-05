@@ -33,6 +33,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Date = Convert.ToString(reader["Date"]);
                             entRow.Amount = Convert.ToDecimal(reader["Amount"]);
                             entRow.Certificate = Path.Combine(Constant.S3Server, "certificates") + "/" + Convert.ToString(reader["DonorCertificate"]);
+                            entRow.Title = Convert.ToString(reader["Project"]);
                             lisQuery.Add(entRow);
                         }
                     }

@@ -7,6 +7,12 @@ namespace UNCDF.Layers.Business
 {
     public class BProject
     {
+
+        public static List<int> TotalsProjects()
+        {
+            return DAProject.TotalsProjects();
+        }
+
         public static MProjectFinancials GetFinancials(MProjectFinancials ent, ref int Val)
         {
             return DAProject.GetFinancials(ent, ref Val);
@@ -55,7 +61,7 @@ namespace UNCDF.Layers.Business
             return DAProject.GetDetails(ent, ref val);
         }
 
-        public static List<MProject> List(MProject ent,Session session)
+        public static List<MProject> List(MProject ent, Session session)
         {
             return DAProject.List(ent, session);
         }

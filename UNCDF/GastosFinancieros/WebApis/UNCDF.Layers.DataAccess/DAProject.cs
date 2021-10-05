@@ -9,6 +9,39 @@ namespace UNCDF.Layers.DataAccess
 {
     public class DAProject
     {
+        public static List<int> TotalsProjects() {
+
+            List<int> lisQuery = new List<int>();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Project_Lis_Totals", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lisQuery.Add(Convert.ToInt32(reader["Projects"]));
+                            lisQuery.Add(Convert.ToInt32(reader["Countries"]));
+                        }
+                    }
+
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                return lisQuery;
+            }
+
+            return lisQuery;
+        }
+
         public static List<String> YearLis(MProjectFinancials ent, ref int Val)
         {
             List<string> lisQuery = new List<string>();
@@ -177,7 +210,7 @@ namespace UNCDF.Layers.DataAccess
                         while (reader.Read())
                         {
 
-                            result.ProjectId = Convert.ToInt32(reader["ProjectId"]);                           
+                            result.ProjectId = Convert.ToInt32(reader["ProjectId"]);
                             result.Title = Convert.ToString(reader["Title"]);
                             result.ProgramName = Convert.ToString(reader["ProgramName"]);
                             result.Description = Convert.ToString(reader["Projectdetails"]);
@@ -312,7 +345,7 @@ namespace UNCDF.Layers.DataAccess
         }
 
 
-        public static List<MProject> List(MProject ent,Session session)
+        public static List<MProject> List(MProject ent, Session session)
         {
             List<MProject> lisQuery = new List<MProject>();
 
@@ -416,7 +449,7 @@ namespace UNCDF.Layers.DataAccess
                 try
                 {
                     SqlCommand cmd = new SqlCommand("sp_Project_Lis_GroupByCountry", con);
-                    cmd.CommandTimeout = 0;                    
+                    cmd.CommandTimeout = 0;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
@@ -427,10 +460,10 @@ namespace UNCDF.Layers.DataAccess
                         {
                             MProject entRow = new MProject();
                             entRow.CountryId = Convert.ToInt32(reader["CountryId"]);
-                            entRow.Quantity = Convert.ToInt32(reader["Quanty"]);                           
-                            entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);                       
+                            entRow.Quantity = Convert.ToInt32(reader["Quanty"]);
+                            entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
                             entRow.Longitude = Convert.ToString(reader["Longitude"]);
-                            entRow.Latitude = Convert.ToString(reader["Latitude"]);                            
+                            entRow.Latitude = Convert.ToString(reader["Latitude"]);
                             lisQuery.Add(entRow);
                         }
                     }
@@ -455,9 +488,9 @@ namespace UNCDF.Layers.DataAccess
                 {
                     SqlCommand cmd = new SqlCommand("sp_Project_Lis_FilterByCountry", con);
                     cmd.CommandTimeout = 0;
-                   
+
                     cmd.Parameters.Add("@ICountryId", SqlDbType.VarChar).Value = ent.CountryId;
-                   
+
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
 
@@ -646,7 +679,7 @@ namespace UNCDF.Layers.DataAccess
                     {
                         while (reader.Read())
                         {
-                            
+
                             lisQuery.Budget = Convert.ToDecimal(reader["Budget"]);
                             lisQuery.Expenditure = Convert.ToDecimal(reader["Expenditure"]);
                             lisQuery.GifLoadPresupuesto = Constant.S3Server + Convert.ToString(reader["GifLoadPresupuesto"]);

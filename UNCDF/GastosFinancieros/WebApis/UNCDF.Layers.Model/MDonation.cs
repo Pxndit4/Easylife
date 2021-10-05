@@ -34,5 +34,6 @@ namespace UNCDF.Layers.Model
     public class MPayMethod
     {
         public MDonorStripe DonorStripe { get; set; }
+        public MDonorPayPal DonorPayPal { get; set; }
     }
 }
