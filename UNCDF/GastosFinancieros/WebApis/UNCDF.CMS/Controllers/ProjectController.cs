@@ -26,7 +26,7 @@ namespace UNCDF.CMS.Controllers
                 Text = x.Value
             }).ToList();
 
-            estados.Insert(0, new SelectListItem { Text = "---Select---", Value = "-1", Selected = true });
+            estados.Insert(0, new SelectListItem { Text = "Select", Value = "-1", Selected = true });
             ViewBag.Estado  = estados;
 
             return View();

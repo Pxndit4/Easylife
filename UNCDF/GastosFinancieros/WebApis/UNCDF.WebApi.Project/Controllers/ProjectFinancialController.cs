@@ -49,7 +49,8 @@ namespace UNCDF.WebApi.Project.Controllers
 
                 MProjectFinancials ent = new MProjectFinancials();
                 ent.Year = request.ProjectFinancial.Year;
-                
+                ent.ProjectCode = request.ProjectFinancial.ProjectCode;
+
 
                 List<MProjectFinancials> ProjectFinancials = BProjectFinancial.FilProjectFinancial(ent,ref Val);
 

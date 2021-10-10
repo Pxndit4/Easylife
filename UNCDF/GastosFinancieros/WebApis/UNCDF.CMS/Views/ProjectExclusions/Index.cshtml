@@ -206,7 +206,7 @@
                         Confirmar(
                             '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Deparment Code"))?',
                         function () {
-                            _grid.invoqCommand('@Url.Action("DeleteDeparmentCode", "ProjectExclusions", null)', { id: row.ProjectCode }, function (e) {
+                            _grid.invoqCommand('@Url.Action("DeleteDeparmentCode", "ProjectExclusions", null)', { id: row.DeparmentCode }, function (e) {
                                 if (e && e.isError == true)
                                     return;
                                 objIndexDepEx.grid.load();

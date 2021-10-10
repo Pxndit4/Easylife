@@ -59,6 +59,7 @@ namespace UNCDF.CMS.Controllers
                 };
                     
                 proj.Year = Extension.ToEmpty(model.Year);
+                proj.ProjectCode = Extension.ToEmpty(model.ProjectCode);
 
                 entList = new WebApiProjectFinancial().GetProjectFinancials(proj);
 

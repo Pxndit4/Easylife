@@ -116,7 +116,7 @@ namespace UNCDF.Layers.DataAccess
                 try
                 {
                     SqlCommand cmd = new SqlCommand("sp_Donation_Lis", con);
-                    cmd.Parameters.Add("@IDonorId", SqlDbType.Int).Value = ent.DonorId;
+                    //cmd.Parameters.Add("@IDonorId", SqlDbType.Int).Value = ent.DonorId;
                     cmd.Parameters.Add("@IFirstName", SqlDbType.VarChar).Value = ent.FirstName;
                     cmd.Parameters.Add("@ILastName", SqlDbType.VarChar).Value = ent.LastName;
                     cmd.Parameters.Add("@IStartDate", SqlDbType.Decimal).Value = ent.StartDate;

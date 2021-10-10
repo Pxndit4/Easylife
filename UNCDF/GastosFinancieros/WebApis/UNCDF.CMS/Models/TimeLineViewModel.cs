@@ -18,12 +18,18 @@ namespace UNCDF.CMS.Models
         public string TitleProject { get; set; }
 
         [Required]
+        [Display(Name = "Time Line")]
         public string Title { get; set; }
+
 
         [Required]
         public string Description { get; set; }
         [Required]
         public string Date { get; set; }
+
+
+        public string EndDate { get; set; }
+        public string StartDate { get; set; }
 
         public string StatusName { get; set; }
 
