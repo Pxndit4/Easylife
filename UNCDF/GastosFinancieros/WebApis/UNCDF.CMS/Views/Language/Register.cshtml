@@ -98,7 +98,7 @@
          var fileInput = document.getElementById('imageFile');
          var filePath = fileInput.value;
          var allowedExtensions = /(.jpg|.jpeg|.png|.jfif|.gif)$/i;
-        var fSizeIm = sizeIMAGE;
+         var fSizeIm = sizeIMAGE;
 
          if (!allowedExtensions.exec(filePath)) {
              unitlife.ui.validation.showMessage("Please upload file having extensions .jpeg/.jpg/.png/.gif/.jfif only.");

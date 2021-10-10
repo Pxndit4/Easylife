@@ -15,6 +15,10 @@ namespace UNCDF.CMS.Models
         
         [RegularExpression("(^[0-9]+$)", ErrorMessage = "Only Numbers")]
         public string Year { get; set; }
+
+        [Display(Name = "Project Code")]
+        public string ProjectCode { get; set; }
+
         public ResultSearchProjectFinancialViewModel result { get; set; }
     }
 

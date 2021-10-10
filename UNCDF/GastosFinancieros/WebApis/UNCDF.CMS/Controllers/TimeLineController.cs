@@ -19,7 +19,12 @@ namespace UNCDF.CMS.Controllers
         public ActionResult ProjectTimeLines(string id)
         {
             MProject objresult;
+            ViewBag.Estado = Extension.GetStatus().Select(x => new SelectListItem
+            {
 
+                Value = x.Id,
+                Text = x.Value
+            });
             try
             {
 
@@ -77,9 +82,27 @@ namespace UNCDF.CMS.Controllers
 
                 eTimeLine.ProjectId = model.ProjectId;
                 eTimeLine.Title = Extension.ToEmpty(model.Title).Trim();
-                eTimeLine.StartDate = decimal.Zero;
-                eTimeLine.EndDate = decimal.Zero;
-                eTimeLine.Status = -1;
+                if (string.IsNullOrEmpty(model.StartDate))
+                {
+                    eTimeLine.StartDate = 0;
+                }
+                else
+                {
+                    eTimeLine.StartDate = Int32.Parse((Extension.ToFormatDateYYYYMMDD(model.StartDate)), CultureInfo.InvariantCulture);
+                }
+
+                if (string.IsNullOrEmpty(model.EndDate))
+                {
+                    eTimeLine.EndDate = 0;
+                }
+                else
+                {
+                    eTimeLine.EndDate = Int32.Parse((Extension.ToFormatDateYYYYMMDD(model.EndDate)), CultureInfo.InvariantCulture);
+                }
+
+                //eTimeLine.StartDate = decimal.Zero;
+                //eTimeLine.EndDate = decimal.Zero;
+                eTimeLine.Status = model.Status;
 
                 Session objSession = new Session()
                 {

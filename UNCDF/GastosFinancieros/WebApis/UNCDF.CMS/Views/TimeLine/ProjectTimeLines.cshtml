@@ -39,28 +39,65 @@
 
         <div class="form-group">
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-sm-1">
                     @Html.LabelFor(m => m.ProjectId)
                     @Html.TextBoxFor(m => m.ProjectId, new { @class = "form-control", @readonly = true })
                 </div>
-                <div class="col-md-10">
+                <div class="col-sm-10">
                     @Html.LabelFor(m => m.TitleProject)
                     @Html.TextBoxFor(m => m.TitleProject, new { @class = "form-control", @readonly = true })
                 </div>
-                @*<div class="col-md-1">
-                    @Html.LabelFor(m => m.Advance)
-                    @Html.TextBoxFor(m => m.Advance, new { @class = "form-control", Value = String.Format("{0:#,0}%", Model.Advance), @readonly = true })
-                </div>*@
-            </div>
-        </div>
-    }
 
-</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", id = "txtTimeLine" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.StartDate)
+                    <div id="d_@Html.IdFor(m=>m.StartDate)" class="input-group date">
+                        @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control input", maxlength = 10, id = "txtStartDate" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.EndDate)
+                    <div id="d_@Html.IdFor(m=>m.EndDate)" class="input-group date">
+                        @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control input", maxlength = 10, id = "txtEndDate" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    @Html.LabelFor(m => m.Status)
+                    <div class="input-group">
+                        @Html.DropDownListFor(m => m.Status, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", id = "cboStatus" })
+                        <a id="btnSearch" class="btn btn-default input-group-addon">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-sm-1">
+                    <a id="btnClean" class="btn btn-default" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>
+
+                </div>
+            </div>
+         </div>
+        }
+
+    </div>
 
 
 <div class="ui-container">
     <span id="countRT" class="bars pull-left" style="font-weight: bold;margin-top: 15px;"></span>
-    <table id="tbList" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" @*data-sort-name="@Html.HtmlIdNameFor(x => x.eTimeLines.Title)" data-sort-order="desc"*@ data-search="true" data-row-style="rowStyle">
+    <table id="tbList" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
                 <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.edit" data-events="objIndex.grid.rowCommand"></th>
@@ -92,6 +129,14 @@
         return { classes: '' }
     }
 
+    $("#btnClean").on("click", function (e) {
+        e.preventDefault();
+        $("#txtTimeLine").val("");
+        $("#txtStartDate").val("");
+        $("#txtEndDate").val("");
+        $("#cboStatus").val("1");
+        $("#btnSearch").click();
+    });
 
     function rebindGrid() {
         $("#btnSearch").click();
@@ -203,8 +248,9 @@
     }
 
     $(document).ready(function () {
-
+        $("#cboStatus").val("1");
         objIndex.initial();
+
 
         var $th = $('.tableFixHead').find('thead th')
         $('.tableFixHead').on('scroll', function () {
@@ -212,6 +258,9 @@
         });
 
         $('.fixed-table-body').addClass('tableFixHead');
+
+        $('#d_@Html.IdFor(m => m.StartDate)').datepicker();
+        $('#d_@Html.IdFor(m => m.EndDate)').datepicker();
     });
 
 </script>

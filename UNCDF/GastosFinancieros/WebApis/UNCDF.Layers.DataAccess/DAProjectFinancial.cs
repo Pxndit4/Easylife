@@ -105,6 +105,7 @@ namespace UNCDF.Layers.DataAccess
                     SqlCommand cmd = new SqlCommand("sp_ProjectFinancial_Fil", con);
                     cmd.CommandTimeout = 0;
                     cmd.Parameters.Add("@IYear", SqlDbType.VarChar).Value = ent.Year;
+                    cmd.Parameters.Add("@IProjectCode", SqlDbType.VarChar).Value = ent.ProjectCode;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
 

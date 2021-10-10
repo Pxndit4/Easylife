@@ -169,8 +169,20 @@
 
 <script type="text/javascript" language="javacript">
 
-    var sizeVideo ='40M';
-    var sizeIMAGE = '5M';
+    var sizeVideo ;
+    var sizeIMAGE ;
+
+    function iniFormProjectAc() {
+
+        unitlife.ajax.getJson('@Url.Action("getParameter", "Parameter")/?code=' + 'VIDEO+' + '&description=' + 'Size', function (data) {
+            sizeVideo = data.data.Valor1;
+        });
+
+
+        unitlife.ajax.getJson('@Url.Action("getParameter", "Parameter")/?code=' + 'PHOTO+' + '&description=' + 'Size', function (data) {
+            sizeIMAGE = data.data.Valor1;
+        });
+    }
 
 
     function onCallbackError(e) {
@@ -185,6 +197,7 @@
          var allowedExtensions = /(.jpg|.jpeg|.png|.jfif|.gif)$/i;
 
          var funcSize = sizeIMAGE;
+         alert(sizeIMAGE);
 
         $ ("#@Html.IdFor(m => m.Image)").val(nameFile);
 
@@ -229,6 +242,8 @@
     }
 
     $(document).ready(function () {
+
+        iniFormProjectAc();
 
         //iniForm();
           $("#btnImage").on("click", function (e) {

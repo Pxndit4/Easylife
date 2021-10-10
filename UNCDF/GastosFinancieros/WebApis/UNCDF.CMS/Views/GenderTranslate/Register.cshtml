@@ -3,6 +3,7 @@
 @{
     Layout = null;
 }
+
 @Html.Hidden("viewTitle", ViewBag.Title as string)
 <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
 
@@ -88,12 +89,12 @@
     <span class="title">
         Translates
     </span>
-    <span class="ui-grid-rows" data-info-grid="#tbListTranslate" data-info="@MessageResource.GridRowCountInfo"></span>
-    <table id="tbListTranslate" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.Translates.Language)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+    <span class="ui-grid-rows" data-info-grid="#tbListTranslateG" data-info="@MessageResource.GridRowCountInfo"></span>
+    <table id="tbListTranslateG" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.Translates.Language)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
-                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.edit" data-events="objIndexTran.grid.rowCommand"></th>
-                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexTran.grid.rowCommand"></th>
+                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.edit" data-events="objIndexTranG.grid.rowCommand"></th>
+                <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexTranG.grid.rowCommand"></th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.Translates.GenderId)" data-visible="false">@Html.DisplayNameFor(x => x.Translates.GenderId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.Translates.LanguageId)" data-visible="false">@Html.DisplayNameFor(x => x.Translates.LanguageId)</th>
                 <th data-field="@Html.HtmlIdNameFor(x => x.Translates.Language)">@Html.DisplayNameFor(x => x.Translates.Language)</th>
@@ -106,147 +107,147 @@
 </div>
 
 
-<script type="text/javascript" language="javacript">
+    <script type="text/javascript" language="javacript">
 
 
 
-    $('#dialogMain').on('hidden.bs.modal', function () {
-        rebindGrid()
-    });
+        //$('#dialogMain').on('hidden.bs.modal', function () {
+        //    rebindGrid()
+        //});
 
-    var objIndexTran={
-        initial: function () {
+        var objIndexTranG={
+            initial: function () {
 
-            unitlife.ui.grid('#tbListTranslate').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+                unitlife.ui.grid('#tbListTranslateG').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
 
-           objIndexTran.grid.load();
+               objIndexTranG.grid.load();
 
-        },
-        grid:{
-            get:function(){
-                return unitlife.ui.grid("#tbListTranslate");
             },
-            load: function () {
+            grid:{
+                get:function(){
+                    return unitlife.ui.grid("#tbListTranslateG");
+                },
+                load: function () {
 
-                unitlife.ui.grid('#tbListTranslate').load('@Url.Action("Search", "GenderTranslate", null)', { id: @Model.GenderId});
-            },
-            rowCommand:{
-                'click #remove': function (e, value, row) {
+                    unitlife.ui.grid('#tbListTranslateG').load('@Url.Action("Search", "GenderTranslate", null)', { id: @Model.GenderId});
+                },
+                rowCommand:{
+                    'click #remove': function (e, value, row) {
 
-                    var Estado = row["Status"];
+                        var Estado = row["Status"];
 
-                    if ("1" == "1") {
-                        var _grid = unitlife.ui.grid("#tbListTranslate");
+                        if ("1" == "1") {
+                            var _grid = unitlife.ui.grid("#tbListTranslateG");
 
-                        Confirmar(
-                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Gender Translate"))?',
-                            function () {
-                                _grid.invoqCommand('@Url.Action("Delete", "GenderTranslate", null)', { id: row.GenderId, LanguageId: row.LanguageId }, function (e) {
-                                if (e && e.isError == true)
-                                    return;
-                                objIndexTran.grid.load();
-                            });
-                        },
-                        null
-                            );
-                    }else{
-                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Gender Translate"))" });
+                            Confirmar(
+                                '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Gender Translate"))?',
+                                function () {
+                                    _grid.invoqCommand('@Url.Action("Delete", "GenderTranslate", null)', { id: row.GenderId, LanguageId: row.LanguageId }, function (e) {
+                                    if (e && e.isError == true)
+                                        return;
+                                    objIndexTranG.grid.load();
+                                });
+                            },
+                            null
+                                );
+                        }else{
+                            unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Gender Translate"))" });
+                        }
                     }
+                    ,
+                    'click #edit': function (e, value, row) {
+
+                         $('#btnRegSubm').hide();
+                         $('#btnRegSubmSave, #btnRegCancel').show();
+
+                        $('#@Html.IdFor(m => m.LanguageId)').val(row.LanguageId);
+                        $('#@Html.IdFor(m => m.Description)').val(row.Description);
+                        $('#@Html.IdFor(m => m.Value)').val(row.Value);
+
+                        return false;
+                    }
+
                 }
-                ,
-                'click #edit': function (e, value, row) {
-
-                     $('#btnRegSubm').hide();
-                     $('#btnRegSubmSave, #btnRegCancel').show();
-
-                    $('#@Html.IdFor(m => m.LanguageId)').val(row.LanguageId);
-                    $('#@Html.IdFor(m => m.Description)').val(row.Description);
-                    $('#@Html.IdFor(m => m.Value)').val(row.Value);
-
-                    return false;
-                }
-
+            },
+            general:{
             }
-        },
-        general:{
-        }
-    };
+        };
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        $('#btnRegSubmSave, #btnRegCancel').hide();
-
-        objIndexTran.initial();
-
-        $("#btnRegSubm").on("click", function (e) {
-            e.preventDefault();
-
-            var _grid = unitlife.ui.grid("#tbListTranslate");
-
-            var _frm = unitlife.ui.validation("#frmGenderTranslateReg"), condVal = $("#@Html.IdFor(m => m.GenderId)").val();
-            var _isValid = true;
-            _frm.unobtrusiveParse();
-
-            _isValid = _frm.valid();
-            if (_isValid) {
-
-                    Confirmar('¿@Html.Raw(ViewBag.Confirm)?',
-                        function () {
-                            _grid.invoqCommandOpt('@Url.Action("Register", "GenderTranslate", null)', "#frmGenderTranslateReg", function (e) {
-                                if (e && e.isError == true)
-                                    return;
-
-                                $('#btnRegSubm').show();
-                                $('#btnRegSubmSave, #btnRegCancel').hide();
-                                $('#@Html.IdFor(m => m.Description)').val("");
-                                $('#@Html.IdFor(m => m.Value)').val("");
-
-                                objIndexTran.grid.load();
-
-                                 });
-                              },
-                                null
-                    );
-
-            }
-            return false;
-        });
-
-        $("#btnRegSubmSave").on("click", function (e) {
-            e.preventDefault();
-
-            var _grid = unitlife.ui.grid("#tbListTranslate");
-
-            Confirmar('¿@Html.Raw(ViewBag.Confirm)?',
-                function () {
-                    _grid.invoqCommandOpt('@Url.Action("Update", "GenderTranslate", null)', ("#frmGenderTranslateReg"), function (e) {
-                        if (e && e.isError == true)
-                            return;
-
-                        $('#btnRegSubm').show();
-                        $('#btnRegSubmSave, #btnRegCancel').hide();
-                        $('#@Html.IdFor(m => m.Description)').val("");
-                        $('#@Html.IdFor(m => m.Value)').val("");
-
-                        objIndexTran.grid.load();
-
-                         });
-                    },
-                        null
-                );
-        });
-
-
-        $("#btnRegCancel").on("click", function (e) {
-            e.preventDefault();
-            $('#btnRegSubm').show();
             $('#btnRegSubmSave, #btnRegCancel').hide();
-            $('#@Html.IdFor(m => m.Description)').val("");
-            $('#@Html.IdFor(m => m.Value)').val("");
 
+            objIndexTranG.initial();
+
+            $("#btnRegSubm").on("click", function (e) {
+                e.preventDefault();
+
+                var _grid = unitlife.ui.grid("#tbListTranslateG");
+
+                var _frm = unitlife.ui.validation("#frmGenderTranslateReg"), condVal = $("#@Html.IdFor(m => m.GenderId)").val();
+                var _isValid = true;
+                _frm.unobtrusiveParse();
+
+                _isValid = _frm.valid();
+                if (_isValid) {
+
+                        Confirmar('¿@Html.Raw(ViewBag.Confirm)?',
+                            function () {
+                                _grid.invoqCommandOpt('@Url.Action("Register", "GenderTranslate", null)', "#frmGenderTranslateReg", function (e) {
+                                    if (e && e.isError == true)
+                                        return;
+
+                                    $('#btnRegSubm').show();
+                                    $('#btnRegSubmSave, #btnRegCancel').hide();
+                                    $('#@Html.IdFor(m => m.Description)').val("");
+                                    $('#@Html.IdFor(m => m.Value)').val("");
+
+                                    objIndexTranG.grid.load();
+
+                                     });
+                                  },
+                                    null
+                        );
+
+                }
+                return false;
+            });
+
+            $("#btnRegSubmSave").on("click", function (e) {
+                e.preventDefault();
+
+                var _grid = unitlife.ui.grid("#tbListTranslateG");
+
+                Confirmar('¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+                        _grid.invoqCommandOpt('@Url.Action("Update", "GenderTranslate", null)', ("#frmGenderTranslateReg"), function (e) {
+                            if (e && e.isError == true)
+                                return;
+
+                            $('#btnRegSubm').show();
+                            $('#btnRegSubmSave, #btnRegCancel').hide();
+                            $('#@Html.IdFor(m => m.Description)').val("");
+                            $('#@Html.IdFor(m => m.Value)').val("");
+
+                            objIndexTranG.grid.load();
+
+                             });
+                        },
+                            null
+                    );
+            });
+
+
+            $("#btnRegCancel").on("click", function (e) {
+                e.preventDefault();
+                $('#btnRegSubm').show();
+                $('#btnRegSubmSave, #btnRegCancel').hide();
+                $('#@Html.IdFor(m => m.Description)').val("");
+                $('#@Html.IdFor(m => m.Value)').val("");
+
+            });
+
+            unitlife.ui.SelectedValue('#@Html.IdFor(x => x.LanguageId)');
         });
 
-        unitlife.ui.SelectedValue('#@Html.IdFor(x => x.LanguageId)');
-    });
-
-</script>
+    </script>

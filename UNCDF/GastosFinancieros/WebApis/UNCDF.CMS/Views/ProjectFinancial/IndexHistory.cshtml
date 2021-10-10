@@ -33,18 +33,27 @@
 
             <div class="form-group">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         @Html.LabelFor(m => m.Year)
                         <div id="d_@Html.IdFor(m=>m.Year)" class="input-group date">
                             @Html.TextBoxFor(m => m.Year, new { @class = "form-control input", maxlength = 10, id = "txtYear" })
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(m => m.ProjectCode)
+
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.ProjectCode, new { @class = "form-control", id = "txtProjectCode" })
                             <a id="btnSearch" class="btn btn-default input-group-addon">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
                             </a>
                         </div>
-
                     </div>
 
                     <div class="col-md-1">
@@ -71,18 +80,15 @@
             <tr>
                 @*<th data-field="@Html.HtmlIdNameFor(x => x.result.ProjectFinancialId)" data-visible="false">@Html.DisplayNameFor(x => x.result.ProjectFinancialId)</th>*@
                 <th data-field="@Html.HtmlIdNameFor(x => x.result.Year)">@Html.DisplayNameFor(x => x.result.Year)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.DeparmentCode)">@Html.DisplayNameFor(x => x.result.DeparmentCode)</th>
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.result.DeparmentCode)">@Html.DisplayNameFor(x => x.result.DeparmentCode)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.result.ProjectCode)">@Html.DisplayNameFor(x => x.result.ProjectCode)</th>
                 
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.ImplementAgencyCode)">@Html.DisplayNameFor(x => x.result.ImplementAgencyCode)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.result.ImplementAgencyCode)">@Html.DisplayNameFor(x => x.result.ImplementAgencyCode)</th>
                 
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.FundCode)">@Html.DisplayNameFor(x => x.result.FundCode)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.result.FundCode)">@Html.DisplayNameFor(x => x.result.FundCode)</th>
                 
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Budget)">@Html.DisplayNameFor(x => x.result.Budget)</th>
-                
-                
-                
-                <th class="col-md-8" data-field="@Html.HtmlIdNameFor(x => x.result.Expenditure)">@Html.DisplayNameFor(x => x.result.Expenditure)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.result.Budget)">@Html.DisplayNameFor(x => x.result.Budget)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.result.Expenditure)">@Html.DisplayNameFor(x => x.result.Expenditure)</th>
                 
                 
             </tr>
@@ -95,6 +101,7 @@
     $("#btnClean").on("click", function (e) {
         e.preventDefault();
         $("#txtYear").val("");
+        $("#txtProjectCode").val("");
         $("#btnSearch").click();
     });
     var objIndexHis={

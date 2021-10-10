@@ -19,7 +19,7 @@ namespace UNCDF.CMS
 
             //eIntroduction.IntroductionId = eIntroduction.IntroductionId;
 
-            request.IntroductionTranslateBE = eIntroduction;
+            request.MIntroductionTranslate = eIntroduction;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -46,7 +46,7 @@ namespace UNCDF.CMS
             IntroductionTranslateRequest request = new IntroductionTranslateRequest();
             IntroductionTranslateResponse response = new IntroductionTranslateResponse();
 
-            request.IntroductionTranslateBE = MIntroductionTranslate;
+            request.MIntroductionTranslate = MIntroductionTranslate;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -73,7 +73,7 @@ namespace UNCDF.CMS
             IntroductionTranslatesResponse response = new IntroductionTranslatesResponse();
             string returnMsg = string.Empty;
 
-            request.IntroductionTranslateBE = MIntroductionTranslate;
+            request.MIntroductionTranslate = MIntroductionTranslate;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -100,7 +100,7 @@ namespace UNCDF.CMS
             IntroductionTranslateResponse response = new IntroductionTranslateResponse();
             string returnMsg = string.Empty;
 
-            request.IntroductionTranslateBE = MIntroductionTranslate;
+            request.MIntroductionTranslate = MIntroductionTranslate;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -127,13 +127,13 @@ namespace UNCDF.CMS
             IntroductionTranslatesResponse response = new IntroductionTranslatesResponse();
             string returnMsg = string.Empty;
 
-            request.IntroductionTranslateBE = MIntroductionTranslate;
+            request.MIntroductionTranslate = MIntroductionTranslate;
             request.Session = Session;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("appconfig/api/IntroductionTranslate", "DeletMIntroductionTranslate", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("appconfig/api/IntroductionTranslate", "DeleteIntroductionTranslate", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {
@@ -151,7 +151,7 @@ namespace UNCDF.CMS
 
     internal class IntroductionTranslateRequest
     {
-        public MIntroductionTranslate IntroductionTranslateBE { get; set; }
+        public MIntroductionTranslate MIntroductionTranslate { get; set; }
         public Session Session { get; set; }
         public string ApplicationToken { get; set; }
     }
