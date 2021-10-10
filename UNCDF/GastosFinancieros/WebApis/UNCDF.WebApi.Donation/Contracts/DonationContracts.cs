@@ -81,4 +81,10 @@ namespace UNCDF.WebApi.Donation
         public string PaymentId { get; set; }
         public string PaymentURL { get; set; }
     }
+
+    [Serializable]
+    public class PaypalConfigResponse : BaseResponse
+    {
+        public MPaypal PaypalConfig { get; set; }
+    }
 }

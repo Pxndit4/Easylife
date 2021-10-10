@@ -10,7 +10,6 @@
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\bin\Debug\netcoreapp3.1\UNCDF.Utilities.deps.json
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\bin\Debug\netcoreapp3.1\UNCDF.Utilities.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\bin\Debug\netcoreapp3.1\UNCDF.Utilities.pdb
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Debug\netcoreapp3.1\UNCDF.Utilities.csprojAssemblyReference.cache
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Debug\netcoreapp3.1\UNCDF.Utilities.AssemblyInfoInputs.cache
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Debug\netcoreapp3.1\UNCDF.Utilities.AssemblyInfo.cs
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Debug\netcoreapp3.1\UNCDF.Utilities.csproj.CoreCompileInputs.cache
@@ -25,3 +24,4 @@ E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\D
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Debug\netcoreapp3.1\UNCDF.Utilities.csproj.CoreCompileInputs.cache
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Debug\netcoreapp3.1\UNCDF.Utilities.dll
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Debug\netcoreapp3.1\UNCDF.Utilities.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Utilities\obj\Debug\netcoreapp3.1\UNCDF.Utilities.csprojAssemblyReference.cache

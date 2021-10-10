@@ -175,6 +175,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Title = Convert.ToString(reader["Title"]);
                             entRow.Image = Constant.S3Server + Convert.ToString(reader["Image"]);
                             entRow.Video = Constant.S3Server + Convert.ToString(reader["Video"]);
+                            entRow.Country =  Convert.ToString(reader["Country"]);
                             lisQuery.Add(entRow);
                         }
                     }
@@ -572,7 +573,7 @@ namespace UNCDF.Layers.DataAccess
 
                             entRow.TotalBudget = Convert.ToDecimal(reader["Budget"]);
                             entRow.TotalExpenditure = Convert.ToDecimal(reader["Expenditure"]);
-
+                            entRow.Country = Convert.ToString(reader["Country"]);
                             lisQuery.Add(entRow);
                         }
                     }

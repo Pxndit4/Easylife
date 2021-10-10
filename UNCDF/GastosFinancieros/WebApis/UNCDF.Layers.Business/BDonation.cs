@@ -25,66 +25,18 @@ namespace UNCDF.Layers.Business
 
             if (CodeResult == 0)
             {
-                if (donorFrequencyBE != null)
+
+                int CodeResult3 = 0;
+
+                if (ent.PaymentType.Equals("4")) //STRIPE
                 {
-                    int CodeResult2 = BDonorFrequency.Insert(donorFrequencyBE, baseRequest);
+                    MDonorStripe donorCriptoBE = new MDonorStripe();
+                    donorCriptoBE.DonationId = ent.DonationId;
+                    donorCriptoBE.PaymentId = payMethodBE.DonorStripe.PaymentId;
 
-                    baseResponse.Code = CodeResult2.ToString();
+                    CodeResult3 = BDonorStripe.Confirm(donorCriptoBE, baseRequest);
 
-                    if (CodeResult2 == 0)
-                    {
-                        int CodeResult3 = 0;
-
-                        if (ent.PaymentType.Equals("4")) //STRIPE
-                        {
-                            MDonorStripe donorCriptoBE = new MDonorStripe();
-                            donorCriptoBE.DonationId = ent.DonationId;
-                            donorCriptoBE.PaymentId = payMethodBE.DonorStripe.PaymentId;
-
-                            CodeResult3 = BDonorStripe.Confirm(donorCriptoBE, baseRequest);
-                        }
-                        else if (ent.PaymentType.Equals("2")) //PAYPAL
-                        {
-                            MDonorPayPal donorPayPalBE = new MDonorPayPal();
-
-                            donorPayPalBE.DonorId = ent.DonorId;
-                            donorPayPalBE.Mail = payMethodBE.DonorPayPal.Mail;
-
-                            //CodeResult3 = DonorPayPalBN.Insert(donorPayPalBE, baseRequest);
-                        }
-
-                        baseResponse.Code = CodeResult3.ToString();
-
-                        if (CodeResult3 == 0)
-                        {
-                            baseResponse.Message = "Success";
-                        }
-                        else
-                        {
-                            baseResponse.Message = "An error occurred while registering the payment method";
-                        }
-
-                        return baseResponse;
-                    }
-                    else
-                    {
-                        baseResponse.Message = "An error occurred while recording the payment frequency";
-                    }
-
-                    return baseResponse;
-                }
-                else
-                {
-                    if (ent.PaymentType.Equals("4")) //STRIPE
-                    {
-                        MDonorStripe donorCriptoBE = new MDonorStripe();
-                        donorCriptoBE.DonationId = ent.DonationId;
-                        donorCriptoBE.PaymentId = payMethodBE.DonorStripe.PaymentId;
-
-                        CodeResult = BDonorStripe.Confirm(donorCriptoBE, baseRequest);
-                    }
-
-                    if (CodeResult == 0)
+                    if (CodeResult3 == 0)
                     {
                         baseResponse.Message = "Success";
                     }
@@ -92,8 +44,50 @@ namespace UNCDF.Layers.Business
                     {
                         baseResponse.Message = "Error confirming payment stripe";
                     }
-
                 }
+                else if (ent.PaymentType.Equals("2")) //PAYPAL
+                {
+                    MDonorPayPal donorPayPalBE = new MDonorPayPal();
+
+                    donorPayPalBE.DonorId = ent.DonorId;
+                    donorPayPalBE.Mail = payMethodBE.DonorPayPal.Mail;
+                    donorPayPalBE.PaymentId = payMethodBE.DonorPayPal.PaymentId;
+
+                    CodeResult3 = BDonorPayPal.Insert(donorPayPalBE, baseRequest);
+
+                    if (CodeResult3 == 0)
+                    {
+                        baseResponse.Message = "Success";
+                    }
+                    else
+                    {
+                        baseResponse.Message = "An error occurred while registering the payment method";
+                    }
+                }
+
+                baseResponse.Code = CodeResult3.ToString();
+
+                if (donorFrequencyBE != null)
+                {
+                    if (CodeResult3 == 0)
+                    {
+                        int CodeResult2 = BDonorFrequency.Insert(donorFrequencyBE, baseRequest);
+
+                        baseResponse.Code = CodeResult2.ToString();
+
+                        if (CodeResult2 == 0)
+                        {
+                            baseResponse.Message = "Success";
+                            return baseResponse;
+                        }
+                        else
+                        {
+                            baseResponse.Message = "An error occurred while recording the payment frequency";
+                        }
+                    }
+                }
+
+                return baseResponse;
             }
             else
             {

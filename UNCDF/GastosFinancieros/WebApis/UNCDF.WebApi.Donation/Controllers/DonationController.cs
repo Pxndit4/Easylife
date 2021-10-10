@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using UNCDF.Layers.Business;
 using UNCDF.Layers.Model;
@@ -178,6 +179,47 @@ namespace UNCDF.WebApi.Donation.Controllers
         }
 
         [HttpPost]
+        [Route("0/PaypalConfig")]
+        public PaypalConfigResponse PaypalConfig([FromBody] BaseRequest request)
+        {
+            PaypalConfigResponse response = new PaypalConfigResponse();
+            response.PaypalConfig = new MPaypal();
+            try
+            {
+                /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                /*************FIN DEL METODO*************/
+                
+                int Val = 0;
+
+                List<MParameter> lst = BParameter.List(new MParameter { Code = "PAYPAL_CLIENTID", Description = "" }, ref Val);
+
+                response.PaypalConfig.clientId = lst[0].Valor1.ToString();
+
+                lst = BParameter.List(new MParameter { Code = "PAYPAL_MODE", Description = "" }, ref Val);
+                response.PaypalConfig.mode = lst[0].Valor1.ToString();
+
+                lst = BParameter.List(new MParameter { Code = "PAYPAL_SECRECT", Description = "" }, ref Val);
+                response.PaypalConfig.clientSecret = lst[0].Valor1.ToString();
+
+                response.Code = "0";
+                response.Message = "Success";
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = Messages.ErrorPayment;
+            }
+
+            return response;
+        }
+
+        [HttpPost]
         [Route("0/PaypalDonation")]
         public DonationPaypalResponse PaypalDonation([FromBody] DonationPaypalRequest request)
         {
@@ -198,13 +240,13 @@ namespace UNCDF.WebApi.Donation.Controllers
             string baseURIOk = string.Empty;
             string baseURIFail = string.Empty;
 
-            //baseURIOk = "http://3.23.158.238/uncdf/donations/periodically/thank-you?";
+            baseURIOk = "http://3.23.158.238/uncdf/donations/periodically/thank-you?";
 
-            //baseURIFail = "http://3.23.158.238/uncdf/donations/error?";
+            baseURIFail = "http://3.23.158.238/uncdf/donations/error?";
 
-            baseURIOk = "http://localhost/uncdf/donations/periodically/thank-you?";
+            //baseURIOk = "http://localhost:4200/uncdf/donations/periodically/thank-you?";
 
-            baseURIFail = "http://localhost/uncdf/donations/error?";
+            //baseURIFail = "http://localhost:4200/uncdf/donations/error?";
 
             try
             {
@@ -330,6 +372,42 @@ namespace UNCDF.WebApi.Donation.Controllers
                     payMethodBE.DonorPayPal = request.PayMethod.DonorPayPal;
                 }
 
+                StringBuilder strBodyFrecuency = new StringBuilder();
+                DateTime dtNow = DateTime.Today;
+                
+
+                if (request.DonorFrequency != null)
+                {
+                    strBodyFrecuency.AppendLine("Dear donor, this is the schedule for your next donations:");
+                    
+                    strBodyFrecuency.AppendLine("<Table style='padding-top: 12px; width: 40%; border: 1px solid #000; padding-bottom: 12px; text-align: left; background-color: #04AA6D; color: white;'>");
+
+                    strBodyFrecuency.AppendLine("<tr>");
+                    strBodyFrecuency.AppendLine("<th>");
+                    strBodyFrecuency.AppendLine("Nro.");
+                    strBodyFrecuency.AppendLine("</th>");
+                    strBodyFrecuency.AppendLine("<th>");
+                    strBodyFrecuency.AppendLine("Fecha");
+                    strBodyFrecuency.AppendLine("</th>");
+                    strBodyFrecuency.AppendLine("</tr>");
+
+                    for (int i = 1; i <= request.DonorFrequency.Quantity; i++)
+                    {
+                        dtNow = dtNow.AddMonths(request.DonorFrequency.Frequency);
+
+                        strBodyFrecuency.AppendLine("<tr>");
+                        strBodyFrecuency.AppendLine("<td style='background-color: #ffffff; color: black;'>");
+                        strBodyFrecuency.AppendLine(i.ToString());
+                        strBodyFrecuency.AppendLine("</td>");
+                        strBodyFrecuency.AppendLine("<td style='background-color: #ffffff; color: black;'>");
+                        strBodyFrecuency.AppendLine(dtNow.ToShortDateString());
+                        strBodyFrecuency.AppendLine("</td>");
+                        strBodyFrecuency.AppendLine("</tr>");
+                    }
+
+                    strBodyFrecuency.AppendLine("</Table>");
+                }
+
                 baseRequest.Language = request.Language;
                 baseRequest.Session = request.Session;
 
@@ -364,6 +442,21 @@ namespace UNCDF.WebApi.Donation.Controllers
                     donation.Certificate = CertifcateName.Replace("[WSTAMP]", ""); ;
 
                     BDonation.Update(donation, baseRequest);
+                }
+
+                if (request.DonorFrequency != null)
+                {
+                    int val = 0;
+
+                    donation = BDonation.Select(donation, ref val);
+                                        
+                    if (val.Equals(0))
+                    {
+                        string Message = strBodyFrecuency.ToString();
+                        string Subject = "UNCDF - Donation Frequency";                        
+
+                        SendSES(Subject, Message, donation.Email);
+                    }
                 }
 
                 response.Code = baseResponse.Code;
@@ -481,7 +574,7 @@ namespace UNCDF.WebApi.Donation.Controllers
                     if (val.Equals(0))
                     {
                         string Message = parameterBEs[0].Valor1.Replace("[CERTIFICATE]", Path.Combine(Constant.S3Server, "certificates") + "/" + donation.Certificate);
-                        string Subject = "UNITLIFE - Donation certificate";
+                        string Subject = "UNCDF - Donation certificate";
 
                         if (request.Email.Equals(""))
                         {
