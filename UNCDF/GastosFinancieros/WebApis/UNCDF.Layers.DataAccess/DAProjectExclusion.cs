@@ -79,7 +79,11 @@ namespace UNCDF.Layers.DataAccess
                         while (reader.Read())
                         {
                             MProjectExclusion entRow = new MProjectExclusion();
+                            entRow.ProjectId = Convert.ToInt32(reader["ProjectId"]);
+                            entRow.IsActive = Convert.ToInt32(reader["IsActive"]);
+                            entRow.PracticeArea = Convert.ToString(reader["PracticeArea"]);
                             entRow.ProjectCode = Convert.ToString(reader["ProjectCode"]);
+                            entRow.Title = Convert.ToString(reader["Title"]);
                             lisQuery.Add(entRow);
                         }
                     }

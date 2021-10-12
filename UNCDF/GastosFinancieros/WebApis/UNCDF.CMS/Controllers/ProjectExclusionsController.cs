@@ -148,6 +148,51 @@ namespace UNCDF.CMS.Controllers
             }
             return Json(objResult);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> RegisterProjectCodeUnit(string id)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+
+                string[] codes = new string[]{
+                                                id
+                                              };
+                
+
+                MProjectExclusion objEnt = new MProjectExclusion
+                {
+                    //ProjectId = model.ProjectId,
+                    ListCode = codes
+                };
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+                response = new WebApiProjectExclusions().InsertProjectExlusions(objEnt, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                string MessageResul = string.Format(MessageResource.SaveSuccess, "Profile");
+
+                objResult.isError = statusCode.Equals("2") ? true : false;
+                objResult.message = statusCode.Equals("2") ? statusMessage : MessageResul;
+            }
+            catch (Exception ex)
+            {
+                objResult.isError = true;
+                objResult.data = null;
+
+                objResult.message = string.Format(MessageResource.SaveSuccess, "Profile");
+            }
+            return Json(objResult);
+        }
+
         [HttpPost]
         public JsonResult SearchProjectsCodeExclusions(ProjectViewModel model)
         {
@@ -161,8 +206,12 @@ namespace UNCDF.CMS.Controllers
 
                 objResult.data = entList.Select(x => new MProjectExclusion
                 {
-                    ProjectCode = x.ProjectCode
-                }).ToList();
+                    ProjectCode = x.ProjectCode,
+                    ProjectId = x.ProjectId,
+                    IsActive = x.IsActive,
+                    Title = x.Title,
+                    PracticeArea = x.PracticeArea
+                }).ToList();                   
 
             }
             catch (Exception ex)

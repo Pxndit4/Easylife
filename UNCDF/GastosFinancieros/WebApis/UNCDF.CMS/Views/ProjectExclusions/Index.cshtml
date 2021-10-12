@@ -25,78 +25,6 @@
             <div class="panel panel-default">
                 <div class="ui-bar ui-bar-default">
                     <span class="ui-title">
-                        Project Code
-                    </span>
-                    <div class="ui-btn-content">
-                        @Ajax.AjaxActionLink("", "AddProjectCode","ProjectExclusions",null, new AjaxOptions
-                        {
-                            HttpMethod = "GET",
-                            InsertionMode = InsertionMode.Replace,
-                            UpdateTargetId = "dialogBody",
-                            OnBegin = "unitlife.site.dialog.onInit",
-                            OnComplete = "unitlife.site.dialog.onComplete",
-                            OnFailure = "unitlife.site.dialog.onFailure",
-                        }, new { @class = "btn btn-default" }, "glyphicon glyphicon-plus")
-                    </div>
-                </div>
-                <div class="panel-body">
-
-
-                    <div id="tbListEditCont1" class="ui-container">
-                        <table id="tbListEdit" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
-                            <thead>
-                                <tr>
-                                    <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexEdit.grid.rowCommand"></th>
-                                    <th data-field="@Html.HtmlIdNameFor(x => x.resultProjExcl.ProjectCode)" >@Html.DisplayNameFor(x => x.resultProjExcl.ProjectCode)</th>
-
-                                </tr>
-                            </thead>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="ui-bar ui-bar-default">
-                    <span class="ui-title">
-                        Department
-                    </span>
-                    <div class="ui-btn-content">
-                        @Ajax.AjaxActionLink("", "AddDeparmentCode", "ProjectExclusions", new { id = 0 }, new AjaxOptions
-                        {
-                            HttpMethod = "GET",
-                            InsertionMode = InsertionMode.Replace,
-                            UpdateTargetId = "dialogBody",
-                            OnBegin = "unitlife.site.dialog.onInit",
-                            OnComplete = "unitlife.site.dialog.onComplete",
-                            OnFailure = "unitlife.site.dialog.onFailure",
-                        }, new { @class = "btn btn-default" }, "glyphicon glyphicon-plus")
-                    </div>
-                </div>
-                <div class="panel-body">
-
-
-                    <div id="tbListEditDepCont" class="ui-container">
-                        <table id="tbListEditDep" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
-                            <thead>
-                                <tr>
-                                    <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexDepEx.grid.rowCommand"></th>
-                                    <th data-field="@Html.HtmlIdNameFor(x => x.resultDepartExc.DeparmentCode)">@Html.DisplayNameFor(x => x.resultDepartExc.DeparmentCode)</th>
-
-                                </tr>
-                            </thead>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="ui-bar ui-bar-default">
-                    <span class="ui-title">
                         Practice Area
                     </span>
                     <div class="ui-btn-content">
@@ -126,10 +54,52 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="ui-bar ui-bar-default">
+                    <span class="ui-title">
+                        Project Code
+                    </span>
+                    @*<div class="ui-btn-content">
+                        @Ajax.AjaxActionLink("", "AddProjectCode", "ProjectExclusions", null, new AjaxOptions
+                        {
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "dialogBody",
+                            OnBegin = "unitlife.site.dialog.onInit",
+                            OnComplete = "unitlife.site.dialog.onComplete",
+                            OnFailure = "unitlife.site.dialog.onFailure",
+                        }, new { @class = "btn btn-default" }, "glyphicon glyphicon-plus")
+                    </div>*@
+                </div>
+                <div class="panel-body">
 
-        <div class="col-md-4">
 
+                    <div id="tbListEditCont1" class="ui-container">
+                        <table id="tbListEdit" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+                            <thead>
+                                <tr>
+                                    <th data-formatter="objIndexEdit.grid.commandChecks" data-field="@Html.HtmlIdNameFor(m => m.resultProjExcl.IsActive)" class="text-center">  </th>
+
+
+                                    <th data-field="@Html.HtmlIdNameFor(x => x.resultProjExcl.ProjectId)" data-visible="false">@Html.DisplayNameFor(x => x.resultProjExcl.ProjectId)</th>
+                                    <th data-field="@Html.HtmlIdNameFor(x => x.resultProjExcl.PracticeArea)">@Html.DisplayNameFor(x => x.resultProjExcl.PracticeArea)</th>
+                                    <th data-field="@Html.HtmlIdNameFor(x => x.resultProjExcl.ProjectCode)">@Html.DisplayNameFor(x => x.resultProjExcl.ProjectCode)</th>
+                                    <th data-field="@Html.HtmlIdNameFor(x => x.resultProjExcl.Title)">@Html.DisplayNameFor(x => x.resultProjExcl.Title)</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+            <div class="row">
+            </div>
         </div>
+        
+
 
 
 
@@ -140,10 +110,38 @@
 </div>
 <script type="text/javascript" language="javacript">
 
+
+    function changeCheck(e) {
+        var checkboxValues = new Array();
+
+        if ($(e).is(':checked')) {
+            
+               $.ajax({
+                    url: '@Url.Action("Delete", "ProjectExclusions")/?id=' + e.value,
+                    type: 'POST',
+                    success: function(data) {
+                    }
+                });
+
+        }
+        if (!$(e).is(':checked')) {
+
+              $.ajax({
+                    url: '@Url.Action("RegisterProjectCodeUnit", "ProjectExclusions")/?id=' + e.value,
+                    type: 'POST',
+                    success: function(data) {
+                    }
+              });
+        }
+
+    }
+
+
     var objIndexEdit={
         initial: function () {
 
             unitlife.ui.grid('#tbListEdit').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+
             objIndexEdit.grid.load();
 
         },
@@ -176,6 +174,11 @@
                     }
                 }
             },
+            commandChecks: function (e, r, i) {
+                var sd = '<input type="checkbox" id="CheckOptions" name="CheckOptions"  onchange="changeCheck(this)" value="' + r.ProjectCode + '"  ' + (r.IsActive > 0 ? " checked " : "") + ' />';
+
+                return sd;
+            },
 
         },
         general:{
@@ -183,7 +186,7 @@
     };
 
 
-    var objIndexDepEx={
+    @*var objIndexDepEx={
         initial: function () {
 
             unitlife.ui.grid('#tbListEditDep').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
@@ -223,7 +226,7 @@
         },
         general:{
         }
-    };
+    };*@
 
     var objIndexPracExc={
         initial: function () {
@@ -252,6 +255,7 @@
                                 if (e && e.isError == true)
                                     return;
                                 objIndexPracExc.grid.load();
+                                objIndexEdit.grid.load();
                             });
                         },
                         null
@@ -270,8 +274,18 @@
 
     $(document).ready(function () {
         objIndexEdit.initial();
-        objIndexDepEx.initial();
+        //objIndexDepEx.initial();
         objIndexPracExc.initial();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+
+
     });
 
 
@@ -279,12 +293,13 @@
         if (key == 'REG_PROJECTCODEEXCLUSION') {
             objIndexEdit.grid.load();
         }
-        if (key == 'REG_DEPARMENTCODEEXCLUSION') {
-            objIndexDepEx.grid.load();
-        }
+        //if (key == 'REG_DEPARMENTCODEEXCLUSION') {
+        //    objIndexDepEx.grid.load();
+        //}
 
         if (key == 'REG_PRACTICEAREAEXCLUSION') {
             objIndexPracExc.grid.load();
+            objIndexEdit.grid.load();
         }
     }
 
