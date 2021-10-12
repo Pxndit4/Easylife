@@ -71,6 +71,7 @@
     <Compile Include="MProfileUser.cs" />
     <Compile Include="MProjectDonation.cs" />
     <Compile Include="MStatic.cs" />
+    <Compile Include="MSubscribers.cs" />
     <Compile Include="MTimeLine.cs" />
     <Compile Include="MTimeLineMultimedia.cs" />
     <Compile Include="MTimeLineMultimediaTranslate.cs" />

@@ -207,6 +207,9 @@ namespace UNCDF.WebApi.Donation.Controllers
                 lst = BParameter.List(new MParameter { Code = "PAYPAL_SECRECT", Description = "" }, ref Val);
                 response.PaypalConfig.clientSecret = lst[0].Valor1.ToString();
 
+                lst = BParameter.List(new MParameter { Code = "PAYPAL_braintree", Description = "" }, ref Val);
+                response.PaypalConfig.BrainTree = lst[0].Valor1.ToString();
+
                 response.Code = "0";
                 response.Message = "Success";
             }
