@@ -11,5 +11,6 @@ namespace UNCDF.Layers.Model
         public string mode { get; set; }
         public string clientId { get; set; }
         public string clientSecret { get; set; }
+        public string BrainTree { get; set; }
     }
 }

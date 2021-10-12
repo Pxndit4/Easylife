@@ -427,6 +427,8 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Video = (Convert.ToString(reader["Video"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Video"]);
                             entRow.Advance = Convert.ToInt32(reader["Advance"]);
                             entRow.GifLoad = Constant.S3Server + Convert.ToString(reader["GifLoad"]);
+                            entRow.Country = Convert.ToString(reader["Country"]);
+                            entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
                             lisQuery.Add(entRow);
                         }
                     }
