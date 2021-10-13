@@ -60,23 +60,20 @@
                     <span class="ui-title">
                         Project Code
                     </span>
-                    @*<div class="ui-btn-content">
-                        @Ajax.AjaxActionLink("", "AddProjectCode", "ProjectExclusions", null, new AjaxOptions
-                        {
-                            HttpMethod = "GET",
-                            InsertionMode = InsertionMode.Replace,
-                            UpdateTargetId = "dialogBody",
-                            OnBegin = "unitlife.site.dialog.onInit",
-                            OnComplete = "unitlife.site.dialog.onComplete",
-                            OnFailure = "unitlife.site.dialog.onFailure",
-                        }, new { @class = "btn btn-default" }, "glyphicon glyphicon-plus")
-                    </div>*@
+                    <div class="ui-btn-content">
+                        <a id="btnClean" class="btn btn-default">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                        </a>
+                    </div>
                 </div>
                 <div class="panel-body">
+                    @*<a id="btnClean" class="btn btn-default" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>*@
 
 
                     <div id="tbListEditCont1" class="ui-container">
-                        <table id="tbListEdit" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+                        <table id="tbListEdit" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-sort-order="desc"  data-search="true" data-row-style="rowStyle">
                             <thead>
                                 <tr>
                                     <th data-formatter="objIndexEdit.grid.commandChecks" data-field="@Html.HtmlIdNameFor(m => m.resultProjExcl.IsActive)" class="text-center">  </th>
@@ -111,27 +108,32 @@
 <script type="text/javascript" language="javacript">
 
 
+    $("#btnClean").on("click", function (e) {
+        objIndexEdit.grid.load();
+    });
+
     function changeCheck(e) {
         var checkboxValues = new Array();
 
         if ($(e).is(':checked')) {
-            
-               $.ajax({
+             $.ajax({
+                    url: '@Url.Action("RegisterProjectCodeUnit", "ProjectExclusions")/?id=' + e.value,
+                    type: 'POST',
+                    success: function(data) {
+                    }
+              });
+
+
+        }
+        if (!$(e).is(':checked')) {
+
+             $.ajax({
                     url: '@Url.Action("Delete", "ProjectExclusions")/?id=' + e.value,
                     type: 'POST',
                     success: function(data) {
                     }
                 });
 
-        }
-        if (!$(e).is(':checked')) {
-
-              $.ajax({
-                    url: '@Url.Action("RegisterProjectCodeUnit", "ProjectExclusions")/?id=' + e.value,
-                    type: 'POST',
-                    success: function(data) {
-                    }
-              });
         }
 
     }
