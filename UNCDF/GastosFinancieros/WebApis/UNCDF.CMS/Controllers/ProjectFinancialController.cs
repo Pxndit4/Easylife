@@ -427,6 +427,64 @@ namespace UNCDF.CMS.Controllers
             return Json(objResult);
         }
 
+        [HttpPost]
+        public ActionResult RegisterErrors(LoadProjectFinancialsViewModel model, HttpPostedFileBase imageFile)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                List<MProjectFinancials> entList = new List<MProjectFinancials>();
+                List<ModelProjectFinancialResult> entListData = new List<ModelProjectFinancialResult>();
+                entListData = (List<ModelProjectFinancialResult>)Session["ListProjectFinancials"];
+
+                foreach (ModelProjectFinancialResult item in entListData)
+                {
+                    if (item.WithAlert.Equals("N"))
+                    {
+                        MProjectFinancials mProjectFinancial = new MProjectFinancials();
+                        mProjectFinancial.Year = item.Year;
+                        mProjectFinancial.OperUnit = item.OperUnit;
+                        mProjectFinancial.DeparmentCode = item.DeparmentCode.Substring(1);
+                        mProjectFinancial.ProjectCode = item.ProjectCode;
+                        mProjectFinancial.DescrProject = item.DescrProject;
+                        mProjectFinancial.ProjectManager = item.ProjectManager;
+                        mProjectFinancial.ImplementAgencyCode = item.ImplementAgencyCode;
+                        mProjectFinancial.ShortDesc = item.ShortDesc;
+                        mProjectFinancial.FundCode = item.FundCode;
+                        mProjectFinancial.DescrFund = item.DescrFund;
+                        mProjectFinancial.Budget = item.Budget;
+                        mProjectFinancial.PreEncumbrance = item.PreEncumbrance;
+                        mProjectFinancial.Encumbrance = item.Encumbrance;
+                        mProjectFinancial.Disbursement = item.Disbursement;
+                        mProjectFinancial.Expenditure = item.Expenditure;
+                        mProjectFinancial.Balance = item.Balance;
+                        mProjectFinancial.Spent = item.Spent;
+                        entList.Add(mProjectFinancial);
+                    }                    
+                }
+
+                response = new WebApiProjectFinancial().InsertProjectFinancial(entList, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                objResult.isError = statusCode.Equals("2");
+                objResult.message = string.Format(MessageResource.SaveSuccess, "ProjectFinancials"); ;
+            }
+            catch (Exception ex)
+            {
+                objResult.message = string.Format(MessageResource.SaveError + "Error :" + ex.Message, "ProjectFinancials");
+            }
+            return Json(objResult);
+        }
+
         public ActionResult LoadHistory()
         {
             ViewBag.Title = "Project Financials History- Load File";
@@ -734,6 +792,64 @@ namespace UNCDF.CMS.Controllers
             return Json(objResult);
         }
 
+
+        [HttpPost]
+        public ActionResult RegisterHistoryErrors(LoadProjectFinancialsViewModel model, HttpPostedFileBase imageFile)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                List<MProjectFinancials> entList = new List<MProjectFinancials>();
+                List<ModelProjectFinancialResult> entListData = new List<ModelProjectFinancialResult>();
+                entListData = (List<ModelProjectFinancialResult>)Session["ListProjectFinancialsHis"];
+
+                foreach (ModelProjectFinancialResult item in entListData)
+                {
+                    if (item.WithAlert.Equals("N"))
+                    {
+                        MProjectFinancials mProjectFinancial = new MProjectFinancials();
+                        mProjectFinancial.Year = item.Year;
+                        mProjectFinancial.OperUnit = item.OperUnit;
+                        mProjectFinancial.DeparmentCode = item.DeparmentCode.Substring(1);
+                        mProjectFinancial.ProjectCode = item.ProjectCode;
+                        mProjectFinancial.DescrProject = item.DescrProject;
+                        mProjectFinancial.ProjectManager = item.ProjectManager;
+                        mProjectFinancial.ImplementAgencyCode = item.ImplementAgencyCode;
+                        mProjectFinancial.ShortDesc = item.ShortDesc;
+                        mProjectFinancial.FundCode = item.FundCode;
+                        mProjectFinancial.DescrFund = item.DescrFund;
+                        mProjectFinancial.Budget = item.Budget;
+                        mProjectFinancial.PreEncumbrance = item.PreEncumbrance;
+                        mProjectFinancial.Encumbrance = item.Encumbrance;
+                        mProjectFinancial.Disbursement = item.Disbursement;
+                        mProjectFinancial.Expenditure = item.Expenditure;
+                        mProjectFinancial.Balance = item.Balance;
+                        mProjectFinancial.Spent = item.Spent;
+                        entList.Add(mProjectFinancial);
+                    }                    
+                }
+
+                response = new WebApiProjectFinancial().InsertProjectFinancialHistory(entList, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                objResult.isError = statusCode.Equals("2");
+                objResult.message = string.Format(MessageResource.SaveSuccess, "ProjectFinancials"); ;
+            }
+            catch (Exception ex)
+            {
+                objResult.message = string.Format(MessageResource.SaveError + "Error :" + ex.Message, "ProjectFinancials");
+            }
+            return Json(objResult);
+        }
 
         [HttpPost]
         public ActionResult RegisterHistory(LoadProjectFinancialsViewModel model, HttpPostedFileBase imageFile)

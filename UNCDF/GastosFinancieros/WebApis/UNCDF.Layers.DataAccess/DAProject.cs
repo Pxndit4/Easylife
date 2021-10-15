@@ -52,6 +52,7 @@ namespace UNCDF.Layers.DataAccess
                     SqlCommand cmd = new SqlCommand("sp_ProjectFinancials_YearLis", con);
                     cmd.CommandTimeout = 0;
                     cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.Parameters.Add("@IDeparmentCode", SqlDbType.VarChar).Value = ent.DeparmentCode;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     Val = 1;
@@ -176,6 +177,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Image = Constant.S3Server + Convert.ToString(reader["Image"]);
                             entRow.Video = Constant.S3Server + Convert.ToString(reader["Video"]);
                             entRow.Country =  Convert.ToString(reader["Country"]);
+                            entRow.Department = Convert.ToString(reader["DeparmentCode"]);
                             lisQuery.Add(entRow);
                         }
                     }
@@ -429,6 +431,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.GifLoad = Constant.S3Server + Convert.ToString(reader["GifLoad"]);
                             entRow.Country = Convert.ToString(reader["Country"]);
                             entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
+                            entRow.Department = Convert.ToString(reader["DeparmentCode"]);
                             lisQuery.Add(entRow);
                         }
                     }
@@ -634,6 +637,7 @@ namespace UNCDF.Layers.DataAccess
                     cmd.CommandTimeout = 0;
                     cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
                     cmd.Parameters.Add("@IYear", SqlDbType.VarChar).Value = ent.Year;
+                    cmd.Parameters.Add("@IDeparmentCode", SqlDbType.VarChar).Value = ent.DeparmentCode;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
 
@@ -673,6 +677,7 @@ namespace UNCDF.Layers.DataAccess
                     SqlCommand cmd = new SqlCommand("sp_ProjectFinancial_LisTotals", con);
                     cmd.CommandTimeout = 0;
                     cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.Parameters.Add("@IDeparmentCode", SqlDbType.VarChar).Value = ent.DeparmentCode;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
 

@@ -981,7 +981,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
             BaseRequest baseRequest = new BaseRequest();
 
             projectFinancial.ProjectId = request.ProjectFinancial.ProjectId;
-            projectFinancial.Year = request.ProjectFinancial.Year;
+            projectFinancial.DeparmentCode = request.ProjectFinancial.DeparmentCode;
 
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;
@@ -1032,6 +1032,8 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
             projectFinancial.ProjectId = request.ProjectFinancial.ProjectId;
             projectFinancial.Year = request.ProjectFinancial.Year;
+            projectFinancial.DeparmentCode = request.ProjectFinancial.DeparmentCode;
+
 
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;
@@ -1079,6 +1081,7 @@ namespace UNCDF.WebApi.Project.Crontrollers
             BaseRequest baseRequest = new BaseRequest();
 
             projectFinancial.ProjectId = request.ProjectFinancial.ProjectId;
+            projectFinancial.DeparmentCode = request.ProjectFinancial.DeparmentCode;
 
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;

@@ -243,9 +243,9 @@ namespace UNCDF.WebApi.Donation.Controllers
             string baseURIOk = string.Empty;
             string baseURIFail = string.Empty;
 
-            baseURIOk = "http://3.23.158.238/uncdf/donations/periodically/thank-you?";
+            baseURIOk = "https://www.glsolutionsgroup.com/uncdf/donations/periodically/thank-you?";
 
-            baseURIFail = "http://3.23.158.238/uncdf/donations/error?";
+            baseURIFail = "https://www.glsolutionsgroup.com/uncdf/donations/error?";
 
             //baseURIOk = "http://localhost:4200/uncdf/donations/periodically/thank-you?";
 

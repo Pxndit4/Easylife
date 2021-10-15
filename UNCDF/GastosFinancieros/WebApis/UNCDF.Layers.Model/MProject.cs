@@ -21,7 +21,7 @@ namespace UNCDF.Layers.Model
         public string EffectiveStatus { get; set; }
         public string StatusEffDateStr { get; set; }
         public int StatusEffDate { get; set; }
-        public string Department { get; set; }
+        public string Department { get; set; }        
 
         public int StatusEffSeq { get; set; }
         public string StatusDescription { get; set; }

@@ -485,6 +485,61 @@ namespace UNCDF.CMS.Controllers
             return Json(objResult);
         }
 
+        [HttpPost]
+        public ActionResult RegisterErrors(LoadProjectsViewModel model, HttpPostedFileBase imageFile)
+        {
+            JSonResult objResult = new JSonResult();
+            string response = string.Empty;
+
+            try
+            {
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                List<MProject> entList = new List<MProject>();
+                List<ModelProjectResult> entListData = new List<ModelProjectResult>();
+                entListData = (List<ModelProjectResult>)Session["ListProjects"];
+
+                foreach (ModelProjectResult item in entListData)
+                {
+                    if (item.WithAlert.Equals("N"))
+                    {
+                        MProject mProject = new MProject();
+                        mProject.Department = item.Department.Substring(1);
+                        mProject.ProjectCode = item.ProjectCode;
+                        mProject.Description = item.Description;
+                        mProject.Type = item.Type;
+                        mProject.EffectiveStatus = item.EffectiveStatus;
+                        mProject.StatusEffDate = Convert.ToInt32(Extension.ToFormatDateYYYYMMDD(item.StatusEffDateStr));
+                        mProject.StatusEffSeq = item.StatusEffSeq;
+                        mProject.Status = item.Status;
+                        mProject.StatusDescription = item.StatusDescription;
+                        mProject.StartDate = Convert.ToInt32(Extension.ToFormatDateYYYYMMDD(item.StartDateStr));
+                        mProject.EndDate = Convert.ToInt32(Extension.ToFormatDateYYYYMMDD(item.EndDateStr));//item.EndDate;
+                        mProject.Title = item.Title;
+                        mProject.AwardId = item.AwardId;
+                        mProject.AwardStatus = item.AwardStatus;
+                        entList.Add(mProject);
+                    }                    
+                }
+
+                response = new WebApiProject().InsertProject(entList, objSession);
+
+                string statusCode = response.Split('|')[0];
+                string statusMessage = response.Split('|')[1];
+
+                objResult.isError = statusCode.Equals("2");
+                objResult.message = string.Format(MessageResource.SaveSuccess, "Projects"); ;
+            }
+            catch (Exception ex)
+            {
+                objResult.message = string.Format(MessageResource.SaveError + "Error :" + ex.Message, "Projects");
+            }
+            return Json(objResult);
+        }
+
         public ActionResult Edit(string id)
         {
             MProject objResult;

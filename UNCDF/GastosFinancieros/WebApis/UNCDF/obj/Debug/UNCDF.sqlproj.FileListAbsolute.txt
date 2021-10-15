@@ -39,3 +39,12 @@ E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\bin\Debug\UNCDF
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\UNCDF.dll
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\UNCDF.pdb
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\UNCDF.sqlprojAssemblyReference.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\bin\Debug\UNCDF.dacpac
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\bin\Debug\UNCDF.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\bin\Debug\UNCDF.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\Model.xml
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\refactor.xml
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\postdeploy.sql
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\predeploy.sql
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\UNCDF.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF\obj\Debug\UNCDF.pdb

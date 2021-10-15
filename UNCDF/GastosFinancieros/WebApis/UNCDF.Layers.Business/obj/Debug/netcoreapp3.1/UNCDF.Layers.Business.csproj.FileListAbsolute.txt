@@ -14,23 +14,6 @@
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.csproj.CopyComplete
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.dll
 /Users/giancarlotueros/Easylife/UNCDF/Gastos Financieros/WebApis/UNCDF.Layers.Business/obj/Debug/netcoreapp3.1/UNCDF.Layers.Business.pdb
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\HiQPdf.dep
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Business.deps.json
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Business.dll
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Business.pdb
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.dll
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Model.dll
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Utilities.dll
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.pdb
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Model.pdb
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Utilities.pdb
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.csprojAssemblyReference.cache
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.AssemblyInfoInputs.cache
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.AssemblyInfo.cs
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.csproj.CopyComplete
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.dll
-H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.pdb
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\HiQPdf.dep
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Business.deps.json
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Business.dll
@@ -48,3 +31,20 @@ E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.csproj.CopyComplete
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.dll
 E:\PROYECTOS\GTUEROS\Repo6\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\HiQPdf.dep
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Business.deps.json
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Business.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Business.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Model.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Utilities.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.DataAccess.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Layers.Model.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\bin\Debug\netcoreapp3.1\UNCDF.Utilities.pdb
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.csprojAssemblyReference.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.AssemblyInfoInputs.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.AssemblyInfo.cs
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.csproj.CoreCompileInputs.cache
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.csproj.CopyComplete
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.Layers.Business\obj\Debug\netcoreapp3.1\UNCDF.Layers.Business.pdb
