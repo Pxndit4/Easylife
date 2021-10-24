@@ -44,17 +44,16 @@
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        @Html.LabelFor(m => m.EffectiveStatus)
 
-                        <div class="input-group">
-                            @*@Html.DropDownListFor(m => m.EffectiveStatus, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", id = "txtStatus",  @readonly = true})*@
-                            @Html.TextBoxFor(m => m.EffectiveStatus, new { @class = "form-control input", maxlength = 10, id = "txtEndDate" , @readonly = true })
-                            <a id="btnSearch" class="btn btn-default input-group-addon">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
-                            </a>
-                        </div>
+                    </div>
+                    
+                     @Html.HiddenFor(m => m.EffectiveStatus)
+
+                    <div class="col-md-1">
+                        <a id="btnSearch" class="btn btn-default" style="margin-top:22px;">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                        </a>
+
                     </div>
                     <div class="col-md-1">
                         <a id="btnClean" class="btn btn-default" style="margin-top:22px;">
@@ -117,6 +116,7 @@
         initial: function () {
 
             $("#btnSearch").on("click", function (e) {
+                $("#@Html.IdFor(m => m.EffectiveStatus)").val("Active");
                 e.preventDefault();
                 objIndex.grid.load();
             });

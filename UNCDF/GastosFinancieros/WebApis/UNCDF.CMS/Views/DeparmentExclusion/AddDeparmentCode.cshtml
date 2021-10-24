@@ -21,7 +21,7 @@
 
 <div class="ui-container ui-jumb">
 
-    @using (Html.BeginForm("SearchDeparment", "ProjectExclusions", FormMethod.Post, new { id = "frmSearchAddDep" }))
+    @using (Html.BeginForm("SearchDeparment", "DeparmentExclusion", FormMethod.Post, new { id = "frmSearchAddDep" }))
     {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(m => m.DeparmentId)
@@ -132,7 +132,7 @@
             },
             load:function(){
 
-                unitlife.ui.grid('#tbListAddDep').load('@Url.Action("SearchDeparment", "ProjectExclusions", null)', '#frmSearchAddDep');
+                unitlife.ui.grid('#tbListAddDep').load('@Url.Action("SearchDeparment", "DeparmentExclusion", null)', '#frmSearchAddDep');
             },
             rowCommand: {
 
@@ -177,7 +177,7 @@
                     '¿@Html.Raw(ViewBag.Confirm)?',
                     function () {
 
-                        unitlife.ajax.submit('@Url.Action("RegisterDeparmentCode", "ProjectExclusions", null)', "#frmSearchAddDep", function (e){
+                        unitlife.ajax.submit('@Url.Action("RegisterDeparmentCode", "DeparmentExclusion", null)', "#frmSearchAddDep", function (e){
 
                             unitlife.site.dialog.invoqResultCallback('REG_DEPARMENTCODEEXCLUSION');
 
