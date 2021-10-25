@@ -64,21 +64,26 @@ namespace UNCDF.Utilities
 
 
                 iTextSharp.text.Image img;
-                img = iTextSharp.text.Image.GetInstance(Path.Combine(PathIMGs, "IconoDonacion.png"));
-                img.SetAbsolutePosition(380, 210);
-                //img.ScaleAbsolute(120, 120);
+                img = iTextSharp.text.Image.GetInstance(Path.Combine(PathIMGs, "background2.png"));
+                img.SetAbsolutePosition(10, 100);
+                img.ScaleAbsolute(200, 400);
 
 
                 iTextSharp.text.Image img2;
                 img2 = iTextSharp.text.Image.GetInstance(Path.Combine(PathIMGs, "logoUncdfUnitLife.png"));
-                img2.SetAbsolutePosition(270, 50);
-
+                img2.SetAbsolutePosition(270, 100);
+                img2.ScaleAbsolute(300, 100);
                 ////img2.SetAbsolutePosition(40, 790);
                 ////img2.ScalePercent(30, 30);
 
                 iTextSharp.text.Image img3;
-                img3 = iTextSharp.text.Image.GetInstance(Path.Combine(PathIMGs, "PlatoIzq.png"));
-                img3.SetAbsolutePosition(16, 20);
+                img3 = iTextSharp.text.Image.GetInstance(Path.Combine(PathIMGs, "background.png"));
+                img3.SetAbsolutePosition(630, 100);
+                img3.ScaleAbsolute(200, 400);
+
+                //iTextSharp.text.Image img3;
+                //img3 = iTextSharp.text.Image.GetInstance(Path.Combine(PathIMGs, "PlatoIzq.png"));
+                //img3.SetAbsolutePosition(16, 20);
                 ////img3.SetAbsolutePosition(250, 15);
                 //img3.ScalePercent(20, 20);
 

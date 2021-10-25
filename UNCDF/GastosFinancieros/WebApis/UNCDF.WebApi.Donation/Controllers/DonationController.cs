@@ -38,6 +38,20 @@ namespace UNCDF.WebApi.Donation.Controllers
             _myPaypalSettings = MPaypal.Value;
         }
 
+        [HttpPost]
+        [Route("0/GenerateCert")]
+        public string GenerateCert()
+        {
+            int connombre = 2;
+            //       int sinnombre = 111;
+
+            string webRoot = _env.ContentRootPath;
+
+            BDonation.GenarteCerticate(connombre, webRoot, "30.00", _MAwsS3);
+
+            return "";
+        }
+
         // POST api/values
         [HttpPost]
         [Route("0/DonationList")]
@@ -383,17 +397,18 @@ namespace UNCDF.WebApi.Donation.Controllers
                 {
                     strBodyFrecuency.AppendLine("Dear donor, this is the schedule for your next donations:");
                     
-                    strBodyFrecuency.AppendLine("<Table style='padding-top: 12px; width: 40%; border: 1px solid #000; padding-bottom: 12px; text-align: left; background-color: #04AA6D; color: white;'>");
+                    strBodyFrecuency.AppendLine("<Table class='paleBlueRows'>");
 
-                    strBodyFrecuency.AppendLine("<tr>");
+                    strBodyFrecuency.AppendLine("<thead><tr>");
                     strBodyFrecuency.AppendLine("<th>");
                     strBodyFrecuency.AppendLine("Nro.");
                     strBodyFrecuency.AppendLine("</th>");
                     strBodyFrecuency.AppendLine("<th>");
                     strBodyFrecuency.AppendLine("Fecha");
                     strBodyFrecuency.AppendLine("</th>");
-                    strBodyFrecuency.AppendLine("</tr>");
-
+                    strBodyFrecuency.AppendLine("</tr></thead>");
+                    strBodyFrecuency.AppendLine("<tbody>");
+                    
                     for (int i = 1; i <= request.DonorFrequency.Quantity; i++)
                     {
                         dtNow = dtNow.AddMonths(request.DonorFrequency.Frequency);
@@ -408,7 +423,7 @@ namespace UNCDF.WebApi.Donation.Controllers
                         strBodyFrecuency.AppendLine("</tr>");
                     }
 
-                    strBodyFrecuency.AppendLine("</Table>");
+                    strBodyFrecuency.AppendLine("</tbody></Table>");
                 }
 
                 baseRequest.Language = request.Language;
@@ -568,15 +583,15 @@ namespace UNCDF.WebApi.Donation.Controllers
                 try
                 {
                     int val = 0;
-                    MParameter parameterBE = new MParameter();
-                    List<MParameter> parameterBEs = new List<MParameter>();
+                    MParameter MParameter = new MParameter();
+                    List<MParameter> MParameters = new List<MParameter>();
 
-                    parameterBE.Code = "MAIL_CERT";
-                    parameterBEs = BParameter.List(parameterBE, ref val);
+                    MParameter.Code = "MAIL_CERT";
+                    MParameters = BParameter.List(MParameter, ref val);
 
                     if (val.Equals(0))
                     {
-                        string Message = parameterBEs[0].Valor1.Replace("[CERTIFICATE]", Path.Combine(Constant.S3Server, "certificates") + "/" + donation.Certificate);
+                        string Message = MParameters[0].Valor1.Replace("[CERTIFICATE]", Path.Combine(Constant.S3Server, "certificates") + "/" + donation.Certificate);
                         string Subject = "UNCDF - Donation certificate";
 
                         if (request.Email.Equals(""))
@@ -614,11 +629,52 @@ namespace UNCDF.WebApi.Donation.Controllers
 
         private void SendSES(string Subject, string Message, string Email)
         {
+            string webRoot = _env.ContentRootPath;
+
             _MAwsEmail.Subject = Subject;
-            _MAwsEmail.Message = Message;
+            _MAwsEmail.Message = GetBodyMail(webRoot, Message);
             _MAwsEmail.ToEmail = Email;
 
             BAwsSDK.SendEmailAsync(_MAwsEmail);
+        }
+
+        public static string GetBodyMail(string webRoot, string Messasge)
+        {
+            string TemplateMail = string.Empty;
+            Uri webRootUri = new Uri(webRoot);
+            string pathAbs = webRootUri.AbsolutePath;
+            int val = 0;
+
+            TemplateMail = Path.Combine(pathAbs, "Certificate");
+
+            MParameter MParameter = new MParameter();
+            List<MParameter> MParameters = new List<MParameter>();
+
+            MParameter.Code = "SOCIAL";
+            MParameters = BParameter.List(MParameter, ref val);
+
+            string Display = "style = 'display:none;'";
+
+            System.IO.StreamReader sr = new StreamReader(@"Certificate\TemplateMail.html");
+            TemplateMail = sr.ReadToEnd().ToString();
+            TemplateMail = TemplateMail.Replace("[Message]", Messasge);
+
+            int ExistFB = 0, ExistIN = 0, ExistsTw = 0, ExistYT = 0;
+
+            foreach (MParameter item in MParameters)
+            {
+                if (item.Description.Equals("Facebook")) if (!item.Valor1.Equals("")) ExistFB = 1;
+                if (item.Description.Equals("Instagram")) if (!item.Valor1.Equals("")) ExistIN = 1;
+                if (item.Description.Equals("Twitter")) if (!item.Valor1.Equals("")) ExistsTw = 1;
+                if (item.Description.Equals("Youtube")) if (!item.Valor1.Equals("")) ExistYT = 1;
+            }
+
+            if (ExistFB.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_FB]", Display); else TemplateMail.Replace("[Display_FB]", "");
+            if (ExistIN.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_INS]", Display); else TemplateMail.Replace("[Display_INS]", "");
+            if (ExistsTw.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_TWI]", Display); else TemplateMail.Replace("[Display_TWI]", "");
+            if (ExistYT.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_YOU]", Display); else TemplateMail.Replace("[Display_YOU]", "");
+
+            return TemplateMail;
         }
     }
 }
