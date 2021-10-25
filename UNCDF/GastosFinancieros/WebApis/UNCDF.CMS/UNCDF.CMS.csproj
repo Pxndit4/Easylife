@@ -138,6 +138,7 @@
     <Compile Include="Controllers\BannerController.cs" />
     <Compile Include="Controllers\BannerTranslateController.cs" />
     <Compile Include="Controllers\DeparmentController.cs" />
+    <Compile Include="Controllers\DeparmentExclusionController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
@@ -345,7 +346,7 @@
     <Content Include="Views\Project\RegisterReadOnly.cshtml" />
     <Content Include="Views\ProjectExclusions\Index.cshtml" />
     <Content Include="Views\ProjectExclusions\AddProjectCode.cshtml" />
-    <Content Include="Views\ProjectExclusions\AddDeparmentCode.cshtml" />
+    <Content Include="Views\DeparmentExclusion\AddDeparmentCode.cshtml" />
     <Content Include="Views\ProjectExclusions\AddPracticeArea.cshtml" />
     <Content Include="Views\ProjectFinancial\Index.cshtml" />
     <Content Include="Views\ProjectFinancial\Load.cshtml" />
@@ -369,6 +370,7 @@
     <Content Include="Views\IntroductionTranslate\Register.cshtml" />
     <Content Include="Views\Language\Index.cshtml" />
     <Content Include="Views\Language\Register.cshtml" />
+    <Content Include="Views\DeparmentExclusion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
