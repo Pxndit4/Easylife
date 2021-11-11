@@ -260,6 +260,7 @@
     <Content Include="Content\images\Logo_navegadores.png" />
     <Content Include="Content\images\progress.gif" />
     <Content Include="Content\jquery.bootgrid.min.css" />
+    <Content Include="Content\jquery.toast.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\theme\default\bootstrap-theme.css" />
@@ -285,6 +286,7 @@
     <Content Include="Scripts\jquery.bootgrid.js" />
     <Content Include="Scripts\jquery.bootgrid.min.js" />
     <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\jquery.toast.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

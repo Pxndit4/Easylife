@@ -126,6 +126,9 @@ namespace UNCDF.CMS.Controllers
         }
 
 
+
+
+
         public ActionResult New()
         {
             ViewBag.Title = "Register Parameter";
@@ -234,6 +237,73 @@ namespace UNCDF.CMS.Controllers
                 else
                     objResult.message = MessageResource.UpdateConfirm;
             }
+            return Json(objResult);
+        }
+
+        [HttpPost]
+        public JsonResult ValidParameterAlertPeriod()
+        {
+            JSonResult objResult = new JSonResult();
+            int valid = 0;
+            string mes = "";
+
+            try
+            {
+                
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                MParameter eParameter = new MParameter();
+                List<MParameter> eParameters = new List<MParameter>();
+
+                eParameter.Code = "ALERT_START";
+                eParameter.Description = string.Empty;
+                eParameters = new WebApiParameter().GetParameters(eParameter, objSession);
+                var startMonth = eParameters.Select(x => new MParameter
+                {
+                    Valor1 = x.Valor1
+                }).FirstOrDefault();
+
+                eParameter.Code = "ALERT_END";
+                eParameter.Description = string.Empty;
+                eParameters = new WebApiParameter().GetParameters(eParameter, objSession);
+                var endMonth = eParameters.Select(x => new MParameter
+                {
+                    Valor1 = x.Valor1
+                }).FirstOrDefault();
+
+                eParameter.Code = "ALERT_MSG";
+                eParameter.Description = string.Empty;
+                eParameters = new WebApiParameter().GetParameters(eParameter, objSession);
+                var msgAlert = eParameters.Select(x => new MParameter
+                {
+                    Valor1 = x.Valor1
+                }).FirstOrDefault();
+
+                string sMonth = DateTime.Now.ToString("MM");
+                int currentMont = Convert.ToInt32(sMonth);
+                int start = Convert.ToInt32((startMonth.Valor1).Trim().ToString());
+                int end = Convert.ToInt32(endMonth.Valor1.Trim().ToString());
+                string varmsgAlert = (msgAlert.Valor1).Trim().ToString();
+                
+                if ( currentMont>= start && currentMont <= end)
+                {
+                    valid = 1;
+                    mes = varmsgAlert;
+                }
+
+                objResult.data = valid;
+                objResult.message = mes;
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Parameter");
+            }
+
             return Json(objResult);
         }
     }
