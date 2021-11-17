@@ -888,6 +888,17 @@ namespace UNCDF.WebApi.Project.Crontrollers
 
             timeLine.ProjectId = request.Project.ProjectId;
 
+            if (! string.IsNullOrEmpty(request.Project.Department))
+            {
+                timeLine.DeparmentCode = request.Project.Department;
+            }
+
+            if (!string.IsNullOrEmpty(request.Project.DeparmentCode))
+            {
+                timeLine.DeparmentCode = request.Project.DeparmentCode;
+            }
+            
+
             baseRequest.Language = request.Language;
             baseRequest.Session = request.Session;
 

@@ -642,10 +642,46 @@ namespace UNCDF.WebApi.Security.Controllers
             parameterBE.Code = "MAIL_PASS";
             parameterBEs = BParameter.List(parameterBE, ref val);
 
+            string webRoot = _env.ContentRootPath;
+
+            string TemplateMail = string.Empty;
+            Uri webRootUri = new Uri(webRoot);
+            string pathAbs = webRootUri.AbsolutePath;
+
+
+            TemplateMail = Path.Combine(pathAbs, "Template");
+
+            System.IO.StreamReader sr = new StreamReader(@"Template\TemplateMail.html");
+            TemplateMail = sr.ReadToEnd().ToString();
+            TemplateMail = TemplateMail.Replace("[Message]", parameterBEs[0].Valor1.Replace("[Password]", UEncrypt.Decrypt(Password)));
+
+            int ExistFB = 0, ExistIN = 0, ExistsTw = 0, ExistYT = 0;
+
+            List<MParameter> MParameters = new List<MParameter>();
+            string Display = "style = 'display:none;'";
+
+            MParameter MParameter = new MParameter();
+            MParameter.Code = "SOCIAL";
+            MParameters = BParameter.List(MParameter, ref val);
+
+            foreach (MParameter item in MParameters)
+            {
+                if (item.Description.Equals("Facebook")) if (!item.Valor1.Equals("")) ExistFB = 1;
+                if (item.Description.Equals("Instagram")) if (!item.Valor1.Equals("")) ExistIN = 1;
+                if (item.Description.Equals("Twitter")) if (!item.Valor1.Equals("")) ExistsTw = 1;
+                if (item.Description.Equals("Youtube")) if (!item.Valor1.Equals("")) ExistYT = 1;
+            }
+
+            if (ExistFB.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_FB]", Display); else TemplateMail.Replace("[Display_FB]", "");
+            if (ExistIN.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_INS]", Display); else TemplateMail.Replace("[Display_INS]", "");
+            if (ExistsTw.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_TWI]", Display); else TemplateMail.Replace("[Display_TWI]", "");
+            if (ExistYT.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_YOU]", Display); else TemplateMail.Replace("[Display_YOU]", "");
+
+
             if (val.Equals(0))
             {
                 _MAwsEmail.Subject = "UNCDF - User generation";
-                _MAwsEmail.Message = parameterBEs[0].Valor1.Replace("[Password]", UEncrypt.Decrypt(Password));
+                _MAwsEmail.Message = TemplateMail;
                 _MAwsEmail.ToEmail = Email;
 
                 BAwsSDK.SendEmailAsync(_MAwsEmail);
@@ -662,10 +698,46 @@ namespace UNCDF.WebApi.Security.Controllers
             parameterBE.Code = "MAIL_VALIDATE";
             parameterBEs = BParameter.List(parameterBE, ref val);
 
+            string webRoot = _env.ContentRootPath;
+
+            string TemplateMail = string.Empty;
+            Uri webRootUri = new Uri(webRoot);
+            string pathAbs = webRootUri.AbsolutePath;
+
+
+            TemplateMail = Path.Combine(pathAbs, "Template");
+
+            System.IO.StreamReader sr = new StreamReader(@"Template\TemplateMail.html");
+            TemplateMail = sr.ReadToEnd().ToString();
+            TemplateMail = TemplateMail.Replace("[Message]", parameterBEs[0].Valor1);
+
+            int ExistFB = 0, ExistIN = 0, ExistsTw = 0, ExistYT = 0;
+
+            List<MParameter> MParameters = new List<MParameter>();
+            string Display = "style = 'display:none;'";
+
+            MParameter MParameter = new MParameter();
+            MParameter.Code = "SOCIAL";
+            MParameters = BParameter.List(MParameter, ref val);
+
+            foreach (MParameter item in MParameters)
+            {
+                if (item.Description.Equals("Facebook")) if (!item.Valor1.Equals("")) ExistFB = 1;
+                if (item.Description.Equals("Instagram")) if (!item.Valor1.Equals("")) ExistIN = 1;
+                if (item.Description.Equals("Twitter")) if (!item.Valor1.Equals("")) ExistsTw = 1;
+                if (item.Description.Equals("Youtube")) if (!item.Valor1.Equals("")) ExistYT = 1;
+            }
+
+            if (ExistFB.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_FB]", Display); else TemplateMail.Replace("[Display_FB]", "");
+            if (ExistIN.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_INS]", Display); else TemplateMail.Replace("[Display_INS]", "");
+            if (ExistsTw.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_TWI]", Display); else TemplateMail.Replace("[Display_TWI]", "");
+            if (ExistYT.Equals(0)) TemplateMail = TemplateMail.Replace("[Display_YOU]", Display); else TemplateMail.Replace("[Display_YOU]", "");
+
+
             if (val.Equals(0))
             {
                 _MAwsEmail.Subject = "UNITLIFE - Registration";
-                _MAwsEmail.Message = parameterBEs[0].Valor1;
+                _MAwsEmail.Message = TemplateMail;
                 _MAwsEmail.ToEmail = Email;
 
                 BAwsSDK.SendEmailAsync(_MAwsEmail);
