@@ -17,4 +17,9 @@ namespace UNCDF.WebApi.Config
     {
         public MSubscribers Subscribers { get; set; }
     }
+
+    public class SubscribersLisResponse : BaseResponse
+    {
+        public MSubscribers[] SubscribersList { get; set; }
+    }
 }

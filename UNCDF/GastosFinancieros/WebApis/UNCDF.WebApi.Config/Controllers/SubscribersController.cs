@@ -14,6 +14,7 @@ namespace UNCDF.WebApi.Config.Controllers
     [ApiController]
     public class SubscribersController : ControllerBase
     {
+
         [HttpPost]
         [Route("0/InsertSubscribers")]
         public SubscribersResponse InsertSubscribers([FromBody] SubscribersRequest request)
@@ -57,5 +58,56 @@ namespace UNCDF.WebApi.Config.Controllers
 
             return response;
         }
+
+
+        [HttpPost]
+        [Route("0/GetSubscribers")]
+        public SubscribersLisResponse GetSubscribers([FromBody] SubscribersRequest request)
+        {
+            SubscribersLisResponse response = new SubscribersLisResponse();
+            List<MSubscribers> listsub = new List<MSubscribers>();
+            MSubscribers subs = new MSubscribers();
+
+            /*METODO QUE VALIDA EL TOKEN DE APLICACIÓN*/
+            if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+            {
+                response.Code = "2";
+                response.Message = Messages.ApplicationTokenNoAutorize;
+                return response;
+            }
+            /*************FIN DEL METODO*************/
+
+            subs.Email = request.Subscribers.Email;
+            
+            BaseRequest baseRequest = new BaseRequest();
+
+            baseRequest.Language = request.Language;
+            baseRequest.Session = request.Session;
+
+            int Val = 0;
+
+            listsub = BSubscribers.List(subs, ref Val);
+
+            if (Val.Equals(0))
+            {
+                response.Code = "0"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = Messages.Success;
+            }
+            else if (Val.Equals(2))
+            {
+                response.Code = "2"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.ErrorObtainingReults, "Parameters");
+            }
+            else
+            {
+                response.Code = "1"; //0=> Ëxito | 1=> Validación de Sistema | 2 => Error de Excepción
+                response.Message = String.Format(Messages.NotReults, "Parameters");
+            }
+
+            response.SubscribersList = listsub.ToArray();
+
+            return response;
+        }
+
     }
 }
