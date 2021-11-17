@@ -46,8 +46,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="EPPlus, Version=5.6.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.5.6.4\lib\net45\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=4.5.3.2, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.2\lib\net40\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -159,6 +159,7 @@
     <Compile Include="Controllers\ProjectExclusionsController.cs" />
     <Compile Include="Controllers\ProjectFinancialController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
+    <Compile Include="Controllers\SubscribersController.cs" />
     <Compile Include="Controllers\TimeLineController.cs" />
     <Compile Include="Controllers\TimeLineMultimediaController.cs" />
     <Compile Include="Controllers\TimeLineTestimonialController.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Invoke\WebApiProject.cs" />
     <Compile Include="Invoke\WebApiProjectExclusions.cs" />
     <Compile Include="Invoke\WebApiProjectFinancial.cs" />
+    <Compile Include="Invoke\WebApiSubscribers.cs" />
     <Compile Include="Invoke\WebApiTimeLine.cs" />
     <Compile Include="Invoke\WebApiTimeLineMultimedia.cs" />
     <Compile Include="Invoke\WebApiTimeLineTestimonial.cs" />
@@ -224,6 +226,7 @@
     <Compile Include="Models\ProjectExplusionsViewModel.cs" />
     <Compile Include="Models\ProjectFinancialViewModel.cs" />
     <Compile Include="Models\ProjectViewModel.cs" />
+    <Compile Include="Models\SubscribersViewModel.cs" />
     <Compile Include="Models\TimeLineMultimediaViewModel.cs" />
     <Compile Include="Models\TimeLineTestimonialTranslateViewModel.cs" />
     <Compile Include="Models\TimeLineTestimonialViewModel.cs" />
@@ -280,6 +283,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.12.3.js" />
     <Content Include="Scripts\jquery-1.12.3.min.js" />
+    <Content Include="File\Exports\Donor.xlsx" />
     <None Include="Scripts\jquery-2.2.2.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.2.js" />
     <Content Include="Scripts\jquery-2.2.2.min.js" />
@@ -373,10 +377,10 @@
     <Content Include="Views\Language\Index.cshtml" />
     <Content Include="Views\Language\Register.cshtml" />
     <Content Include="Views\DeparmentExclusion\Index.cshtml" />
+    <Content Include="Views\Subscribers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

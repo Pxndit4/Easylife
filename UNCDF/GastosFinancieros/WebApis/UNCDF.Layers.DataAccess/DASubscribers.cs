@@ -39,5 +39,47 @@ namespace UNCDF.Layers.DataAccess
                 }
             }
         }
+
+        public static List<MSubscribers> List(MSubscribers ent, ref int Val)
+        {
+            List<MSubscribers> lisQuery = new List<MSubscribers>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_Subscribers_List", con);
+                    cmd.Parameters.Add("@IEmail", SqlDbType.VarChar).Value = ent.Email;
+                    cmd.CommandTimeout = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 1;
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MSubscribers entRow = new MSubscribers();
+                            entRow.Id = Convert.ToInt32(reader["Id"]);
+                            entRow.Email = Convert.ToString(reader["Email"]);
+                            lisQuery.Add(entRow);
+
+                            Val = 0;
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception)
+                {
+                    Val = 2;
+
+                }
+            }
+
+            return lisQuery;
+        }
+
     }
 }

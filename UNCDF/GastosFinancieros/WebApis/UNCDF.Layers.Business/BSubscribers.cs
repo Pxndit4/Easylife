@@ -12,5 +12,11 @@ namespace UNCDF.Layers.Business
         {
             return DASubscribers.Insert(ent, ref Val);
         }
+
+        public static List<MSubscribers> List(MSubscribers ent, ref int Val)
+        {
+            return DASubscribers.List(ent, ref Val);
+        }
+
     }
 }
