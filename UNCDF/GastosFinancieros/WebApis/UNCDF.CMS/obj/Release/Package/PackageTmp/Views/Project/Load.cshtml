@@ -7,6 +7,10 @@
 
 <div class="ui-bar ui-bar-default">
     <div class="ui-btn-content">
+        <button type="submit" id="btnRegSaveErros" disabled="disabled" class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+            Upload Without Errors
+        </button>
         <button type="submit" id="btnRegSave" disabled="disabled" class="btn btn-default">
             <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
             Upload
@@ -110,6 +114,8 @@
             });
 
             $("#btnRegSave").prop("disabled", false);
+            $("#btnRegSaveErros").prop("disabled", false);
+
             unitlife.ui.grid('#tbLisPrevius2').loadFile('@Url.Action("LoadFile", "Project", null)', data);
 
         }
@@ -179,6 +185,28 @@
     $(document).ready(function () {
 
         $('[data-toggle="popover"]').popover();
+
+        
+        $("#btnRegSaveErros").on("click", function (e) {
+            e.preventDefault();
+            var _frm = unitlife.ui.validation("#frmLoadReg");
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+
+            _isValid = _frm.valid();
+            if (_isValid) {
+
+                Confirmar(
+                    '¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+                        unitlife.ajax.submit('@Url.Action("RegisterErrors", "Project", null)', "#frmLoadReg");
+                        unitlife.site.dialog.invoqResultCallback('REG_PROJECT');
+                    },
+                    null
+                );
+            }
+            return false;
+        });
 
         $("#btnRegSave").on("click", function (e) {
             e.preventDefault();

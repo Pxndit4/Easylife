@@ -205,6 +205,7 @@ namespace UNCDF.Layers.DataAccess
                     SqlCommand cmd = new SqlCommand("sp_Project_Sel", con);
                     cmd.CommandTimeout = 0;
                     cmd.Parameters.Add("@IProjectId", SqlDbType.Int).Value = ent.ProjectId;
+                    cmd.Parameters.Add("@IDeparmentCode", SqlDbType.VarChar).Value = ent.DeparmentCode;
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
 
@@ -432,6 +433,8 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Country = Convert.ToString(reader["Country"]);
                             entRow.Flag = (Convert.ToString(reader["Flag"]).Equals("")) ? "" : Constant.S3Server + Convert.ToString(reader["Flag"]);
                             entRow.Department = Convert.ToString(reader["DeparmentCode"]);
+                            entRow.StartDateStr = Convert.ToString(reader["StartDate"]);
+                            entRow.EndDateStr = Convert.ToString(reader["EndDate"]);
                             lisQuery.Add(entRow);
                         }
                     }

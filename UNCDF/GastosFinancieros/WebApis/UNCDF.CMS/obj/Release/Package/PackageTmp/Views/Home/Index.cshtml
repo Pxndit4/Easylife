@@ -3,3 +3,28 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<script type="text/javascript" language="javacript">
+    $(document).ready(function () {
+        unitlife.ajax.getJson('@Url.Action("ValidParameterAlertPeriod", "Parameter")', function (data) {
+            
+            var valid = data.data;
+            var message = data.message;
+
+            console.log(valid);
+            
+            if (valid == 1) {
+                
+                $.toast({
+                    heading: message,
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    icon: 'success'
+                })
+            }
+        });
+
+
+    });
+
+</script>

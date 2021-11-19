@@ -224,16 +224,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2021 20:06:23</publishTime>
     </File>
     <File Include="bin/UNCDF.CMS.dll">
-      <publishTime>10/13/2021 08:34:26</publishTime>
+      <publishTime>11/11/2021 09:54:21</publishTime>
     </File>
     <File Include="bin/UNCDF.CMS.pdb">
-      <publishTime>10/13/2021 08:34:26</publishTime>
+      <publishTime>11/11/2021 09:54:21</publishTime>
     </File>
     <File Include="bin/UNCDF.Layers.Model.dll">
-      <publishTime>10/12/2021 09:01:07</publishTime>
+      <publishTime>11/09/2021 17:29:05</publishTime>
     </File>
     <File Include="bin/UNCDF.Layers.Model.pdb">
-      <publishTime>10/12/2021 09:01:07</publishTime>
+      <publishTime>11/09/2021 17:29:05</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>08/08/2021 20:06:24</publishTime>
@@ -279,6 +279,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/jquery.bootgrid.min.css">
       <publishTime>08/08/2021 20:06:20</publishTime>
+    </File>
+    <File Include="Content/jquery.toast.css">
+      <publishTime>11/11/2021 09:51:09</publishTime>
     </File>
     <File Include="Content/Login.css">
       <publishTime>08/08/2021 20:06:20</publishTime>
@@ -367,6 +370,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/jquery.mask.js">
       <publishTime>08/08/2021 20:06:20</publishTime>
     </File>
+    <File Include="Scripts/jquery.toast.js">
+      <publishTime>11/11/2021 09:51:09</publishTime>
+    </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
       <publishTime>08/08/2021 20:06:20</publishTime>
     </File>
@@ -412,6 +418,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Deparment/Load.cshtml">
       <publishTime>08/08/2021 20:06:19</publishTime>
     </File>
+    <File Include="Views/DeparmentExclusion/AddDeparmentCode.cshtml">
+      <publishTime>10/25/2021 11:05:59</publishTime>
+    </File>
+    <File Include="Views/DeparmentExclusion/Index.cshtml">
+      <publishTime>10/25/2021 11:05:59</publishTime>
+    </File>
     <File Include="Views/Donation/ListDonations.cshtml">
       <publishTime>10/09/2021 23:17:01</publishTime>
     </File>
@@ -437,7 +449,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/09/2021 23:17:01</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/08/2021 20:06:20</publishTime>
+      <publishTime>11/11/2021 09:51:09</publishTime>
     </File>
     <File Include="Views/ImplementAgency/Index.cshtml">
       <publishTime>09/01/2021 08:41:42</publishTime>
@@ -464,10 +476,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/11/2021 11:51:17</publishTime>
     </File>
     <File Include="Views/Introduction/Register.cshtml">
-      <publishTime>09/24/2021 18:32:25</publishTime>
+      <publishTime>10/25/2021 11:05:59</publishTime>
     </File>
     <File Include="Views/IntroductionTranslate/Register.cshtml">
-      <publishTime>09/11/2021 11:51:17</publishTime>
+      <publishTime>10/25/2021 11:05:59</publishTime>
     </File>
     <File Include="Views/Language/Index.cshtml">
       <publishTime>09/24/2021 18:32:25</publishTime>
@@ -497,16 +509,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2021 20:06:19</publishTime>
     </File>
     <File Include="Views/Project/Edit.cshtml">
-      <publishTime>10/09/2021 23:17:01</publishTime>
+      <publishTime>10/25/2021 11:05:59</publishTime>
     </File>
     <File Include="Views/Project/Index.cshtml">
       <publishTime>10/09/2021 23:17:01</publishTime>
     </File>
     <File Include="Views/Project/Load.cshtml">
-      <publishTime>08/09/2021 13:27:51</publishTime>
+      <publishTime>10/14/2021 15:10:25</publishTime>
     </File>
     <File Include="Views/Project/ProjectActives.cshtml">
-      <publishTime>10/09/2021 23:17:01</publishTime>
+      <publishTime>10/25/2021 11:05:59</publishTime>
     </File>
     <File Include="Views/Project/RegisterReadOnly.cshtml">
       <publishTime>08/09/2021 13:27:51</publishTime>
@@ -530,10 +542,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/09/2021 23:17:01</publishTime>
     </File>
     <File Include="Views/ProjectFinancial/Load.cshtml">
-      <publishTime>08/08/2021 20:06:19</publishTime>
+      <publishTime>10/14/2021 16:22:48</publishTime>
     </File>
     <File Include="Views/ProjectFinancial/LoadHistory.cshtml">
-      <publishTime>08/08/2021 20:06:19</publishTime>
+      <publishTime>10/14/2021 16:34:26</publishTime>
     </File>
     <File Include="Views/Seguridad/Login.cshtml">
       <publishTime>08/08/2021 20:06:20</publishTime>
@@ -542,7 +554,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2021 20:06:20</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>08/08/2021 20:06:20</publishTime>
+      <publishTime>11/11/2021 09:51:09</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutEmpty.cshtml">
       <publishTime>08/08/2021 20:06:20</publishTime>

@@ -459,7 +459,7 @@ namespace UNCDF.WebApi.Donation.Controllers
 
                     donation.Certificate = CertifcateName.Replace("[WSTAMP]", ""); ;
 
-                    BDonation.Update(donation, baseRequest);
+                    BDonation.Update(donation, baseRequest);                    
                 }
 
                 if (request.DonorFrequency != null)
@@ -476,6 +476,8 @@ namespace UNCDF.WebApi.Donation.Controllers
                         SendSES(Subject, Message, donation.Email);
                     }
                 }
+
+                donation.Certificate = Path.Combine(Constant.S3Server, "certificates") + "/" + donation.Certificate;
 
                 response.Code = baseResponse.Code;
                 response.Message = baseResponse.Message;

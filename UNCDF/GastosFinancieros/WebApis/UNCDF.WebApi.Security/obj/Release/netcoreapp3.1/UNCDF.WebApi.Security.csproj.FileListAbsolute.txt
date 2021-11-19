@@ -116,3 +116,4 @@ H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Security\obj\Releas
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Security\obj\Release\netcoreapp3.1\UNCDF.WebApi.Security.genruntimeconfig.cache
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Security\bin\Release\netcoreapp3.1\iTextSharp.LGPLv2.Core.dll
 H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Security\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll
+H:\GIT-Easylife\UNCDF\GastosFinancieros\WebApis\UNCDF.WebApi.Security\bin\Release\netcoreapp3.1\Template\TemplateMail.html

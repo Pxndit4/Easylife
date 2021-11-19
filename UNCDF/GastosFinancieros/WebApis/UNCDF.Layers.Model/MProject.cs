@@ -69,6 +69,7 @@ namespace UNCDF.Layers.Model
         public int Quantity { get; set; }
 
         public int UserId { get; set; }
+        public string DeparmentCode { get; set; }
     }
 
     
