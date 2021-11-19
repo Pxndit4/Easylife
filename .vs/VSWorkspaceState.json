@@ -5,9 +5,12 @@
     "\\UNCDF\\GastosFinancieros",
     "\\UNCDF\\GastosFinancieros\\WebApis",
     "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.CMS",
+    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.CMS\\Controllers",
     "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.CMS\\Views",
-    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.CMS\\Views\\Seguridad"
+    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.CMS\\Views\\Seguridad",
+    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.WebApi.Config",
+    "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.WebApi.Config\\Controllers"
   ],
-  "SelectedNode": "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.sln",
+  "SelectedNode": "\\UNCDF\\GastosFinancieros\\WebApis\\UNCDF.CMS\\Controllers\\SubscribersController.cs",
   "PreviewInSolutionExplorer": false
 }
