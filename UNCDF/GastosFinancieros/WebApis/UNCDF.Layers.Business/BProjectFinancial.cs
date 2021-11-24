@@ -22,5 +22,11 @@ namespace UNCDF.Layers.Business
         {
             return DAProjectFinancial.FilProjectFinancial(ent,ref Val);
         }
+
+        public static List<MProjectFinancials> ProjectFinancial_ValidYear(string ent, ref int Val)
+        {
+            return DAProjectFinancial.ProjectFinancial_ValidYear(ent, ref Val);
+        }
+
     }
 }

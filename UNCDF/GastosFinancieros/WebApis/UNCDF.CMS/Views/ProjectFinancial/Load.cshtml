@@ -189,7 +189,7 @@
 
         $('[data-toggle="popover"]').popover();
 
-        
+
         $("#btnRegSaveError").on("click", function (e) {
             e.preventDefault();
             var _frm = unitlife.ui.validation("#frmLoadReg");
@@ -199,14 +199,25 @@
             _isValid = _frm.valid();
             if (_isValid) {
 
-                Confirmar(
-                    '¿@Html.Raw(ViewBag.Confirm)?',
+               unitlife.ajax.getJson('@Url.Action("GetProjectFinancialValidYear", "ProjectFinancial")', function (data) {
+                       var type = data.type;
+                       var validMess = data.message;
+                       var mess = '';
+                        if (type == "1") {
+                            mess = 'These periods are not charged because they are historical,Do you wish to continue? \n (' + validMess+ ')';
+                        } else {
+                            mess = '¿@Html.Raw(ViewBag.Confirm)?';
+                        }
+
+                    Confirmar(
+                        mess,
                     function () {
                         unitlife.ajax.submit('@Url.Action("RegisterErrors", "ProjectFinancial", null)', "#frmLoadReg");
                         unitlife.site.dialog.invoqResultCallback('REG_PROJECTFINANCIAL');
                     },
                     null
-                );
+                   );
+               });
             }
             return false;
         });
@@ -220,14 +231,28 @@
             _isValid = _frm.valid();
             if (_isValid) {
 
-                Confirmar(
-                    '¿@Html.Raw(ViewBag.Confirm)?',
+
+                   unitlife.ajax.getJson('@Url.Action("GetProjectFinancialValidYear", "ProjectFinancial")', function (data) {
+                       var type = data.type;
+                       var validMess = data.message;
+                       var mess = '';
+                        if (type == "1") {
+                            mess = 'These periods are not charged because they are historical,Do you wish to continue? \n (' + validMess+ ')';
+                        } else {
+                            mess = '¿@Html.Raw(ViewBag.Confirm)?';
+                        }
+
+                    Confirmar(
+                        mess,
                     function () {
                         unitlife.ajax.submit('@Url.Action("Register", "ProjectFinancial", null)', "#frmLoadReg");
                         unitlife.site.dialog.invoqResultCallback('REG_PROJECTFINANCIAL');
                     },
                     null
                 );
+
+                });
+
             }
             return false;
         });

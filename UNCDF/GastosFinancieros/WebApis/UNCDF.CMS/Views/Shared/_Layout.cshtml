@@ -222,6 +222,14 @@
     }
 
     $(document).ready(function () {
+
+        
+        window.addEventListener("keypress", function (event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+            }
+        }, false);
+
         unitlife.site.initialize();
 
          unitlife.ajax.getView("#top1leftList", '@Url.Action("GetPerfil", "Seguridad", new { id = 0 })', {}, function (e, s) {

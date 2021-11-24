@@ -373,6 +373,60 @@ namespace UNCDF.CMS.Controllers
         }
 
         [HttpPost]
+        public JsonResult GetProjectFinancialValidYear()
+        {
+            JSonResult objResult = new JSonResult();
+            try
+            {
+
+                Session objSession = new Session()
+                {
+                    UserId = AutenticationManager.GetUser().IdUsuario,
+                };
+
+                List<MProjectFinancials> entList = new List<MProjectFinancials>();
+                List<ModelProjectFinancialResult> entListData = new List<ModelProjectFinancialResult>();
+                entListData = (List<ModelProjectFinancialResult>)Session["ListProjectFinancials"];
+                var listyearsLoad = entListData.Select(x => x.Year).Distinct();
+
+                string yearValid = string.Empty;
+                foreach (string ent in listyearsLoad )
+                {
+                    yearValid = yearValid +',' + ent ;
+                }
+                entList = new WebApiProjectFinancial().GetProjectFinancialValidYear(yearValid, objSession);
+
+                string yearMes = string.Empty;
+                foreach (MProjectFinancials ent in entList)
+                {
+                    yearMes = yearMes + ", " + ent.Year;
+                }
+
+                if (entList.Count() > 0)
+                {
+                    objResult.type = "1";
+                    //objResult.message = YearsValid.Remove(YearsValid.Length - 2);//YearsValid.TrimEnd(','); ;
+                    objResult.message = yearMes.Remove(0,2);//YearsValid.TrimEnd(','); ;
+                }
+                else
+                {
+                    objResult.type = "0";
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                objResult.data = null;
+                objResult.isError = true;
+                objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "Project Financials");
+            }
+
+            return Json(objResult);
+        }
+        
+
+        [HttpPost]
         public ActionResult Register(LoadProjectFinancialsViewModel model, HttpPostedFileBase imageFile)
         {
             JSonResult objResult = new JSonResult();
@@ -389,10 +443,22 @@ namespace UNCDF.CMS.Controllers
                 List<ModelProjectFinancialResult> entListData = new List<ModelProjectFinancialResult>();
                 entListData = (List<ModelProjectFinancialResult>)Session["ListProjectFinancials"];
 
+                //Excluir periodos historicos
+                var listyearsLoad = entListData.Select(x => x.Year).Distinct();
+                string yearValid = string.Empty;
+                foreach (string ent in listyearsLoad)
+                {
+                    yearValid = yearValid + ',' + ent;
+                }
+                var yearsValids = new WebApiProjectFinancial().GetProjectFinancialValidYear(yearValid, objSession);
+
+
+
+
                 foreach (ModelProjectFinancialResult item in entListData)
                 {
                     MProjectFinancials mProjectFinancial = new MProjectFinancials();
-                    mProjectFinancial.Year                =item.Year;
+                    mProjectFinancial.Year = item.Year;
                     mProjectFinancial.OperUnit = item.OperUnit;
                     mProjectFinancial.DeparmentCode = item.DeparmentCode.Substring(1);
                     mProjectFinancial.ProjectCode = item.ProjectCode;
@@ -409,7 +475,22 @@ namespace UNCDF.CMS.Controllers
                     mProjectFinancial.Expenditure = item.Expenditure;
                     mProjectFinancial.Balance = item.Balance;
                     mProjectFinancial.Spent = item.Spent;
-                    entList.Add(mProjectFinancial);
+
+                    if (yearsValids.Count() > 0)
+                    {
+                        var valid = yearsValids.Where(x => x.Year == mProjectFinancial.Year).Count();
+
+                        if (valid == 0)
+                        {
+                            entList.Add(mProjectFinancial);
+                        }
+
+                    }
+                    else
+                    {
+                        entList.Add(mProjectFinancial);
+                    }
+
                 }
 
                 response = new WebApiProjectFinancial().InsertProjectFinancial(entList, objSession);
@@ -418,7 +499,8 @@ namespace UNCDF.CMS.Controllers
                 string statusMessage = response.Split('|')[1];
 
                 objResult.isError = statusCode.Equals("2");
-                objResult.message = string.Format(MessageResource.SaveSuccess, "ProjectFinancials"); ;
+                
+                objResult.message = statusCode.Equals("0") ?string.Format(MessageResource.SaveSuccess, "ProjectFinancials"): statusMessage;
             }
             catch (Exception ex)
             {
@@ -444,6 +526,17 @@ namespace UNCDF.CMS.Controllers
                 List<ModelProjectFinancialResult> entListData = new List<ModelProjectFinancialResult>();
                 entListData = (List<ModelProjectFinancialResult>)Session["ListProjectFinancials"];
 
+                //Excluir periodos historicos
+                var listyearsLoad = entListData.Select(x => x.Year).Distinct();
+                string yearValid = string.Empty;
+                foreach (string ent in listyearsLoad)
+                {
+                    yearValid = yearValid + ',' + ent;
+                }
+                var yearsValids = new WebApiProjectFinancial().GetProjectFinancialValidYear(yearValid, objSession);
+
+
+
                 foreach (ModelProjectFinancialResult item in entListData)
                 {
                     if (item.WithAlert.Equals("N"))
@@ -466,7 +559,22 @@ namespace UNCDF.CMS.Controllers
                         mProjectFinancial.Expenditure = item.Expenditure;
                         mProjectFinancial.Balance = item.Balance;
                         mProjectFinancial.Spent = item.Spent;
-                        entList.Add(mProjectFinancial);
+
+                        if (yearsValids.Count() > 0)
+                        {
+                            var valid = yearsValids.Where(x => x.Year == mProjectFinancial.Year).Count();
+
+                            if (valid == 0)
+                            {
+                                entList.Add(mProjectFinancial);
+                            }
+
+                        }
+                        else
+                        {
+                            entList.Add(mProjectFinancial);
+                        }
+                        //entList.Add(mProjectFinancial);
                     }                    
                 }
 

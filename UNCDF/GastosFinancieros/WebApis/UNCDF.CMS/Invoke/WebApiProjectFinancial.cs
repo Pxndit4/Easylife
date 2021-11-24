@@ -82,6 +82,43 @@ namespace UNCDF.CMS
 
             return returnMsg;
         }
+        public List<MProjectFinancials> GetProjectFinancialValidYear(string years, Session eSession)
+        {
+            ProjectFinancialYearRequest request = new ProjectFinancialYearRequest();
+            //ProjectFinancialYearResponse response = new ProjectFinancialYearResponse();
+            ProjectFinancialResponse response = new ProjectFinancialResponse();
+            List<MProjectFinancials> projects = new List<MProjectFinancials>();
+
+            request.Year = years;
+            request.Session = eSession;
+            request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
+
+            string bodyrequest = JsonConvert.SerializeObject(request);
+            string statuscode = string.Empty;
+            string bodyresponse = new Helper().InvokeApi("Project/api/ProjectFinancial", "GetProjectFinancialValidYear", bodyrequest, ref statuscode);
+
+            if (statuscode.Equals("OK"))
+            {
+                response = JsonConvert.DeserializeObject<ProjectFinancialResponse>(bodyresponse);
+
+                if (response.Code.Equals("0"))
+                {
+                    projects = response.ProjectFinancials;
+                }
+            }
+
+
+
+            //if (statuscode.Equals("OK"))
+            //{
+            //    response = JsonConvert.DeserializeObject<ProjectFinancialYearResponse>(bodyresponse);
+            //    //returnMsg = response.Code + "|" + response.Message;
+            //    returnYears = response.Years;
+            //}
+
+            return projects;
+        }
+
 
 
         
@@ -103,4 +140,17 @@ namespace UNCDF.CMS
     {
         public MProjectFinancials ProjectFinancial { get; set; }
     }
+
+    [Serializable]
+    public class ProjectFinancialYearResponse : BaseResponse
+    {
+        public string[] Years { get; set; }
+    }
+
+    public class ProjectFinancialYearRequest : BaseRequest
+    {
+        public string Year { get; set; }
+    }
+
+
 }

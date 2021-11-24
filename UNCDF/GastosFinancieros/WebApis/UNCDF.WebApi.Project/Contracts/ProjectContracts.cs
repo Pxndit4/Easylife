@@ -59,6 +59,13 @@ namespace UNCDF.WebApi.Project
         public MFund[] Funds { get; set; }
     }
 
+    [Serializable]
+    public class ProjectFinancialYearResponse : BaseResponse
+    {
+        public string[] Years { get; set; }
+    }
+
+
     #endregion
 
     #region Request
@@ -79,6 +86,13 @@ namespace UNCDF.WebApi.Project
     public class ProjectFinancialRequest : BaseRequest
     {
         public MProjectFinancials ProjectFinancial { get; set; }
+    }
+
+
+    [Serializable]
+    public class ProjectFinancialYearRequest : BaseRequest
+    {
+        public string Year { get; set; }
     }
 
     #endregion    

@@ -95,6 +95,15 @@ namespace UNCDF.WebApi.Project.Controllers
 
                     BaseRequest baseRequest = new BaseRequest();
 
+                    //validar años a cargar
+                    if (request.ProjectFinancials.Count() == 0)
+                    {
+                        response.Code = "2";
+                        response.Message = "There are no records to process";
+                        return response;
+                    }
+
+
                     foreach (MProjectFinancials model in request.ProjectFinancials)
                     {
                         MProjectFinancials ProjectFinancial = new MProjectFinancials();
@@ -163,7 +172,6 @@ namespace UNCDF.WebApi.Project.Controllers
                     string ProjectPath = _appSettings.Value.ProjectPath;
 
                     BaseRequest baseRequest = new BaseRequest();
-
                     foreach (MProjectFinancials model in request.ProjectFinancials)
                     {
                         MProjectFinancials ProjectFinancial = new MProjectFinancials();
@@ -204,5 +212,39 @@ namespace UNCDF.WebApi.Project.Controllers
 
             return response;
         }
+
+        [HttpPost]
+        [Route("0/GetProjectFinancialValidYear")]
+        public ProjectFinancialResponse GetProjectFinancialValidYear([FromBody] ProjectFinancialYearRequest request)
+        {
+            ProjectFinancialResponse response = new ProjectFinancialResponse();
+
+            try
+            {
+                if (!BAplication.ValidateAplicationToken(request.ApplicationToken))
+                {
+                    response.Code = "2";
+                    response.Message = Messages.ApplicationTokenNoAutorize;
+                    return response;
+                }
+                int Val = 0;
+
+
+                List<MProjectFinancials> ProjectFinancials = BProjectFinancial.ProjectFinancial_ValidYear(request.Year, ref Val);
+
+                response.ProjectFinancials = ProjectFinancials.ToArray();
+                response.Code = "0";
+                response.Message = "Success";
+            }
+            catch (Exception ex)
+            {
+                response.Code = "2";
+                response.Message = ex.Message;
+            }
+
+            return response;
+
+        }
+
     }
 }
