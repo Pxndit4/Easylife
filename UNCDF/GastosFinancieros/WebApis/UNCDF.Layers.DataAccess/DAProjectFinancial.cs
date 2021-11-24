@@ -151,5 +151,44 @@ namespace UNCDF.Layers.DataAccess
         }
 
 
+        public static List<MProjectFinancials> ProjectFinancial_ValidYear(string ent, ref int Val)
+        {
+            List<MProjectFinancials> list = new List<MProjectFinancials>();
+            string result = string.Empty;
+
+            using (SqlConnection con = new SqlConnection(ConnectionDB.GetConnectionString()))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ProjectFinancial_ValidYear", con);
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.Add("@IBudgetPeriod", SqlDbType.VarChar).Value = ent;
+                    //cmd.Parameters.Add("@OPeriodValid", SqlDbType.VarChar, 4000).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    Val = 0;
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            MProjectFinancials lisQuery = new MProjectFinancials();
+                            lisQuery.Year = Convert.ToString(reader["BudgetPeriod"]);
+                            list.Add(lisQuery);
+                        }
+                    }
+                    con.Close();
+                }
+
+                catch (Exception ex)
+                {
+                    Val = 2;
+                    result = string.Empty;
+                }
+            }
+            return list;
+        }
+
+
     }
 }
