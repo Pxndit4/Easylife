@@ -82,7 +82,7 @@ namespace UNCDF.CMS.Controllers
             basePath = Server.MapPath("~/File");
             DataTable dt;
 
-            var include = new[] { "A", "B", "D" };
+            var include = new[] { "A", "B", "D","E" };
             try
             {
                 if (imageFile != null)
@@ -176,6 +176,7 @@ namespace UNCDF.CMS.Controllers
                         ent.DonorCode = Extension.ToEmpty(dt.Rows[i][0].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
                         ent.DonorName = Extension.ToEmpty(dt.Rows[i][1].ToString());
                         ent.FundingPartner = Extension.ToEmpty(dt.Rows[i][2].ToString());
+                        ent.DonorLongDescription = Extension.ToEmpty(dt.Rows[i][3].ToString());
                         ent.AlertMessage = string.Empty;
                         ent.WithAlert = "N";
 
@@ -282,6 +283,7 @@ namespace UNCDF.CMS.Controllers
                     mDonorPartner.DonorCode = item.DonorCode;
                     mDonorPartner.DonorName = item.DonorName;
                     mDonorPartner.FundingPartner = item.FundingPartner;
+                    mDonorPartner.DonorLongDescription = item.DonorLongDescription;
                     entList.Add(mDonorPartner);
                 }
 

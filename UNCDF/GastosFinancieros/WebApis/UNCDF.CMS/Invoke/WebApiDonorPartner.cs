@@ -47,7 +47,7 @@ namespace UNCDF.CMS
 
             string bodyrequest = JsonConvert.SerializeObject(request);
             string statuscode = string.Empty;
-            string bodyresponse = new Helper().InvokeApi("project/api/DonorPartner", "InsertDonorPartner", bodyrequest, ref statuscode);
+            string bodyresponse = new Helper().InvokeApi("Project/api/DonorPartner", "InsertDonorPartner", bodyrequest, ref statuscode);
 
             if (statuscode.Equals("OK"))
             {

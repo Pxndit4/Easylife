@@ -20,6 +20,8 @@ namespace UNCDF.Layers.DataAccess
                 cmd.Parameters.Add("@IDonorCode", SqlDbType.VarChar).Value = ent.DonorCode;
                 cmd.Parameters.Add("@IDonorName", SqlDbType.VarChar).Value = ent.DonorName;
                 cmd.Parameters.Add("@IFundingPartner", SqlDbType.VarChar).Value = ent.FundingPartner;
+                cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.DonorLongDescription;
+                
 
                 con.Open();
 
@@ -53,6 +55,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.DonorCode = Convert.ToString(reader["DonorCode"]);
                             entRow.DonorName = Convert.ToString(reader["DonorName"]);
                             entRow.FundingPartner = Convert.ToString(reader["FundingPartner"]);
+                            entRow.DonorLongDescription = Convert.ToString(reader["Description"]);
                             lisQuery.Add(entRow);
                         }
                     }

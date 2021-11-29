@@ -91,6 +91,10 @@ namespace UNCDF.WebApi.Project.Controllers
 
                     BaseRequest baseRequest = new BaseRequest();
 
+                    List<MImplementAgency> list = new List<MImplementAgency>();
+                    
+                    var stringList = request.ImplementAgencies.OfType<MImplementAgency>();
+
                     foreach (MImplementAgency model in request.ImplementAgencies)
                     {
                         MImplementAgency fund = new MImplementAgency();
@@ -99,8 +103,21 @@ namespace UNCDF.WebApi.Project.Controllers
                         fund.Description = model.Description;
                         fund.ShortDescription = model.ShortDescription;
 
-                        BImplementAgency.Insert(fund);
+                        list.Add(fund);
                     }
+
+                    BImplementAgency.InsertAll(list);
+
+                    //foreach (MImplementAgency model in request.ImplementAgencies)
+                    //{
+                    //    MImplementAgency fund = new MImplementAgency();
+
+                    //    fund.ImplementAgencyCode = model.ImplementAgencyCode;
+                    //    fund.Description = model.Description;
+                    //    fund.ShortDescription = model.ShortDescription;
+
+                    //    BImplementAgency.Insert(fund);
+                    //}
 
                     scope.Complete();
                     response.Code = "0";

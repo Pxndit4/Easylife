@@ -55,7 +55,14 @@ namespace UNCDF.CMS.Controllers
                 objResult.message = string.Format(MessageResource.ControllerGetExceptionMessage, "ImplementAgency");
             }
 
-            return Json(objResult);
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            serializer.MaxJsonLength = 500000000;
+
+            var json = Json(objResult, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = 500000000;
+            return json;
+
+            //return Json(objResult);
         }
 
         public ActionResult Load()
@@ -228,7 +235,7 @@ namespace UNCDF.CMS.Controllers
                     objResult.message = "ImplementAgencys :" + "Format error, check records";
                     return Json(objResult);
                 }
-
+                
                 objResult.isError = false;
                 objResult.message = null; // string.Format(MessageResource.SaveSuccess, "Load File save"); 
             }
@@ -239,7 +246,14 @@ namespace UNCDF.CMS.Controllers
                 objResult.message = "Error loading ImplementAgencys";
             }
 
-            return Json(objResult);
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            serializer.MaxJsonLength = 500000000;
+
+            var json = Json(objResult, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = 500000000;
+            return json;
+
+            //return Json(objResult);
         }
 
         [HttpPost]

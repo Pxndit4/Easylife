@@ -27,6 +27,8 @@ namespace UNCDF.CMS.Models
         public string DonorName { get; set; }
         [Display(Name = "Funding Partner")]
         public string FundingPartner { get; set; }
+        [Display(Name = "Donor Long Description")]
+        public string DonorLongDescription { get; set; }
     }
 
     public class LoadDonorPartnersViewModel
@@ -47,6 +49,9 @@ namespace UNCDF.CMS.Models
         public string DonorName { get; set; }
         [Display(Name = "Funding Partner")]
         public string FundingPartner { get; set; }
+        [Display(Name = "Donor Long Description")]
+        public string DonorLongDescription { get; set; }
+        
         public string AlertMessage { get; set; }
         public string WithAlert { get; set; }
     }
