@@ -1,0 +1,70 @@
+﻿@model UNCDF.CMS.Models.TimeLineTestimonialTranslateViewModel
+
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+<meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+
+<div class="ui-container">
+    <div class="bars pull-left" style="font-weight: bold;margin-top: 15px;">
+        <span class="title">
+            Translates
+        </span>
+        <span class="ui-grid-rows" data-info-grid="#tbListTransTesApr" data-info="@MessageResource.GridRowCountInfo"></span>
+    </div>
+    <table id="tbListTransTesApr" class="table table-hover" data-toggle="table"
+           data-toolbar=".toolbar" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.Translates.Language)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.TimeLineTestId)" data-visible="false">@Html.DisplayNameFor(x => x.Translates.TimeLineTestId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.LanguageId)" data-visible="false">@Html.DisplayNameFor(x => x.Translates.LanguageId)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.Language)">@Html.DisplayNameFor(x => x.Translates.Language)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Translates.Testimonial)">@Html.DisplayNameFor(x => x.Translates.Testimonial)</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+    $('#dialogMain').on('hidden.bs.modal', function () {
+        rebindGrid()
+    });
+
+    var objIndexTran={
+        initial: function () {
+
+            unitlife.ui.grid('#tbListTransTesApr').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+
+           objIndexTran.grid.load();
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListTransTesApr");
+            },
+            load: function () {
+
+                unitlife.ui.grid('#tbListTransTesApr').load('@Url.Action("Search", "TimeLineTestimonialTranslate", null)', { id: @Model.TimeLineTestId});
+            },
+        },
+        general:{
+        }
+    };
+
+    $(document).ready(function () {
+
+        objIndexTran.initial();
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+    });
+
+</script>
+

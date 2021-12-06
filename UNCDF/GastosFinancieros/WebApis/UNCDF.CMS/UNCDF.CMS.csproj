@@ -385,6 +385,7 @@
     <Content Include="Views\TimeLine\EditUnApproved.cshtml" />
     <Content Include="Views\TimeLineTranslate\Approve.cshtml" />
     <Content Include="Views\TimeLine\RejectModal.cshtml" />
+    <Content Include="Views\TimeLineTestimonialTranslate\Approve.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
