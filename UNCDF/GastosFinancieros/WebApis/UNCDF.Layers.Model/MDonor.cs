@@ -23,5 +23,10 @@ namespace UNCDF.Layers.Model
         public int Registered { get; set; }
         public string Token { get; set; }
         public string OldPassword { get; set; }
+        public string Name { get; set; }
+        public string RegisteredName { get; set; }
+        public string BirthdayStr { get; set; }
+        public string StatusName { get; set; }
+        public int Donated { get; set; }
     }
 }

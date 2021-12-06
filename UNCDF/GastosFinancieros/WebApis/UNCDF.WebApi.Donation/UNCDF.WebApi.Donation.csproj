@@ -25,9 +25,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Certificate\Firma.jpg" />
   </ItemGroup>
   <ItemGroup>

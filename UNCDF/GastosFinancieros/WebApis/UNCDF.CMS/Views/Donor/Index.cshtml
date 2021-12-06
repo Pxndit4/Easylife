@@ -1,0 +1,194 @@
+﻿@model UNCDF.CMS.Models.SearchDonorViewModel
+
+@{
+    ViewBag.Title = "Donor List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        Donor List
+    </span>
+    <div class="ui-btn-content">
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+
+<div class="ui-container ui-jumb">
+
+    @using (Html.BeginForm("Search", "Donor", FormMethod.Post, new { id = "frmSearchDonor" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.FirstName)
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", maxlength = 200, id = "txtFirstName" })
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.LastName)
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", maxlength = 200, id = "txtLastName" })
+                </div>
+
+
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.CountryId)
+
+                    @Html.DropDownListFor(m => m.CountryId, (IEnumerable<SelectListItem>)ViewBag.Countries, new { @class = "form-control", id = "txtCountryId" })
+
+                </div>
+
+                <div class="col-md-1">
+                    @Html.LabelFor(m => m.Registered)
+                    @Html.DropDownListFor(m => m.Registered, (IEnumerable<SelectListItem>)ViewBag.Registered, new { @class = "form-control", id = "txtRegistered" })
+                </div>
+
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Status)
+                    <div class="input-group">
+                        @Html.DropDownListFor(m => m.Status, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", id = "txtStatus" })
+                        <a id="btnSearch" class="btn btn-default input-group-addon">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <a id="btnClean" class="btn btn-default" style="margin-top:22px;">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Clean
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <label> &nbsp;</label>
+                    <div class="input-group">
+                        <a id="btnExport" class="form-control btn btn-default pull-right">
+                            <span class="glyphicon glyphicon-share" aria-hidden="true"></span> Export
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+    }
+</div>
+
+<div class="ui-container">
+    <div class="bars pull-left" style="font-weight: bold;margin-top: 15px;">
+        <span class="title">
+            Donor List
+        </span>
+        <span class="ui-grid-rows" data-info-grid="#tbListD" data-info="@MessageResource.GridRowCountInfo"></span>
+    </div>
+    <table id="tbListD" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.Result.Name)">@Html.DisplayNameFor(x => x.Result.Name)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.Result.Email)">@Html.DisplayNameFor(x => x.Result.Email)</th>
+                <th class="col-md-1" data-field="@Html.HtmlIdNameFor(x => x.Result.Cellphone)">@Html.DisplayNameFor(x => x.Result.Cellphone)</th>
+                <th class="col-md-2" data-field="@Html.HtmlIdNameFor(x => x.Result.Country)">@Html.DisplayNameFor(x => x.Result.Country)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.RegisteredName)">@Html.DisplayNameFor(x => x.Result.RegisteredName)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.Donated)">@Html.DisplayNameFor(x => x.Result.Donated)</th>
+                <th data-field="@Html.HtmlIdNameFor(x => x.Result.StatusName)">@Html.DisplayNameFor(x => x.Result.StatusName)</th>
+                <th data-visible="false" data-field="@Html.HtmlIdNameFor(x => x.Result.Status)">@Html.DisplayNameFor(x => x.Result.Status)</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+    $("#btnClean").on("click", function (e) {
+        e.preventDefault();
+        $("#txtFirstName").val("");
+        $("#txtLastName").val("");
+        $("#txtCountryId").val("-1");
+        $("#txtRegistered").val("-1");
+        $("#txtStatus").val("1");
+        $("#btnSearch").click();
+    });
+
+    function rebindGrid() {
+        $("#btnSearch").click();
+    }
+
+    $('#dialogMain').on('hidden.bs.modal', function () {
+        rebindGrid()
+    });
+
+    var objIndexDonor={
+        initial: function (){
+            $("#btnSearch").on("click", function (e) {
+                e.preventDefault();
+                objIndexDonor.grid.load();
+            });
+
+            unitlife.ui.grid('#tbListD').create({ rowStyle: 'unitlife.ui.grid.global.rowState.sinEstado',search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndexDonor.grid.load();
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListD");
+            },
+            load: function () {
+
+                unitlife.ui.grid('#tbListD').load('@Url.Action("Search", "Donor", null)', '#frmSearchDonor');
+            },
+            rowCommand:{
+
+            },
+        },
+        general:{
+        }
+    };
+
+    $(document).ready(function () {
+        objIndexDonor.initial();
+        rebindGrid();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
+
+        $('#btnExport').click(function () {
+
+
+            var form = $('#frmSearchDonor');
+
+            $.ajax({
+                url: "@Url.Action("SearchExport", "Donor")",
+                type: "POST",
+                //processData: false,
+                //contentType: false,
+                data: form.serialize(),
+                success:
+                function (e, s) {
+                    window.location.href = "@Url.Action("ExportDownload", "Donor")";
+                 }
+
+                //error: function (e, s) {
+                //    if (typeof onError == "function") {
+                //        if (onError.call) {
+                //            onError.call(this, e, s);
+                //        }
+                //    }
+
+                //}
+
+            });
+
+        });
+
+    });
+
+</script>
+
+

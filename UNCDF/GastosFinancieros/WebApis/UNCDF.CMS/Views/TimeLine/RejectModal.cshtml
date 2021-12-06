@@ -1,0 +1,77 @@
+﻿@model UNCDF.CMS.Models.TimeLineViewModel
+
+
+@{
+    Layout = null;
+}
+@Html.Hidden("viewTitle", ViewBag.Title as string)
+
+<div class="ui-container">
+    @using (Html.BeginForm("Reject", "TimeLine", FormMethod.Post, new { id = "frmTimeLineRej" }))
+    {
+        @Html.HiddenFor(m => m.TimeLineId)
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.ReasonReject)
+                    @Html.TextAreaFor(m => m.ReasonReject, new { @class = "form-control", maxlength = 140 })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <button type="submit" id="btnRegSubmRej" class="btn btn-default">
+                        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>Save
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div>
+            Required fields.<span class="input-validation-error-ley"></span>
+        </div>
+    }
+
+</div>
+
+<script type="text/javascript" language="javacript">
+
+    function onCallbackError(e) {
+        unitlife.ui.DropDownListFillJsonError(e, s);
+    }
+
+    $(document).ready(function () {
+
+
+        $("#btnRegSubmRej").on("click", function (e) {
+            e.preventDefault();
+
+            var _frm = unitlife.ui.validation("#frmTimeLineRej"), condVal = $("#@Html.IdFor(m => m.TimeLineId)").val();
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+
+
+            if (condVal == '01') {
+                _isValid = _frm.validGroup(condVal, '01',
+                    [
+                        "#@Html.IdFor(m => m.ReasonReject)"
+                    ]);
+            }
+            else {
+                _isValid = _frm.valid();
+            }
+            if (_isValid) {
+
+                unitlife.ajax.submit('@Url.Action("Reject", "TimeLine")', "#frmTimeLineRej",null);
+                unitlife.site.dialog.invoqResultCallback('REG_TIMELINEREJECT');
+
+            }
+            return false;
+        });
+
+
+    });
+
+</script>
+
