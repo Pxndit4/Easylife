@@ -11,8 +11,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Quartz;
+using Quartz.Impl;
+using Quartz.Spi;
 using Stripe;
 using UNCDF.Layers.Model;
+using UNCDF.WebApi.Donation.Schedulers;
 
 namespace UNCDF.WebApi.Donation
 {
@@ -56,6 +60,16 @@ namespace UNCDF.WebApi.Donation
                                        .AllowAnyHeader();
                                   });
             });
+
+
+            services.AddHostedService<QuartzHostedService>();
+            services.AddSingleton<IJobFactory, SingletonJobFactory>();
+            services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+
+            services.AddSingleton<RemindersJob>();
+            services.AddSingleton(new JobSchedule(
+                jobType: typeof(RemindersJob),
+                cronExpression: "0 40 16 * * ?")); // run every 5 min
 
             //services.AddCors(options =>
             //{

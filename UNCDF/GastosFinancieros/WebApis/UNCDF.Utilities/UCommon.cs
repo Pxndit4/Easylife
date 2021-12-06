@@ -134,5 +134,26 @@ namespace UNCDF.Utilities
                 default: return "";
             }
         }
+
+        public static string ConvertirFechaDecimalaString(decimal fecha)
+        {
+            string resultado = "";
+
+            if (fecha == 0 & fecha.ToString().Length == 8)
+            {
+                string strfecha = fecha.ToString();
+
+                if (strfecha.Length > 0)
+                {
+                    resultado = strfecha.Substring(6, 2) + "- " + GetMonthName(Convert.ToInt32(strfecha.Substring(4, 2))) + " - " + strfecha.Substring(0, 4);
+                }
+            }
+            else
+            {
+                return "";
+            }
+
+            return resultado;
+        }
     }
 }
