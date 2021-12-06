@@ -8,10 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UNCDF.CMS {
+namespace UNCDF.CMS
+{
     using System;
-    
-    
+
+
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     /// </summary>
@@ -22,49 +23,59 @@ namespace UNCDF.CMS {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MessageResource {
-        
+    public class MessageResource
+    {
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MessageResource() {
+        internal MessageResource()
+        {
         }
-        
+
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if (object.ReferenceEquals(resourceMan, null))
+                {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UNCDF.CMS.MessageResource", typeof(MessageResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
-            get {
+        public static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a The {0} approve was wrong.
         /// </summary>
-        public static string ApproveError {
-            get {
+        public static string ApproveError
+        {
+            get
+            {
                 return ResourceManager.GetString("ApproveError", resourceCulture);
             }
         }
@@ -72,8 +83,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a Approve of {0} was successful..
         /// </summary>
-        public static string ApproveSuccess {
-            get {
+        public static string ApproveSuccess
+        {
+            get
+            {
                 return ResourceManager.GetString("ApproveSuccess", resourceCulture);
             }
         }
@@ -81,8 +94,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a Error occurred while trying to delete the record.
         /// </summary>
-        public static string ControllerDeleteExceptionMessage {
-            get {
+        public static string ControllerDeleteExceptionMessage
+        {
+            get
+            {
                 return ResourceManager.GetString("ControllerDeleteExceptionMessage", resourceCulture);
             }
         }
@@ -90,17 +105,21 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a Error occurred while trying to retrieve information from {0}.
         /// </summary>
-        public static string ControllerGetExceptionMessage {
-            get {
+        public static string ControllerGetExceptionMessage
+        {
+            get
+            {
                 return ResourceManager.GetString("ControllerGetExceptionMessage", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Are you sure to generate a new key from {0}.
         /// </summary>
-        public static string GenerateConfirm {
-            get {
+        public static string GenerateConfirm
+        {
+            get
+            {
                 return ResourceManager.GetString("GenerateConfirm", resourceCulture);
             }
         }
@@ -108,17 +127,21 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a (Total {0} records retrieved).
         /// </summary>
-        public static string GridRowCountInfo {
-            get {
+        public static string GridRowCountInfo
+        {
+            get
+            {
                 return ResourceManager.GetString("GridRowCountInfo", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Error occurred while loading the page.
         /// </summary>
-        public static string PartialViewLoadError {
-            get {
+        public static string PartialViewLoadError
+        {
+            get
+            {
                 return ResourceManager.GetString("PartialViewLoadError", resourceCulture);
             }
         }
@@ -126,8 +149,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a Are you sure to delete the record {0}.
         /// </summary>
-        public static string RowDeleteConfirm {
-            get {
+        public static string RowDeleteConfirm
+        {
+            get
+            {
                 return ResourceManager.GetString("RowDeleteConfirm", resourceCulture);
             }
         }
@@ -135,8 +160,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a Record successfully removed.
         /// </summary>
-        public static string RowDeleteOK {
-            get {
+        public static string RowDeleteOK
+        {
+            get
+            {
                 return ResourceManager.GetString("RowDeleteOK", resourceCulture);
             }
         }
@@ -144,8 +171,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a {0} is inactive..
         /// </summary>
-        public static string RowInactivo {
-            get {
+        public static string RowInactivo
+        {
+            get
+            {
                 return ResourceManager.GetString("RowInactivo", resourceCulture);
             }
         }
@@ -153,8 +182,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a Are you sure to record the information {0}.
         /// </summary>
-        public static string SaveConfirm {
-            get {
+        public static string SaveConfirm
+        {
+            get
+            {
                 return ResourceManager.GetString("SaveConfirm", resourceCulture);
             }
         }
@@ -162,8 +193,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a The {0} registration was wrong.
         /// </summary>
-        public static string SaveError {
-            get {
+        public static string SaveError
+        {
+            get
+            {
                 return ResourceManager.GetString("SaveError", resourceCulture);
             }
         }
@@ -171,8 +204,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a Registration of {0} was successful..
         /// </summary>
-        public static string SaveSuccess {
-            get {
+        public static string SaveSuccess
+        {
+            get
+            {
                 return ResourceManager.GetString("SaveSuccess", resourceCulture);
             }
         }
@@ -180,8 +215,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a The {0} update was wrong.
         /// </summary>
-        public static string UpdateConfirm {
-            get {
+        public static string UpdateConfirm
+        {
+            get
+            {
                 return ResourceManager.GetString("UpdateConfirm", resourceCulture);
             }
         }
@@ -189,8 +226,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a The {0} update was wrong.
         /// </summary>
-        public static string UpdateError {
-            get {
+        public static string UpdateError
+        {
+            get
+            {
                 return ResourceManager.GetString("UpdateError", resourceCulture);
             }
         }
@@ -198,8 +237,10 @@ namespace UNCDF.CMS {
         /// <summary>
         ///   Busca una cadena traducida similar a Update of {0} was successful..
         /// </summary>
-        public static string UpdateSuccess {
-            get {
+        public static string UpdateSuccess
+        {
+            get
+            {
                 return ResourceManager.GetString("UpdateSuccess", resourceCulture);
             }
         }

@@ -478,7 +478,7 @@ namespace UNCDF.CMS.Controllers
             MTimeLine objResult;
             MProject objProject;
             ViewBag.Title = "TimeLine";
-            ViewBag.Confirm = string.Format(MessageResource.UpdateConfirm, "TimeLine");
+            ViewBag.Confirm = string.Format("Do you want to Approve the timeline?");
             try
             {
                 ViewBag.Estado = Extension.GetStatus().Select(x => new SelectListItem

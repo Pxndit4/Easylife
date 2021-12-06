@@ -1,0 +1,111 @@
+﻿@model UNCDF.CMS.Models.SearchTimeLineViewModel
+
+@{
+    ViewBag.Title = ViewBag.SubTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        @ViewBag.SubTitle
+    </span>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+
+
+
+<div class="ui-container">
+    <div class="bars pull-left" style="font-weight: bold;margin-top: 15px;">
+        <span class="title">
+            TimeLines
+        </span>
+        <span class="ui-grid-rows" data-info-grid="#tbListAprov" data-info="@MessageResource.GridRowCountInfo"></span>
+    </div>
+    <table id="tbListAprov" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.Result.Date)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+        <thead>
+            <tr>
+                <th data-visible="false" data-field="@Html.HtmlIdNameFor(x => x.Result.TimeLineId)"> @Html.DisplayNameFor(x => x.Result.TimeLineId)</th>
+                <th class="col-md-3" data-field="@Html.HtmlIdNameFor(x => x.Result.Title)">@Html.DisplayNameFor(x => x.Result.Title)</th>
+                <th class="col-md-4" data-field="@Html.HtmlIdNameFor(x => x.Result.TitleProject)">@Html.DisplayNameFor(x => x.Result.TitleProject)</th>
+
+                @if (Model.Approved == 0)
+                {
+                    <th data-field="@Html.HtmlIdNameFor(x => x.Result.DateStr)">@Html.DisplayNameFor(x => x.Result.DateStr)</th>
+                    <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.eyes" data-events="objIndexAprov.grid.rowCommand"></th>
+                }
+                else if (Model.Approved == 3)
+                {
+                    <th class="col-md-3" data-field="@Html.HtmlIdNameFor(x => x.Result.ReasonReject)">@Html.DisplayNameFor(x => x.Result.ReasonReject)</th>
+                    <th data-field="@Html.HtmlIdNameFor(x => x.Result.DateStr)">@Html.DisplayNameFor(x => x.Result.DateStr)</th>
+                    <th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.edit" data-events="objIndexAprov.grid.rowCommand"></th>
+
+                }
+
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+<script type="text/javascript" language="javacript">
+                 var objIndexAprov={
+                        initial: function () {
+
+                            unitlife.ui.grid('#tbListAprov').create({ search: true, rowStyle: 'unitlife.ui.grid.global.rowState.sinEstado', toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+                            objIndexAprov.grid.load();
+                        },
+                        grid:{
+                            get:function(){
+                                return unitlife.ui.grid("#tbListAprov");
+                            },
+                            load: function () {
+                                unitlife.ui.grid('#tbListAprov').load('@Url.Action("SearchUnApproved", "TimeLine",null)', { idapproved: @Model.Approved});
+                            },
+                            rowCommand: {
+                               'click #eyes': function (e, value, row) {
+                                   window.location.href = '@Url.Action("EditUnApproved", "TimeLine")/' + row.TimeLineId + '@Url.TargetParam()';
+                                   return false;
+                                },
+                                'click #edit': function (e, value, row) {
+                                    var formCode = 3;//De Rechazados
+                                    window.location.href = '@Url.Action("Edit", "TimeLine")/' + row.TimeLineId + '|' + formCode+ '@Url.TargetParam()';
+                                    return false;
+                                },
+                            },
+                            @*commandEdit:function(e,r,i)
+                            {
+                                var sd = '@Ajax.AjaxActionLink("", "Edit", "ERP", null, new AjaxOptions
+                                {
+                                    HttpMethod = "GET",
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "dialogBody",
+                                    OnBegin = "unitlife.site.dialog.onInit",
+                                    OnComplete = "unitlife.site.dialog.onComplete",
+                                    OnFailure = "unitlife.site.dialog.onFailure",
+                                }, new { @class = "",title="View TimeLine" }, "glyphicon glyphicon-eye-open")'
+
+                                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.Result.TimeLineId))[0].outerHTML;
+                                return sd;
+                                objIndex.grid.load();
+                            },*@
+                        },
+                        general:{
+                        }
+                    };
+
+                $(document).ready(function () {
+                    objIndexAprov.initial();
+
+                    var $th = $('.tableFixHead').find('thead th')
+                    $('.tableFixHead').on('scroll', function () {
+                        $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+                    });
+
+                    $('.fixed-table-body').addClass('tableFixHead');
+
+                });
+
+</script>
+

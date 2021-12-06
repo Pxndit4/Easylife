@@ -309,6 +309,7 @@ namespace UNCDF.Layers.DataAccess
                             entRow.Birthday = Convert.ToDecimal(reader["Birthday"]);
                             entRow.Registered = Convert.ToInt32(reader["Registered"]);
                             entRow.Status = Convert.ToInt32(reader["Status"]);
+                            entRow.Donated = Convert.ToInt32(reader["Donated"]);
 
                             lisQuery.Add(entRow);
 

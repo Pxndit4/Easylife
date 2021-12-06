@@ -50,7 +50,7 @@
                 @if (Model.FileLink.Length > 0)
                 {
                     <div class="col-md-1">
-                        <a id="btnImageMulti" class="btn btn-default" title="View" href="@Model.FileLink" target="_blank" style="margin-top:22px;">
+                        <a id="btnImageMulti" class="btn btn-default" title="View" style="margin-top:22px;">
                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -68,6 +68,11 @@
 
     var sizeVideo=2;
     var sizeIMAGE;
+
+    $("#btnImageMulti").on("click", function (e) {
+            window.open('@Model.FileLink' +'?nocache=' + (new Date()).getTime(), '_blank');
+            return false;
+    });
 
     function iniFormMul() {
 

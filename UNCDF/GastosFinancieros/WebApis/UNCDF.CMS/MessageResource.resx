@@ -157,7 +157,7 @@
     <value>Registration of {0} was successful.</value>
   </data>
   <data name="UpdateConfirm" xml:space="preserve">
-    <value>The {0} update was wrong</value>
+    <value>Are you sure to update the information {0}</value>
   </data>
   <data name="UpdateError" xml:space="preserve">
     <value>The {0} update was wrong</value>

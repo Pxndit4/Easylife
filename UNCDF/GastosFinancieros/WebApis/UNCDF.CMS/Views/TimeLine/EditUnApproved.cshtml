@@ -1,0 +1,468 @@
+﻿@model UNCDF.CMS.Models.TimeLineViewModel
+
+@{
+    ViewBag.Title = "Time Line";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui-bar ui-bar-default">
+    <span class="ui-title">
+        Time Line Aproved
+    </span>
+    <div class="ui-btn-content">
+
+        <a id="lnkReturnActsApr" class="btn btn-default">
+            <span class="glyphicon glyphicon-arrow-left"></span>Return
+        </a>
+
+    </div>
+</div>
+
+<div class="collapse ui-error-view" id="panMessage">
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="row">
+                @*<div class="col-md-1">
+                        @Html.LabelFor(m => m.ProjectId)
+                        @Html.TextBoxFor(m => m.ProjectId, new { @class = "form-control", @readonly = true })
+                    </div>*@
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.TitleProject)
+                    @Html.TextBoxFor(m => m.TitleProject, new { @class = "form-control", @readonly = true })
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <div class="ui-container">
+            @using (Html.BeginForm("Register", "TimeLine", FormMethod.Post, new { id = "frmTimeLineAprReg" }))
+            {
+                @Html.HiddenFor(m => m.TimeLineId)
+                @*@Html.HiddenFor(m => m.ProjectId)*@
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Title)
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @readonly = true })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Description)
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", @readonly = true })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            @Html.LabelFor(m => m.Date)
+                            <div id="d_@Html.IdFor(m=>m.Date)" class="input-group date">
+                                @Html.TextBoxFor(m => m.Date, new { @class = "form-control input", @readonly = true })
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            @Html.LabelFor(m => m.CurrentAdvance)
+                            @Html.TextBoxFor(m => m.CurrentAdvance, new { @class = "form-control", @readonly = true })
+                        </div>
+
+                        <div class="col-md-3">
+                            @Html.LabelFor(m => m.Status)
+                            @Html.DropDownListFor(m => m.Status, (IEnumerable<SelectListItem>)ViewBag.Estado, new { @class = "form-control", data_value = Model.Status, @readonly = true })
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-10">
+                            @*<button id="btnReg" type="button" class="btn btn-default pull-right">
+                                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                </button>*@
+                            <div class="ui-btn-content">
+                                @Ajax.AjaxActionLink("", "Approve", "TimeLineTranslate", new { id = Model.TimeLineId }, new AjaxOptions
+                                {
+                                    HttpMethod = "GET",
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "dialogBody",
+                                    OnBegin = "unitlife.site.dialog.onInit",
+                                    OnComplete = "unitlife.site.dialog.onComplete",
+                                    OnFailure = "unitlife.site.dialog.onFailure",
+                                }, new { @class = "btn btn-default pull-right" }, "glyphicon glyphicon-globe")
+                            </div>
+
+                        </div>
+                        <div class="col-md-1">
+                            <div class="ui-btn-content" id="btnReject">
+                                @Ajax.AjaxActionLink("Reject", "RejectModal", "TimeLine", new { id = Model.TimeLineId }, new AjaxOptions
+                                {
+                                    HttpMethod = "GET",
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "dialogBody",
+                                    OnBegin = "unitlife.site.dialog.onInit",
+                                    OnComplete = "unitlife.site.dialog.onComplete",
+                                    OnFailure = "unitlife.site.dialog.onFailure",
+                                }, new { @class = "btn btn-default pull-right" }, "glyphicon glyphicon-remove-sign")
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-1">
+                            <button type="submit" id="btnRegSubmApr" class="btn btn-default pull-right">
+                                <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Approve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="panel panel-default">
+
+
+    <div class="panel-body">
+        <div>
+            @using (Html.BeginForm("Search", "TimeLineMultimedia", FormMethod.Post, new { id = "frmSearchAprMul" }))
+            {
+                @Html.HiddenFor(m => m.TimeLineId)
+            }
+        </div>
+        <div class="ui-bar ui-bar-default">
+            <span class="ui-title">
+                Multimedia List
+            </span>
+        </div>
+        <div id="tbListAprCont1Apr" class="ui-container">
+            <table id="tbListApr" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-name="@Html.HtmlIdNameFor(x => x.multimediaList.Title)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+                <thead>
+                    <tr>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.TimeLineId)" data-visible="false">@Html.DisplayNameFor(x => x.multimediaList.TimeLineId)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.TimeLineMulId)" data-visible="false">@Html.DisplayNameFor(x => x.multimediaList.TimeLineMulId)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.Title)">@Html.DisplayNameFor(x => x.multimediaList.Title)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.TypeName)">@Html.DisplayNameFor(x => x.multimediaList.Type)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.multimediaList.File)">@Html.DisplayNameFor(x => x.multimediaList.File)</th>
+                        <th data-formatter="objIndexApr.grid.commandChecks" data-field="@Html.HtmlIdNameFor(m => m.multimediaList.FileLink)" class="text-center">@Html.DisplayNameFor(x => x.multimediaList.File)</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div>
+            @using (Html.BeginForm("Search", "TimeLineTestimonial", FormMethod.Post, new { id = "frmSearchAprTest" }))
+            {
+                @Html.HiddenFor(m => m.TimeLineId)
+            }
+        </div>
+        <div class="ui-bar ui-bar-default">
+            <span class="ui-title">
+                Testimonial List
+            </span>
+
+        </div>
+        <div id="tbListAprCont2" cla4ss="ui-container">
+
+            <table id="tbListAprTest" class="table table-hover" data-pagination="true" data-toggle="table" data-toolbar=".toolbar" data-sort-name="@Html.HtmlIdNameFor(x => x.testimonials.Name)" data-sort-order="desc" data-search="true" data-row-style="rowStyle">
+                <thead>
+                    <tr>
+                        @*<th data-class="ui-cell-icon" data-formatter="objIndexAprTest.grid.commandEdit" data-events="objIndexAprTest.grid.rowCommand"></th>*@
+                        <th data-class="ui-cell-icon" data-formatter="objIndexAprTest.grid.commandTranslation" data-events="objIndexAprTest.grid.rowcommand"></th>
+                        @*<th data-class="ui-cell-icon" data-formatter="unitlife.ui.grid.commands.remove" data-events="objIndexAprTest.grid.rowCommand"></th>*@
+                        <th data-field="@Html.HtmlIdNameFor(x => x.testimonials.TimeLineId)" data-visible="false">@Html.DisplayNameFor(x => x.testimonials.TimeLineId)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.testimonials.TimeLineTestId)" data-visible="false">@Html.DisplayNameFor(x => x.testimonials.TimeLineTestId)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.testimonials.Name)">@Html.DisplayNameFor(x => x.testimonials.Name)</th>
+                        <th data-field="@Html.HtmlIdNameFor(x => x.testimonials.Photo)">@Html.DisplayNameFor(x => x.testimonials.Photo)</th>
+                        <th data-formatter="objIndexAprTest.grid.commandChecks" data-field="@Html.HtmlIdNameFor(x => x.testimonials.PhotoLink)">@Html.DisplayNameFor(x => x.testimonials.Photo)</th>
+
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" language="javacript">
+    function rebindGrid() {
+    }
+     var objIndexApr={
+        initial: function () {
+
+            unitlife.ui.grid('#tbListApr').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndexApr.grid.load();
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListApr");
+            },
+            load: function () {
+                console.log('entra mult');
+                unitlife.ui.grid('#tbListApr').load('@Url.Action("Search", "TimeLineMultimedia", null)', '#frmSearchAprMul');
+                console.log('sale mult');
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    var Estado = row["Status"];
+
+                    if ("1" == "1") {
+                        var _grid = unitlife.ui.grid("#tbListApr");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Time Line Multimedia"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("Delete", "TimeLineMultimedia", null)', { id: row.TimeLineMulId }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndexApr.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Interface"))" });
+                    }
+                }
+            },
+            commandChecks: function (e, r, i) {
+                if (r.File == "") {
+                    var sd = '';
+                } else {
+                    var sd = '<a href="' + r.FileLink + '" title="View" target="_blank"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>';
+                }
+                return sd;
+            },
+            commandTranslation: function (e, r, i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "NewTranslation", "TimeLineTestimonialTranslate", null, new AjaxOptions
+                     {
+                         HttpMethod = "GET",
+                         InsertionMode = InsertionMode.Replace,
+                         UpdateTargetId = "dialogBody",
+                         OnBegin = "unitlife.site.dialog.onInit",
+                         OnComplete = "unitlife.site.dialog.onComplete",
+                         OnFailure = "unitlife.site.dialog.onFailure",
+                     }, new { @class = "",title= "Testimonial Translations" }, "glyphicon glyphicon-globe")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.TimeLineId))[0].outerHTML;
+                return sd;
+                objIndexApr.grid.load();
+            },
+            commandEdit:function(e,r,i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "TimeLineMultimedia", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                    }, new { @class = "",title="Edit Multimedia" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.multimediaList.TimeLineMulId))[0].outerHTML;
+                return sd;
+                objIndexApr.grid.load();
+            }
+        },
+        general:{
+        }
+    };
+
+    var objIndexAprTest={
+        initial: function () {
+
+            unitlife.ui.grid('#tbListAprTest').create({ search: true, toolbar: ".ui-container .title, .ui-container .ui-grid-rows" });
+            objIndexAprTest.grid.load();
+
+        },
+        grid:{
+            get:function(){
+                return unitlife.ui.grid("#tbListAprTest");
+
+            },
+            load: function () {
+                unitlife.ui.grid('#tbListAprTest').load('@Url.Action("Search", "TimeLineTestimonial", null)', '#frmSearchAprTest');
+            },
+            rowCommand:{
+                'click #remove': function (e, value, row) {
+
+                    var Estado = row["Status"];
+
+                    if ("1" == "1") {
+                        var _grid = unitlife.ui.grid("#tbListAprTest");
+
+                        Confirmar(
+                            '¿@Html.Raw(string.Format(MessageResource.RowDeleteConfirm, "Time Line Testimonial"))?',
+                        function () {
+                            _grid.invoqCommand('@Url.Action("Delete", "TimeLineTestimonial", null)', { id: row.TimeLineTestId }, function (e) {
+                                if (e && e.isError == true)
+                                    return;
+                                objIndexAprTest.grid.load();
+                            });
+                        },
+                        null
+                            );
+                    }else{
+                        unitlife.ui.MessagePanel.show({ isError: true, message: "@Html.Raw(string.Format(MessageResource.RowInactivo,"Interface"))" });
+                    }
+                }
+                , 'click #control': function (e, value, row) {
+                    window.location.href = '@Url.Action("InterfaceControls", "Interface")/' + row.InterfaceId + '@Url.TargetParam()';
+                    return false;
+                }
+            },
+            commandChecks: function (e, r, i) {
+
+                if (r.Photo == "") {
+                    var sd = '';
+                } else {
+                    var sd = '<a href="' + r.PhotoLink + '" title="View" target="_blank"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>';
+                }
+                return sd;
+            },
+            commandTranslation: function (e, r, i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "ApproveTranslation", "TimeLineTestimonialTranslate", null, new AjaxOptions
+                     {
+                         HttpMethod = "GET",
+                         InsertionMode = InsertionMode.Replace,
+                         UpdateTargetId = "dialogBody",
+                         OnBegin = "unitlife.site.dialog.onInit",
+                         OnComplete = "unitlife.site.dialog.onComplete",
+                         OnFailure = "unitlife.site.dialog.onFailure",
+                     }, new { @class = "",title= "Testimonial Translations" }, "glyphicon glyphicon-globe")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.testimonials.TimeLineTestId))[0].outerHTML;
+                return sd;
+                objIndexAprTest.grid.load();
+            },
+            commandEdit:function(e,r,i)
+            {
+                var sd = '@Ajax.AjaxActionLink("", "Edit", "TimeLineTestimonial", null, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "dialogBody",
+                    OnBegin = "unitlife.site.dialog.onInit",
+                    OnComplete = "unitlife.site.dialog.onComplete",
+                    OnFailure = "unitlife.site.dialog.onFailure",
+                    }, new { @class = "",title="Edit Testimonial" }, "glyphicon glyphicon-pencil")'
+
+                sd = $(sd).attr("href", $(sd).attr("href") + "/" + r.@Html.HtmlIdNameFor(x => x.testimonials.TimeLineTestId))[0].outerHTML;
+                return sd;
+                objIndexAprTest.grid.load();
+            }
+        },
+        general:{
+        }
+    };
+    $(document).ready(function () {
+
+        $("#lnkReturnActsApr").on("click", function (e) {
+            window.location.href = '@Url.Action("UnApproved", "TimeLine")/' + @Model.TimeLineId + '@Url.TargetParam()';
+            return false;
+        });
+
+        $("#btnRegSubmApr").on("click", function (e) {
+            e.preventDefault();
+
+
+            var _frm = unitlife.ui.validation("#frmTimeLineAprReg"), condVal = $("#@Html.IdFor(m => m.TimeLineId)").val();
+            var _isValid = true;
+            _frm.unobtrusiveParse();
+            if (condVal == '01') {
+                _isValid = _frm.validGroup(condVal, '01',
+                    [
+                        "#@Html.IdFor(m => m.Title)"
+                    ]);
+            }
+            else {
+                _isValid = _frm.valid();
+            }
+            if (_isValid) {
+
+                Confirmar(
+                '¿@Html.Raw(ViewBag.Confirm)?',
+                    function () {
+                        unitlife.ajax.submit('@Url.Action("Approved", "TimeLine", null)', "#frmTimeLineAprReg"
+                            , function () {
+
+                                $('#btnRegSubmApr').hide();
+                                $('#btnReject').hide();
+                                setTimeout(function () { $('#lnkReturnActsApr').click(); }, 3000);
+                            });
+
+                         @*$.ajax({
+                             url: '@Url.Action("GetTimeLine", "TimeLine")/?id=' + @Model.TimeLineId,
+                            type: 'POST',
+                            success: function(data) {
+                                var Advance = data.data.Advance;
+                                $("#@Html.IdFor(m => m.Advance)").val(Advance);
+                                $("#@Html.IdFor(m => m.CurrentAdvance)").val(Advance)
+
+                            }
+                        });*@
+
+
+                },
+                null
+                );
+            }
+            return false;
+        });
+
+
+        $('#d_@Html.IdFor(m => m.Date)').datepicker();
+        unitlife.ui.SelectedValue('#@Html.IdFor(x => x.Status)');
+
+        objIndexApr.initial();
+        objIndexAprTest.initial();
+    });
+
+    function ___getModalResult(key, data) {
+        if (key == 'REG_TIMELINEMULTIMEDIA') {
+            objIndexApr.grid.load();
+        }
+
+        if (key == 'REG_TIMELINETESTIMONIAL') {
+            objIndexAprTest.grid.load();
+        }
+        if (key == 'REG_TIMELINEREJECT') {
+            $('#btnRegSubmApr').hide();
+            $('#btnReject').hide();
+            setTimeout(function () { $('#lnkReturnActsApr').click(); }, 3000);
+
+
+        }
+
+    }
+</script>
+
+

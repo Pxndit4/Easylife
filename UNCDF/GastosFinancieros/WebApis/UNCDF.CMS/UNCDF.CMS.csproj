@@ -140,6 +140,7 @@
     <Compile Include="Controllers\DeparmentController.cs" />
     <Compile Include="Controllers\DeparmentExclusionController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
+    <Compile Include="Controllers\DonorController.cs" />
     <Compile Include="Controllers\DonorPartnerController.cs" />
     <Compile Include="Controllers\FundController.cs" />
     <Compile Include="Controllers\GenderController.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Invoke\WebApiCountry.cs" />
     <Compile Include="Invoke\WebApiDeparment.cs" />
     <Compile Include="Invoke\WebApiDonation.cs" />
+    <Compile Include="Invoke\WebApiDonor.cs" />
     <Compile Include="Invoke\WebApiDonorPartner.cs" />
     <Compile Include="Invoke\WebApiFund.cs" />
     <Compile Include="Invoke\WebApiGender.cs" />
@@ -209,6 +211,7 @@
     <Compile Include="Models\DeparmentViewModel.cs" />
     <Compile Include="Models\DonationViewModel.cs" />
     <Compile Include="Models\DonorPartnerViewModel.cs" />
+    <Compile Include="Models\DonorViewModel.cs" />
     <Compile Include="Models\FundViewModel.cs" />
     <Compile Include="Models\GenderTranslateViewModel.cs" />
     <Compile Include="Models\GenderViewModel.cs" />
@@ -377,6 +380,12 @@
     <Content Include="Views\Language\Register.cshtml" />
     <Content Include="Views\DeparmentExclusion\Index.cshtml" />
     <Content Include="Views\Subscribers\Index.cshtml" />
+    <Content Include="Views\Donor\Index.cshtml" />
+    <Content Include="Views\TimeLine\UnApproved.cshtml" />
+    <Content Include="Views\TimeLine\EditUnApproved.cshtml" />
+    <Content Include="Views\TimeLineTranslate\Approve.cshtml" />
+    <Content Include="Views\TimeLine\RejectModal.cshtml" />
+    <Content Include="Views\TimeLineTestimonialTranslate\Approve.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
