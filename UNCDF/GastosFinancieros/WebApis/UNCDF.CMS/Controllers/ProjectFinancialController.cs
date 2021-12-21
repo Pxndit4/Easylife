@@ -283,28 +283,53 @@ namespace UNCDF.CMS.Controllers
                         ent.AlertMessage = string.Empty;
                         ent.WithAlert = "N";
 
+                        bool valProjectCode = true;
+                        bool valDepartmentCode = true;
+
                         if (ent.ProjectCode.Length > 10)
                         {
                             ent.AlertMessage += "<tr><td> - the Project Code column must not must not exceed 10 characters </td></tr> ";
+
+                            valProjectCode = false;
                         }
 
                         if (ent.ProjectCode.Length == 0)
                         {
                             ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
+                            valProjectCode = false;
+                        }
+
+                        if (valProjectCode)
+                        {
+                            var valid = codProjects.Where(p => Convert.ToInt32(p.ToString()) == Convert.ToInt32((ent.ProjectCode.ToString()))).FirstOrDefault();
+                            if (valid == null)
+                            {
+                                ent.AlertMessage += "<tr><td> - the Project Code does not exist </td></tr> ";
+                            }
                         }
 
 
-                        var valid = codProjects.Where(p => Convert.ToInt32(p.ToString()) == Convert.ToInt32((ent.ProjectCode.ToString()))).FirstOrDefault();
-                        if (valid == null)
+                        if (ent.DeparmentCode.Length == 0)
                         {
-                            ent.AlertMessage += "<tr><td> - the Project Code does not exist </td></tr> ";
+                            ent.AlertMessage += "<tr><td> - the Deparment Code Code column is required </td></tr> ";
+                            valDepartmentCode = false;
+
                         }
 
-
-                        var validDep = codDeparment.Where(p => p == ent.DeparmentCode).FirstOrDefault();
-                        if (validDep == null)
+                        if (ent.DeparmentCode.Length > 10)
                         {
-                            ent.AlertMessage += "<tr><td> - the Deparment Code does not exist </td></tr> ";
+                            ent.AlertMessage += "<tr><td> - the Deparment Code column must not must not exceed 10 characters </td></tr> ";
+
+                            valDepartmentCode = false;
+                        }
+
+                        if (valDepartmentCode)
+                        {
+                            var validDep = codDeparment.Where(p => p == ent.DeparmentCode).FirstOrDefault();
+                            if (validDep == null)
+                            {
+                                ent.AlertMessage += "<tr><td> - the Deparment Code does not exist </td></tr> ";
+                            }
                         }
 
                         //if (ent.DescrProject.Length > 255)
@@ -324,7 +349,25 @@ namespace UNCDF.CMS.Controllers
                         }
 
                         entlist.Add(ent);
+
+                        valProjectCode = true;
+                        valDepartmentCode = true;
                     }
+
+                    if (entlist != null)
+                    {
+                        var totalIncorrect = entlist.Where(x => x.AlertMessage.Length > 0).Count();
+                        var total = entlist.Count();
+                        var totalCorrect = total - totalIncorrect;
+
+                        entlist = entlist.Select(w => {
+                            w.Total = total;
+                            w.TotalCorrectRecords = totalCorrect;
+                            w.TotalBadRecords = totalIncorrect;
+                            ; return w;
+                        }).ToList();
+                    }
+
 
                     Session["ListProjectFinancials"] = entlist;
                     objResult.data = entlist;
@@ -453,7 +496,8 @@ namespace UNCDF.CMS.Controllers
                 var yearsValids = new WebApiProjectFinancial().GetProjectFinancialValidYear(yearValid, objSession);
 
 
-
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
 
                 foreach (ModelProjectFinancialResult item in entListData)
                 {
@@ -482,18 +526,25 @@ namespace UNCDF.CMS.Controllers
 
                         if (valid == 0)
                         {
+
+                            TotalCorrectRecords = item.TotalCorrectRecords;
+                            TotalBadRecords = item.TotalBadRecords;
+
                             entList.Add(mProjectFinancial);
                         }
 
                     }
                     else
                     {
+                        TotalCorrectRecords = item.TotalCorrectRecords;
+                        TotalBadRecords = item.TotalBadRecords;
+
                         entList.Add(mProjectFinancial);
                     }
 
                 }
 
-                response = new WebApiProjectFinancial().InsertProjectFinancial(entList, objSession);
+                response = new WebApiProjectFinancial().InsertProjectFinancial(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];
@@ -535,7 +586,8 @@ namespace UNCDF.CMS.Controllers
                 }
                 var yearsValids = new WebApiProjectFinancial().GetProjectFinancialValidYear(yearValid, objSession);
 
-
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
 
                 foreach (ModelProjectFinancialResult item in entListData)
                 {
@@ -567,18 +619,22 @@ namespace UNCDF.CMS.Controllers
                             if (valid == 0)
                             {
                                 entList.Add(mProjectFinancial);
+                                TotalCorrectRecords = item.TotalCorrectRecords;
+                                TotalBadRecords = item.TotalBadRecords;
                             }
 
                         }
                         else
                         {
                             entList.Add(mProjectFinancial);
+                            TotalCorrectRecords = item.TotalCorrectRecords;
+                            TotalBadRecords = item.TotalBadRecords;
                         }
                         //entList.Add(mProjectFinancial);
                     }                    
                 }
 
-                response = new WebApiProjectFinancial().InsertProjectFinancial(entList, objSession);
+                response = new WebApiProjectFinancial().InsertProjectFinancial(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];
@@ -785,94 +841,90 @@ namespace UNCDF.CMS.Controllers
                         {
                             continue;
                         }
-                                
+
+                            ent.Year = (Extension.ToEmpty(dt.Rows[i][0].ToString()));
+                            ent.DeparmentCode = Extension.ToEmpty(dt.Rows[i][1].ToString());
+                            ent.DeparmentCode = "8"+ ent.DeparmentCode.Substring(1);
+                            ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][2].ToString());
+                            ent.ImplementAgencyCode = Extension.ToEmpty(dt.Rows[i][3].ToString());
+                            ent.FundCode = Extension.ToEmpty(dt.Rows[i][4].ToString());
 
 
-                        ent.Year = (Extension.ToEmpty(dt.Rows[i][0].ToString()));
-                        ent.DeparmentCode = Extension.ToEmpty(dt.Rows[i][1].ToString());
-                        ent.DeparmentCode = "8"+ ent.DeparmentCode.Substring(1);
-                        ent.ProjectCode = Extension.ToEmpty(dt.Rows[i][2].ToString());
-                        ent.ImplementAgencyCode = Extension.ToEmpty(dt.Rows[i][3].ToString());
-                        ent.FundCode = Extension.ToEmpty(dt.Rows[i][4].ToString());
+                            decimal h2 = (Decimal.Parse(Extension.ToEmpty(  dt.Rows[i][5].ToString()==""?"0": dt.Rows[i][5].ToString()), System.Globalization.NumberStyles.Float));
 
-
-                            decimal h2 = //Decimal.Parse(Extension.ToEmpty(dt.Rows[i][5].ToString())), System.System.Globalization.NumberStyles.Any);
-                           (Decimal.Parse(Extension.ToEmpty(  dt.Rows[i][5].ToString()==""?"0": dt.Rows[i][5].ToString()), System.Globalization.NumberStyles.Float));
-
-                            ent.Budget = Decimal.Round(h2, 2); //= Convert.ToFlo(.Round(decimalValue, 2); ;
-                            ent.Expenditure = ent.Budget;// Convert.ToDecimal(Extension.ToEmpty(dt.Rows[i][5].ToString()));
+                            ent.Budget = Decimal.Round(h2, 2); 
+                            ent.Expenditure = ent.Budget;
 
                         
-                        
-
-
-
-                        ent.OperUnit = string.Empty;
-                        ent.DescrProject = string.Empty;
-                        ent.ProjectManager = string.Empty;
-                        ent.ShortDesc = string.Empty;
+                            ent.OperUnit = string.Empty;
+                            ent.DescrProject = string.Empty;
+                            ent.ProjectManager = string.Empty;
+                            ent.ShortDesc = string.Empty;
 
                         
-                        ent.DescrFund = string.Empty;
+                            ent.DescrFund = string.Empty;
                         
-                        ent.PreEncumbrance = 0;
-                        ent.Encumbrance = 0;
-                        ent.Disbursement =0;
+                            ent.PreEncumbrance = 0;
+                            ent.Encumbrance = 0;
+                            ent.Disbursement =0;
                         
-                        ent.Balance = 0;
-                        ent.Spent = 0;
-                        ent.AlertMessage = string.Empty;
-                        ent.WithAlert = "N";
+                            ent.Balance = 0;
+                            ent.Spent = 0;
+                            ent.AlertMessage = string.Empty;
+                            ent.WithAlert = "N";
 
-                        if (ent.ProjectCode.Length > 10)
-                        {
-                            ent.AlertMessage += "<tr><td> - the Project Code column must not must not exceed 10 characters </td></tr> ";
-                        }
+                            bool valProjectCode = true;
 
-                        if (ent.ProjectCode.Length == 0)
-                        {
-                            ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
-                        }
+                            if (ent.ProjectCode.Length > 10)
+                            {
+                                ent.AlertMessage += "<tr><td> - the Project Code column must not must not exceed 10 characters </td></tr> ";
+                                valProjectCode = false;
+                            }
 
+                            if (ent.ProjectCode.Length == 0)
+                            {
+                                ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
+                                valProjectCode = false;
+                            }
 
-                        var valid = codProjects.Where(p => Convert.ToInt32(p.ToString()) == Convert.ToInt32((ent.ProjectCode.ToString()))).FirstOrDefault();
-                        if (valid == null)
-                        {
-                            ent.AlertMessage += "<tr><td> - the Project Code does not exist </td></tr> ";
-                        }
+                            if (valProjectCode)
+                            {
+                                var valid = codProjects.Where(p => Convert.ToInt32(p.ToString()) == Convert.ToInt32((ent.ProjectCode.ToString()))).FirstOrDefault();
+                                if (valid == null)
+                                {
+                                    ent.AlertMessage += "<tr><td> - the Project Code does not exist </td></tr> ";
+                                }
+                            }
 
+                            if (ent.AlertMessage.Length > 0)
+                            {
+                                ent.AlertMessage = "<table>" + ent.AlertMessage + "</table>";
+                                ent.WithAlert = "S";
+                            }
 
-                        //var validDep = codDeparment.Where(p => p == ent.DeparmentCode).FirstOrDefault();
-                        //if (validDep == null)
-                        //{
-                        //    ent.AlertMessage += "<tr><td> - the Deparment Code does not exist </td></tr> ";
-                        //}
+                            entlist.Add(ent);
 
-                        //if (ent.DescrProject.Length > 255)
-                        //{
-                        //    ent.AlertMessage += "<tr><td> - the Descr Project column must not must not exceed 255 characters </td></tr> ";
-                        //}
+                         }
+                         catch (Exception e)
+                         {
 
-                        //if (ent.Description.Length == 0)
-                        //{
-                        //    ent.AlertMessage += "<tr><td> - the Description column is required </td></tr> ";
-                        //}
+                                throw;
+                         }
 
-                        if (ent.AlertMessage.Length > 0)
-                        {
-                            ent.AlertMessage = "<table>" + ent.AlertMessage + "</table>";
-                            ent.WithAlert = "S";
-                        }
+                    }
 
-                        entlist.Add(ent);
+                    if (entlist != null)
+                    {
+                        var totalIncorrect = entlist.Where(x => x.AlertMessage.Length > 0).Count();
+                        var total = entlist.Count();
+                        var totalCorrect = total - totalIncorrect;
 
-                        }
-                        catch (Exception e)
-                        {
-
-                            throw;
-                        }
-
+                        entlist = entlist.Select(w => {
+                            w.Total = total;
+                            w.TotalCorrectRecords = totalCorrect;
+                            w.TotalBadRecords = totalIncorrect;
+                            ; return w;
+                        }).ToList();
                     }
 
                     Session["ListProjectFinancialsHis"] = entlist;
@@ -918,8 +970,12 @@ namespace UNCDF.CMS.Controllers
                 List<ModelProjectFinancialResult> entListData = new List<ModelProjectFinancialResult>();
                 entListData = (List<ModelProjectFinancialResult>)Session["ListProjectFinancialsHis"];
 
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
+
                 foreach (ModelProjectFinancialResult item in entListData)
                 {
+
                     if (item.WithAlert.Equals("N"))
                     {
                         MProjectFinancials mProjectFinancial = new MProjectFinancials();
@@ -940,11 +996,15 @@ namespace UNCDF.CMS.Controllers
                         mProjectFinancial.Expenditure = item.Expenditure;
                         mProjectFinancial.Balance = item.Balance;
                         mProjectFinancial.Spent = item.Spent;
+                        
                         entList.Add(mProjectFinancial);
+
+                        TotalCorrectRecords = item.TotalCorrectRecords;
+                        TotalBadRecords = item.TotalBadRecords;
                     }                    
                 }
 
-                response = new WebApiProjectFinancial().InsertProjectFinancialHistory(entList, objSession);
+                response = new WebApiProjectFinancial().InsertProjectFinancialHistory(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];
@@ -976,6 +1036,10 @@ namespace UNCDF.CMS.Controllers
                 List<ModelProjectFinancialResult> entListData = new List<ModelProjectFinancialResult>();
                 entListData = (List<ModelProjectFinancialResult>)Session["ListProjectFinancialsHis"];
 
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
+
+
                 foreach (ModelProjectFinancialResult item in entListData)
                 {
                     MProjectFinancials mProjectFinancial = new MProjectFinancials();
@@ -997,9 +1061,12 @@ namespace UNCDF.CMS.Controllers
                     mProjectFinancial.Balance = item.Balance;
                     mProjectFinancial.Spent = item.Spent;
                     entList.Add(mProjectFinancial);
+
+                    TotalCorrectRecords = item.TotalCorrectRecords;
+                    TotalBadRecords = item.TotalBadRecords;
                 }
 
-                response = new WebApiProjectFinancial().InsertProjectFinancialHistory(entList, objSession);
+                response = new WebApiProjectFinancial().InsertProjectFinancialHistory(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];

@@ -86,6 +86,11 @@ namespace UNCDF.CMS.Models
         public byte[] FileByte { get; set; }
         [Required]
         public string File { get; set; }
+        public int Total { get; set; }
+        [Display(Name = "Correct Records")]
+        public int TotalCorrectRecords { get; set; }
+        [Display(Name = "Bad Records")]
+        public int TotalBadRecords { get; set; }
 
         public ResultLoadProjectsViewModel resulLoad { get; set; }
     }
@@ -127,6 +132,9 @@ namespace UNCDF.CMS.Models
 
     public class ModelProjectResult : MProject
     {
+        public int Total { get; set; }
+        public int TotalCorrectRecords { get; set; }
+        public int TotalBadRecords { get; set; }
         public string AlertMessage { get; set; }
         public string WithAlert { get; set; }
     }

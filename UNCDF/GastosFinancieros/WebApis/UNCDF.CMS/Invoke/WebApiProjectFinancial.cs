@@ -37,7 +37,7 @@ namespace UNCDF.CMS
             return projects;
         }
 
-        public string InsertProjectFinancial(List<MProjectFinancials> list, Session eSession)
+        public string InsertProjectFinancial(List<MProjectFinancials> list, int TotalCorrect, int TotalBad, Session eSession)
         {
             ProjectFinancialsRequest request = new ProjectFinancialsRequest();
             BaseResponse response = new BaseResponse();
@@ -45,6 +45,10 @@ namespace UNCDF.CMS
 
             request.ProjectFinancials = list;
             request.Session = eSession;
+
+            request.TotalCorrect = TotalCorrect;
+            request.TotalBad = TotalBad;
+
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -60,13 +64,15 @@ namespace UNCDF.CMS
             return returnMsg;
         }
 
-        public string InsertProjectFinancialHistory(List<MProjectFinancials> list, Session eSession)
+        public string InsertProjectFinancialHistory(List<MProjectFinancials> list, int TotalCorrect, int TotalBad, Session eSession)
         {
             ProjectFinancialsRequest request = new ProjectFinancialsRequest();
             BaseResponse response = new BaseResponse();
             string returnMsg = string.Empty;
 
             request.ProjectFinancials = list;
+            request.TotalCorrect = TotalCorrect;
+            request.TotalBad = TotalBad;
             request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -134,6 +140,8 @@ namespace UNCDF.CMS
     [Serializable]
     public class ProjectFinancialsRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public List<MProjectFinancials> ProjectFinancials { get; set; }
     }
     public class ProjectFinancialRequest : BaseRequest

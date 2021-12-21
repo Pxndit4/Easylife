@@ -37,6 +37,12 @@ namespace UNCDF.CMS.Models
         [Required]
         public string File { get; set; }
 
+        public int Total { get; set; }
+        [Display(Name = "Correct Records")]
+        public int TotalCorrectRecords { get; set; }
+        [Display(Name = "Bad Records")]
+        public int TotalBadRecords { get; set; }
+
         public ResultLoadDonorPartnersViewModel resulLoad { get; set; }
     }
 
@@ -60,5 +66,8 @@ namespace UNCDF.CMS.Models
     {
         public string AlertMessage { get; set; }
         public string WithAlert { get; set; }
+        public int Total { get; set; }
+        public int TotalCorrectRecords { get; set; }
+        public int TotalBadRecords { get; set; }
     }
 }

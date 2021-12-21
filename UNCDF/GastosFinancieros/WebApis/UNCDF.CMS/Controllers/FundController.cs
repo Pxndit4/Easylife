@@ -207,6 +207,20 @@ namespace UNCDF.CMS.Controllers
                         entlist.Add(ent);
                     }
 
+                    if (entlist != null)
+                    {
+                        var totalIncorrect = entlist.Where(x => x.AlertMessage.Length > 0).Count();
+                        var total = entlist.Count();
+                        var totalCorrect = total - totalIncorrect;
+
+                        entlist = entlist.Select(w => {
+                            w.Total = total;
+                            w.TotalCorrectRecords = totalCorrect;
+                            w.TotalBadRecords = totalIncorrect;
+                            ; return w;
+                        }).ToList();
+                    }
+
                     Session["ListFunds"] = entlist;
                     objResult.data = entlist;
                 }
@@ -270,15 +284,21 @@ namespace UNCDF.CMS.Controllers
                 List<ModelFundResult> entListData = new List<ModelFundResult>();
                 entListData = (List<ModelFundResult>)Session["ListFunds"];
 
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
+
                 foreach (ModelFundResult item in entListData)
                 {
                     MFund mFund = new MFund();
                     mFund.FundCode = item.FundCode;
                     mFund.Description = item.Description;
                     entList.Add(mFund);
+
+                    TotalCorrectRecords = item.TotalCorrectRecords;
+                    TotalBadRecords = item.TotalBadRecords;
                 }
 
-                response = new WebApiFund().InsertFund(entList, objSession);
+                response = new WebApiFund().InsertFund(entList,TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];

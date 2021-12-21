@@ -41,6 +41,23 @@
             </div>
 
         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-3">
+                    @Html.LabelFor(m => m.Total)
+                    @Html.TextBoxFor(m => m.Total, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.LabelFor(m => m.TotalCorrectRecords)
+                    @Html.TextBoxFor(m => m.TotalCorrectRecords, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.LabelFor(m => m.TotalBadRecords)
+                    @Html.TextBoxFor(m => m.TotalBadRecords, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+            </div>
+        </div>
         <div>
             Required fields.<span class="input-validation-error-ley"></span>
         </div>
@@ -48,11 +65,11 @@
 </div>
 
 <div id="tbListCont52" class="ui-container">
-    <span class="title">
+    @*<span class="title">
         Previus
-    </span>
+    </span>*@
 
-    <table id="tbLisPreviusPF" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-height="400" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.Year)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
+    <table id="tbLisPreviusPF" class="table table-hover" data-toggle="table" data-toolbar=".toolbar" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.Year)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
                 <th data-class="ui-cell-icon" data-formatter="objIndexLoadPFHist.grid.commandAlert" data-events="objIndexLoadPFHist.grid.rowCommand"></th>
@@ -113,7 +130,20 @@
             $("#btnRegSave").prop("disabled", false);
             $("#btnRegSaveErrors").prop("disabled", false);
 
-            unitlife.ui.grid('#tbLisPreviusPF').loadFile('@Url.Action("LoadFileHistory", "ProjectFinancial", null)', data);
+            unitlife.ui.grid('#tbLisPreviusPF').loadFile('@Url.Action("LoadFileHistory", "ProjectFinancial", null)', data, function (e) {
+                var dataGrid = e.data;
+
+                if (dataGrid.length > 0) {
+                    var obj = dataGrid[0];
+
+                    $("#@Html.IdFor(m => m.Total)").val(obj.Total);
+                    $("#@Html.IdFor(m => m.TotalBadRecords)").val(obj.TotalBadRecords);
+                    $("#@Html.IdFor(m => m.TotalCorrectRecords)").val(obj.TotalCorrectRecords);
+
+                }
+
+            }
+            );
 
         }
         event.target.value = '';
@@ -167,7 +197,7 @@
 
             },
             commandFormartDecimal: function (e, r, i) {
-                //var sd = r.Amount+"sdad";
+
                 var sd = unitlife.numeric.formatDecimal(e,0)
                 return sd;
             },
@@ -182,7 +212,7 @@
     $(document).ready(function () {
 
         $('[data-toggle="popover"]').popover();
-        
+
         $("#btnRegSaveErrors").on("click", function (e) {
             e.preventDefault();
             var _frm = unitlife.ui.validation("#frmLoadReg");
@@ -225,6 +255,13 @@
             return false;
         });
         objIndexLoadPFHist.initial();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
 
     });
 

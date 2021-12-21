@@ -225,6 +225,20 @@ namespace UNCDF.CMS.Controllers
                         entlist.Add(ent);
                     }
 
+                    if (entlist != null)
+                    {
+                        var totalIncorrect = entlist.Where(x => x.AlertMessage.Length > 0).Count();
+                        var total = entlist.Count();
+                        var totalCorrect = total - totalIncorrect;
+
+                        entlist = entlist.Select(w => {
+                            w.Total = total;
+                            w.TotalCorrectRecords = totalCorrect;
+                            w.TotalBadRecords = totalIncorrect;
+                            ; return w;
+                        }).ToList();
+                    }
+
                     Session["ListImplementAgencys"] = entlist;
                     objResult.data = entlist;
                 }
@@ -295,6 +309,10 @@ namespace UNCDF.CMS.Controllers
                 List<ModelImplementAgencyResult> entListData = new List<ModelImplementAgencyResult>();
                 entListData = (List<ModelImplementAgencyResult>)Session["ListImplementAgencys"];
 
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
+
+
                 foreach (ModelImplementAgencyResult item in entListData)
                 {
                     MImplementAgency mImplementAgency = new MImplementAgency();
@@ -302,9 +320,12 @@ namespace UNCDF.CMS.Controllers
                     mImplementAgency.Description = item.Description;
                     mImplementAgency.ShortDescription = item.ShortDescription;
                     entList.Add(mImplementAgency);
+                    
+                    TotalCorrectRecords = item.TotalCorrectRecords;
+                    TotalBadRecords = item.TotalBadRecords;
                 }
 
-                response = new WebApiImplementAgency().InsertImplementAgency(entList, objSession);
+                response = new WebApiImplementAgency().InsertImplementAgency(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];

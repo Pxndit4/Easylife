@@ -282,28 +282,39 @@ namespace UNCDF.CMS.Controllers
                         ent.AlertMessage = string.Empty;
                         ent.WithAlert = "N";
 
+                        bool valProjectCode = true;
+
                         if (ent.ProjectCode.Length > 10)
                         {
                             ent.AlertMessage += "<tr><td> - the Project Code column must not exceed 10 characters </td></tr> ";
+                            
+                            valProjectCode = false;
                         }
 
                         if (ent.ProjectCode.Length == 0)
                         {
                             ent.AlertMessage += "<tr><td> - the Project Code column is required </td></tr> ";
+                            valProjectCode = false;
                         }
 
-                        var valid = entVaList.Where(p => Convert.ToInt32(p.ProjectCode) == Convert.ToInt32(ent.ProjectCode)).FirstOrDefault();
-                        if (valid != null)
-                        {
-                            if (string.IsNullOrEmpty(valid.DonorCode))
+                        if (valProjectCode) { 
+
+                            var valid = entVaList.Where(p => Convert.ToInt32(p.ProjectCode) == Convert.ToInt32(ent.ProjectCode)).FirstOrDefault();
+                            if (valid != null)
                             {
-                                ent.AlertMessage += "<tr><td> - the Program Name has no Donor Partner </td></tr> ";
+                                if (string.IsNullOrEmpty(valid.DonorCode))
+                                {
+                                    ent.AlertMessage += "<tr><td> - the Program Name has no Donor Partner </td></tr> ";
+                                }
                             }
+                            else
+                            {
+                                ent.AlertMessage += "<tr><td> - the Project Code does not exist in Program Name </td></tr> ";
+                            }
+
                         }
-                        else
-                        {
-                            ent.AlertMessage += "<tr><td> - the Project Code does not exist in Program Name </td></tr> ";
-                        }
+
+                        
 
                         if (ent.Department.Length > 10)
                         {
@@ -357,15 +368,34 @@ namespace UNCDF.CMS.Controllers
                         }
 
                         entlist.Add(ent);
+
+                        valProjectCode = true;
+                    }
+
+                    if (entlist != null)
+                    {
+                        var totalIncorrect = entlist.Where(x => x.AlertMessage.Length > 0).Count();
+                        var total = entlist.Count();
+                        var totalCorrect = total - totalIncorrect;
+
+                        entlist = entlist.Select(w => {
+                            w.Total = total;
+                            w.TotalCorrectRecords = totalCorrect;
+                            w.TotalBadRecords = totalIncorrect;
+                            ; return w;
+                        }).ToList();
                     }
 
                     Session["ListProjects"] = entlist;
 
-                    DataTable restul = Extension.ToDataTable<ModelProjectResult>(entlist);
+                    //DataTable restul = Extension.ToDataTable<ModelProjectResult>(entlist);
 
-                    var results = (from myRow in restul.AsEnumerable()
-                                   where myRow.Field<string>("WithAlert") == "S"
-                                   select myRow).CopyToDataTable();
+                    //var results = (from myRow in restul.AsEnumerable()
+                    //               where myRow.Field<string>("WithAlert") == "S"
+                    //               select myRow).CopyToDataTable();
+
+                    
+
 
                     objResult.data = entlist;
                 }
@@ -450,6 +480,9 @@ namespace UNCDF.CMS.Controllers
                 List<ModelProjectResult> entListData = new List<ModelProjectResult>();
                 entListData = (List<ModelProjectResult>)Session["ListProjects"];
 
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
+
                 foreach (ModelProjectResult item in entListData)
                 {
                     MProject mProject = new MProject();
@@ -468,9 +501,12 @@ namespace UNCDF.CMS.Controllers
                     mProject.AwardId = item.AwardId;
                     mProject.AwardStatus = item.AwardStatus;
                     entList.Add(mProject);
+
+                    TotalCorrectRecords = item.TotalCorrectRecords;
+                    TotalBadRecords = item.TotalBadRecords;
                 }
 
-                response = new WebApiProject().InsertProject(entList, objSession);
+                response = new WebApiProject().InsertProject(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];
@@ -502,6 +538,10 @@ namespace UNCDF.CMS.Controllers
                 List<ModelProjectResult> entListData = new List<ModelProjectResult>();
                 entListData = (List<ModelProjectResult>)Session["ListProjects"];
 
+
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
+
                 foreach (ModelProjectResult item in entListData)
                 {
                     if (item.WithAlert.Equals("N"))
@@ -522,10 +562,13 @@ namespace UNCDF.CMS.Controllers
                         mProject.AwardId = item.AwardId;
                         mProject.AwardStatus = item.AwardStatus;
                         entList.Add(mProject);
+
+                        TotalCorrectRecords = item.TotalCorrectRecords;
+                        TotalBadRecords = item.TotalBadRecords;
                     }                    
                 }
 
-                response = new WebApiProject().InsertProject(entList, objSession);
+                response = new WebApiProject().InsertProject(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];

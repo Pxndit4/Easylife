@@ -248,6 +248,20 @@ namespace UNCDF.CMS.Controllers
                         entlist.Add(ent);
                     }
 
+                    if (entlist != null)
+                    {
+                        var totalIncorrect = entlist.Where(x => x.AlertMessage.Length > 0).Count();
+                        var total = entlist.Count();
+                        var totalCorrect = total - totalIncorrect;
+
+                        entlist = entlist.Select(w => {
+                            w.Total = total;
+                            w.TotalCorrectRecords = totalCorrect;
+                            w.TotalBadRecords = totalIncorrect;
+                            ; return w;
+                        }).ToList();
+                    }
+
                     Session["ListPrograms"] = entlist;
                     objResult.data = entlist;
                 }
@@ -258,6 +272,8 @@ namespace UNCDF.CMS.Controllers
                     objResult.message = "Funds :" + "Format error, check records";
                     return Json(objResult);
                 }
+
+
 
                 objResult.isError = false;
                 objResult.message = null; // string.Format(MessageResource.SaveSuccess, "Load File save"); 
@@ -307,9 +323,13 @@ namespace UNCDF.CMS.Controllers
                     UserId = AutenticationManager.GetUser().IdUsuario,
                 };
 
+
                 List<MProgramName> entList = new List<MProgramName>();
                 List<ModelProgramResult> entListData = new List<ModelProgramResult>();
                 entListData = (List<ModelProgramResult>)Session["ListPrograms"];
+
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
 
                 foreach (ModelProgramResult item in entListData)
                 {
@@ -322,9 +342,12 @@ namespace UNCDF.CMS.Controllers
                     mFund.Sector = item.Sector;
                     mFund.SDG = item.SDG;
                     entList.Add(mFund);
+
+                    TotalCorrectRecords = item.TotalCorrectRecords;
+                    TotalBadRecords = item.TotalBadRecords;
                 }
 
-                response = new WebApiProgram().InsertProgramName(entList, objSession);
+                response = new WebApiProgram().InsertProgramName(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];

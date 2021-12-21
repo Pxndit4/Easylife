@@ -35,6 +35,23 @@
             </div>
 
         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-3">
+                    @Html.LabelFor(m => m.Total)
+                    @Html.TextBoxFor(m => m.Total, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.LabelFor(m => m.TotalCorrectRecords)
+                    @Html.TextBoxFor(m => m.TotalCorrectRecords, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="col-sm-3">
+                    @Html.LabelFor(m => m.TotalBadRecords)
+                    @Html.TextBoxFor(m => m.TotalBadRecords, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+            </div>
+        </div>
         <div>
             Required fields.<span class="input-validation-error-ley"></span>
         </div>
@@ -42,10 +59,10 @@
 </div>
 
 <div id="tbListCont2" class="ui-container">
-    <span class="title">
+    @*<span class="title">
         Previus
     </span>
-    <span class="ui-grid-rows" data-info-grid="#tbLisPrevius" data-info="@MessageResource.GridRowCountInfo"></span>
+    <span class="ui-grid-rows" data-info-grid="#tbLisPrevius" data-info="@MessageResource.GridRowCountInfo"></span>*@
     <table id="tbLisPrevius" class="table table-hover" data-pagination="true" data-sort-name="@Html.HtmlIdNameFor(x => x.resulLoad.ProjectCode)" data-sort-order="asc" data-search="true" data-row-style="rowStyle">
         <thead>
             <tr>
@@ -101,7 +118,17 @@
             });
 
             $("#btnRegSave").prop("disabled", false);
-            unitlife.ui.grid('#tbLisPrevius').loadFile('@Url.Action("LoadFile", "Program", null)', data);
+            unitlife.ui.grid('#tbLisPrevius').loadFile('@Url.Action("LoadFile", "Program", null)', data, function (e) {
+                var dataGrid = e.data;
+                if (dataGrid.length > 0) {
+                    var obj = dataGrid[0];
+
+                    $("#@Html.IdFor(m => m.Total)").val(obj.Total);
+                    $("#@Html.IdFor(m => m.TotalBadRecords)").val(obj.TotalBadRecords);
+                    $("#@Html.IdFor(m => m.TotalCorrectRecords)").val(obj.TotalCorrectRecords);
+
+                    }
+            });
 
         }
         event.target.value = '';
@@ -192,6 +219,13 @@
             return false;
         });
         objIndexLoad.initial();
+
+        var $th = $('.tableFixHead').find('thead th')
+        $('.tableFixHead').on('scroll', function () {
+            $th.css('transform', 'translateY(' + this.scrollTop + 'px)');
+        });
+
+        $('.fixed-table-body').addClass('tableFixHead');
     });
 
 </script>

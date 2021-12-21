@@ -58,13 +58,17 @@ namespace UNCDF.CMS
 
             return funds;
         }
-        public string InsertProgramName(List<MProgramName> list, Session eSession)
+        public string InsertProgramName(List<MProgramName> list, int TotalCorrect, int TotalBad, Session eSession)
         {
             ProgramNamesRequest request = new ProgramNamesRequest();
             BaseResponse response = new BaseResponse();
             string returnMsg = string.Empty;
 
             request.ProgramNames = list;
+
+            request.TotalCorrect = TotalCorrect;
+            request.TotalBad = TotalBad;
+
             request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -90,6 +94,8 @@ namespace UNCDF.CMS
     [Serializable]
     public class ProgramNamesRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public List<MProgramName> ProgramNames { get; set; }
     }
 }

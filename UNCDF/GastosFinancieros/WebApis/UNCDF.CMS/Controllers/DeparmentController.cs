@@ -217,6 +217,20 @@ namespace UNCDF.CMS.Controllers
 
                         entlist.Add(ent);
                     }
+                    
+                    if (entlist != null)
+                    {
+                        var totalIncorrect = entlist.Where(x => x.AlertMessage.Length > 0).Count();
+                        var total = entlist.Count();
+                        var totalCorrect = total - totalIncorrect;
+
+                        entlist = entlist.Select(w => {
+                            w.Total = total;
+                            w.TotalCorrectRecords = totalCorrect;
+                            w.TotalBadRecords = totalIncorrect;
+                            ; return w;
+                        }).ToList();
+                    }
 
                     Session["ListDonors"] = entlist;
                     objResult.data = entlist;
@@ -372,6 +386,9 @@ namespace UNCDF.CMS.Controllers
                 List<ModelDeparmentResult> entListData = new List<ModelDeparmentResult>();
                 entListData = (List<ModelDeparmentResult>)Session["ListDonors"];
 
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
+
                 foreach (ModelDeparmentResult item in entListData)
                 {
                     MDeparment mDonorPartner = new MDeparment();
@@ -379,10 +396,14 @@ namespace UNCDF.CMS.Controllers
                     mDonorPartner.Description = item.Description;
                     mDonorPartner.PracticeArea = item.PracticeArea;
                     mDonorPartner.Region = item.Region;
+                   
                     entList.Add(mDonorPartner);
+
+                    TotalCorrectRecords = item.TotalCorrectRecords;
+                    TotalBadRecords = item.TotalBadRecords;
                 }
 
-                response = new WebApiDeparment().InsertDeparment(entList, objSession);
+                response = new WebApiDeparment().InsertDeparment(entList, TotalCorrectRecords, TotalBadRecords,  objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];

@@ -35,7 +35,7 @@ namespace UNCDF.CMS
             return funds;
         }
 
-        public string InsertFund(List<MFund> list, Session eSession)
+        public string InsertFund(List<MFund> list,  int TotalCorrect, int TotalBad, Session eSession)
         {
             FundsRequest request = new FundsRequest();
             BaseResponse response = new BaseResponse();
@@ -43,6 +43,8 @@ namespace UNCDF.CMS
 
             request.Funds = list;
             request.Session = eSession;
+            request.TotalCorrect = TotalCorrect;
+            request.TotalBad = TotalBad;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -66,6 +68,8 @@ namespace UNCDF.CMS
 
     public class FundsRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public List<MFund> Funds { get; set; }
     }
 }

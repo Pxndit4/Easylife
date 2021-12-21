@@ -73,6 +73,8 @@ namespace UNCDF.WebApi.Project
     [Serializable]
     public class ProjectsRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public List<MProject> Projects { get; set; }
     }
 

@@ -93,7 +93,21 @@ namespace UNCDF.WebApi.Project.Controllers
                     string rootPath = _appSettings.Value.rootPath;
                     string ProjectPath = _appSettings.Value.ProjectPath;
 
+                    int ParamLOAD_DONORPAR = 30; //IdParameter
+
                     BaseRequest baseRequest = new BaseRequest();
+
+
+                    int ValLoad = 0;
+
+                    var res = BLogLoad.Insert(new MLogLoad
+                    {
+                        TypeParamId = ParamLOAD_DONORPAR,
+                        UserId = request.Session.UserId,
+                        TotalCorrectRecords = request.TotalCorrect,
+                        TotalBadRecords = request.TotalBad
+                    }
+                    , ref ValLoad);
 
                     //validar años a cargar
                     if (request.ProjectFinancials.Count() == 0)
@@ -170,8 +184,23 @@ namespace UNCDF.WebApi.Project.Controllers
                     string webRoot = _env.ContentRootPath;
                     string rootPath = _appSettings.Value.rootPath;
                     string ProjectPath = _appSettings.Value.ProjectPath;
+                    int ParamLOAD_DONORPAR = 34; //IdParameter
+                    int ValLoad = 0;
 
                     BaseRequest baseRequest = new BaseRequest();
+
+                    
+
+                    var res = BLogLoad.Insert(new MLogLoad
+                    {
+                        TypeParamId = ParamLOAD_DONORPAR,
+                        UserId = request.Session.UserId,
+                        TotalCorrectRecords = request.TotalCorrect,
+                        TotalBadRecords = request.TotalBad
+                    }
+                    , ref ValLoad);
+
+
                     foreach (MProjectFinancials model in request.ProjectFinancials)
                     {
                         MProjectFinancials ProjectFinancial = new MProjectFinancials();

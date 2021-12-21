@@ -88,12 +88,27 @@ namespace UNCDF.WebApi.Project.Controllers
                     string webRoot = _env.ContentRootPath;
                     string rootPath = _appSettings.Value.rootPath;
                     string ProjectPath = _appSettings.Value.ProjectPath;
+                    int ParamLOAD_DEPARM = 28; //IdParameter
 
                     BaseRequest baseRequest = new BaseRequest();
 
                     List<MImplementAgency> list = new List<MImplementAgency>();
-                    
+
+                    int ValLoad = 0;
+
+                    var res = BLogLoad.Insert(new MLogLoad
+                    {
+                        TypeParamId = ParamLOAD_DEPARM,
+                        UserId = request.Session.UserId,
+                        TotalCorrectRecords = request.TotalCorrect,
+                        TotalBadRecords = request.TotalBad
+                    }
+                    , ref ValLoad);
+
+
                     var stringList = request.ImplementAgencies.OfType<MImplementAgency>();
+
+                    
 
                     foreach (MImplementAgency model in request.ImplementAgencies)
                     {

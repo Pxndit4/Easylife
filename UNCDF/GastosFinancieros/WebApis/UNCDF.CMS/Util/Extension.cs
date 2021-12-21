@@ -196,8 +196,60 @@ namespace UNCDF.CMS
             entRow.Id = "0";
             entRow.Value = "Not";
             lisQuery.Add(entRow);
+
+
             return lisQuery;
         }
+
+        public static List<MStatic> GetLoads()
+        {
+            List<MStatic> lisQuery = new List<MStatic>();
+            MStatic entRow;
+           
+            entRow = new MStatic();
+            entRow.Id = "27";
+            entRow.Value = "Project Loading";
+            lisQuery.Add(entRow);
+
+            entRow = new MStatic();
+            entRow.Id = "28";
+            entRow.Value = "Implement Agency Loading";
+            lisQuery.Add(entRow);
+
+            entRow = new MStatic();
+            entRow.Id = "29";
+            entRow.Value = "Deparment Agency Loading";
+            lisQuery.Add(entRow);
+
+            entRow = new MStatic();
+            entRow.Id = "30";
+            entRow.Value = "Proyecto Financial";
+            lisQuery.Add(entRow);
+
+            entRow = new MStatic();
+            entRow.Id = "31";
+            entRow.Value = "Donor Load";
+            lisQuery.Add(entRow);
+
+            entRow = new MStatic();
+            entRow.Id = "32";
+            entRow.Value = "Fund Load";
+            lisQuery.Add(entRow);
+
+            entRow = new MStatic();
+            entRow.Id = "33";
+            entRow.Value = "Program Name load";
+            lisQuery.Add(entRow);
+
+            entRow = new MStatic();
+            entRow.Id = "34";
+            entRow.Value = "Proyecto Financial History";
+            lisQuery.Add(entRow);
+
+
+            return lisQuery;
+        }
+
 
 
         public static List<MStatic> GetTypeInterface()

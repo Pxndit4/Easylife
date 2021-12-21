@@ -89,13 +89,15 @@ namespace UNCDF.CMS
             return funds;
         }
 
-        public string InsertDeparment(List<MDeparment> list, Session eSession)
+        public string InsertDeparment(List<MDeparment> list, int TotalCorrect, int TotalBad, Session eSession)
         {
             DeparmentsRequest request = new DeparmentsRequest();
             BaseResponse response = new BaseResponse();
             string returnMsg = string.Empty;
 
             request.Deparments = list;
+            request.TotalCorrect = TotalCorrect;
+            request.TotalBad = TotalBad;
             request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -152,6 +154,8 @@ namespace UNCDF.CMS
     [Serializable]
     public class DeparmentsRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public List<MDeparment> Deparments { get; set; }
     }
 

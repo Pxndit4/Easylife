@@ -153,6 +153,7 @@
     <Compile Include="Controllers\IntroductionController.cs" />
     <Compile Include="Controllers\IntroductionTranslateController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Controllers\LogLoadController.cs" />
     <Compile Include="Controllers\ParameterController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Invoke\WebApiIntroduction.cs" />
     <Compile Include="Invoke\WebApiIntroductionTranslate.cs" />
     <Compile Include="Invoke\WebApiLanguage.cs" />
+    <Compile Include="Invoke\WebApiLogLoad.cs" />
     <Compile Include="Invoke\WebApiOptions.cs" />
     <Compile Include="Invoke\WebApiParameter.cs" />
     <Compile Include="Invoke\WebApiProfile.cs" />
@@ -220,6 +222,7 @@
     <Compile Include="Models\IntroductionViewModel.cs" />
     <Compile Include="Models\LanguageViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\LogLoadViewModel.cs" />
     <Compile Include="Models\PanelViewModel.cs" />
     <Compile Include="Models\ParameterViewModel.cs" />
     <Compile Include="Models\PerfilViewModel.cs" />
@@ -386,6 +389,7 @@
     <Content Include="Views\TimeLineTranslate\Approve.cshtml" />
     <Content Include="Views\TimeLine\RejectModal.cshtml" />
     <Content Include="Views\TimeLineTestimonialTranslate\Approve.cshtml" />
+    <Content Include="Views\LogLoad\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
