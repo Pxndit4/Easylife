@@ -35,13 +35,17 @@ namespace UNCDF.CMS
             return funds;
         }
 
-        public string InsertDonorPartner(List<MDonorPartner> list, Session eSession)
+        public string InsertDonorPartner(List<MDonorPartner> list,int TotalCorrect, int  TotalBad,  Session eSession)
         {
             DonorPartnersRequest request = new DonorPartnersRequest();
             BaseResponse response = new BaseResponse();
             string returnMsg = string.Empty;
 
             request.DonorPartners = list;
+            
+            request.TotalCorrect = TotalCorrect;
+            request.TotalBad = TotalBad;
+
             request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -66,7 +70,10 @@ namespace UNCDF.CMS
 
     public class DonorPartnersRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public List<MDonorPartner> DonorPartners { get; set; }
+
     }
 
 }

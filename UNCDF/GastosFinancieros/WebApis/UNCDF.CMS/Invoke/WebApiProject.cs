@@ -66,7 +66,7 @@ namespace UNCDF.CMS
             return project;
         }
 
-        public string InsertProject(List<MProject> list, Session eSession)
+        public string InsertProject(List<MProject> list, int TotalCorrect, int TotalBad, Session eSession)
         {
             //ProjectsResponse request = new ProjectsResponse();
             ProjectsListRequest request = new ProjectsListRequest();
@@ -75,6 +75,10 @@ namespace UNCDF.CMS
 
             request.Projects = list;
             request.Session = eSession;
+
+            request.TotalCorrect = TotalCorrect;
+            request.TotalBad = TotalBad;
+
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
             string bodyrequest = JsonConvert.SerializeObject(request);
@@ -159,6 +163,8 @@ namespace UNCDF.CMS
 
     public class ProjectsListRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public List<MProject> Projects { get; set; }
     }
 

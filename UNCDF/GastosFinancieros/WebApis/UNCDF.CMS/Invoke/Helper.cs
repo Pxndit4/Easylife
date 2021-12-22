@@ -18,7 +18,7 @@ namespace UNCDF.CMS
 
             string responseBody = "";
             
-            /*
+            
             if (path.Contains("security"))
             {
                 path = path.Replace("security/", "");
@@ -26,9 +26,10 @@ namespace UNCDF.CMS
             }
 
 
-            if (path.Contains("Project"))
+            if (path.Contains("Project") || path.Contains("project"))
             {
                 path = path.Replace("Project/", "");
+                path = path.Replace("project/", "");
                 requestURL = ConfigurationManager.AppSettings["URLServicesproject"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             }
 
@@ -44,7 +45,7 @@ namespace UNCDF.CMS
                 path = path.Replace("donation/", "");
                 requestURL = ConfigurationManager.AppSettings["URLServicesDonati"].ToString() + path + ConfigurationManager.AppSettings["VersionServices"].ToString() + method;
             }
-            */
+            
 
             HttpWebRequest request = WebRequest.Create(requestURL) as HttpWebRequest;
             

@@ -356,8 +356,22 @@ namespace UNCDF.WebApi.Project.Crontrollers
                     string webRoot = _env.ContentRootPath;
                     string rootPath = _appSettings.Value.rootPath;
                     string ProjectPath = _appSettings.Value.ProjectPath;
+                    int ParamLOAD_FUND = 27; //IdParameter
 
                     BaseRequest baseRequest = new BaseRequest();
+
+
+                    int ValLoad = 0;
+
+                    var res = BLogLoad.Insert(new MLogLoad
+                    {
+                        TypeParamId = ParamLOAD_FUND,
+                        UserId = request.Session.UserId,
+                        TotalCorrectRecords = request.TotalCorrect,
+                        TotalBadRecords = request.TotalBad
+                    }
+                    , ref ValLoad);
+
 
                     foreach (MProject model in request.Projects)
                     {

@@ -85,8 +85,20 @@ namespace UNCDF.WebApi.Project.Controllers
                     string webRoot = _env.ContentRootPath;
                     string rootPath = _appSettings.Value.rootPath;
                     string ProjectPath = _appSettings.Value.ProjectPath;
-
+                    
+                    int ParamLOAD_DONORPAR = 31; //IdParameter
+               
                     BaseRequest baseRequest = new BaseRequest();
+                    
+                    int ValLoad = 0;
+                    
+                    var res =  BLogLoad.Insert(new MLogLoad {  
+                        TypeParamId         = ParamLOAD_DONORPAR,
+                        UserId              = request.Session.UserId,
+                        TotalCorrectRecords = request.TotalCorrect,
+                        TotalBadRecords     = request.TotalBad
+                    }
+                    ,ref ValLoad);
 
                     foreach (MDonorPartner model in request.DonorPartners)
                     {

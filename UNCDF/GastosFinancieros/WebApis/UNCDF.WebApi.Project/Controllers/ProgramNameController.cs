@@ -113,8 +113,20 @@ namespace UNCDF.WebApi.Project.Controllers
                     string webRoot = _env.ContentRootPath;
                     string rootPath = _appSettings.Value.rootPath;
                     string ProjectPath = _appSettings.Value.ProjectPath;
+                    int ParamLOAD_PROGRAMNAME = 33; //IdParameter
 
                     BaseRequest baseRequest = new BaseRequest();
+
+                    int ValLoad = 0;
+
+                    var res = BLogLoad.Insert(new MLogLoad
+                    {
+                        TypeParamId = ParamLOAD_PROGRAMNAME,
+                        UserId = request.Session.UserId,
+                        TotalCorrectRecords = request.TotalCorrect,
+                        TotalBadRecords = request.TotalBad
+                    }
+                    , ref ValLoad);
 
                     foreach (MProgramName model in request.ProgramNames)
                     {

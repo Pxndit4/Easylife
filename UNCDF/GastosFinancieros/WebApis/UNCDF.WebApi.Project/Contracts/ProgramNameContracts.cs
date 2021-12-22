@@ -18,6 +18,8 @@ namespace UNCDF.WebApi.Project
     [Serializable]
     public class ProgramNamesRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public MProgramName[] ProgramNames { get; set; }
     }
 }

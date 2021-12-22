@@ -23,6 +23,8 @@ namespace UNCDF.WebApi.Project
     [Serializable]
     public class DeparmentsRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public MDeparment[] Deparments { get; set; }
     }
 

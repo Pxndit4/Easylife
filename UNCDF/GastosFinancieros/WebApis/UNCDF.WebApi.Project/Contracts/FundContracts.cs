@@ -19,6 +19,8 @@ namespace UNCDF.WebApi.Project
     [Serializable]
     public class FundsRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set;}
         public MFund[] Funds { get; set; }
     }
 

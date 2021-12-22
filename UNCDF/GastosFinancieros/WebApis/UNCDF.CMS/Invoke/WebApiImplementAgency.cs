@@ -36,13 +36,15 @@ namespace UNCDF.CMS
             return ImplementAgencys;
         }
 
-        public string InsertImplementAgency(List<MImplementAgency> list, Session eSession)
+        public string InsertImplementAgency(List<MImplementAgency> list, int TotalCorrect, int TotalBad, Session eSession)
         {
             ImplementAgencysRequest request = new ImplementAgencysRequest();
             BaseResponse response = new BaseResponse();
             string returnMsg = string.Empty;
 
             request.ImplementAgencies = list;
+            request.TotalCorrect = TotalCorrect;
+            request.TotalBad = TotalBad;
             request.Session = eSession;
             request.ApplicationToken = ConfigurationManager.AppSettings["ApplicationToken"].ToString();
 
@@ -67,6 +69,8 @@ namespace UNCDF.CMS
 
     public class ImplementAgencysRequest : BaseRequest
     {
+        public int TotalBad { get; set; }
+        public int TotalCorrect { get; set; }
         public List<MImplementAgency> ImplementAgencies { get; set; }
     }
 }

@@ -170,6 +170,9 @@ namespace UNCDF.CMS.Controllers
 
                     List<ModelDonorPartnerResult> entlist = new List<ModelDonorPartnerResult>();
 
+
+                    
+
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         ModelDonorPartnerResult ent = new ModelDonorPartnerResult();
@@ -223,6 +226,18 @@ namespace UNCDF.CMS.Controllers
                         }
 
                         entlist.Add(ent);
+                    }
+                    
+                    if(entlist != null)
+                    {
+                       var totalIncorrect = entlist.Where(x => x.AlertMessage.Length > 0).Count();
+                       var total = entlist.Count();
+                       var totalCorrect = total - totalIncorrect;
+
+                        entlist = entlist.Select(w => { w.Total = total; 
+                                                        w.TotalCorrectRecords = totalCorrect;
+                                                        w.TotalBadRecords = totalIncorrect;
+                                                        ; return w;}).ToList();
                     }
 
                     Session["ListDonors"] = entlist;
@@ -288,18 +303,28 @@ namespace UNCDF.CMS.Controllers
                 List<ModelDonorPartnerResult> entListData = new List<ModelDonorPartnerResult>();
                 entListData = (List<ModelDonorPartnerResult>)Session["ListDonors"];
 
+                var TotalCorrectRecords = 0;
+                var TotalBadRecords = 0;
+
                 foreach (ModelDonorPartnerResult item in entListData)
                 {
+                   
                     MDonorPartner mDonorPartner = new MDonorPartner();
                     mDonorPartner.DonorCode = item.DonorCode;
                     mDonorPartner.DonorName = item.DonorName;
                     mDonorPartner.FundingPartner = item.FundingPartner;
                     mDonorPartner.DonorLongDescription = item.DonorLongDescription;
+
                     mDonorPartner.DonorDescription = item.DonorDescription;
+
+
+                    TotalCorrectRecords   = item.TotalCorrectRecords;
+                    TotalBadRecords  = item.TotalBadRecords;
+
                     entList.Add(mDonorPartner);
                 }
 
-                response = new WebApiDonorPartner().InsertDonorPartner(entList, objSession);
+                response = new WebApiDonorPartner().InsertDonorPartner(entList, TotalCorrectRecords, TotalBadRecords, objSession);
 
                 string statusCode = response.Split('|')[0];
                 string statusMessage = response.Split('|')[1];

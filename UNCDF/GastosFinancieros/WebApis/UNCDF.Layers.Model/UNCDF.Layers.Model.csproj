@@ -55,6 +55,7 @@
     <Compile Include="MIntroduction.cs" />
     <Compile Include="MIntroductionTranslate.cs" />
     <Compile Include="MLanguage.cs" />
+    <Compile Include="MLogLoad.cs" />
     <Compile Include="MPaypal.cs" />
     <Compile Include="MPracticeAreaExclusion.cs" />
     <Compile Include="MProjectExclusion.cs" />
