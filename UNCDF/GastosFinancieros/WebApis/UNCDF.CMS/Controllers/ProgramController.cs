@@ -150,7 +150,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelProgramResult>();
                     objResult.message = string.Format("Error: Please check the template for this upload ", "Funds");
                     return Json(objResult);
                 }
@@ -158,7 +158,7 @@ namespace UNCDF.CMS.Controllers
                 if (dt.Rows.Count <= 0)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelProgramResult>();
                     objResult.message = string.Format("The uploaded file has no rows", "Funds");
                     return Json(objResult);
                 }
@@ -268,8 +268,9 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelProgramResult>();
                     objResult.message = "Funds :" + "Format error, check records";
+                    //objResult.data = 0;
                     return Json(objResult);
                 }
 
@@ -281,7 +282,7 @@ namespace UNCDF.CMS.Controllers
             catch (Exception ex)
             {
                 objResult.isError = true;
-                objResult.data = null;
+                objResult.data = new List<ModelProgramResult>();
                 objResult.message = "Error loading Funds";
             }
 

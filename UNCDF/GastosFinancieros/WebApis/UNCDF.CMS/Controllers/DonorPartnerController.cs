@@ -150,7 +150,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelDonorPartnerResult>(); //null;
                     objResult.message = string.Format("Error: Please check the template for this upload ", "Funds");
                     return Json(objResult);
                 }
@@ -158,7 +158,7 @@ namespace UNCDF.CMS.Controllers
                 if (dt.Rows.Count <= 0)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelDonorPartnerResult>(); //null;
                     objResult.message = string.Format("The uploaded file has no rows", "Funds");
                     return Json(objResult);
                 }
@@ -246,7 +246,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelDonorPartnerResult>(); //null;
                     objResult.message = "Donors :" + "Format error, check records";
                     return Json(objResult);
                 }
@@ -257,7 +257,7 @@ namespace UNCDF.CMS.Controllers
             catch (Exception ex)
             {
                 objResult.isError = true;
-                objResult.data = null;
+                objResult.data = new List<ModelDonorPartnerResult>(); //null;
                 objResult.message = "Error loading Donors";
             }
 

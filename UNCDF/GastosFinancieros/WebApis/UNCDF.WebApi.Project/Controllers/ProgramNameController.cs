@@ -98,8 +98,12 @@ namespace UNCDF.WebApi.Project.Controllers
         public BaseResponse InsertProgramName([FromBody] ProgramNamesRequest request)
         {
             BaseResponse response = new BaseResponse();
+            
+            TransactionOptions transactionOptions = new TransactionOptions();
+            transactionOptions.IsolationLevel = IsolationLevel.ReadCommitted;
+            transactionOptions.Timeout = TimeSpan.MaxValue;
 
-            using (TransactionScope scope = new TransactionScope())
+            using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
             {
                 try
                 {

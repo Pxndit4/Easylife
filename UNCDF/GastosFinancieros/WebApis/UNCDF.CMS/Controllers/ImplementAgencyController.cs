@@ -157,7 +157,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelImplementAgencyResult>();
                     objResult.message = string.Format("Error: Please check the template for this upload ", "ImplementAgencys");
                     return Json(objResult);
                 }
@@ -165,7 +165,7 @@ namespace UNCDF.CMS.Controllers
                 if (dt.Rows.Count <= 0)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelImplementAgencyResult>();
                     objResult.message = string.Format("The uploaded file has no rows", "ImplementAgencys");
                     return Json(objResult);
                 }
@@ -245,7 +245,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelImplementAgencyResult>();
                     objResult.message = "ImplementAgencys :" + "Format error, check records";
                     return Json(objResult);
                 }
@@ -256,7 +256,7 @@ namespace UNCDF.CMS.Controllers
             catch (Exception ex)
             {
                 objResult.isError = true;
-                objResult.data = null;
+                objResult.data = new List<ModelImplementAgencyResult>();
                 objResult.message = "Error loading ImplementAgencys";
             }
 

@@ -208,37 +208,37 @@ namespace UNCDF.CMS
            
             entRow = new MStatic();
             entRow.Id = "27";
-            entRow.Value = "Project Loading";
+            entRow.Value = "Project";
             lisQuery.Add(entRow);
 
             entRow = new MStatic();
             entRow.Id = "28";
-            entRow.Value = "Implement Agency Loading";
+            entRow.Value = "Implement Agency";
             lisQuery.Add(entRow);
 
             entRow = new MStatic();
             entRow.Id = "29";
-            entRow.Value = "Deparment Agency Loading";
+            entRow.Value = "Deparment";
             lisQuery.Add(entRow);
 
             entRow = new MStatic();
             entRow.Id = "30";
-            entRow.Value = "Proyecto Financial";
+            entRow.Value = "Project Financial";
             lisQuery.Add(entRow);
 
             entRow = new MStatic();
             entRow.Id = "31";
-            entRow.Value = "Donor Load";
+            entRow.Value = "Donor Partner";
             lisQuery.Add(entRow);
 
             entRow = new MStatic();
             entRow.Id = "32";
-            entRow.Value = "Fund Load";
+            entRow.Value = "Fund";
             lisQuery.Add(entRow);
 
             entRow = new MStatic();
             entRow.Id = "33";
-            entRow.Value = "Program Name load";
+            entRow.Value = "Program Name";
             lisQuery.Add(entRow);
 
             entRow = new MStatic();

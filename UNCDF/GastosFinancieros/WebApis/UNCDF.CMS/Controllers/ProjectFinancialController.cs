@@ -219,7 +219,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelProjectFinancialResult>();
                     objResult.message = ex.ToString()+ string.Format("Error: Please check the template for this upload ", "ProjectFinancials");
                     return Json(objResult);
                 }
@@ -227,7 +227,7 @@ namespace UNCDF.CMS.Controllers
                 if (dt.Rows.Count <= 0)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelProjectFinancialResult>();
                     objResult.message =  string.Format("The uploaded file has no rows", "ProjectFinancials");
                     return Json(objResult);
                 }
@@ -375,7 +375,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelProjectFinancialResult>();
                     objResult.message = "ProjectFinancials :" + "Format error, check records";
                     return Json(objResult);
                 }
@@ -386,7 +386,7 @@ namespace UNCDF.CMS.Controllers
             catch (Exception ex)
             {
                 objResult.isError = true;
-                objResult.data = null;
+                objResult.data = new List<ModelProjectFinancialResult>();
                 objResult.message = "Error loading ProjectFinancials";
             }
 
@@ -774,7 +774,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelProjectFinancialResult>();
                     objResult.message = ex.ToString() + string.Format("Error: Please check the template for this upload ", "ProjectFinancials");
                     return Json(objResult);
                 }
@@ -782,7 +782,7 @@ namespace UNCDF.CMS.Controllers
                 if (dt.Rows.Count <= 0)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelProjectFinancialResult>();
                     objResult.message = string.Format("The uploaded file has no rows", "ProjectFinancials");
                     return Json(objResult);
                 }
@@ -934,7 +934,7 @@ namespace UNCDF.CMS.Controllers
                 {
                     objResult.isError = true;
                     
-                    objResult.data = null;
+                    objResult.data = new List<ModelProjectFinancialResult>();
                     objResult.message = ex.ToString()+"ProjectFinancials :" + "Format error, check records";
                     return Json(objResult);
                 }
@@ -945,7 +945,7 @@ namespace UNCDF.CMS.Controllers
             catch (Exception ex)
             {
                 objResult.isError = true;
-                objResult.data = null;
+                objResult.data = new List<ModelProjectFinancialResult>();
                 objResult.message = "Error loading ProjectFinancials";
             }
 

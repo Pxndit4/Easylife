@@ -149,7 +149,8 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    //objResult.data = null;
+                    objResult.data = new List<ModelDeparmentResult>();
                     objResult.message = string.Format("Error: Please check the template for this upload ", "Deparments");
                     return Json(objResult);
                 }
@@ -157,7 +158,7 @@ namespace UNCDF.CMS.Controllers
                 if (dt.Rows.Count <= 0)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelDeparmentResult>();
                     objResult.message = string.Format("The uploaded file has no rows", "Deparments");
                     return Json(objResult);
                 }
@@ -238,7 +239,7 @@ namespace UNCDF.CMS.Controllers
                 catch (Exception ex)
                 {
                     objResult.isError = true;
-                    objResult.data = null;
+                    objResult.data = new List<ModelDeparmentResult>();
                     objResult.message = "Deparments :" + "Format error, check records";
                     return Json(objResult);
                 }
@@ -249,7 +250,7 @@ namespace UNCDF.CMS.Controllers
             catch (Exception ex)
             {
                 objResult.isError = true;
-                objResult.data = null;
+                objResult.data = new List<ModelDeparmentResult>();
                 objResult.message = "Error loading Deparments";
             }
 
