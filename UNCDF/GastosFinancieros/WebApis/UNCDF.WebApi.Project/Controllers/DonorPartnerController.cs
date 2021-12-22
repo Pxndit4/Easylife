@@ -96,6 +96,7 @@ namespace UNCDF.WebApi.Project.Controllers
                         DonorPartner.DonorName = model.DonorName;
                         DonorPartner.FundingPartner = model.FundingPartner;
                         DonorPartner.DonorLongDescription = model.DonorLongDescription;
+                        DonorPartner.DonorDescription = model.DonorDescription;
 
                         BDonorPartner.Insert(DonorPartner);
                     }

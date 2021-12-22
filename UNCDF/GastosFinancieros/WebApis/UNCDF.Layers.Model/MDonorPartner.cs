@@ -8,5 +8,6 @@ namespace UNCDF.Layers.Model
         public string DonorName { get; set; }
         public string FundingPartner { get; set; }
         public string DonorLongDescription { get; set; }
+        public string DonorDescription { get; set; }
     }
 }

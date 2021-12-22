@@ -82,7 +82,7 @@ namespace UNCDF.CMS.Controllers
             basePath = Server.MapPath("~/File");
             DataTable dt;
 
-            var include = new[] { "A", "B", "D","E" };
+            var include = new[] { "A", "B", "C", "D","E" };
             try
             {
                 if (imageFile != null)
@@ -175,8 +175,9 @@ namespace UNCDF.CMS.Controllers
                         ModelDonorPartnerResult ent = new ModelDonorPartnerResult();
                         ent.DonorCode = Extension.ToEmpty(dt.Rows[i][0].ToString());//Convert.ToInt32(dt.Rows[i]["StudentId"]);
                         ent.DonorName = Extension.ToEmpty(dt.Rows[i][1].ToString());
-                        ent.FundingPartner = Extension.ToEmpty(dt.Rows[i][2].ToString());
-                        ent.DonorLongDescription = Extension.ToEmpty(dt.Rows[i][3].ToString());
+                        ent.DonorDescription = Extension.ToEmpty(dt.Rows[i][2].ToString());
+                        ent.FundingPartner = Extension.ToEmpty(dt.Rows[i][3].ToString());
+                        ent.DonorLongDescription = Extension.ToEmpty(dt.Rows[i][4].ToString());
                         ent.AlertMessage = string.Empty;
                         ent.WithAlert = "N";
 
@@ -198,6 +199,16 @@ namespace UNCDF.CMS.Controllers
                         if (ent.DonorName.Length == 0)
                         {
                             ent.AlertMessage += "<tr><td> - the Donor Name column is required </td></tr> ";
+                        }
+
+                        if (ent.DonorLongDescription.Length > 255)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Donor Description column must not must not exceed 255 characters </td></tr> ";
+                        }
+
+                        if (ent.DonorLongDescription.Length == 0)
+                        {
+                            ent.AlertMessage += "<tr><td> - the Donor Description column is required </td></tr> ";
                         }
 
                         if (ent.FundingPartner.Length > 100)
@@ -284,6 +295,7 @@ namespace UNCDF.CMS.Controllers
                     mDonorPartner.DonorName = item.DonorName;
                     mDonorPartner.FundingPartner = item.FundingPartner;
                     mDonorPartner.DonorLongDescription = item.DonorLongDescription;
+                    mDonorPartner.DonorDescription = item.DonorDescription;
                     entList.Add(mDonorPartner);
                 }
 

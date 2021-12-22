@@ -21,7 +21,8 @@ namespace UNCDF.Layers.DataAccess
                 cmd.Parameters.Add("@IDonorName", SqlDbType.VarChar).Value = ent.DonorName;
                 cmd.Parameters.Add("@IFundingPartner", SqlDbType.VarChar).Value = ent.FundingPartner;
                 cmd.Parameters.Add("@IDescription", SqlDbType.VarChar).Value = ent.DonorLongDescription;
-                
+                cmd.Parameters.Add("@IDescriptions", SqlDbType.VarChar).Value = ent.DonorDescription;
+
 
                 con.Open();
 

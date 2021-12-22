@@ -51,7 +51,8 @@ namespace UNCDF.CMS.Models
         public string FundingPartner { get; set; }
         [Display(Name = "Donor Long Description")]
         public string DonorLongDescription { get; set; }
-        
+        [Display(Name = "Donor Description")]
+        public string DonorDescription { get; set; }
         public string AlertMessage { get; set; }
         public string WithAlert { get; set; }
     }
